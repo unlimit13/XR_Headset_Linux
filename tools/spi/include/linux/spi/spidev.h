@@ -1,0 +1,1 @@
+/home/hyungjun/linux_source/linux-imx-iWave/tools/spi/../../include/uapi/linux/spi/spidev.h
