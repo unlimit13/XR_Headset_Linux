@@ -1,1 +1,1 @@
-/home/hyungjun/linux_source/linux-imx-iWave/tools/spi/../../include/uapi/linux/spi/spidev.h
+/home/geeksloft/Desktop/Dev/linux-kernel/linux_bsp/tools/spi/../../include/uapi/linux/spi/spidev.h

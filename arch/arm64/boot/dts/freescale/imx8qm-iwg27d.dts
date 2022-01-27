@@ -328,11 +328,11 @@
 		};
 	};
 };
-&lpspi0 {
+/*&lpspi0 {
 	pinctrl-names = "default";
     pinctrl-0 = <&pinctrl_lpspi0>;
-    //cs-gpios = <&lsio_gpio2 20 GPIO_ACTIVE_LOW>;
-    fsl,spi-num-chipselects = <2>;
+    cs-gpios = <&lsio_gpio3 6 1>;
+	fsl,spi-num-chipselects = <2>;
     assigned-clock-rates = <80000000>;
     #address-cells = <1>;
     #size-cells = <0>;
@@ -343,89 +343,51 @@
 		compatible = "sony,ecx335s";
 		spi-slave;
 		spi-max-frequency = <2500000>;
-		//cs-gpios = <&lsio_gpio0 19 GPIO_ACTIVE_HIGH>;
 		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
 		status = "okay";
-		/*port{
-			port@1 {
-				panel_lvds0_in0: endpoint {
-					remote-endpoint = <&lvds0_out0>;
-				};
-			};
-			port@2 {
-				panel_lvds0_in1: endpoint {
-					remote-endpoint = <&lvds0_out1>;
-				};
-			};
-		};*/
+
 	};
 
-};
-&lpspi2 {
+};*/
+/*&lpspi2 {
 	pinctrl-names = "default";
+	fsl,spi-num-chipselects = <3>;
     pinctrl-0 = <&pinctrl_lpspi2>;
-    //cs-gpios = <&lsio_gpio2 20 GPIO_ACTIVE_LOW>;
-    fsl,spi-num-chipselects = <2>;
+    cs-gpios = <&lsio_gpio3 11 1>;
     assigned-clock-rates = <80000000>;
     #address-cells = <1>;
     #size-cells = <0>;
 	status = "okay";
-
 	spidev@1 {
 		reg = <1>;
 		compatible = "sony,ecx335s";
 		spi-slave;
 		spi-max-frequency = <2500000>;
-		//cs-gpios = <&lsio_gpio0 19 GPIO_ACTIVE_HIGH>;
 		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
 		status = "okay";
-		/*port{
-			port@1 {
-				panel_lvds0_in0: endpoint {
-					remote-endpoint = <&lvds0_out0>;
-				};
-			};
-			port@2 {
-				panel_lvds0_in1: endpoint {
-					remote-endpoint = <&lvds0_out1>;
-				};
-			};
-		};*/
+
 	};
-	/*spidev@2 {
+	spidev@2 {
 		reg = <2>;
 		compatible = "sony,ecx335s";
 		spi-slave;
 		spi-max-frequency = <2500000>;
-		//cs-gpios = <&lsio_gpio0 1 GPIO_ACTIVE_HIGH>;
-		enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>;
+		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
 		status = "okay";
-		port{
-			port@1 {
-				panel_lvds1_in0: endpoint {
-					remote-endpoint = <&lvds1_out0>;
-				};
-			};
-			port@2 {
-				panel_lvds1_in1: endpoint {
-					remote-endpoint = <&lvds1_out1>;
-				};
-			};
-		};
-	};*/
-};
+	};
+};*/
 
 &lpspi3 { /* LPSPI3: SPI Flash Device */
     pinctrl-names = "default";
     pinctrl-0 = <&pinctrl_lpspi3>;
-    //cs-gpios = <&lsio_gpio2 20 GPIO_ACTIVE_LOW>;
-    fsl,spi-num-chipselects = <1>;
+    cs-gpios = <&lsio_gpio2 20 GPIO_ACTIVE_LOW>;
+    fsl,spi-num-chipselects = <3>;
     assigned-clock-rates = <80000000>;
-    #address-cells = <1>;
-    #size-cells = <0>;
+    //#address-cells = <1>;
+    //#size-cells = <0>;
 	status = "okay";
 
-	flash1: spi@0 { // SST25WF020A SPI Flash 
+	/*flash1: spi@0 { // SST25WF020A SPI Flash 
 		#address-cells = <1>;
 		#size-cells = <1>;
 		compatible = "jedec,spi-nor", "is25wp016d";
@@ -435,89 +397,28 @@
                 spi-rx-bus-width = <1>;
                 m25p,fast-read;
 		status = "okay";
-	};
-	/*panel@0{
-		compatible = "sony, ECX335S";
-		reg = <0>;
-		spi-max-frequency=<30000000>;
-		spi-cpol;
-		spi-slave;
-		status = "okay";
-		port{
-			port@1 {
-				panel_lvds0_in0: endpoint {
-					remote-endpoint = <&lvds0_out0>;
-				};
-			};
-			port@2 {
-				panel_lvds0_in1: endpoint {
-					remote-endpoint = <&lvds0_out1>;
-				};
-			};
-		};
-	};
-	panel@1{
-		compatible="sony,ECX335S";
-		reg = <0>;
-		spi-max-frequency=<30000000>;
-		spi-cpol;
-		spi-slave;
-		status = "okay";
-		port{
-			port@1 {
-				panel_lvds1_in0: endpoint {
-					remote-endpoint = <&lvds1_out0>;
-				};
-			};
-			port@2 {
-				panel_lvds1_in1: endpoint {
-					remote-endpoint = <&lvds1_out1>;
-				};
-			};
-		};
 	};*/
-	/*spidev0: spidev@1 {
-		reg = <1>;
+	spidev@1 {
+		reg=<1>;
+		#address-cells = <1>;
+        #size-cells = <1>;
 		compatible = "sony,ecx335s";
 		spi-slave;
 		spi-max-frequency = <2500000>;
-		//cs-gpios = <&lsio_gpio0 19 GPIO_ACTIVE_HIGH>;
 		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
 		status = "okay";
-		port{
-			port@1 {
-				panel_lvds0_in0: endpoint {
-					remote-endpoint = <&lvds0_out0>;
-				};
-			};
-			port@2 {
-				panel_lvds0_in1: endpoint {
-					remote-endpoint = <&lvds0_out1>;
-				};
-			};
-		};
+
 	};
-	spidev1: spidev@2 {
-		reg = <2>;
+	spidev@2 {
+		reg=<2>;
+		#address-cells = <1>;
+        #size-cells = <1>;
 		compatible = "sony,ecx335s";
 		spi-slave;
 		spi-max-frequency = <2500000>;
-		//cs-gpios = <&lsio_gpio0 1 GPIO_ACTIVE_HIGH>;
-		enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>;
+		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
 		status = "okay";
-		port{
-			port@1 {
-				panel_lvds1_in0: endpoint {
-					remote-endpoint = <&lvds1_out0>;
-				};
-			};
-			port@2 {
-				panel_lvds1_in1: endpoint {
-					remote-endpoint = <&lvds1_out1>;
-				};
-			};
-		};
-	};*/
+	};
 };
 
 &lpuart0 { /* LPUART0: DATA UART */
@@ -700,32 +601,12 @@
 
 &iomuxc {
 	imx8qm-iwg27m {
-		pinctrl_lpspi0: lpspi0grp { /* LPSPI2: LPSPI2 IOMUX Pin Configuration */
-			fsl,pins = <
-				IMX8QM_SPI0_SCK_DMA_SPI0_SCK				0x0600004c
-				IMX8QM_SPI0_SDO_DMA_SPI0_SDO				0x0600004c
-				IMX8QM_SPI0_SDI_DMA_SPI0_SDI				0x0600004c
-				/*IMX8QM_SPI3_CS0_LSIO_GPIO2_IO20				0x00000021*/
-				IMX8QM_SPI0_CS0_DMA_SPI0_CS0				0x0600004c
-				IMX8QM_SPI0_CS1_DMA_SPI0_CS1				0x0600004c
-			>;
-		};
-		pinctrl_lpspi2: lpspi2grp { /* LPSPI2: LPSPI2 IOMUX Pin Configuration */
-			fsl,pins = <
-				IMX8QM_SPI2_SCK_DMA_SPI2_SCK				0x0600004c
-				IMX8QM_SPI2_SDO_DMA_SPI2_SDO				0x0600004c
-				IMX8QM_SPI2_SDI_DMA_SPI2_SDI				0x0600004c
-				/*IMX8QM_SPI3_CS0_LSIO_GPIO2_IO20				0x00000021*/
-				IMX8QM_SPI2_CS0_DMA_SPI2_CS0				0x0600004c
-				IMX8QM_SPI2_CS1_DMA_SPI2_CS1				0x0600004c
-			>;
-		};
 		pinctrl_lpspi3: lpspi3grp { /* LPSPI3: LPSPI3 IOMUX Pin Configuration */
 			fsl,pins = <
 				IMX8QM_SPI3_SCK_DMA_SPI3_SCK				0x0600004c
 				IMX8QM_SPI3_SDO_DMA_SPI3_SDO				0x0600004c
 				IMX8QM_SPI3_SDI_DMA_SPI3_SDI				0x0600004c
-				/*IMX8QM_SPI3_CS0_LSIO_GPIO2_IO20				0x00000021*/
+				IMX8QM_SPI3_CS0_LSIO_GPIO2_IO20				0x00000021
 				IMX8QM_SPI3_CS0_DMA_SPI3_CS0				0x0600004c
 				IMX8QM_SPI3_CS1_DMA_SPI3_CS1				0x0600004c
 			>;
@@ -870,8 +751,8 @@
 				IMX8QM_SPI0_SCK_LSIO_GPIO3_IO02				0x00000021
 				IMX8QM_SPI0_SDO_LSIO_GPIO3_IO03				0x00000021
 				IMX8QM_SPI0_SDI_LSIO_GPIO3_IO04				0x00000021
-				IMX8QM_SPI0_CS1_LSIO_GPIO3_IO06				0x00000021
-				IMX8QM_SPI2_CS1_LSIO_GPIO3_IO11				0x00000021
+				/*IMX8QM_SPI0_CS1_LSIO_GPIO3_IO06				0x00000021
+				IMX8QM_SPI2_CS1_LSIO_GPIO3_IO11				0x00000021*/
 				IMX8QM_SAI1_RXFS_LSIO_GPIO3_IO14			0x00000021
 				IMX8QM_ADC_IN4_LSIO_GPIO3_IO22				0x00000021
 				IMX8QM_ADC_IN5_LSIO_GPIO3_IO23				0x00000021
@@ -931,8 +812,8 @@
 		<&lsio_gpio3 2 0>,
 		<&lsio_gpio3 3 0>,
 		<&lsio_gpio3 4 0>,
-		<&lsio_gpio3 6 0>,
-		<&lsio_gpio3 11 0>,
+		/*<&lsio_gpio3 6 0>,
+		<&lsio_gpio3 11 0>,*/
 		<&lsio_gpio3 14 0>,
 		<&lsio_gpio3 23 0>,
 		<&lsio_gpio3 24 0>,

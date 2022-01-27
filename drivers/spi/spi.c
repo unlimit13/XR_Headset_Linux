@@ -3060,8 +3060,10 @@ int spi_setup(struct spi_device *spi)
 	/* nothing prevents from working with active-high CS in case if it
 	 * is driven by GPIO.
 	 */
-	if (gpio_is_valid(spi->cs_gpio))
+	if (gpio_is_valid(spi->cs_gpio)){
 		bad_bits &= ~SPI_CS_HIGH;
+	}
+		
 	ugly_bits = bad_bits &
 		    (SPI_TX_DUAL | SPI_TX_QUAD | SPI_TX_OCTAL |
 		     SPI_RX_DUAL | SPI_RX_QUAD | SPI_RX_OCTAL);
