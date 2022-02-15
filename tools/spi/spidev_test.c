@@ -29,29 +29,106 @@ static void pabort(const char *s)
 	perror(s);
 	abort();
 }
+int segment[9]={7,1,1,1,2,4,1,1,1};
+int interval_seq[8]={1,1,1,1,1,1,1,0};
+uint8_t pwrseq_tx[19][2] = {
+    /* Serial Setting 1 : 7 */
+    {0x02, 0x40}, 
+    {0x03, 0xA0},
+    {0x04, 0x5F},
+    {0x6D, 0x04},
+    {0x6F, 0x03},
+    {0x71, 0x4E},
+    {0x72, 0x4E},
+    /* Serial Setting 2 : 1 */
+    {0x00, 0x0F},
+    /* Serial Setting 3 : 1*/
+    {0x01, 0x01},
+    /* Serial Setting 4 : 1*/
+    {0x04, 0x3F},
+    /* Serial Setting 5 : 2*/
+    {0x71, 0x46},
+    {0x72, 0x46},
+    /* Serial Setting 6 : 4 */
+    {0x6D, 0x00},
+    {0x6F, 0x00},
+    {0x71, 0x00},
+    {0x72, 0x00},
+    /* Serial Setting 7 : 1 */
+    {0x03, 0x20},
+    /* Serial Setting 8 : 1 */
+    {0x00, 0x0E},
+    /* Serial Setting 9 : 1 */
+    {0x01, 0x00}
+};
+uint8_t pwrseq_rx[ARRAY_SIZE(pwrseq_tx[0])] = {0, };
+void convert_addr(uint8_t origin[2]){
+	uint8_t addr;
+	uint8_t tmp=0;
 
-static const char *device = "/dev/spidev1.1";
+	for(int i=0;i<2;i++){
+		for(char j=0;j<8;j++){
+			tmp|=(origin[i]&0x01)<<(7-j);
+			origin[i]>>=1;
+		}
+		origin[i]=tmp;
+		tmp=0;
+	}
+	addr = origin[0];
+	origin[0]= origin[1];
+	origin[1] = addr;
+}
+
+
+static const char *device = "/dev/spidev0.0";
 static uint32_t mode;
-static uint8_t bits = 8;
+static uint8_t bits = 16;
 static char *input_file;
 static char *output_file;
-static uint32_t speed = 500000;
+static uint32_t speed = 1250000;
 static uint16_t delay;
 static int verbose;
 static int transfer_size;
 static int iterations;
 static int interval = 5; /* interval in seconds for showing transfer rate */
 
-uint8_t default_tx[] = {
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+
+
+uint8_t default_tx1[] = {
+	0x11, 0x1C, /*0xFF, 0xFF, 0xFF, 0xFF,
 	0x40, 0x00, 0x00, 0x00, 0x00, 0x95,
 	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
 	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
 	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-	0xF0, 0x0D,
+	0xF0, 0x0D,*/
 };
 
-uint8_t default_rx[ARRAY_SIZE(default_tx)] = {0, };
+uint8_t default_tx2[] = {
+	0x80, 0x01, /*0xFF, 0xFF, 0xFF, 0xFF,
+	0x40, 0x00, 0x00, 0x00, 0x00, 0x95,
+	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+	0xF0, 0x0D,*/
+};
+uint8_t default_tx2_1[] = {
+	0x00, 0x01, /*0xFF, 0xFF, 0xFF, 0xFF,
+	0x40, 0x00, 0x00, 0x00, 0x00, 0x95,
+	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+	0xF0, 0x0D,*/
+};
+uint8_t default_tx3[] = {
+	0x1C, 0x81, /*0xFF, 0xFF, 0xFF, 0xFF,
+	0x40, 0x00, 0x00, 0x00, 0x00, 0x95,
+	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+	0xF0, 0x0D,*/
+};
+
+uint8_t default_rx[ARRAY_SIZE(default_tx1)] = {0, };
 char *input_tx;
 
 static void hex_dump(const void *src, size_t length, size_t line_size,
@@ -414,18 +491,15 @@ int main(int argc, char *argv[])
 	fd = open(device, O_RDWR);
 	if (fd < 0)
 		pabort("can't open device");
-
 	/*
 	 * spi mode
 	 */
 	ret = ioctl(fd, SPI_IOC_WR_MODE32, &mode);
 	if (ret == -1)
 		pabort("can't set spi mode");
-
 	ret = ioctl(fd, SPI_IOC_RD_MODE32, &mode);
 	if (ret == -1)
 		pabort("can't get spi mode");
-
 	/*
 	 * bits per word
 	 */
@@ -448,12 +522,10 @@ int main(int argc, char *argv[])
 	if (ret == -1)
 		pabort("can't get max speed hz");
 
-	printf("spi mode: 0x%x\n", mode);
-	printf("bits per word: %d\n", bits);
-	printf("max speed: %d Hz (%d KHz)\n", speed, speed/1000);
+	//printf("spi mode: 0x%x\n", mode);
+	//printf("bits per word: %d\n", bits);
+	//printf("max speed: %d Hz (%d KHz)\n", speed, speed/1000);
 
-
-	printf("Output file : %s\n", output_file);
 
 	if (input_tx && input_file)
 		pabort("only one of -p and --input may be selected");
@@ -480,9 +552,38 @@ int main(int argc, char *argv[])
 		}
 		printf("total: tx %.1fKB, rx %.1fKB\n",
 		       _write_count/1024.0, _read_count/1024.0);
-	} else
-		transfer(fd, default_tx, default_rx, sizeof(default_tx));
-
+	} else{
+		/*//transfer(fd, default_tx1, default_rx, sizeof(default_tx1));
+		//for(int j=1000000;j>0;j--);
+		int line=0;
+		for(int term=0;term<9;term++){
+			for(int rep=0;rep<segment[term];rep++){
+				//printf("0x%x 0x%x\n", pwrseq_tx[line][0], pwrseq_tx[line][1]);
+				convert_addr(pwrseq_tx[line]);
+				//printf("0x%x 0x%x\n", pwrseq_tx[line][0], pwrseq_tx[line++][1]);
+				//printf("----------\n");
+				transfer(fd, pwrseq_tx[line], pwrseq_rx, sizeof(pwrseq_tx[line]));
+				line++;
+			}
+			if(term!=8){
+				sleep(interval_seq[term]);
+			}
+			
+		}*/
+		  int i=200;
+		while(i--){
+			transfer(fd, default_tx1, default_rx, sizeof(default_tx1));
+			for(int j=1000000;j>0;j--);
+			transfer(fd, default_tx2, default_rx, sizeof(default_tx2));
+			for(int j=1000000;j>0;j--);
+			transfer(fd, default_tx3, default_rx, sizeof(default_tx3));
+			for(int j=1000000;j>0;j--);
+			transfer(fd, default_tx3, default_rx, sizeof(default_tx3));
+			for(int j=1000000;j>0;j--);
+		}
+		
+		
+	}
 	close(fd);
 
 	return ret;

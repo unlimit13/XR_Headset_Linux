@@ -144,11 +144,10 @@
 		status = "disabled";
 	};*/
 	lvds0_panel { // LVDS0: LVDS panel : LEFT 
-		compatible = "panel-simple"; 
+		compatible = "panel-lvds"; 
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_lvds0>;
 		power-supply = <&reg_1p8v>;
-		enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>;
 		status = "okay";
 
 		ports {
@@ -167,11 +166,10 @@
 		};
 	};
 	lvds1_panel { // LVDS1: LVDS panel : RIGHT
-		compatible = "panel-simple"; 
+		compatible = "panel-lvds"; 
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_lvds1>; //변경
 		power-supply = <&reg_1p8v>;
-		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>; 
 		status = "okay";
 
 		ports {
@@ -255,31 +253,12 @@
 };
 
 &ldb1 { /* LVDS1: LVDS Channel-0 Port Enable */
-	//compatible = "fsl,imx8qm-ldb" //When comment, syntax error
 	status = "okay";
 	fsl,split-mode;
-	//display = <&lvds0_panel>;
 	lvds-channel@0 {
 		fsl,data-mapping = "spwg";
 		fsl,data-width = <24>;
 		status = "okay";
-		/*display-timings {
-            lvds {
-                clock-frequency = <148500000>;
-                hactive = <1920>;
-                vactive = <1080>;
-                hback-porch = <148>;
-                hfront-porch = <88>;
-                vback-porch = <36>;
-                vfront-porch = <4>;
-                hsync-len = <5>;
-                vsync-len = <2>;
-                hsync-active = <0>;
-                vsync-active = <0>;
-                de-active = <1>;
-                pixelclk-active = <0>;
-            };
-        };*/
 		port@1 {
 			lvds0_out0: endpoint {
 				remote-endpoint = <&panel_lvds0_in0>;
@@ -304,13 +283,11 @@
 &ldb2 { /* LVDS1: LVDS Channel-0 Port Enable */
 	status = "okay";
 	fsl,split-mode;
-	//display = <&lvds1_panel>;
 	lvds-channel@0 {
 		fsl,data-mapping = "spwg";
 		fsl,data-width = <24>; // not sure
 		status = "okay";
-		port@3 {
-
+		port@1 {
 			lvds1_out0: endpoint {
 				remote-endpoint = <&panel_lvds1_in0>;
 			};
@@ -320,72 +297,23 @@
 		fsl,data-mapping = "spwg";
 		fsl,data-width = <24>; // not sure
 		status = "okay";
-		port@4 {
-
+		port@2 {
 			lvds1_out1: endpoint {
 				remote-endpoint = <&panel_lvds1_in1>;
 			};
 		};
 	};
 };
-/*&lpspi0 {
-	pinctrl-names = "default";
-    pinctrl-0 = <&pinctrl_lpspi0>;
-    cs-gpios = <&lsio_gpio3 6 1>;
-	fsl,spi-num-chipselects = <2>;
-    assigned-clock-rates = <80000000>;
-    #address-cells = <1>;
-    #size-cells = <0>;
-	status = "okay";
 
-	spidev@1 {
-		reg = <1>;
-		compatible = "sony,ecx335s";
-		spi-slave;
-		spi-max-frequency = <2500000>;
-		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
-		status = "okay";
-
-	};
-
-};*/
-/*&lpspi2 {
-	pinctrl-names = "default";
-	fsl,spi-num-chipselects = <3>;
-    pinctrl-0 = <&pinctrl_lpspi2>;
-    cs-gpios = <&lsio_gpio3 11 1>;
-    assigned-clock-rates = <80000000>;
-    #address-cells = <1>;
-    #size-cells = <0>;
-	status = "okay";
-	spidev@1 {
-		reg = <1>;
-		compatible = "sony,ecx335s";
-		spi-slave;
-		spi-max-frequency = <2500000>;
-		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
-		status = "okay";
-
-	};
-	spidev@2 {
-		reg = <2>;
-		compatible = "sony,ecx335s";
-		spi-slave;
-		spi-max-frequency = <2500000>;
-		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
-		status = "okay";
-	};
-};*/
 
 &lpspi3 { /* LPSPI3: SPI Flash Device */
     pinctrl-names = "default";
     pinctrl-0 = <&pinctrl_lpspi3>;
-    cs-gpios = <&lsio_gpio2 20 GPIO_ACTIVE_LOW>;
-    fsl,spi-num-chipselects = <3>;
+    fsl,spi-num-chipselects = <2>;
     assigned-clock-rates = <80000000>;
-    //#address-cells = <1>;
-    //#size-cells = <0>;
 	status = "okay";
+	spi-cpha;
+	spi-cpol;
 
 	/*flash1: spi@0 { // SST25WF020A SPI Flash 
 		#address-cells = <1>;
@@ -398,25 +326,23 @@
                 m25p,fast-read;
 		status = "okay";
 	};*/
-	spidev@1 {
-		reg=<1>;
+	spidev0:spidev@0 {
+		reg=<0>;
 		#address-cells = <1>;
         #size-cells = <1>;
 		compatible = "sony,ecx335s";
-		spi-slave;
 		spi-max-frequency = <2500000>;
 		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
 		status = "okay";
 
 	};
-	spidev@2 {
-		reg=<2>;
+	spidev1:spidev@1 {
+		reg=<1>;
 		#address-cells = <1>;
         #size-cells = <1>;
 		compatible = "sony,ecx335s";
-		spi-slave;
 		spi-max-frequency = <2500000>;
-		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
+		enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>;
 		status = "okay";
 	};
 };
@@ -600,7 +526,17 @@
 };
 
 &iomuxc {
+	pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_gpio>;
+
 	imx8qm-iwg27m {
+		pinctrl_gpio: gpiogrp { /* GPIO: GPIO IOMUX Pin Configuration */
+            fsl,pins = <
+                IMX8QM_GPT1_COMPARE_LSIO_GPIO0_IO19         0x00000021
+				IMX8QM_LVDS1_I2C1_SCL_LSIO_GPIO1_IO14	    0x00000021
+            >;
+        };
+
 		pinctrl_lpspi3: lpspi3grp { /* LPSPI3: LPSPI3 IOMUX Pin Configuration */
 			fsl,pins = <
 				IMX8QM_SPI3_SCK_DMA_SPI3_SCK				0x0600004c
@@ -679,12 +615,12 @@
 		};
 		pinctrl_lvds0: lvds0grp { /* LVDS0: LVDS panel IOMUX Pin Configuration */
 			fsl,pins = <
-				IMX8QM_PCIE_CTRL1_PERST_B_LSIO_GPIO5_IO00		0x00000021 /* LVDS Power Enable GPIO */
+				IMX8QM_LVDS0_GPIO00_LSIO_GPIO1_IO04			0x00000021 /* LVDS Power Enable GPIO */
 			>;
 		};
 		pinctrl_lvds1: lvds1grp { /* LVDS1: LVDS panel IOMUX Pin Configuration */
 			fsl,pins = <
-				IMX8QM_PCIE_CTRL1_PERST_B_LSIO_GPIO5_IO00		0x00000021 /* LVDS Power Enable GPIO */
+				IMX8QM_LVDS1_GPIO00_LSIO_GPIO1_IO10			0x00000021 /* LVDS Power Enable GPIO */
 			>;
 		};
 
@@ -724,9 +660,9 @@
 	
 		pinctrl_unused_gpio: unused_gpiogrp{ /* GPIO: Unused GPIOs IOMUX Pin Configuration */
 			fsl,pins = <
-				IMX8QM_LVDS0_GPIO00_LSIO_GPIO1_IO04			0x00000021
+				/*IMX8QM_LVDS0_GPIO00_LSIO_GPIO1_IO04			0x00000021*/
 				IMX8QM_LVDS0_I2C1_SCL_LSIO_GPIO1_IO08			0x00000021
-				IMX8QM_LVDS1_GPIO00_LSIO_GPIO1_IO10			0x00000021
+				/*IMX8QM_LVDS1_GPIO00_LSIO_GPIO1_IO10			0x00000021*/
 				IMX8QM_LVDS1_I2C1_SDA_LSIO_GPIO1_IO15			0x00000021
 				IMX8QM_MIPI_CSI1_MCLK_OUT_LSIO_GPIO1_IO29		0x00000021
 				IMX8QM_MIPI_CSI1_I2C0_SCL_LSIO_GPIO2_IO00		0x00000021

@@ -70,7 +70,7 @@ dma_subsys: bus@5a000000 {
 		power-domains = <&pd IMX_SC_R_SPI_3>;
 		dma-names = "tx","rx";
 		dmas = <&edma2 7 0 0>, <&edma2 6 0 1>;
-		status = "disabled";
+		status = "okay";
 	};
 
 	lpuart0: serial@5a060000 {

@@ -495,7 +495,6 @@ static DEFINE_MUTEX(board_lock);
 struct spi_device *spi_alloc_device(struct spi_controller *ctlr)
 {
 	struct spi_device	*spi;
-
 	if (!spi_controller_get(ctlr))
 		return NULL;
 
@@ -1802,6 +1801,7 @@ of_register_spi_device(struct spi_controller *ctlr, struct device_node *nc)
 	struct spi_device *spi;
 	int rc;
 
+	//printk(KERN_INFO "THIS IS FOR DEBUGGING : of_register_spi_device");
 	/* Alloc an spi_device */
 	spi = spi_alloc_device(ctlr);
 	if (!spi) {
@@ -1860,6 +1860,7 @@ static void of_register_spi_devices(struct spi_controller *ctlr)
 	for_each_available_child_of_node(ctlr->dev.of_node, nc) {
 		if (of_node_test_and_set_flag(nc, OF_POPULATED))
 			continue;
+		//printk(KERN_INFO "THIS IS FOR DEBUGGING : of_register_spi_devices");
 		spi = of_register_spi_device(ctlr, nc);
 		if (IS_ERR(spi)) {
 			dev_warn(&ctlr->dev,
@@ -1972,6 +1973,7 @@ static int acpi_spi_add_resource(struct acpi_resource *ares, void *data)
 static acpi_status acpi_register_spi_device(struct spi_controller *ctlr,
 					    struct acpi_device *adev)
 {
+
 	acpi_handle parent_handle = NULL;
 	struct list_head resource_list;
 	struct acpi_spi_lookup lookup = {};

@@ -32,9 +32,9 @@
 	status = "disabled";
 };
 
-&i2c1_lvds0 {
+/*&i2c1_lvds0 {
 	status = "disabled";
-};
+};*/
 
 &irqsteer_hdmi {
 	status = "okay";

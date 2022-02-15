@@ -84,8 +84,8 @@ do_wait_for_common(struct completion *x,
 			spin_lock_irq(&x->wait.lock);
 		} while (!x->done && timeout);
 		__remove_wait_queue(&x->wait, &wait);
-		if (!x->done)
-			return timeout;
+		if (!x->done){
+			return timeout;}
 	}
 	if (x->done != UINT_MAX)
 		x->done--;
@@ -105,7 +105,6 @@ __wait_for_common(struct completion *x,
 	spin_unlock_irq(&x->wait.lock);
 
 	complete_release(x);
-
 	return timeout;
 }
 

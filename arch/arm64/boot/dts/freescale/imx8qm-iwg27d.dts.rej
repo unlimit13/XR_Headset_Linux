@@ -1,0 +1,19 @@
+--- A/arch/arm64/boot/dts/freescale/imx8qm-iwg27d.dts	2022-01-24 17:23:19.704551027 +0530
++++ B/arch/arm64/boot/dts/freescale/imx8qm-iwg27d.dts	2022-01-27 15:49:17.350103512 +0530
+@@ -428,8 +428,16 @@
+ };
+ 
+ &iomuxc {
++                pinctrl-names = "default";
++                pinctrl-0 = <&pinctrl_gpio>;
+ 
+ 	imx8qm-iwg27m {
++                pinctrl_gpio: gpiogrp { /* GPIO: GPIO IOMUX Pin Configuration */
++                        fsl,pins = <
++                                IMX8QM_GPT1_COMPARE_LSIO_GPIO0_IO19                     0x00000021
++                        >;
++                };
++
+ 		pinctrl_lpspi3: lpspi3grp { /* LPSPI3: LPSPI3 IOMUX Pin Configuration */
+ 			fsl,pins = <
+ 				IMX8QM_SPI3_SCK_DMA_SPI3_SCK				0x0600004c

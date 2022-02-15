@@ -275,23 +275,35 @@ static void fsl_lpspi_set_cmd(struct fsl_lpspi_data *fsl_lpspi)
 	u32 temp = 0;
 
 	temp |= fsl_lpspi->config.bpw - 1;
-	temp |= (fsl_lpspi->config.mode & 0x3) << 30;
+	//printk(KERN_INFO "bpw:%d\n",fsl_lpspi->config.bpw);
+
+	temp |= 0x3 << 30;
+	//printk(KERN_INFO "config.mode:%d\n",(fsl_lpspi->config.mode & 0x3) << 30);
+	
 	temp |= (fsl_lpspi->config.chip_select & 0x3) << 24;
+	//printk(KERN_INFO "CS:%d\n",(fsl_lpspi->config.chip_select & 0x3) << 24);
+	
 	if (!fsl_lpspi->is_slave) {
 		temp |= fsl_lpspi->config.prescale << 27;
+
+		//printk(KERN_INFO "prescale:%d\n",fsl_lpspi->config.prescale << 27);
 		/*
 		 * Set TCR_CONT will keep SS asserted after current transfer.
 		 * For the first transfer, clear TCR_CONTC to assert SS.
 		 * For subsequent transfer, set TCR_CONTC to keep SS asserted.
 		 */
+		temp |= TCR_CONT;
 		if (!fsl_lpspi->usedma) {
-			temp |= TCR_CONT;
+			//temp |= TCR_CONT;
 			if (fsl_lpspi->is_first_byte)
 				temp &= ~TCR_CONTC;
 			else
 				temp |= TCR_CONTC;
 		}
+		//temp |= TCR_CONT;
 	}
+	//temp |= 1 << 23; //LSBF
+	//printk(KERN_INFO "Temp : 0x%x\n",temp);
 	writel(temp, fsl_lpspi->base + IMX7ULP_TCR);
 
 	dev_dbg(fsl_lpspi->dev, "TCR=0x%x\n", temp);
@@ -317,16 +329,17 @@ static int fsl_lpspi_set_bitrate(struct fsl_lpspi_data *fsl_lpspi)
 	struct lpspi_config config = fsl_lpspi->config;
 	unsigned int perclk_rate, scldiv;
 	u8 prescale;
-
+	//printk(KERN_INFO "fsl_lpspi_set_bitrate\n");
 	perclk_rate = clk_get_rate(fsl_lpspi->clk_per);
 
+	//printk(KERN_INFO "speed : %d, perclk : %d",config.speed_hz,perclk_rate );
 	if (config.speed_hz > perclk_rate / 2) {
 		dev_err(fsl_lpspi->dev,
 		      "per-clk should be at least two times of transfer speed");
 		return -EINVAL;
 	}
 
-	for (prescale = 0; prescale < 8; prescale++) {
+	for (prescale = 5; prescale < 8; prescale++) {
 		scldiv = perclk_rate /
 			 (clkdivs[prescale] * config.speed_hz) - 2;
 		if (scldiv < 256) {
@@ -337,8 +350,8 @@ static int fsl_lpspi_set_bitrate(struct fsl_lpspi_data *fsl_lpspi)
 
 	if (prescale == 8 && scldiv >= 256)
 		return -EINVAL;
-
-	writel(scldiv | (scldiv << 8) | ((scldiv >> 1) << 16),
+	//printk(KERN_INFO "perclk=%d, speed=%d, prescale=%d, scldiv=%d\n",perclk_rate, config.speed_hz, prescale, scldiv);
+	writel(scldiv /*| (scldiv << 8) | ((scldiv >> 1) << 16)*/,
 					fsl_lpspi->base + IMX7ULP_CCR);
 
 	dev_dbg(fsl_lpspi->dev, "perclk=%d, speed=%d, prescale=%d, scldiv=%d\n",
@@ -368,11 +381,11 @@ static int fsl_lpspi_dma_configure(struct spi_controller *controller)
 	default:
 		return -EINVAL;
 	}
-
+	
 	tx.direction = DMA_MEM_TO_DEV;
 	tx.dst_addr = fsl_lpspi->base_phys + IMX7ULP_TDR;
 	tx.dst_addr_width = buswidth;
-	tx.dst_maxburst = 1;
+	tx.dst_maxburst = 8;
 	ret = dmaengine_slave_config(controller->dma_tx, &tx);
 	if (ret) {
 		dev_err(fsl_lpspi->dev, "TX dma configuration failed with %d\n",
@@ -383,7 +396,7 @@ static int fsl_lpspi_dma_configure(struct spi_controller *controller)
 	rx.direction = DMA_DEV_TO_MEM;
 	rx.src_addr = fsl_lpspi->base_phys + IMX7ULP_RDR;
 	rx.src_addr_width = buswidth;
-	rx.src_maxburst = 1;
+	rx.src_maxburst = 8;
 	ret = dmaengine_slave_config(controller->dma_rx, &rx);
 	if (ret) {
 		dev_err(fsl_lpspi->dev, "RX dma configuration failed with %d\n",
@@ -404,15 +417,16 @@ static int fsl_lpspi_config(struct fsl_lpspi_data *fsl_lpspi)
 		if (ret)
 			return ret;
 	}
-
+	//printk(KERN_INFO "fsl_lpspi_config\n");
 	fsl_lpspi_set_watermark(fsl_lpspi);
 
-	if (!fsl_lpspi->is_slave)
+	if (!fsl_lpspi->is_slave){
 		temp = CFGR1_MASTER;
+	}
 	else
 		temp = CFGR1_PINCFG;
-	if (fsl_lpspi->config.mode & SPI_CS_HIGH)
-		temp |= CFGR1_PCSPOL;
+	/*if (fsl_lpspi->config.mode & SPI_CS_HIGH)
+		temp |= CFGR1_PCSPOL;*/
 	writel(temp, fsl_lpspi->base + IMX7ULP_CFGR1);
 
 	temp = readl(fsl_lpspi->base + IMX7ULP_CR);
@@ -440,13 +454,17 @@ static int fsl_lpspi_setup_transfer(struct spi_controller *controller,
 	fsl_lpspi->config.mode = spi->mode;
 	fsl_lpspi->config.bpw = t->bits_per_word;
 	fsl_lpspi->config.speed_hz = t->speed_hz;
+	//printk(KERN_INFO "speed 1 : speed_hz : %d", t->speed_hz);
+
 	if (fsl_lpspi->is_only_cs1)
 		fsl_lpspi->config.chip_select = 1;
 	else
 		fsl_lpspi->config.chip_select = spi->chip_select;
 
-	if (!fsl_lpspi->config.speed_hz)
+	if (!fsl_lpspi->config.speed_hz){
 		fsl_lpspi->config.speed_hz = spi->max_speed_hz;
+		//printk(KERN_INFO "speed 2 : max_spped : %d", spi->max_speed_hz);
+	}
 	if (!fsl_lpspi->config.bpw)
 		fsl_lpspi->config.bpw = spi->bits_per_word;
 
@@ -467,10 +485,10 @@ static int fsl_lpspi_setup_transfer(struct spi_controller *controller,
 	else
 		fsl_lpspi->watermark = fsl_lpspi->txfifosize;
 
-	if (fsl_lpspi_can_dma(controller, spi, t))
+	/*if (fsl_lpspi_can_dma(controller, spi, t))
 		fsl_lpspi->usedma = 1;
-	else
-		fsl_lpspi->usedma = 0;
+	else*/
+	fsl_lpspi->usedma = 0;
 
 	return fsl_lpspi_config(fsl_lpspi);
 }
@@ -606,6 +624,7 @@ static int fsl_lpspi_dma_transfer(struct spi_controller *controller,
 	if (!fsl_lpspi->is_slave) {
 		transfer_timeout = fsl_lpspi_calculate_timeout(fsl_lpspi,
 							       transfer->len);
+		//printk(KERN_INFO "len : %d", transfer_timeout);
 
 		/* Wait eDMA to finish the data transfer.*/
 		timeout = wait_for_completion_timeout(&fsl_lpspi->dma_tx_completion,
@@ -970,7 +989,9 @@ static int fsl_lpspi_probe(struct platform_device *pdev)
 
 	temp = readl(fsl_lpspi->base + IMX7ULP_PARAM);
 	fsl_lpspi->txfifosize = 1 << (temp & 0x0f);
+	//printk(KERN_INFO "txfifo : %d\n", fsl_lpspi->txfifosize); : 64
 	fsl_lpspi->rxfifosize = 1 << ((temp >> 8) & 0x0f);
+	//printk(KERN_INFO "rxfifo : %d\n", fsl_lpspi->rxfifosize); : 64
 
 	ret = fsl_lpspi_dma_init(&pdev->dev, fsl_lpspi, controller);
 	if (ret == -EPROBE_DEFER)

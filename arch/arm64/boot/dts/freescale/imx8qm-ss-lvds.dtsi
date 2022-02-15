@@ -40,7 +40,7 @@
 			power-domains = <&pd IMX_SC_R_LVDS_0_PWM_0>;
 		};
 
-		lvds0_i2c0_lpcg: clock-controller@56243010 {
+		/*lvds0_i2c0_lpcg: clock-controller@56243010 {
 			compatible = "fsl,imx8qxp-lpcg";
 			reg = <0x56243010 0x4>;
 			#clock-cells = <1>;
@@ -62,7 +62,7 @@
 			clock-output-names = "lvds0_i2c1_lpcg_clk",
 					     "lvds0_i2c1_lpcg_ipg_clk";
 			power-domains = <&pd IMX_SC_R_LVDS_0_I2C_0>;
-		};
+		};*/
 
 		irqsteer_lvds0: irqsteer@56240000 {
 			compatible = "fsl,imx-irqsteer";
@@ -163,7 +163,7 @@
 			status = "disabled";
 		};
 
-		i2c1_lvds0: i2c@56247000 {
+		/*i2c1_lvds0: i2c@56247000 {
 			compatible = "fsl,imx8qm-lpi2c", "fsl,imx7ulp-lpi2c";
 			reg = <0x56247000 0x4000>;
 			interrupts = <9>;
@@ -175,7 +175,7 @@
 			assigned-clock-rates = <24000000>;
 			power-domains = <&pd IMX_SC_R_LVDS_0_I2C_0>;
 			status = "disabled";
-		};
+		};*/
 	};
 
 	lvds2_subsys: bus@57240000 {
@@ -213,7 +213,7 @@
 			power-domains = <&pd IMX_SC_R_LVDS_1_PWM_0>;
 		};
 
-		lvds1_i2c0_lpcg: clock-controller@57243010 {
+		/*lvds1_i2c0_lpcg: clock-controller@57243010 {
 			compatible = "fsl,imx8qxp-lpcg";
 			reg = <0x57243010 0x4>;
 			#clock-cells = <1>;
@@ -235,7 +235,7 @@
 			clock-output-names = "lvds1_i2c1_lpcg_clk",
 					     "lvds1_i2c1_lpcg_ipg_clk";
 			power-domains = <&pd IMX_SC_R_LVDS_1_I2C_0>;
-		};
+		};*/
 
 		irqsteer_lvds1: irqsteer@57240000 {
 			compatible = "fsl,imx-irqsteer";
@@ -336,7 +336,7 @@
 			status = "disabled";
 		};
 
-		i2c1_lvds1: i2c@57247000 {
+		/*i2c1_lvds1: i2c@57247000 {
 			compatible = "fsl,imx8qm-lpi2c", "fsl,imx7ulp-lpi2c";
 			reg = <0x57247000 0x4000>;
 			interrupts = <9>;
@@ -348,6 +348,6 @@
 			assigned-clock-rates = <24000000>;
 			power-domains = <&pd IMX_SC_R_LVDS_1_I2C_0>;
 			status = "disabled";
-		};
+		};*/
 	};
 };

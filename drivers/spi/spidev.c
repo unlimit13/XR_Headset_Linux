@@ -216,6 +216,7 @@ static int spidev_message(struct spidev_data *spidev,
 	 * to initialize a kernel version of the same transfer.
 	 */
 	tx_buf = spidev->tx_buffer;
+	//printk(KERN_INFO "tx_buf : %d", tx_buf[0]);
 	rx_buf = spidev->rx_buffer;
 	total = 0;
 	tx_total = 0;
