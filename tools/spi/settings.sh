@@ -21,3 +21,6 @@ echo 1 > /sys/class/gpio/gpio499/value
 
 echo 481 > /sys/class/gpio/unexport
 echo 499 > /sys/class/gpio/unexport
+
+./dp_configure_L -v
+./dp_configure_R -v

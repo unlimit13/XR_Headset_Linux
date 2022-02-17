@@ -108,7 +108,14 @@
 		enable-active-high;
 		regulator-always-on;
 	};
-
+	reg_10v: 10v { /* Regulator: Fixed 3.3V Regulator */
+		compatible = "regulator-fixed";
+		regulator-name = "10V";
+		regulator-min-microvolt = <10000000>;
+		regulator-max-microvolt = <10000000>;
+		regulator-always-on;
+		regulator-boot-on;
+	};
 	reg_3p3v: 3p3v { /* Regulator: Fixed 3.3V Regulator */
 		compatible = "regulator-fixed";
 		regulator-name = "3P3V";

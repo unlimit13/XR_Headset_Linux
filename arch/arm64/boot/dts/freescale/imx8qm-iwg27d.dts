@@ -122,8 +122,27 @@
 				remote-endpoint = <&lvds1_out>;
 			};
 		};
-	};
+	};*/
 
+	lvds0_backlight: lvds0_backlight { // LVDS1: LVDS Backlight Enable 
+		compatible = "pwm-backlight";
+		pwms = <&pwm3_lpcg 0 100000 0>;
+		power-supply = <&reg_1p8v>;
+
+		brightness-levels = < 0  1  2  3  4  5  6  7  8  9
+				     10 11 12 13 14 15 16 17 18 19
+				     20 21 22 23 24 25 26 27 28 29
+				     30 31 32 33 34 35 36 37 38 39
+				     40 41 42 43 44 45 46 47 48 49
+				     50 51 52 53 54 55 56 57 58 59
+				     60 61 62 63 64 65 66 67 68 69
+				     70 71 72 73 74 75 76 77 78 79
+				     80 81 82 83 84 85 86 87 88 89
+				     90 91 92 93 94 95 96 97 98 99
+				    100>;
+		default-brightness-level = <100>;
+		status = "disabled";
+	};
 	lvds1_backlight: lvds1_backlight { // LVDS1: LVDS Backlight Enable 
 		compatible = "pwm-backlight";
 		pwms = <&pwm3_lpcg 0 100000 0>;
@@ -142,49 +161,34 @@
 				    100>;
 		default-brightness-level = <100>;
 		status = "disabled";
-	};*/
+	};
 	lvds0_panel { // LVDS0: LVDS panel : LEFT 
-		compatible = "panel-lvds"; 
+		compatible = "panel-simple", "sony,ecx335s"; 
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_lvds0>;
-		power-supply = <&reg_1p8v>;
+		backlight = <&lvds0_backlight>;
+		power-supply = <&reg_10v>;
 		status = "okay";
-
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@1 {
-				panel_lvds0_in0: endpoint {
-					remote-endpoint = <&lvds0_out0>;
-				};
+		port {
+			panel_lvds0_in0: endpoint {
+				remote-endpoint = <&lvds0_out0>;
 			};
-			port@2 {
-				panel_lvds0_in1: endpoint {
-					remote-endpoint = <&lvds0_out1>;
-				};
-			};
+			
 		};
 	};
 	lvds1_panel { // LVDS1: LVDS panel : RIGHT
-		compatible = "panel-lvds"; 
+		compatible = "panel-simple","sony,ecx335s"; 
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_lvds1>; //변경
-		power-supply = <&reg_1p8v>;
+		backlight = <&lvds1_backlight>;
+		power-supply = <&reg_10v>;
 		status = "okay";
 
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-			port@1 {
-				panel_lvds1_in0: endpoint {
-					remote-endpoint = <&lvds1_out0>;
-				};
+		port {
+			panel_lvds1_in0: endpoint {
+				remote-endpoint = <&lvds1_out0>;
 			};
-			port@2 {
-				panel_lvds1_in1: endpoint {
-					remote-endpoint = <&lvds1_out1>;
-				};
-			};
+			
 		};
 	};
 };
@@ -242,19 +246,25 @@
 	};
 };*/
 ///delete-node/ &it6263_1_in;
+&pwm2_lpcg { /* LVDS0: LVDS PWM2 Control */
+	pinctrl-names = "default";
+	#pwm-cells = <2>;
+	pinctrl-0 = <&pinctrl_lvds0_pwm2_lpcg>;
+	status = "disabled";
+};
 &pwm3_lpcg { /* LVDS1: LVDS PWM3 Control */
 	pinctrl-names = "default";
 	#pwm-cells = <2>;
 	pinctrl-0 = <&pinctrl_lvds1_pwm3_lpcg>;
 	status = "disabled";
 };
-&ldb1_phy { /* LVDS1: LVDS LDB Phy */
+&ldb1_phy { /* LVDS0: LVDS LDB Phy */
 	status = "okay";
 };
 
-&ldb1 { /* LVDS1: LVDS Channel-0 Port Enable */
+&ldb1 { /* LVDS0: LVDS Channel-0 Port Enable */
 	status = "okay";
-	fsl,split-mode;
+	fsl,dual-channel;
 	lvds-channel@0 {
 		fsl,data-mapping = "spwg";
 		fsl,data-width = <24>;
@@ -265,16 +275,6 @@
 			};
 		};
 	};
-	lvds-channel@1 {
-		fsl,data-mapping = "spwg";
-		fsl,data-width = <24>;
-		status = "okay";
-		port@2 {
-			lvds0_out1: endpoint {
-				remote-endpoint = <&panel_lvds0_in1>;
-			};
-		};
-	};
 };
 &ldb2_phy { /* LVDS1: LVDS LDB Phy */
 	status = "okay";
@@ -282,7 +282,7 @@
 
 &ldb2 { /* LVDS1: LVDS Channel-0 Port Enable */
 	status = "okay";
-	fsl,split-mode;
+	fsl,dual-channel;
 	lvds-channel@0 {
 		fsl,data-mapping = "spwg";
 		fsl,data-width = <24>; // not sure
@@ -290,16 +290,6 @@
 		port@1 {
 			lvds1_out0: endpoint {
 				remote-endpoint = <&panel_lvds1_in0>;
-			};
-		};
-	};
-	lvds-channel@1 {
-		fsl,data-mapping = "spwg";
-		fsl,data-width = <24>; // not sure
-		status = "okay";
-		port@2 {
-			lvds1_out1: endpoint {
-				remote-endpoint = <&panel_lvds1_in1>;
 			};
 		};
 	};
@@ -623,7 +613,11 @@
 				IMX8QM_LVDS1_GPIO00_LSIO_GPIO1_IO10			0x00000021 /* LVDS Power Enable GPIO */
 			>;
 		};
-
+		pinctrl_lvds0_pwm2_lpcg: lvds0pwm2_lpcggrp { /* LVDS1: LVDS PWM IOMUX Pin Configuration */
+			fsl,pins = <
+				IMX8QM_GPT1_COMPARE_LSIO_PWM2_OUT			0x00000020
+			>;
+		};
 		pinctrl_lvds1_pwm3_lpcg: lvds1pwm3_lpcggrp { /* LVDS1: LVDS PWM IOMUX Pin Configuration */
 			fsl,pins = <
 				IMX8QM_GPT0_COMPARE_LSIO_PWM3_OUT			0x00000020
