@@ -163,12 +163,32 @@
 		status = "disabled";
 	};
 	lvds0_panel { // LVDS0: LVDS panel : LEFT 
-		compatible = "panel-simple", "sony,ecx335s"; 
+		compatible = "panel-lvds"; 
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_lvds0>;
 		backlight = <&lvds0_backlight>;
 		power-supply = <&reg_10v>;
+		width-mm = <1920>;
+      	height-mm = <1080>;
 		status = "okay";
+      	data-mapping = "jeida-24";
+		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&lsio_gpio0 19 GPIO_ACTIVE_LOW>;
+
+		panel-timing {
+			/* 1024x768 @65Hz */
+			clock-frequency = <148500000>;
+			hactive = <1920>;
+			vactive = <1080>;
+			hsync-len = <44>;
+			hfront-porch = <88>;
+			hback-porch = <148>;
+			vfront-porch = <4>;
+			vback-porch = <36>;
+			vsync-len = <5>;
+		};
+
+	
 		port {
 			panel_lvds0_in0: endpoint {
 				remote-endpoint = <&lvds0_out0>;
@@ -177,13 +197,30 @@
 		};
 	};
 	lvds1_panel { // LVDS1: LVDS panel : RIGHT
-		compatible = "panel-simple","sony,ecx335s"; 
+		compatible = "panel-lvds"; 
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_lvds1>; //변경
 		backlight = <&lvds1_backlight>;
 		power-supply = <&reg_10v>;
 		status = "okay";
+		width-mm = <1920>;
+      	height-mm = <1080>;
+		enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&lsio_gpio0 19 GPIO_ACTIVE_LOW>;
+      	data-mapping = "jeida-24";
 
+		panel-timing {
+			/* 1024x768 @65Hz */
+			clock-frequency = <148500000>;
+			hactive = <1920>;
+			vactive = <1080>;
+			hsync-len = <44>;
+			hfront-porch = <88>;
+			hback-porch = <148>;
+			vfront-porch = <4>;
+			vback-porch = <36>;
+			vsync-len = <5>;
+		};
 		port {
 			panel_lvds1_in0: endpoint {
 				remote-endpoint = <&lvds1_out0>;
@@ -322,7 +359,6 @@
         #size-cells = <1>;
 		compatible = "sony,ecx335s";
 		spi-max-frequency = <2500000>;
-		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
 		status = "okay";
 
 	};
@@ -332,7 +368,6 @@
         #size-cells = <1>;
 		compatible = "sony,ecx335s";
 		spi-max-frequency = <2500000>;
-		enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>;
 		status = "okay";
 	};
 };

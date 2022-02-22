@@ -1,0 +1,1004 @@
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 5.4.24-g7abe8187d-dirty (geeksloft@geeksloft-900X5T) (gcc version 9.2.0 (GCC)) #72 SMP PREEMPT Mon Feb 21 17:31:16 KST 2022
+[    0.000000] Machine model: iW-RainboW-G27D-i.MX8QM-SMARC
+[    0.000000] efi: Getting EFI parameters from FDT:
+[    0.000000] efi: UEFI not found.
+[    0.000000] Reserved memory: created CMA memory pool at 0x0000000096000000, size 960 MiB
+[    0.000000] OF: reserved mem: initialized node linux,cma, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090000000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev0vring0@90000000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090008000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev0vring1@90008000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090010000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev1vring0@90010000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090018000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev1vring1@90018000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090100000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev0vring0@90100000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090108000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev0vring1@90108000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090110000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev1vring0@90110000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090118000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev1vring1@90118000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090400000, size 1 MiB
+[    0.000000] OF: reserved mem: initialized node vdevbuffer, compatible id shared-dma-pool
+[    0.000000] earlycon: lpuart32 at MMIO 0x000000005a0a0000 (options '')
+[    0.000000] printk: bootconsole [lpuart32] enabled
+[    0.000000] NUMA: No NUMA configuration found
+[    0.000000] NUMA: Faking a node at [mem 0x0000000080200000-0x00000008ffffffff]
+[    0.000000] NUMA: NODE_DATA [mem 0x8ff7ed500-0x8ff7eefff]
+[    0.000000] Zone ranges:
+[    0.000000]   DMA32    [mem 0x0000000080200000-0x00000000ffffffff]
+[    0.000000]   Normal   [mem 0x0000000100000000-0x00000008ffffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000080200000-0x0000000083ffffff]
+[    0.000000]   node   0: [mem 0x0000000086400000-0x0000000087ffffff]
+[    0.000000]   node   0: [mem 0x0000000090020000-0x00000000900fffff]
+[    0.000000]   node   0: [mem 0x0000000090120000-0x00000000901fffff]
+[    0.000000]   node   0: [mem 0x0000000090500000-0x0000000091ffffff]
+[    0.000000]   node   0: [mem 0x0000000094c00000-0x0000000094ffffff]
+[    0.000000]   node   0: [mem 0x0000000095400000-0x00000000fdffffff]
+[    0.000000]   node   0: [mem 0x0000000880000000-0x00000008ffffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000080200000-0x00000008ffffffff]
+[    0.000000] On node 0 totalpages: 984768
+[    0.000000]   DMA32 zone: 7195 pages used for memmap
+[    0.000000]   DMA32 zone: 0 pages reserved
+[    0.000000]   DMA32 zone: 460480 pages, LIFO batch:63
+[    0.000000]   Normal zone: 8192 pages used for memmap
+[    0.000000]   Normal zone: 524288 pages, LIFO batch:63
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: Trusted OS migration not required
+[    0.000000] psci: SMC Calling Convention v1.1
+[    0.000000] percpu: Embedded 24 pages/cpu s58904 r8192 d31208 u98304
+[    0.000000] pcpu-alloc: s58904 r8192 d31208 u98304 alloc=24*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 [0] 4 [0] 5 
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: ARM erratum 845719
+[    0.000000] CPU features: detected: GIC system register CPU interface
+[    0.000000] Speculative Store Bypass Disable mitigation not required
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 969381
+[    0.000000] Policy zone: Normal
+[    0.000000] Kernel command line: console=ttyLP4,115200 earlycon root=/dev/mmcblk0p2 rootwait rw
+[    0.000000] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] software IO TLB: mapped [mem 0xfa000000-0xfe000000] (64MB)
+[    0.000000] Memory: 2781684K/3939072K available (15932K kernel code, 1452K rwdata, 6384K rodata, 2880K init, 1017K bss, 174348K reserved, 983040K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=6, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=6.
+[    0.000000] 	Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=6
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+[    0.000000] GICv3: 512 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] GICv3: Distributor has no Range Selector support
+[    0.000000] GICv3: 16 PPIs implemented
+[    0.000000] GICv3: no VLPI support, no direct LPI support
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x0000000051b00000
+[    0.000000] ITS: No ITS available, not enabling LPIs
+[    0.000000] random: get_random_bytes called from start_kernel+0x2b8/0x44c with crng_init=0
+[    0.000000] arch_timer: cp15 timer(s) running at 8.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1d854df40, max_idle_ns: 440795202120 ns
+[    0.000004] sched_clock: 56 bits at 8MHz, resolution 125ns, wraps every 2199023255500ns
+[    0.008884] Console: colour dummy device 80x25
+[    0.013060] Calibrating delay loop (skipped), value calculated using timer frequency.. 16.00 BogoMIPS (lpj=32000)
+[    0.023244] pid_max: default: 32768 minimum: 301
+[    0.027916] LSM: Security Framework initializing
+[    0.032507] Mount-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.039849] Mountpoint-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.071722] ASID allocator initialised with 32768 entries
+[    0.084803] rcu: Hierarchical SRCU implementation.
+[    0.099332] EFI services will not be available.
+[    0.111543] smp: Bringing up secondary CPUs ...
+[    0.148386] Detected VIPT I-cache on CPU1
+[    0.148416] GICv3: CPU1: found redistributor 1 region 0:0x0000000051b20000
+[    0.148444] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.180391] Detected VIPT I-cache on CPU2
+[    0.180407] GICv3: CPU2: found redistributor 2 region 0:0x0000000051b40000
+[    0.180422] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.212437] Detected VIPT I-cache on CPU3
+[    0.212451] GICv3: CPU3: found redistributor 3 region 0:0x0000000051b60000
+[    0.212466] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.245436] CPU features: detected: EL2 vector hardening
+[    0.245451] Detected PIPT I-cache on CPU4
+[    0.245466] GICv3: CPU4: found redistributor 100 region 0:0x0000000051b80000
+[    0.245485] CPU4: Booted secondary processor 0x0000000100 [0x410fd082]
+[    0.276533] Detected PIPT I-cache on CPU5
+[    0.276543] GICv3: CPU5: found redistributor 101 region 0:0x0000000051ba0000
+[    0.276555] CPU5: Booted secondary processor 0x0000000101 [0x410fd082]
+[    0.276610] smp: Brought up 1 node, 6 CPUs
+[    0.372894] SMP: Total of 6 processors activated.
+[    0.377581] CPU features: detected: 32-bit EL0 Support
+[    0.382716] CPU features: detected: CRC32 instructions
+[    0.398420] CPU: All CPU(s) started at EL2
+[    0.402194] alternatives: patching kernel code
+[    0.407683] devtmpfs: initialized
+[    0.425505] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.434926] futex hash table entries: 2048 (order: 5, 131072 bytes, linear)
+[    0.467149] pinctrl core: initialized pinctrl subsystem
+[    0.473253] DMI not present or invalid.
+[    0.477025] NET: Registered protocol family 16
+[    0.487497] DMA: preallocated 256 KiB pool for atomic allocations
+[    0.493257] audit: initializing netlink subsys (disabled)
+[    0.498787] audit: type=2000 audit(0.404:1): state=initialized audit_enabled=0 res=1
+[    0.506394] cpuidle: using governor menu
+[    0.511302] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.519394] Serial: AMBA PL011 UART driver
+[    0.523201] imx mu driver is registered.
+[    0.527064] imx rpmsg driver is registered.
+[    0.585578] HugeTLB registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.591952] HugeTLB registered 32.0 MiB page size, pre-allocated 0 pages
+[    0.598631] HugeTLB registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.605321] HugeTLB registered 64.0 KiB page size, pre-allocated 0 pages
+[    0.613874] cryptd: max_cpu_qlen set to 1000
+[    0.623563] ACPI: Interpreter disabled.
+[    0.629692] iommu: Default domain type: Translated 
+[    0.634362] vgaarb: loaded
+[    0.637240] SCSI subsystem initialized
+[    0.640785] libata version 3.00 loaded.
+[    0.640985] usbcore: registered new interface driver usbfs
+[    0.646171] usbcore: registered new interface driver hub
+[    0.651490] usbcore: registered new device driver usb
+[    0.658484] mc: Linux media interface: v0.10
+[    0.662438] videodev: Linux video capture interface: v2.00
+[    0.667944] pps_core: LinuxPPS API ver. 1 registered
+[    0.672840] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.681974] PTP clock support registered
+[    0.686214] EDAC MC: Ver: 3.0.0
+[    0.690492] No BMan portals available!
+[    0.694298] QMan: Allocated lookup table at (____ptrval____), entry count 65537
+[    0.701959] No QMan portals available!
+[    0.706411] No USDPAA memory, no 'fsl,usdpaa-mem' in device-tree
+[    0.712825] FPGA manager framework
+[    0.715962] Advanced Linux Sound Architecture Driver Initialized.
+[    0.723735] imx-scu scu: NXP i.MX SCU Initialized
+[    0.733232] random: fast init done
+[    0.768705] imx8qm-pinctrl scu:pinctrl: initialized IMX pinctrl driver
+[    0.776790] clocksource: Switched to clocksource arch_sys_counter
+[    0.782739] VFS: Disk quotas dquot_6.6.0
+[    0.786506] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.793484] pnp: PnP ACPI: disabled
+[    0.834630] thermal_sys: Registered thermal governor 'step_wise'
+[    0.834634] thermal_sys: Registered thermal governor 'power_allocator'
+[    0.841113] NET: Registered protocol family 2
+[    0.851975] tcp_listen_portaddr_hash hash table entries: 2048 (order: 3, 32768 bytes, linear)
+[    0.860216] TCP established hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.868272] TCP bind hash table entries: 32768 (order: 7, 524288 bytes, linear)
+[    0.875819] TCP: Hash tables configured (established 32768 bind 32768)
+[    0.882100] UDP hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.888770] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.895995] NET: Registered protocol family 1
+[    0.900553] RPC: Registered named UNIX socket transport module.
+[    0.906141] RPC: Registered udp transport module.
+[    0.910825] RPC: Registered tcp transport module.
+[    0.915514] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.922288] PCI: CLS 0 bytes, default 64
+[    0.926682] hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[    0.935575] kvm [1]: IPA Size Limit: 40bits
+[    0.940101] kvm [1]: vgic-v2@52020000
+[    0.943443] kvm [1]: GIC system register CPU interface enabled
+[    0.949328] kvm [1]: vgic interrupt IRQ1
+[    0.953353] kvm [1]: Hyp mode initialized successfully
+[    0.964732] Initialise system trusted keyrings
+[    0.968939] workingset: timestamp_bits=44 max_order=20 bucket_order=0
+[    0.980643] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.986704] NFS: Registering the id_resolver key type
+[    0.991429] Key type id_resolver registered
+[    0.995579] Key type id_legacy registered
+[    0.999583] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    1.006282] jffs2: version 2.2. (NAND) \xc2\xa9 2001-2006 Red Hat, Inc.
+[    1.012667] 9p: Installing v9fs 9p2000 file system support
+[    1.031104] Key type asymmetric registered
+[    1.034862] Asymmetric key parser 'x509' registered
+[    1.039748] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 244)
+[    1.047109] io scheduler mq-deadline registered
+[    1.051622] io scheduler kyber registered
+[    1.079562] imx6q-pcie 5f010000.pcie: couldn't get pcie-phy
+[    1.079774] imx6q-pcie 5f000000.pcie: couldn't get pcie-phy
+[    1.084956] imx6q-pcie 5f010000.pcie: pcie_phy clock source missing or invalid
+[    1.088643] EINJ: ACPI disabled.
+[    1.090498] imx6q-pcie 5f000000.pcie: pcie_phy clock source missing or invalid
+[    1.180148] mxs-dma 5b810000.dma-apbh: initialized
+[    1.187774] Bus freq driver module loaded
+
+[    1.193684] Board Info:
+[    1.196099] 	BSP Version     : iW-PRFHZ-SC-01-R4.0-REL1.0-Linux5.4.24
+[    1.202534] 	SOM Version     : iW-PRFHZ-AP-01-R4.0
+[    1.207333] 	CPU Unique ID   : 0x040E080E828BC053
+
+[    1.220837] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    1.231240] 5a060000.serial: ttyLP0 at MMIO 0x5a060010 (irq = 42, base_baud = 5000000) is a FSL_LPUART
+[    1.241143] 5a070000.serial: ttyLP1 at MMIO 0x5a070010 (irq = 43, base_baud = 5000000) is a FSL_LPUART
+[    1.250820] 5a090000.serial: ttyLP3 at MMIO 0x5a090010 (irq = 44, base_baud = 5000000) is a FSL_LPUART
+[    1.260514] 5a0a0000.serial: ttyLP4 at MMIO 0x5a0a0010 (irq = 62, base_baud = 5000000) is a FSL_LPUART
+[    1.269666] printk: console [ttyLP4] enabled
+[    1.278095] printk: bootconsole [lpuart32] disabled
+[    1.290265] arm-smmu 51400000.iommu: probing hardware configuration...
+[    1.296805] arm-smmu 51400000.iommu: SMMUv2 with:
+[    1.301521] arm-smmu 51400000.iommu: 	stage 1 translation
+[    1.306927] arm-smmu 51400000.iommu: 	stage 2 translation
+[    1.312331] arm-smmu 51400000.iommu: 	nested translation
+[    1.317658] arm-smmu 51400000.iommu: 	stream matching with 32 register groups
+[    1.324804] arm-smmu 51400000.iommu: 	32 context banks (0 stage-2 only)
+[    1.331431] arm-smmu 51400000.iommu: 	Supported page sizes: 0x61311000
+[    1.337967] arm-smmu 51400000.iommu: 	Stage-1: 48-bit VA -> 48-bit IPA
+[    1.344502] arm-smmu 51400000.iommu: 	Stage-2: 48-bit IPA -> 48-bit PA
+[    1.442996] loop: module loaded
+[    1.451012] ahci-imx 5f020000.sata: Adding to iommu group 0
+[    1.456815] ahci-imx 5f020000.sata: No cache used with register defaults set!
+[    1.464287] ahci-imx 5f020000.sata: 5f020000.sata supply ahci not found, using dummy regulator
+[    1.472960] ahci-imx 5f020000.sata: 5f020000.sata supply phy not found, using dummy regulator
+[    1.481534] ahci-imx 5f020000.sata: 5f020000.sata supply target not found, using dummy regulator
+[    1.490447] ahci-imx 5f020000.sata: external osc is used.
+[    1.498715] ahci-imx 5f020000.sata: no ahb clock.
+[    1.503499] ahci-imx 5f020000.sata: AHCI 0001.0301 32 slots 1 ports 6 Gbps 0x1 impl platform mode
+[    1.512386] ahci-imx 5f020000.sata: flags: 64bit ncq sntf pm clo only pmp fbs pio slum part ccc sadm sds apst 
+[    1.522967] scsi host0: ahci-imx
+[    1.526448] ata1: SATA max UDMA/133 mmio [mem 0x5f020000-0x5f02ffff] port 0x100 irq 95
+[    1.534908] imx ahci driver is registered.
+[    1.550188] libphy: Fixed MDIO Bus: probed
+[    1.554974] tun: Universal TUN/TAP device driver, 1.6
+[    1.560167] CAN device driver interface
+[    1.567860] thunder_xcv, ver 1.0
+[    1.571134] thunder_bgx, ver 1.0
+[    1.574397] nicpf, ver 1.0
+[    1.578244] fec 5b040000.ethernet: Adding to iommu group 1
+[    1.586483] pps pps0: new PPS source ptp0
+[    1.592131] libphy: fec_enet_mii_bus: probed
+[    1.596413] mdio_bus 5b040000.ethernet-1: ethernet-phy@0 has invalid PHY address
+[    1.607042] fec 5b040000.ethernet eth0: registered PHC device 0
+[    1.613759] fec 5b050000.ethernet: Adding to iommu group 1
+[    1.621815] pps pps1: new PPS source ptp1
+[    1.627429] libphy: fec_enet_mii_bus: probed
+[    1.631711] mdio_bus 5b050000.ethernet-2: ethernet-phy@1 has invalid PHY address
+[    1.642191] fec 5b050000.ethernet eth1: registered PHC device 1
+[    1.650546] Freescale FM module, FMD API version 21.1.0
+[    1.656591] Freescale FM Ports module
+[    1.660257] fsl_mac: fsl_mac: FSL FMan MAC API based driver
+[    1.666313] fsl_dpa: FSL DPAA Ethernet driver
+[    1.670974] fsl_advanced: FSL DPAA Advanced drivers:
+[    1.675945] fsl_proxy: FSL DPAA Proxy initialization driver
+[    1.681843] fsl_oh: FSL FMan Offline Parsing port driver
+[    1.689440] hclge is initializing
+[    1.692753] hns3: Hisilicon Ethernet Network Driver for Hip08 Family - version
+[    1.699986] hns3: Copyright (c) 2017 Huawei Corporation.
+[    1.705340] e1000: Intel(R) PRO/1000 Network Driver - version 7.3.21-k8-NAPI
+[    1.712397] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    1.718182] e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
+[    1.724044] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    1.730067] igb: Intel(R) Gigabit Ethernet Network Driver - version 5.6.0-k
+[    1.737125] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    1.742790] igbvf: Intel(R) Gigabit Virtual Function Network Driver - version 2.4.0-k
+[    1.750646] igbvf: Copyright (c) 2009 - 2012 Intel Corporation.
+[    1.758375] sky2: driver version 1.30
+[    1.764988] VFIO - User Level meta-driver version: 0.3
+[    1.774887] cdns-usb3 5b110000.usb3: Adding to iommu group 2
+[    1.782065] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.788604] ehci-pci: EHCI PCI platform driver
+[    1.793101] ehci-platform: EHCI generic platform driver
+[    1.798957] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    1.805166] ohci-pci: OHCI PCI platform driver
+[    1.809646] ohci-platform: OHCI generic platform driver
+[    1.816537] usbcore: registered new interface driver usb-storage
+[    1.822613] usbcore: registered new interface driver usbserial_generic
+[    1.829167] usbserial: USB Serial support registered for generic
+[    1.835205] usbcore: registered new interface driver ftdi_sio
+[    1.841027] usbserial: USB Serial support registered for FTDI USB Serial Device
+[    1.847061] ata1: SATA link down (SStatus 0 SControl 300)
+[    1.848370] usbcore: registered new interface driver usb_serial_simple
+[    1.860281] usbserial: USB Serial support registered for carelink
+[    1.866396] usbserial: USB Serial support registered for zio
+[    1.872074] usbserial: USB Serial support registered for funsoft
+[    1.878100] usbserial: USB Serial support registered for flashloader
+[    1.884486] usbserial: USB Serial support registered for google
+[    1.890430] usbserial: USB Serial support registered for libtransistor
+[    1.896977] usbserial: USB Serial support registered for vivopay
+[    1.903006] usbserial: USB Serial support registered for moto_modem
+[    1.909289] usbserial: USB Serial support registered for motorola_tetra
+[    1.915927] usbserial: USB Serial support registered for novatel_gps
+[    1.922302] usbserial: USB Serial support registered for hp4x
+[    1.928070] usbserial: USB Serial support registered for suunto
+[    1.934012] usbserial: USB Serial support registered for siemens_mpi
+[    1.947874] input: sc-powerkey as /devices/platform/sc-powerkey/input/input0
+[    1.955612]  linc HYN:[LINE=2615] linc hyn is entering cst3xx_ts_init.
+[    1.965375] imx-sc-rtc scu:rtc: registered as rtc0
+[    1.971046] i2c /dev entries driver
+[    1.977358] mxc-jpeg 58400000.jpegdec: decoder device registered as /dev/video0 (81,0)
+[    1.986169] mxc-jpeg 58450000.jpegenc: encoder device registered as /dev/video1 (81,1)
+[    2.001545] softdog: initialized. soft_noboot=0 soft_margin=60 sec soft_panic=0 (nowayout=0)
+[    2.016819] sdhci: Secure Digital Host Controller Interface driver
+[    2.023277] sdhci: Copyright(c) Pierre Ossman
+[    2.028196] Synopsys Designware Multimedia Card Interface Driver
+[    2.036061] sdhci-pltfm: SDHCI platform and OF driver helper
+[    2.043548] sdhci-esdhc-imx 5b010000.mmc: Adding to iommu group 3
+[    2.050112] mmc0: CQHCI version 5.10
+[    2.085542] mmc0: SDHCI controller on 5b010000.mmc [5b010000.mmc] using ADMA
+[    2.094242] sdhci-esdhc-imx 5b020000.mmc: Adding to iommu group 3
+[    2.100965] mmc1: CQHCI version 5.10
+[    2.104595] sdhci-esdhc-imx 5b020000.mmc: Got CD GPIO
+[    2.109672] sdhci-esdhc-imx 5b020000.mmc: Got WP GPIO
+[    2.115986] sdhci-esdhc-imx 5b030000.mmc: Adding to iommu group 3
+[    2.122317] mmc2: CQHCI version 5.10
+[    2.157386] mmc2: SDHCI controller on 5b030000.mmc [5b030000.mmc] using ADMA
+[    2.169019] ledtrig-cpu: registered to indicate activity on CPUs
+[    2.176907] caam 31400000.crypto: device ID = 0x0a16040000000100 (Era 9)
+[    2.183650] caam 31400000.crypto: job rings = 1, qi = 0
+[    2.189593] mmc0: Command Queue Engine enabled
+[    2.194054] mmc0: new HS400 Enhanced strobe MMC card at address 0001
+[    2.201156] mmcblk0: mmc0:0001 DG4016 14.7 GiB 
+[    2.205616] caam algorithms registered in /proc/crypto
+[    2.205854] mmcblk0boot0: mmc0:0001 DG4016 partition 1 4.00 MiB
+[    2.213838] caam 31400000.crypto: caam pkc algorithms registered in /proc/crypto
+[    2.216928] mmcblk0boot1: mmc0:0001 DG4016 partition 2 4.00 MiB
+[    2.225302] caam_jr 31430000.jr: registering rng-caam
+[    2.230242] mmcblk0rpmb: mmc0:0001 DG4016 partition 3 4.00 MiB, chardev (238:0)
+[    2.236884] usbcore: registered new interface driver usbhid
+[    2.243951]  mmcblk0: p1 p2
+[    2.248065] usbhid: USB HID core driver
+[    2.255129] mxc-md bus@58000000:camera: deferring cap_device device registration
+[    2.263983] mxc-isi 58100000.isi: mxc_isi.0 registered successfully
+[    2.270825] mxc-isi 58140000.isi: mxc_isi.4 registered successfully
+[    2.294775] mmc2: new ultra high speed SDR104 SDIO card at address 0001
+[    2.301404] mxc-mipi-csi2 58227000.csi: lanes: 2, name: mxc-mipi-csi2.0
+[    2.303646] No fsl,qman node
+[    2.310950] Freescale USDPAA process driver
+[    2.315138] fsl-usdpaa: no region found
+[    2.318989] Freescale USDPAA process IRQ driver
+[    2.329762] optee: probing for conduit method from DT.
+[    2.334952] optee: revision 3.7 (2d4da7a0)
+[    2.335294] optee: initialized driver
+[    2.347441] Galcore version 6.4.0.234062
+[    2.519535] dvbdev: DVB: registering new adapter (PPM DVB adapter)
+[    2.526184] dvbdev: DVB: registering new adapter (PPM DVB adapter)
+[    2.552792] CR =  9:0
+[    2.552799] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[    2.555077] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[    2.560508] FCR = 0x0
+[    2.565592] FSR = 0x0
+[    2.580308] NET: Registered protocol family 26
+[    2.587400] NET: Registered protocol family 10
+[    2.592472] Segment Routing with IPv6
+[    2.596182] NET: Registered protocol family 17
+[    2.600651] can: controller area network core (rev 20170425 abi 9)
+[    2.607061] NET: Registered protocol family 29
+[    2.611563] can: raw protocol (rev 20170425)
+[    2.615868] can: broadcast manager protocol (rev 20170425 t)
+[    2.621592] can: netlink gateway (rev 20190810) max_hops=1
+[    2.627361] 8021q: 802.1Q VLAN Support v1.8
+[    2.631579] lib80211: common routines for IEEE802.11 drivers
+[    2.637246] lib80211_crypt: registered algorithm 'NULL'
+[    2.637249] lib80211_crypt: registered algorithm 'WEP'
+[    2.637252] lib80211_crypt: registered algorithm 'CCMP'
+[    2.637255] lib80211_crypt: registered algorithm 'TKIP'
+[    2.637338] 9pnet: Installing 9P2000 support
+[    2.641655] tsn generic netlink module v1 init...
+[    2.646430] Key type dns_resolver registered
+[    2.651101] registered taskstats version 1
+[    2.655224] Loading compiled-in X.509 certificates
+[    2.688038] mxs_phy 5b100000.usbphy: 5b100000.usbphy supply phy-3p0 not found, using dummy regulator
+[    2.703473] vcc5v0_typec: supplied by vcc5v0_usb
+[    2.709174] usb_phy_generic bus@5b000000:usb3-phy: bus@5b000000:usb3-phy supply vcc not found, using dummy regulator
+[    2.725162] sgtl5000 0-000a: Error reading chip id -5
+[    2.730356] sgtl5000: probe of 0-000a failed with error -5
+[    2.735875] i2c i2c-0: LPI2C adapter registered
+[    2.741318] imx-lpi2c 58226000.i2c: can't get pinctrl, bus recovery not supported
+[    2.749691] ov5640 1-003c: 1-003c supply DOVDD not found, using dummy regulator
+[    2.757101] ov5640 1-003c: 1-003c supply AVDD not found, using dummy regulator
+[    2.764382] ov5640 1-003c: 1-003c supply DVDD not found, using dummy regulator
+[    2.771737] ov5640 1-003c: ov5640_read_reg: error: reg=300a
+[    2.777320] ov5640 1-003c: ov5640_check_chip_id: failed to read chip identifier
+[    2.784725] ov5640: probe of 1-003c failed with error -5
+[    2.790096] i2c i2c-1: LPI2C adapter registered
+[    2.798052] imx6q-pcie 5f010000.pcie: couldn't get pcie-phy
+[    2.798759] imx6q-pcie 5f000000.pcie: couldn't get pcie-phy
+[    2.804061] imx6q-pcie 5f010000.pcie: No cache used with register defaults set!
+[    2.809643] imx6q-pcie 5f000000.pcie: No cache used with register defaults set!
+[    2.817264] imx6q-pcie 5f010000.pcie: host bridge /bus@5f000000/pcie@0x5f010000 ranges:
+[    2.824453] imx6q-pcie 5f000000.pcie: host bridge /bus@5f000000/pcie@0x5f000000 ranges:
+[    2.832075] imx6q-pcie 5f010000.pcie:    IO 0x7ff80000..0x7ff8ffff -> 0x00000000
+[    2.840045] imx6q-pcie 5f000000.pcie:    IO 0x6ff80000..0x6ff8ffff -> 0x00000000
+[    2.847694] imx6q-pcie 5f010000.pcie:   MEM 0x70000000..0x7fefffff -> 0x70000000
+[    2.854859] imx6q-pcie 5f000000.pcie:   MEM 0x60000000..0x6fefffff -> 0x60000000
+[    2.870520] imx6q-pcie 5f010000.pcie: PCIe PLL locked after 0 us.
+[    2.870873] dpu-core 56180000.dpu: driver probed
+[    2.883235] dpu-core 57180000.dpu: driver probed
+[    2.890396] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+[    2.897026] [drm] No driver support for vblank timestamp query.
+[    2.903036] imx-drm display-subsystem: bound imx-drm-dpu-bliteng.2 (ops dpu_bliteng_ops)
+[    2.911191] imx-drm display-subsystem: bound imx-drm-dpu-bliteng.5 (ops dpu_bliteng_ops)
+[    2.919589] imx-drm display-subsystem: bound imx-dpu-crtc.0 (ops dpu_crtc_ops)
+[    2.927078] imx-drm display-subsystem: bound imx-dpu-crtc.1 (ops dpu_crtc_ops)
+[    2.934570] imx-drm display-subsystem: bound imx-dpu-crtc.3 (ops dpu_crtc_ops)
+[    2.942080] imx-drm display-subsystem: bound imx-dpu-crtc.4 (ops dpu_crtc_ops)
+[    2.949343] imx-drm display-subsystem: bound 56228000.dsi_host (ops nwl_dsi_component_ops)
+[    2.957897] imx-drm display-subsystem: bound bus@56240000:ldb@562410e0 (ops imx8qm_ldb_ops)
+[    2.966496] imx-drm display-subsystem: bound bus@57240000:ldb@572410e0 (ops imx8qm_ldb_ops)
+[    2.975212] [drm] Initialized imx-drm 1.0.0 20120507 for display-subsystem on minor 0
+[    2.976828] imx6q-pcie 5f000000.pcie: PCIe PLL locked after 0 us.
+[    3.006227]  xhci-cdns3: xHCI Host Controller
+[    3.010607]  xhci-cdns3: new USB bus registered, assigned bus number 1
+[    3.018590]  xhci-cdns3: hcc params 0x200073c8 hci version 0x100 quirks 0x0000001000018010
+[    3.027496] hub 1-0:1.0: USB hub found
+[    3.031274] hub 1-0:1.0: 1 port detected
+[    3.035413]  xhci-cdns3: xHCI Host Controller
+[    3.039790]  xhci-cdns3: new USB bus registered, assigned bus number 2
+[    3.046328]  xhci-cdns3: Host supports USB 3.0 SuperSpeed
+[    3.051776] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    3.060217] hub 2-0:1.0: USB hub found
+[    3.063992] hub 2-0:1.0: 1 port detected
+[    3.069324] imx_usb 5b0d0000.usb: 5b0d0000.usb supply vbus not found, using dummy regulator
+[    3.083413] mmc1: CQHCI version 5.10
+[    3.087063] sdhci-esdhc-imx 5b020000.mmc: Got CD GPIO
+[    3.092137] sdhci-esdhc-imx 5b020000.mmc: Got WP GPIO
+[    3.129087] mmc1: SDHCI controller on 5b020000.mmc [5b020000.mmc] using ADMA
+[    3.141152] mx8-img-md: Registered mxc_isi.0.capture as /dev/video2
+[    3.147720] mx8-img-md: Registered mxc_isi.4.capture as /dev/video3
+[    3.154219] unregister ISI channel: mxc_isi.0
+[    3.158660] unregister ISI channel: mxc_isi.4
+[    3.163737] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    3.170407] imx-rpmsg 90000000.rpmsg0: assigned reserved memory node vdevbuffer
+[    3.200919] virtio_rpmsg_bus virtio0: rpmsg host is online
+[    3.228836] virtio_rpmsg_bus virtio1: rpmsg host is online
+[    3.234754] imx-rpmsg 90100000.rpmsg1: assigned reserved memory node vdevbuffer
+[    3.264842] virtio_rpmsg_bus virtio2: rpmsg host is online
+[    3.292804] virtio_rpmsg_bus virtio3: rpmsg host is online
+[    3.302642] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    3.310008] imx8qxp-lpcg-clk 5ac90000.clock-controller: ignoring dependency for device, assuming no driver
+[    3.321641] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    3.330485] debugfs: Directory 'lvds1' with parent 'pm_genpd' already present!
+[    3.338643] debugfs: Directory 'mipi1-i2c1' with parent 'pm_genpd' already present!
+[    3.346321] debugfs: Directory 'mipi1-i2c0' with parent 'pm_genpd' already present!
+[    3.354016] debugfs: Directory 'mipi1-pwm0' with parent 'pm_genpd' already present!
+[    3.361682] debugfs: Directory 'mipi1' with parent 'pm_genpd' already present!
+[    3.368814] usb 1-1: new high-speed USB device number 2 using cdns-usb3
+[    3.377311] imx-sc-rtc scu:rtc: setting system clock to 1970-01-01T00:00:50 UTC (50)
+[    3.386266] isi-m2m 58100000.isi:m2m_device: Register m2m success for ISI.0
+[    3.394242] hub 1-1:1.0: USB hub found
+[    3.394986] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    3.398095] hub 1-1:1.0: 5 ports detected
+[    3.409863] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    3.411059] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    3.416483] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[    3.431407] platform regulatory.0: Falling back to sysfs fallback for: regulatory.db
+[    3.436940] ALSA device list:
+[    3.442178]   No soundcards found.
+[    3.520878] usb 2-1: new SuperSpeed Gen 1 USB device number 2 using cdns-usb3
+[    3.546472] hub 2-1:1.0: USB hub found
+[    3.550314] hub 2-1:1.0: 4 ports detected
+[    3.556133] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    3.576784] CR =  9:0
+[    3.576788] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[    3.579060] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[    3.584479] FCR = 0x0
+[    3.589558] FSR = 0x0
+[    3.696827] usb 1-1.5: new high-speed USB device number 3 using cdns-usb3
+[    3.727967] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    3.876926] imx6q-pcie 5f010000.pcie: Phy link never came up
+[    3.882664] imx6q-pcie 5f010000.pcie: failed to initialize host
+[    3.888616] imx6q-pcie 5f010000.pcie: unable to add pcie port.
+[    3.992007] imx6q-pcie 5f000000.pcie: Phy link never came up
+[    3.997768] imx6q-pcie 5f000000.pcie: failed to initialize host
+[    4.003733] imx6q-pcie 5f000000.pcie: unable to add pcie port.
+[    4.022804] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[    4.031266] VFS: Mounted root (ext4 filesystem) on device 179:2.
+[    4.038968] devtmpfs: mounted
+[    4.043350] Freeing unused kernel memory: 2880K
+[    4.048180] Run /sbin/init as init process
+[    4.122561] systemd[1]: System time before build time, advancing clock.
+[    4.138349] systemd[1]: systemd 243.2+ running in system mode. (+PAM -AUDIT -SELINUX +IMA -APPARMOR +SMACK +SYSVINIT +UTMP -LIBCRYPTSETUP -GCRYPT -GNUTLS +ACL +XZ -LZ4 -SECCOMP +BLKID -ELFUTILS +KMOD -IDN2 -IDN -PCRE2 default-hierarchy=hybrid)
+[    4.160808] systemd[1]: Detected architecture arm64.
+[    4.217254] systemd[1]: Set hostname to <iWave-G27M>.
+[    4.382731] systemd[1]: /lib/systemd/system/dbus.socket:5: ListenStream= references a path below legacy directory /var/run/, updating /var/run/dbus/system_bus_socket \xe2\x86\x92 /run/dbus/system_bus_socket; please update the unit file accordingly.
+[    4.409655] systemd[1]: /lib/systemd/system/syslogd.service:8: PIDFile= references a path below legacy directory /var/run/, updating /var/run/syslogd.pid \xe2\x86\x92 /run/syslogd.pid; please update the unit file accordingly.
+[    4.438323] systemd[1]: /lib/systemd/system/rpcbind.socket:5: ListenStream= references a path below legacy directory /var/run/, updating /var/run/rpcbind.sock \xe2\x86\x92 /run/rpcbind.sock; please update the unit file accordingly.
+[    4.460934] systemd[1]: /lib/systemd/system/klogd.service:8: PIDFile= references a path below legacy directory /var/run/, updating /var/run/klogd.pid \xe2\x86\x92 /run/klogd.pid; please update the unit file accordingly.
+[    4.560651] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.567770] systemd[1]: system-getty.slice: unit configures an IP firewall, but the local system does not support BPF/cgroup firewalling.
+[    4.580196] systemd[1]: (This warning is only shown for the first unit using IP firewalling.)
+[    4.590997] systemd[1]: Created slice system-getty.slice.
+[    4.600783] CR =  9:0
+[    4.600787] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[    4.604911] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[    4.610321] FCR = 0x0
+[    4.615371] FSR = 0x0
+[    4.617825] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.644934] random: systemd: uninitialized urandom read (16 bytes read)
+[    5.050083] EXT4-fs (mmcblk0p2): re-mounted. Opts: (null)
+[    5.293022] systemd-journald[524]: Received client request to flush runtime journal.
+[    5.624804] CR =  9:0
+[    5.624809] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[    5.627095] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[    5.632520] FCR = 0x0
+[    5.637596] FSR = 0x0
+[    5.721698] [VPU Encoder] enable mu for core[0]
+[    5.736855] [VPU Encoder] vpu encoder core[0] firmware version is 1.2.7
+[    5.743610] switch cluster 0 cpu-freq governor to schedutil
+[    5.783583] switch cluster 1 cpu-freq governor to schedutil
+[    6.652792] CR =  9:0
+[    6.652797] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[    6.655690] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[    6.661120] FCR = 0x0
+[    6.666193] FSR = 0x0
+[    6.750855] Atheros 8031 ethernet 5b040000.ethernet-1:04: attached PHY driver [Atheros 8031 ethernet] (mii_bus:phy_addr=5b040000.ethernet-1:04, irq=POLL)
+[    6.805889] Atheros 8031 ethernet 5b050000.ethernet-2:05: attached PHY driver [Atheros 8031 ethernet] (mii_bus:phy_addr=5b050000.ethernet-2:05, irq=POLL)
+[    7.012736] mlan: loading out-of-tree module taints kernel.
+[    7.059863] wlan: Loading MWLAN driver
+[    7.064644] vendor=0x02DF device=0x9149 class=0 function=1
+[    7.070233] SDIO: max_segs=128 max_seg_size=65535
+[    7.074976] rx_work=1 cpu_num=6
+[    7.078500] wlan: Enable TX SG mode
+[    7.082019] wlan: Enable RX SG mode
+[    7.088893] Request firmware: nxp/sduart8987_combo_jody-w2-sdiouart.bin
+[    7.320074] audit: type=1006 audit(1644910476.989:2): pid=852 uid=0 old-auid=4294967295 auid=0 tty=(none) old-ses=4294967295 ses=1 res=1
+[    7.427287] random: crng init done
+[    7.430698] random: 7 urandom warning(s) missed due to ratelimiting
+[    7.590957] Wlan: FW download over, firmwarelen=616592 downloaded 616592
+[    7.672790] CR =  9:0
+[    7.672797] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[    7.675105] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[    7.680540] FCR = 0x0
+[    7.685602] FSR = 0x0
+[    8.522685] WLAN FW is active
+[    8.527949] on_time is 8403174375
+[    8.553463] fw_cap_info=0x181cbf03, dev_cap_mask=0xffffffff
+[    8.559087] max_p2p_conn = 8, max_sta_conn = 8
+[    8.582765] wlan: version = SD8987-16.87.10.p46-C4X15C656-GPL-(FP87) 
+[    8.590791] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    8.594569] wlan: Driver loaded successfully
+[    8.696796] CR =  9:0
+[    8.696802] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[    8.699101] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[    8.704537] FCR = 0x0
+[    8.709626] FSR = 0x0
+[    8.789019] wlan: mlan0 START SCAN
+[    8.953474] uap0: Skip change virtual intf on uap: type=2
+[    9.720801] CR =  9:0
+[    9.720809] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[    9.723127] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[    9.728560] FCR = 0x0
+[    9.733634] FSR = 0x0
+[   10.744795] CR =  9:0
+[   10.747098] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   10.749402] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   10.754818] FCR = 0x0
+[   10.759893] FSR = 0x0
+[   11.768795] CR =  9:0
+[   11.771099] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   11.773395] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   11.778819] FCR = 0x0
+[   11.783897] FSR = 0x0
+[   12.792808] CR =  9:0
+[   12.795135] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   12.797426] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   12.802850] FCR = 0x0
+[   12.807928] FSR = 0x0
+[   12.883187] wlan: SCAN COMPLETED: scanned AP count=2
+[   12.909862] wlan: Connected to bssid e8:XX:XX:XX:cf:50 successfully
+[   12.916201] IPv6: ADDRCONF(NETDEV_CHANGE): mlan0: link becomes ready
+[   13.816805] CR =  9:0
+[   13.816814] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   13.819132] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   13.824552] FCR = 0x0
+[   13.829615] FSR = 0x0
+[   14.840792] CR =  9:0
+[   14.843091] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   14.845386] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   14.850815] FCR = 0x0
+[   14.855878] FSR = 0x0
+[   15.864803] CR =  9:0
+[   15.867113] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   15.869409] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   15.874826] FCR = 0x0
+[   15.879892] FSR = 0x0
+[   16.888796] CR =  9:0
+[   16.891114] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   16.893413] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   16.898829] FCR = 0x0
+[   16.903928] FSR = 0x0
+[   17.912809] CR =  9:0
+[   17.915097] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   17.917411] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   17.922850] FCR = 0x0
+[   17.927937] FSR = 0x0
+[   18.936796] CR =  9:0
+[   18.939092] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   18.941391] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   18.946806] FCR = 0x0
+[   18.951872] FSR = 0x0
+[   19.960800] CR =  9:0
+[   19.963092] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   19.965386] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   19.970801] FCR = 0x0
+[   19.975869] FSR = 0x0
+[   20.984795] CR =  9:0
+[   20.987090] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   20.989391] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   20.994806] FCR = 0x0
+[   20.999881] FSR = 0x0
+[   22.008796] CR =  9:0
+[   22.011094] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   22.013386] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   22.018801] FCR = 0x0
+[   22.023877] FSR = 0x0
+[   23.032796] CR =  9:0
+[   23.035089] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   23.037390] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   23.042806] FCR = 0x0
+[   23.047872] FSR = 0x0
+[   24.056796] CR =  9:0
+[   24.059094] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   24.061394] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   24.066810] FCR = 0x0
+[   24.071885] FSR = 0x0
+[   25.080795] CR =  9:0
+[   25.083088] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   25.085390] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   25.090805] FCR = 0x0
+[   25.095872] FSR = 0x0
+[   26.104794] CR =  9:0
+[   26.107093] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   26.109394] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   26.114810] FCR = 0x0
+[   26.119876] FSR = 0x0
+[   27.128798] CR =  9:0
+[   27.131098] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   27.133398] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   27.138814] FCR = 0x0
+[   27.143889] FSR = 0x0
+[   28.152797] CR =  9:0
+[   28.155095] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   28.157395] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   28.162810] FCR = 0x0
+[   28.167885] FSR = 0x0
+[   29.176796] CR =  9:0
+[   29.179090] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   29.181382] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   29.186797] FCR = 0x0
+[   29.191873] FSR = 0x0
+[   30.200809] CR =  9:0
+[   30.203121] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   30.205420] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   30.210836] FCR = 0x0
+[   30.215912] FSR = 0x0
+[   31.224792] CR =  9:0
+[   31.227090] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   31.229381] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   31.234798] FCR = 0x0
+[   31.239872] FSR = 0x0
+[   31.308590] audit: type=1006 audit(1644910500.977:3): pid=911 uid=0 old-auid=4294967295 auid=0 tty=(none) old-ses=4294967295 ses=2 res=1
+[   32.248801] CR =  9:0
+[   32.248809] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   32.251198] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   32.256641] FCR = 0x0
+[   32.261712] FSR = 0x0
+[   33.272796] CR =  9:0
+[   33.275093] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   33.277392] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   33.282812] FCR = 0x0
+[   33.287890] FSR = 0x0
+[   34.296795] CR =  9:0
+[   34.299088] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   34.301415] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   34.306849] FCR = 0x0
+[   34.311932] FSR = 0x0
+[   35.320804] CR =  9:0
+[   35.323122] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   35.325425] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   35.330847] FCR = 0x0
+[   35.335926] FSR = 0x0
+[   36.344797] CR =  9:0
+[   36.347110] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   36.349415] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   36.354833] FCR = 0x0
+[   36.359911] FSR = 0x0
+[   37.368807] CR =  9:0
+[   37.371120] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   37.373426] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   37.378841] FCR = 0x0
+[   37.383916] FSR = 0x0
+[   38.392799] CR =  9:0
+[   38.395110] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   38.397412] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   38.402833] FCR = 0x0
+[   38.407912] FSR = 0x0
+[   39.416797] CR =  9:0
+[   39.419096] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   39.421399] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   39.426820] FCR = 0x0
+[   39.431898] FSR = 0x0
+[   40.440797] CR =  9:0
+[   40.460561] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   40.462858] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   40.468279] FCR = 0x10001
+[   40.473356] FSR = 0x0
+[   41.496791] CR =  9:0
+[   41.499090] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   41.501386] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   41.506809] FCR = 0x10001
+[   41.511886] FSR = 0x0
+[   42.520798] CR =  9:0
+[   42.523103] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   42.525407] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   42.530829] FCR = 0x10001
+[   42.535907] FSR = 0x0
+[   43.544797] CR =  9:0
+[   43.547103] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   43.549397] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   43.554812] FCR = 0x10001
+[   43.559888] FSR = 0x0
+[   44.568801] CR =  9:0
+[   44.624318] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   44.626637] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   44.632057] FCR = 0x10001
+[   44.637118] FSR = 0x0
+[   45.656807] CR =  9:0
+[   45.659113] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   45.661412] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   45.666835] FCR = 0x10001
+[   45.671912] FSR = 0x0
+[   46.680811] CR =  9:0
+[   46.838517] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   46.840822] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   46.846246] FCR = 0x10001
+[   46.851323] FSR = 0x0
+[   47.864800] CR =  9:0
+[   47.867104] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   47.869404] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   47.874823] FCR = 0x10001
+[   47.879901] FSR = 0x0
+[   48.888808] CR =  9:0
+[   48.891122] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   48.893418] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   48.898832] FCR = 0x10001
+[   48.903908] FSR = 0x0
+[   49.912820] CR =  9:0
+[   50.019416] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   50.021716] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   50.027143] FCR = 0x10001
+[   50.032221] FSR = 0x0
+[   51.032794] CR =  9:0
+[   51.035100] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   51.037406] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   51.042825] FCR = 0x10001
+[   51.047902] FSR = 0x0
+[   52.056794] CR =  9:0
+[   52.174840] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   52.177170] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   52.182587] FCR = 0x10001
+[   52.187649] FSR = 0x0
+[   53.176792] CR =  9:0
+[   53.179092] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   53.181385] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   53.186793] FCR = 0x10001
+[   53.191859] FSR = 0x0
+[   54.200797] CR =  9:0
+[   54.290641] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   54.292955] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   54.298376] FCR = 0x10001
+[   54.303439] FSR = 0x0
+[   55.320800] CR =  9:0
+[   55.323102] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   55.325408] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   55.330835] FCR = 0x10001
+[   55.335913] FSR = 0x0
+[   56.344816] CR =  9:0
+[   56.399366] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   56.401661] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   56.407087] FCR = 0x10001
+[   56.412165] FSR = 0x0
+[   57.400793] CR =  9:0
+[   57.403098] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   57.405403] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   57.410825] FCR = 0x10001
+[   57.415900] FSR = 0x0
+[   58.424793] CR =  9:0
+[   58.427090] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   58.429387] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   58.434810] FCR = 0x10001
+[   58.439887] FSR = 0x0
+[   59.448801] CR =  9:0
+[   59.451492] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   59.453792] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   59.459213] FCR = 0x10001
+[   59.464291] FSR = 0x0
+[   60.472795] CR =  9:0
+[   60.475167] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   60.477492] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   60.482949] FCR = 0x10001
+[   60.488044] FSR = 0x0
+[   61.496793] CR =  9:0
+[   61.618790] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   61.621116] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   61.626532] FCR = 0x10001
+[   61.631587] FSR = 0x0
+[   62.648805] CR =  9:0
+[   62.651110] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   62.653406] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   62.658824] FCR = 0x10001
+[   62.663900] FSR = 0x0
+[   63.672811] CR =  9:0
+[   63.852186] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   63.854505] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   63.859927] FCR = 0x10001
+[   63.865005] FSR = 0x0
+[   64.856793] CR =  9:0
+[   64.859092] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   64.861399] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   64.866817] FCR = 0x10001
+[   64.871895] FSR = 0x0
+[   65.880795] CR =  9:0
+[   65.883094] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   65.885394] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   65.890813] FCR = 0x10001
+[   65.895890] FSR = 0x0
+[   66.904797] CR =  9:0
+[   66.907135] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   66.909464] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   66.914906] FCR = 0x10001
+[   66.919982] FSR = 0x0
+[   67.928791] CR =  9:0
+[   67.931093] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   67.933391] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   67.938813] FCR = 0x10001
+[   67.943891] FSR = 0x0
+[   68.952810] CR =  9:0
+[   69.195273] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   69.197577] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   69.202989] FCR = 0x10001
+[   69.208055] FSR = 0x0
+[   70.200795] CR =  9:0
+[   70.203093] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   70.205392] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   70.210811] FCR = 0x10001
+[   70.215889] FSR = 0x0
+[   71.224800] CR =  9:0
+[   71.268308] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   71.270611] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   71.276038] FCR = 0x10001
+[   71.281115] FSR = 0x0
+[   72.280798] CR =  9:0
+[   72.283107] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   72.285401] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   72.290825] FCR = 0x10001
+[   72.295902] FSR = 0x0
+[   73.304799] CR =  9:0
+[   73.348242] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   73.350546] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   73.355964] FCR = 0x10001
+[   73.361042] FSR = 0x0
+[   74.360799] CR =  9:0
+[   74.363113] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   74.365406] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   74.370829] FCR = 0x10001
+[   74.375907] FSR = 0x0
+[   75.384798] CR =  9:0
+[   75.387109] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   75.389404] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   75.394825] FCR = 0x10001
+[   75.399903] FSR = 0x0
+[   76.408799] CR =  9:0
+[   76.418414] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   76.420717] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   76.426135] FCR = 0x10001
+[   76.431213] FSR = 0x0
+[   77.432804] CR =  9:0
+[   77.435115] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   77.437415] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   77.442833] FCR = 0x10001
+[   77.447911] FSR = 0x0
+[   78.456796] CR =  9:0
+[   78.770659] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   78.772994] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   78.778475] FCR = 0x10001
+[   78.783575] FSR = 0x0
+[   79.800805] CR =  9:0
+[   79.803101] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   79.805401] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   79.810820] FCR = 0x10001
+[   79.815897] FSR = 0x0
+[   80.824800] CR =  9:0
+[   80.827097] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   80.829396] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   80.834810] FCR = 0x10001
+[   80.839887] FSR = 0x0
+[   81.848815] CR =  9:0
+[   82.050709] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   82.053032] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   82.058461] FCR = 0x10001
+[   82.063522] FSR = 0x0
+[   83.064789] CR =  9:0
+[   83.067091] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   83.069390] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   83.074810] FCR = 0x10001
+[   83.079887] FSR = 0x0
+[   84.088792] CR =  9:0
+[   84.091095] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   84.093393] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   84.098813] FCR = 0x10001
+[   84.103891] FSR = 0x0
+[   85.112794] CR =  9:0
+[   85.115094] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   85.117400] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   85.122828] FCR = 0x10001
+[   85.127904] FSR = 0x0
+[   86.136792] CR =  9:0
+[   86.139093] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   86.141395] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   86.146809] FCR = 0x10001
+[   86.151884] FSR = 0x0
+[   87.160797] CR =  9:0
+[   87.163101] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   87.165397] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   87.170818] FCR = 0x10001
+[   87.175896] FSR = 0x0
+[   88.184790] CR =  9:0
+[   88.187084] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   88.189383] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   88.194805] FCR = 0x10001
+[   88.199882] FSR = 0x0
+[   89.208805] CR =  9:0
+[   89.407532] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   89.409853] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   89.415278] FCR = 0x10001
+[   89.420341] FSR = 0x0
+[   90.424802] CR =  9:0
+[   90.427107] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   90.429404] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   90.434825] FCR = 0x10001
+[   90.439902] FSR = 0x0
+[   91.448803] CR =  9:0
+[   91.451102] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   91.453407] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   91.458829] FCR = 0x10001
+[   91.463907] FSR = 0x0
+[   92.472815] CR =  9:0
+[   92.511077] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   92.513372] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   92.518791] FCR = 0x10001
+[   92.523869] FSR = 0x0
+[   93.528798] CR =  9:0
+[   93.531098] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   93.533394] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   93.538817] FCR = 0x10001
+[   93.543894] FSR = 0x0
+[   94.552800] CR =  9:0
+[   94.555099] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   94.557400] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   94.562815] FCR = 0x10001
+[   94.567892] FSR = 0x0
+[   95.576802] CR =  9:0
+[   95.579104] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   95.581407] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   95.586833] FCR = 0x10001
+[   95.591911] FSR = 0x0
+[   96.600812] CR =  9:0
+[   96.603109] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   96.605407] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   96.610824] FCR = 0x10001
+[   96.615901] FSR = 0x0
+[   97.624809] CR =  9:0
+[   97.766876] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   97.769179] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   97.774597] FCR = 0x10001
+[   97.779675] FSR = 0x0
+[   98.776796] CR =  9:0
+[   98.779097] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   98.781404] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   98.786818] FCR = 0x10001
+[   98.791895] FSR = 0x0
+[   99.800794] CR =  9:0
+[   99.803108] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[   99.805405] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[   99.810823] FCR = 0x10001
+[   99.815899] FSR = 0x0
+[  100.824792] CR =  9:0
+[  100.827105] SR = 12 : 0, 11 : 0, 10 : 0, 9: 0, 8: 0, 1: 0
+[  100.829400] IER = 12 : 0, 10 : 0, 9 : 0, 8 : 0, 1 : 0
+[  100.834824] FCR = 0x10001

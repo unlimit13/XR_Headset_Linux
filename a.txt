@@ -1,0 +1,734 @@
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 5.4.24-g7abe8187d-dirty (geeksloft@geeksloft-900X5T) (gcc version 9.2.0 (GCC)) #74 SMP PREEMPT Mon Feb 21 17:56:01 KST 2022
+[    0.000000] Machine model: iW-RainboW-G27D-i.MX8QM-SMARC
+[    0.000000] efi: Getting EFI parameters from FDT:
+[    0.000000] efi: UEFI not found.
+[    0.000000] Reserved memory: created CMA memory pool at 0x0000000096000000, size 960 MiB
+[    0.000000] OF: reserved mem: initialized node linux,cma, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090000000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev0vring0@90000000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090008000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev0vring1@90008000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090010000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev1vring0@90010000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090018000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev1vring1@90018000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090100000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev0vring0@90100000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090108000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev0vring1@90108000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090110000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev1vring0@90110000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090118000, size 0 MiB
+[    0.000000] OF: reserved mem: initialized node vdev1vring1@90118000, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000090400000, size 1 MiB
+[    0.000000] OF: reserved mem: initialized node vdevbuffer, compatible id shared-dma-pool
+[    0.000000] earlycon: lpuart32 at MMIO 0x000000005a0a0000 (options '')
+[    0.000000] printk: bootconsole [lpuart32] enabled
+[    0.000000] NUMA: No NUMA configuration found
+[    0.000000] NUMA: Faking a node at [mem 0x0000000080200000-0x00000008ffffffff]
+[    0.000000] NUMA: NODE_DATA [mem 0x8ff7ed500-0x8ff7eefff]
+[    0.000000] Zone ranges:
+[    0.000000]   DMA32    [mem 0x0000000080200000-0x00000000ffffffff]
+[    0.000000]   Normal   [mem 0x0000000100000000-0x00000008ffffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000080200000-0x0000000083ffffff]
+[    0.000000]   node   0: [mem 0x0000000086400000-0x0000000087ffffff]
+[    0.000000]   node   0: [mem 0x0000000090020000-0x00000000900fffff]
+[    0.000000]   node   0: [mem 0x0000000090120000-0x00000000901fffff]
+[    0.000000]   node   0: [mem 0x0000000090500000-0x0000000091ffffff]
+[    0.000000]   node   0: [mem 0x0000000094c00000-0x0000000094ffffff]
+[    0.000000]   node   0: [mem 0x0000000095400000-0x00000000fdffffff]
+[    0.000000]   node   0: [mem 0x0000000880000000-0x00000008ffffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000080200000-0x00000008ffffffff]
+[    0.000000] On node 0 totalpages: 984768
+[    0.000000]   DMA32 zone: 7195 pages used for memmap
+[    0.000000]   DMA32 zone: 0 pages reserved
+[    0.000000]   DMA32 zone: 460480 pages, LIFO batch:63
+[    0.000000]   Normal zone: 8192 pages used for memmap
+[    0.000000]   Normal zone: 524288 pages, LIFO batch:63
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: Trusted OS migration not required
+[    0.000000] psci: SMC Calling Convention v1.1
+[    0.000000] percpu: Embedded 24 pages/cpu s58904 r8192 d31208 u98304
+[    0.000000] pcpu-alloc: s58904 r8192 d31208 u98304 alloc=24*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 [0] 4 [0] 5 
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: ARM erratum 845719
+[    0.000000] CPU features: detected: GIC system register CPU interface
+[    0.000000] Speculative Store Bypass Disable mitigation not required
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 969381
+[    0.000000] Policy zone: Normal
+[    0.000000] Kernel command line: console=ttyLP4,115200 earlycon root=/dev/mmcblk0p2 rootwait rw
+[    0.000000] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] software IO TLB: mapped [mem 0xfa000000-0xfe000000] (64MB)
+[    0.000000] Memory: 2781684K/3939072K available (15932K kernel code, 1452K rwdata, 6388K rodata, 2880K init, 1017K bss, 174348K reserved, 983040K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=6, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=6.
+[    0.000000] 	Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=6
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+[    0.000000] GICv3: 512 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] GICv3: Distributor has no Range Selector support
+[    0.000000] GICv3: 16 PPIs implemented
+[    0.000000] GICv3: no VLPI support, no direct LPI support
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x0000000051b00000
+[    0.000000] ITS: No ITS available, not enabling LPIs
+[    0.000000] random: get_random_bytes called from start_kernel+0x2b8/0x44c with crng_init=0
+[    0.000000] arch_timer: cp15 timer(s) running at 8.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1d854df40, max_idle_ns: 440795202120 ns
+[    0.000004] sched_clock: 56 bits at 8MHz, resolution 125ns, wraps every 2199023255500ns
+[    0.008881] Console: colour dummy device 80x25
+[    0.013051] Calibrating delay loop (skipped), value calculated using timer frequency.. 16.00 BogoMIPS (lpj=32000)
+[    0.023234] pid_max: default: 32768 minimum: 301
+[    0.027907] LSM: Security Framework initializing
+[    0.032499] Mount-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.039841] Mountpoint-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.071716] ASID allocator initialised with 32768 entries
+[    0.084794] rcu: Hierarchical SRCU implementation.
+[    0.099322] EFI services will not be available.
+[    0.111535] smp: Bringing up secondary CPUs ...
+[    0.148391] Detected VIPT I-cache on CPU1
+[    0.148419] GICv3: CPU1: found redistributor 1 region 0:0x0000000051b20000
+[    0.148448] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.180390] Detected VIPT I-cache on CPU2
+[    0.180406] GICv3: CPU2: found redistributor 2 region 0:0x0000000051b40000
+[    0.180422] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.212438] Detected VIPT I-cache on CPU3
+[    0.212452] GICv3: CPU3: found redistributor 3 region 0:0x0000000051b60000
+[    0.212468] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.245436] CPU features: detected: EL2 vector hardening
+[    0.245451] Detected PIPT I-cache on CPU4
+[    0.245467] GICv3: CPU4: found redistributor 100 region 0:0x0000000051b80000
+[    0.245485] CPU4: Booted secondary processor 0x0000000100 [0x410fd082]
+[    0.276532] Detected PIPT I-cache on CPU5
+[    0.276543] GICv3: CPU5: found redistributor 101 region 0:0x0000000051ba0000
+[    0.276554] CPU5: Booted secondary processor 0x0000000101 [0x410fd082]
+[    0.276611] smp: Brought up 1 node, 6 CPUs
+[    0.372891] SMP: Total of 6 processors activated.
+[    0.377580] CPU features: detected: 32-bit EL0 Support
+[    0.382714] CPU features: detected: CRC32 instructions
+[    0.398571] CPU: All CPU(s) started at EL2
+[    0.402351] alternatives: patching kernel code
+[    0.407834] devtmpfs: initialized
+[    0.426255] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.435682] futex hash table entries: 2048 (order: 5, 131072 bytes, linear)
+[    0.467795] pinctrl core: initialized pinctrl subsystem
+[    0.473890] DMI not present or invalid.
+[    0.477670] NET: Registered protocol family 16
+[    0.488148] DMA: preallocated 256 KiB pool for atomic allocations
+[    0.493910] audit: initializing netlink subsys (disabled)
+[    0.499449] audit: type=2000 audit(0.404:1): state=initialized audit_enabled=0 res=1
+[    0.507045] cpuidle: using governor menu
+[    0.511955] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.520045] Serial: AMBA PL011 UART driver
+[    0.523852] imx mu driver is registered.
+[    0.527716] imx rpmsg driver is registered.
+[    0.585922] HugeTLB registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.592295] HugeTLB registered 32.0 MiB page size, pre-allocated 0 pages
+[    0.598977] HugeTLB registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.605666] HugeTLB registered 64.0 KiB page size, pre-allocated 0 pages
+[    0.614217] cryptd: max_cpu_qlen set to 1000
+[    0.623992] ACPI: Interpreter disabled.
+[    0.630103] iommu: Default domain type: Translated 
+[    0.634775] vgaarb: loaded
+[    0.637646] SCSI subsystem initialized
+[    0.641197] libata version 3.00 loaded.
+[    0.641397] usbcore: registered new interface driver usbfs
+[    0.646574] usbcore: registered new interface driver hub
+[    0.651904] usbcore: registered new device driver usb
+[    0.658863] mc: Linux media interface: v0.10
+[    0.662813] videodev: Linux video capture interface: v2.00
+[    0.668315] pps_core: LinuxPPS API ver. 1 registered
+[    0.673214] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.682350] PTP clock support registered
+[    0.686589] EDAC MC: Ver: 3.0.0
+[    0.690865] No BMan portals available!
+[    0.694663] QMan: Allocated lookup table at (____ptrval____), entry count 65537
+[    0.702325] No QMan portals available!
+[    0.706781] No USDPAA memory, no 'fsl,usdpaa-mem' in device-tree
+[    0.713184] FPGA manager framework
+[    0.716316] Advanced Linux Sound Architecture Driver Initialized.
+[    0.724072] imx-scu scu: NXP i.MX SCU Initialized
+[    0.733583] random: fast init done
+[    0.769054] imx8qm-pinctrl scu:pinctrl: initialized IMX pinctrl driver
+[    0.777113] clocksource: Switched to clocksource arch_sys_counter
+[    0.783064] VFS: Disk quotas dquot_6.6.0
+[    0.786830] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.793807] pnp: PnP ACPI: disabled
+[    0.835614] thermal_sys: Registered thermal governor 'step_wise'
+[    0.835617] thermal_sys: Registered thermal governor 'power_allocator'
+[    0.842062] NET: Registered protocol family 2
+[    0.852932] tcp_listen_portaddr_hash hash table entries: 2048 (order: 3, 32768 bytes, linear)
+[    0.861169] TCP established hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.869236] TCP bind hash table entries: 32768 (order: 7, 524288 bytes, linear)
+[    0.876781] TCP: Hash tables configured (established 32768 bind 32768)
+[    0.883058] UDP hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.889726] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.896946] NET: Registered protocol family 1
+[    0.901485] RPC: Registered named UNIX socket transport module.
+[    0.907069] RPC: Registered udp transport module.
+[    0.911756] RPC: Registered tcp transport module.
+[    0.916446] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.923258] PCI: CLS 0 bytes, default 64
+[    0.927640] hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[    0.936523] kvm [1]: IPA Size Limit: 40bits
+[    0.941047] kvm [1]: vgic-v2@52020000
+[    0.944386] kvm [1]: GIC system register CPU interface enabled
+[    0.950276] kvm [1]: vgic interrupt IRQ1
+[    0.954227] kvm [1]: Hyp mode initialized successfully
+[    0.965764] Initialise system trusted keyrings
+[    0.969971] workingset: timestamp_bits=44 max_order=20 bucket_order=0
+[    0.981737] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.987801] NFS: Registering the id_resolver key type
+[    0.992536] Key type id_resolver registered
+[    0.996684] Key type id_legacy registered
+[    1.000684] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    1.007383] jffs2: version 2.2. (NAND) \xc2\xa9 2001-2006 Red Hat, Inc.
+[    1.013784] 9p: Installing v9fs 9p2000 file system support
+[    1.032006] Key type asymmetric registered
+[    1.035766] Asymmetric key parser 'x509' registered
+[    1.040655] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 244)
+[    1.048013] io scheduler mq-deadline registered
+[    1.052527] io scheduler kyber registered
+[    1.080299] imx6q-pcie 5f010000.pcie: couldn't get pcie-phy
+[    1.080591] imx6q-pcie 5f000000.pcie: couldn't get pcie-phy
+[    1.085276] EINJ: ACPI disabled.
+[    1.085671] imx6q-pcie 5f010000.pcie: pcie_phy clock source missing or invalid
+[    1.091227] imx6q-pcie 5f000000.pcie: pcie_phy clock source missing or invalid
+[    1.176213] mxs-dma 5b810000.dma-apbh: initialized
+[    1.183758] Bus freq driver module loaded
+
+[    1.189717] Board Info:
+[    1.192137] 	BSP Version     : iW-PRFHZ-SC-01-R4.0-REL1.0-Linux5.4.24
+[    1.198572] 	SOM Version     : iW-PRFHZ-AP-01-R4.0
+[    1.203371] 	CPU Unique ID   : 0x040E080E828BC053
+
+[    1.216806] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    1.227190] 5a060000.serial: ttyLP0 at MMIO 0x5a060010 (irq = 42, base_baud = 5000000) is a FSL_LPUART
+[    1.237071] 5a070000.serial: ttyLP1 at MMIO 0x5a070010 (irq = 43, base_baud = 5000000) is a FSL_LPUART
+[    1.246807] 5a090000.serial: ttyLP3 at MMIO 0x5a090010 (irq = 44, base_baud = 5000000) is a FSL_LPUART
+[    1.256488] 5a0a0000.serial: ttyLP4 at MMIO 0x5a0a0010 (irq = 62, base_baud = 5000000) is a FSL_LPUART
+[    1.265644] printk: console [ttyLP4] enabled
+[    1.274072] printk: bootconsole [lpuart32] disabled
+[    1.286261] arm-smmu 51400000.iommu: probing hardware configuration...
+[    1.292799] arm-smmu 51400000.iommu: SMMUv2 with:
+[    1.297513] arm-smmu 51400000.iommu: 	stage 1 translation
+[    1.302921] arm-smmu 51400000.iommu: 	stage 2 translation
+[    1.308326] arm-smmu 51400000.iommu: 	nested translation
+[    1.313646] arm-smmu 51400000.iommu: 	stream matching with 32 register groups
+[    1.320794] arm-smmu 51400000.iommu: 	32 context banks (0 stage-2 only)
+[    1.327417] arm-smmu 51400000.iommu: 	Supported page sizes: 0x61311000
+[    1.333955] arm-smmu 51400000.iommu: 	Stage-1: 48-bit VA -> 48-bit IPA
+[    1.340498] arm-smmu 51400000.iommu: 	Stage-2: 48-bit IPA -> 48-bit PA
+[    1.438929] loop: module loaded
+[    1.446813] ahci-imx 5f020000.sata: Adding to iommu group 0
+[    1.452597] ahci-imx 5f020000.sata: No cache used with register defaults set!
+[    1.460036] ahci-imx 5f020000.sata: 5f020000.sata supply ahci not found, using dummy regulator
+[    1.468698] ahci-imx 5f020000.sata: 5f020000.sata supply phy not found, using dummy regulator
+[    1.477272] ahci-imx 5f020000.sata: 5f020000.sata supply target not found, using dummy regulator
+[    1.486157] ahci-imx 5f020000.sata: external osc is used.
+[    1.494417] ahci-imx 5f020000.sata: no ahb clock.
+[    1.499196] ahci-imx 5f020000.sata: AHCI 0001.0301 32 slots 1 ports 6 Gbps 0x1 impl platform mode
+[    1.508084] ahci-imx 5f020000.sata: flags: 64bit ncq sntf pm clo only pmp fbs pio slum part ccc sadm sds apst 
+[    1.518665] scsi host0: ahci-imx
+[    1.522168] ata1: SATA max UDMA/133 mmio [mem 0x5f020000-0x5f02ffff] port 0x100 irq 95
+[    1.530615] imx ahci driver is registered.
+[    1.545704] libphy: Fixed MDIO Bus: probed
+[    1.550472] tun: Universal TUN/TAP device driver, 1.6
+[    1.555660] CAN device driver interface
+[    1.563266] thunder_xcv, ver 1.0
+[    1.566530] thunder_bgx, ver 1.0
+[    1.569791] nicpf, ver 1.0
+[    1.573641] fec 5b040000.ethernet: Adding to iommu group 1
+[    1.581831] pps pps0: new PPS source ptp0
+[    1.587493] libphy: fec_enet_mii_bus: probed
+[    1.591780] mdio_bus 5b040000.ethernet-1: ethernet-phy@0 has invalid PHY address
+[    1.602398] fec 5b040000.ethernet eth0: registered PHC device 0
+[    1.609110] fec 5b050000.ethernet: Adding to iommu group 1
+[    1.617167] pps pps1: new PPS source ptp1
+[    1.622769] libphy: fec_enet_mii_bus: probed
+[    1.627051] mdio_bus 5b050000.ethernet-2: ethernet-phy@1 has invalid PHY address
+[    1.637541] fec 5b050000.ethernet eth1: registered PHC device 1
+[    1.645974] Freescale FM module, FMD API version 21.1.0
+[    1.652006] Freescale FM Ports module
+[    1.655678] fsl_mac: fsl_mac: FSL FMan MAC API based driver
+[    1.661715] fsl_dpa: FSL DPAA Ethernet driver
+[    1.666366] fsl_advanced: FSL DPAA Advanced drivers:
+[    1.671331] fsl_proxy: FSL DPAA Proxy initialization driver
+[    1.677234] fsl_oh: FSL FMan Offline Parsing port driver
+[    1.684767] hclge is initializing
+[    1.688097] hns3: Hisilicon Ethernet Network Driver for Hip08 Family - version
+[    1.695326] hns3: Copyright (c) 2017 Huawei Corporation.
+[    1.700681] e1000: Intel(R) PRO/1000 Network Driver - version 7.3.21-k8-NAPI
+[    1.707736] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    1.713512] e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
+[    1.719346] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    1.725302] igb: Intel(R) Gigabit Ethernet Network Driver - version 5.6.0-k
+[    1.732264] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    1.737926] igbvf: Intel(R) Gigabit Virtual Function Network Driver - version 2.4.0-k
+[    1.745770] igbvf: Copyright (c) 2009 - 2012 Intel Corporation.
+[    1.752113] sky2: driver version 1.30
+[    1.758168] VFIO - User Level meta-driver version: 0.3
+[    1.767880] cdns-usb3 5b110000.usb3: Adding to iommu group 2
+[    1.775017] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.781558] ehci-pci: EHCI PCI platform driver
+[    1.786050] ehci-platform: EHCI generic platform driver
+[    1.791879] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    1.798081] ohci-pci: OHCI PCI platform driver
+[    1.802569] ohci-platform: OHCI generic platform driver
+[    1.809430] usbcore: registered new interface driver usb-storage
+[    1.815502] usbcore: registered new interface driver usbserial_generic
+[    1.822048] usbserial: USB Serial support registered for generic
+[    1.828084] usbcore: registered new interface driver ftdi_sio
+[    1.833877] usbserial: USB Serial support registered for FTDI USB Serial Device
+[    1.841238] usbcore: registered new interface driver usb_serial_simple
+[    1.843370] ata1: SATA link down (SStatus 0 SControl 300)
+[    1.847790] usbserial: USB Serial support registered for carelink
+[    1.859303] usbserial: USB Serial support registered for zio
+[    1.864981] usbserial: USB Serial support registered for funsoft
+[    1.871009] usbserial: USB Serial support registered for flashloader
+[    1.877379] usbserial: USB Serial support registered for google
+[    1.883323] usbserial: USB Serial support registered for libtransistor
+[    1.889870] usbserial: USB Serial support registered for vivopay
+[    1.895901] usbserial: USB Serial support registered for moto_modem
+[    1.902196] usbserial: USB Serial support registered for motorola_tetra
+[    1.908828] usbserial: USB Serial support registered for novatel_gps
+[    1.915206] usbserial: USB Serial support registered for hp4x
+[    1.920970] usbserial: USB Serial support registered for suunto
+[    1.926904] usbserial: USB Serial support registered for siemens_mpi
+[    1.940463] input: sc-powerkey as /devices/platform/sc-powerkey/input/input0
+[    1.948198]  linc HYN:[LINE=2615] linc hyn is entering cst3xx_ts_init.
+[    1.957924] imx-sc-rtc scu:rtc: registered as rtc0
+[    1.963554] i2c /dev entries driver
+[    1.969794] mxc-jpeg 58400000.jpegdec: decoder device registered as /dev/video0 (81,0)
+[    1.978548] mxc-jpeg 58450000.jpegenc: encoder device registered as /dev/video1 (81,1)
+[    1.993753] softdog: initialized. soft_noboot=0 soft_margin=60 sec soft_panic=0 (nowayout=0)
+[    2.009806] sdhci: Secure Digital Host Controller Interface driver
+[    2.016032] sdhci: Copyright(c) Pierre Ossman
+[    2.021161] Synopsys Designware Multimedia Card Interface Driver
+[    2.028968] sdhci-pltfm: SDHCI platform and OF driver helper
+[    2.036451] sdhci-esdhc-imx 5b010000.mmc: Adding to iommu group 3
+[    2.042996] mmc0: CQHCI version 5.10
+[    2.078015] mmc0: SDHCI controller on 5b010000.mmc [5b010000.mmc] using ADMA
+[    2.086558] sdhci-esdhc-imx 5b020000.mmc: Adding to iommu group 3
+[    2.092937] mmc1: CQHCI version 5.10
+[    2.096572] sdhci-esdhc-imx 5b020000.mmc: Got CD GPIO
+[    2.101870] sdhci-esdhc-imx 5b020000.mmc: Got WP GPIO
+[    2.108167] sdhci-esdhc-imx 5b030000.mmc: Adding to iommu group 3
+[    2.114499] mmc2: CQHCI version 5.10
+[    2.149236] mmc2: SDHCI controller on 5b030000.mmc [5b030000.mmc] using ADMA
+[    2.162446] ledtrig-cpu: registered to indicate activity on CPUs
+[    2.168192] mmc0: Command Queue Engine enabled
+[    2.170919] caam 31400000.crypto: device ID = 0x0a16040000000100 (Era 9)
+[    2.172916] mmc0: new HS400 Enhanced strobe MMC card at address 0001
+[    2.179686] caam 31400000.crypto: job rings = 1, qi = 0
+[    2.186497] mmcblk0: mmc0:0001 DG4016 14.7 GiB 
+[    2.195923] mmcblk0boot0: mmc0:0001 DG4016 partition 1 4.00 MiB
+[    2.202025] mmcblk0boot1: mmc0:0001 DG4016 partition 2 4.00 MiB
+[    2.208100] mmcblk0rpmb: mmc0:0001 DG4016 partition 3 4.00 MiB, chardev (238:0)
+[    2.216453]  mmcblk0: p1 p2
+[    2.220694] caam algorithms registered in /proc/crypto
+[    2.228523] caam 31400000.crypto: caam pkc algorithms registered in /proc/crypto
+[    2.232012] mmc2: new ultra high speed SDR104 SDIO card at address 0001
+[    2.236813] caam_jr 31430000.jr: registering rng-caam
+[    2.250017] usbcore: registered new interface driver usbhid
+[    2.255602] usbhid: USB HID core driver
+[    2.259848] mxc-md bus@58000000:camera: deferring cap_device device registration
+[    2.269416] mxc-isi 58100000.isi: mxc_isi.0 registered successfully
+[    2.276440] mxc-isi 58140000.isi: mxc_isi.4 registered successfully
+[    2.305133] mxc-mipi-csi2 58227000.csi: lanes: 2, name: mxc-mipi-csi2.0
+[    2.315363] No fsl,qman node
+[    2.318274] Freescale USDPAA process driver
+[    2.322508] fsl-usdpaa: no region found
+[    2.326570] Freescale USDPAA process IRQ driver
+[    2.339095] optee: probing for conduit method from DT.
+[    2.344286] optee: revision 3.7 (2d4da7a0)
+[    2.344676] optee: initialized driver
+[    2.357677] Galcore version 6.4.0.234062
+[    2.553133] RDR = 0x0
+[    2.567165] dvbdev: DVB: registering new adapter (PPM DVB adapter)
+[    2.576447] dvbdev: DVB: registering new adapter (PPM DVB adapter)
+[    2.640878] NET: Registered protocol family 26
+[    2.645895] NET: Registered protocol family 10
+[    2.651145] Segment Routing with IPv6
+[    2.654864] NET: Registered protocol family 17
+[    2.659321] can: controller area network core (rev 20170425 abi 9)
+[    2.665574] NET: Registered protocol family 29
+[    2.670032] can: raw protocol (rev 20170425)
+[    2.674331] can: broadcast manager protocol (rev 20170425 t)
+[    2.680006] can: netlink gateway (rev 20190810) max_hops=1
+[    2.685637] 8021q: 802.1Q VLAN Support v1.8
+[    2.689847] lib80211: common routines for IEEE802.11 drivers
+[    2.695523] lib80211_crypt: registered algorithm 'NULL'
+[    2.695526] lib80211_crypt: registered algorithm 'WEP'
+[    2.695529] lib80211_crypt: registered algorithm 'CCMP'
+[    2.695532] lib80211_crypt: registered algorithm 'TKIP'
+[    2.695614] 9pnet: Installing 9P2000 support
+[    2.699916] tsn generic netlink module v1 init...
+[    2.704688] Key type dns_resolver registered
+[    2.709432] registered taskstats version 1
+[    2.713540] Loading compiled-in X.509 certificates
+[    2.746142] mxs_phy 5b100000.usbphy: 5b100000.usbphy supply phy-3p0 not found, using dummy regulator
+[    2.761614] vcc5v0_typec: supplied by vcc5v0_usb
+[    2.767341] usb_phy_generic bus@5b000000:usb3-phy: bus@5b000000:usb3-phy supply vcc not found, using dummy regulator
+[    2.783312] sgtl5000 0-000a: Error reading chip id -5
+[    2.788528] sgtl5000: probe of 0-000a failed with error -5
+[    2.794063] i2c i2c-0: LPI2C adapter registered
+[    2.799502] imx-lpi2c 58226000.i2c: can't get pinctrl, bus recovery not supported
+[    2.807647] ov5640 1-003c: 1-003c supply DOVDD not found, using dummy regulator
+[    2.815035] ov5640 1-003c: 1-003c supply AVDD not found, using dummy regulator
+[    2.822319] ov5640 1-003c: 1-003c supply DVDD not found, using dummy regulator
+[    3.577114] RDR = 0x0
+[    3.837112] ov5640 1-003c: ov5640_read_reg: error: reg=300a
+[    3.844959] ov5640 1-003c: ov5640_check_chip_id: failed to read chip identifier
+[    3.852367] ov5640: probe of 1-003c failed with error -110
+[    3.857909] i2c i2c-1: LPI2C adapter registered
+[    3.865631] imx6q-pcie 5f010000.pcie: couldn't get pcie-phy
+[    3.867092] imx6q-pcie 5f000000.pcie: couldn't get pcie-phy
+[    3.870899] dpu-core 56180000.dpu: driver probed
+[    3.871526] imx6q-pcie 5f010000.pcie: No cache used with register defaults set!
+[    3.872924] dpu-core 57180000.dpu: driver probed
+[    3.875273] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+[    3.875276] [drm] No driver support for vblank timestamp query.
+[    3.875357] imx-drm display-subsystem: bound imx-drm-dpu-bliteng.2 (ops dpu_bliteng_ops)
+[    3.875410] imx-drm display-subsystem: bound imx-drm-dpu-bliteng.5 (ops dpu_bliteng_ops)
+[    3.875711] imx-drm display-subsystem: bound imx-dpu-crtc.0 (ops dpu_crtc_ops)
+[    3.875967] imx-drm display-subsystem: bound imx-dpu-crtc.1 (ops dpu_crtc_ops)
+[    3.876235] imx-drm display-subsystem: bound imx-dpu-crtc.3 (ops dpu_crtc_ops)
+[    3.876498] imx-drm display-subsystem: bound imx-dpu-crtc.4 (ops dpu_crtc_ops)
+[    3.876527] imx-drm display-subsystem: bound 56228000.dsi_host (ops nwl_dsi_component_ops)
+[    3.876800] imx-drm display-subsystem: bound bus@56240000:ldb@562410e0 (ops imx8qm_ldb_ops)
+[    3.877338] imx-drm display-subsystem: bound bus@57240000:ldb@572410e0 (ops imx8qm_ldb_ops)
+[    3.877414] imx6q-pcie 5f000000.pcie: No cache used with register defaults set!
+[    3.877723] imx6q-pcie 5f000000.pcie: host bridge /bus@5f000000/pcie@0x5f000000 ranges:
+[    3.877746] imx6q-pcie 5f000000.pcie:    IO 0x6ff80000..0x6ff8ffff -> 0x00000000
+[    3.877760] imx6q-pcie 5f000000.pcie:   MEM 0x60000000..0x6fefffff -> 0x60000000
+[    3.881921] imx6q-pcie 5f010000.pcie: host bridge /bus@5f000000/pcie@0x5f010000 ranges:
+[    3.889226] [drm] Initialized imx-drm 1.0.0 20120507 for display-subsystem on minor 0
+[    3.893456] imx6q-pcie 5f010000.pcie:    IO 0x7ff80000..0x7ff8ffff -> 0x00000000
+[    3.917216]  xhci-cdns3: xHCI Host Controller
+[    3.922218] imx6q-pcie 5f010000.pcie:   MEM 0x70000000..0x7fefffff -> 0x70000000
+[    3.929423]  xhci-cdns3: new USB bus registered, assigned bus number 1
+[    3.937270] imx6q-pcie 5f010000.pcie: PCIe PLL locked after 0 us.
+[    3.945415]  xhci-cdns3: hcc params 0x200073c8 hci version 0x100 quirks 0x0000001000018010
+[    3.985165] imx6q-pcie 5f000000.pcie: PCIe PLL locked after 0 us.
+[    3.992159] hub 1-0:1.0: USB hub found
+[    4.072253] hub 1-0:1.0: 1 port detected
+[    4.076409]  xhci-cdns3: xHCI Host Controller
+[    4.080786]  xhci-cdns3: new USB bus registered, assigned bus number 2
+[    4.087338]  xhci-cdns3: Host supports USB 3.0 SuperSpeed
+[    4.092791] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    4.101332] hub 2-0:1.0: USB hub found
+[    4.105096] hub 2-0:1.0: 1 port detected
+[    4.110461] imx_usb 5b0d0000.usb: 5b0d0000.usb supply vbus not found, using dummy regulator
+[    4.124559] mmc1: CQHCI version 5.10
+[    4.128217] sdhci-esdhc-imx 5b020000.mmc: Got CD GPIO
+[    4.133303] sdhci-esdhc-imx 5b020000.mmc: Got WP GPIO
+[    4.170155] mmc1: SDHCI controller on 5b020000.mmc [5b020000.mmc] using ADMA
+[    4.182195] mx8-img-md: Registered mxc_isi.0.capture as /dev/video2
+[    4.188752] mx8-img-md: Registered mxc_isi.4.capture as /dev/video3
+[    4.195243] unregister ISI channel: mxc_isi.0
+[    4.199679] unregister ISI channel: mxc_isi.4
+[    4.204745] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    4.211407] imx-rpmsg 90000000.rpmsg0: assigned reserved memory node vdevbuffer
+[    4.241205] virtio_rpmsg_bus virtio0: rpmsg host is online
+[    4.269141] virtio_rpmsg_bus virtio1: rpmsg host is online
+[    4.274946] imx-rpmsg 90100000.rpmsg1: assigned reserved memory node vdevbuffer
+[    4.305138] virtio_rpmsg_bus virtio2: rpmsg host is online
+[    4.333373] virtio_rpmsg_bus virtio3: rpmsg host is online
+[    4.344506] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    4.351989] imx8qxp-lpcg-clk 5ac90000.clock-controller: ignoring dependency for device, assuming no driver
+[    4.363701] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    4.372643] debugfs: Directory 'lvds1' with parent 'pm_genpd' already present!
+[    4.380555] debugfs: Directory 'mipi1-i2c1' with parent 'pm_genpd' already present!
+[    4.388247] debugfs: Directory 'mipi1-i2c0' with parent 'pm_genpd' already present!
+[    4.395935] debugfs: Directory 'mipi1-pwm0' with parent 'pm_genpd' already present!
+[    4.403599] debugfs: Directory 'mipi1' with parent 'pm_genpd' already present!
+[    4.409145] usb 1-1: new high-speed USB device number 2 using cdns-usb3
+[    4.419345] imx-sc-rtc scu:rtc: setting system clock to 1970-01-01T01:19:11 UTC (4751)
+[    4.428492] isi-m2m 58100000.isi:m2m_device: Register m2m success for ISI.0
+[    4.438782] hub 1-1:1.0: USB hub found
+[    4.439150] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    4.442632] hub 1-1:1.0: 5 ports detected
+[    4.442828] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    4.451439] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    4.454140] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    4.473631] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[    4.482256] platform regulatory.0: Falling back to sysfs fallback for: regulatory.db
+[    4.489118] ALSA device list:
+[    4.492970]   No soundcards found.
+[    4.565212] usb 2-1: new SuperSpeed Gen 1 USB device number 2 using cdns-usb3
+[    4.590443] hub 2-1:1.0: USB hub found
+[    4.594257] hub 2-1:1.0: 4 ports detected
+[    4.601135] RDR = 0x0
+[    4.601379] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    4.729138] usb 1-1.5: new high-speed USB device number 3 using cdns-usb3
+[    4.758742] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    4.951405] imx6q-pcie 5f010000.pcie: Phy link never came up
+[    4.957231] imx6q-pcie 5f010000.pcie: failed to initialize host
+[    4.963216] imx6q-pcie 5f010000.pcie: unable to add pcie port.
+[    5.021334] imx6q-pcie 5f000000.pcie: Phy link never came up
+[    5.027071] imx6q-pcie 5f000000.pcie: failed to initialize host
+[    5.033389] imx6q-pcie 5f000000.pcie: unable to add pcie port.
+[    5.052878] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[    5.061341] VFS: Mounted root (ext4 filesystem) on device 179:2.
+[    5.069076] devtmpfs: mounted
+[    5.073474] Freeing unused kernel memory: 2880K
+[    5.078164] Run /sbin/init as init process
+[    5.149369] systemd[1]: System time before build time, advancing clock.
+[    5.165442] systemd[1]: systemd 243.2+ running in system mode. (+PAM -AUDIT -SELINUX +IMA -APPARMOR +SMACK +SYSVINIT +UTMP -LIBCRYPTSETUP -GCRYPT -GNUTLS +ACL +XZ -LZ4 -SECCOMP +BLKID -ELFUTILS +KMOD -IDN2 -IDN -PCRE2 default-hierarchy=hybrid)
+[    5.187749] systemd[1]: Detected architecture arm64.
+[    5.229591] systemd[1]: Set hostname to <iWave-G27M>.
+[    5.389387] systemd[1]: /lib/systemd/system/dbus.socket:5: ListenStream= references a path below legacy directory /var/run/, updating /var/run/dbus/system_bus_socket \xe2\x86\x92 /run/dbus/system_bus_socket; please update the unit file accordingly.
+[    5.416377] systemd[1]: /lib/systemd/system/syslogd.service:8: PIDFile= references a path below legacy directory /var/run/, updating /var/run/syslogd.pid \xe2\x86\x92 /run/syslogd.pid; please update the unit file accordingly.
+[    5.444550] systemd[1]: /lib/systemd/system/rpcbind.socket:5: ListenStream= references a path below legacy directory /var/run/, updating /var/run/rpcbind.sock \xe2\x86\x92 /run/rpcbind.sock; please update the unit file accordingly.
+[    5.467552] systemd[1]: /lib/systemd/system/klogd.service:8: PIDFile= references a path below legacy directory /var/run/, updating /var/run/klogd.pid \xe2\x86\x92 /run/klogd.pid; please update the unit file accordingly.
+[    5.567437] random: systemd: uninitialized urandom read (16 bytes read)
+[    5.574286] systemd[1]: system-getty.slice: unit configures an IP firewall, but the local system does not support BPF/cgroup firewalling.
+[    5.586656] systemd[1]: (This warning is only shown for the first unit using IP firewalling.)
+[    5.597441] systemd[1]: Created slice system-getty.slice.
+[    5.617534] random: systemd: uninitialized urandom read (16 bytes read)
+[    5.629110] RDR = 0x0
+[    5.641454] random: systemd: uninitialized urandom read (16 bytes read)
+[    6.025419] switch cluster 0 cpu-freq governor to schedutil
+[    6.048812] EXT4-fs (mmcblk0p2): re-mounted. Opts: (null)
+[    6.065405] switch cluster 1 cpu-freq governor to schedutil
+[    6.274990] systemd-journald[502]: Received client request to flush runtime journal.
+[    6.649139] RDR = 0x0
+[    6.740295] [VPU Encoder] enable mu for core[0]
+[    6.756989] [VPU Encoder] vpu encoder core[0] firmware version is 1.2.7
+[    7.673121] RDR = 0x0
+[    7.819123] Atheros 8031 ethernet 5b040000.ethernet-1:04: attached PHY driver [Atheros 8031 ethernet] (mii_bus:phy_addr=5b040000.ethernet-1:04, irq=POLL)
+[    7.844675] Atheros 8031 ethernet 5b050000.ethernet-2:05: attached PHY driver [Atheros 8031 ethernet] (mii_bus:phy_addr=5b050000.ethernet-2:05, irq=POLL)
+[    8.037065] mlan: loading out-of-tree module taints kernel.
+[    8.071808] wlan: Loading MWLAN driver
+[    8.076526] vendor=0x02DF device=0x9149 class=0 function=1
+[    8.082099] SDIO: max_segs=128 max_seg_size=65535
+[    8.086819] rx_work=1 cpu_num=6
+[    8.090361] wlan: Enable TX SG mode
+[    8.093867] wlan: Enable RX SG mode
+[    8.101229] Request firmware: nxp/sduart8987_combo_jody-w2-sdiouart.bin
+[    8.405432] audit: type=1006 audit(1644910477.025:2): pid=831 uid=0 old-auid=4294967295 auid=0 tty=(none) old-ses=4294967295 ses=1 res=1
+[    8.496750] random: crng init done
+[    8.500172] random: 7 urandom warning(s) missed due to ratelimiting
+[    8.583916] Wlan: FW download over, firmwarelen=616592 downloaded 616592
+[    8.697120] RDR = 0x0
+[    9.515585] WLAN FW is active
+[    9.520846] on_time is 9395748750
+[    9.556516] fw_cap_info=0x181cbf03, dev_cap_mask=0xffffffff
+[    9.562125] max_p2p_conn = 8, max_sta_conn = 8
+[    9.589236] wlan: version = SD8987-16.87.10.p46-C4X15C656-GPL-(FP87) 
+[    9.597779] wlan: Driver loaded successfully
+[    9.602630] imx-sgtl5000 sound: ASoC: failed to init link HiFi: -517
+[    9.725138] RDR = 0x0
+[    9.795169] wlan: mlan0 START SCAN
+[    9.961833] uap0: Skip change virtual intf on uap: type=2
+[   10.745137] RDR = 0x0
+[   11.769126] RDR = 0x0
+[   12.793121] RDR = 0x0
+[   13.817143] RDR = 0x0
+[   13.927749] wlan: SCAN COMPLETED: scanned AP count=2
+[   13.955826] wlan: Connected to bssid e8:XX:XX:XX:cf:50 successfully
+[   13.962440] IPv6: ADDRCONF(NETDEV_CHANGE): mlan0: link becomes ready
+[   14.841136] RDR = 0x0
+[   15.865131] RDR = 0x0
+[   16.889133] RDR = 0x0
+[   17.913133] RDR = 0x0
+[   18.937128] RDR = 0x0
+[   19.961133] RDR = 0x0
+[   20.985125] RDR = 0x0
+[   22.009138] RDR = 0x0
+[   22.356136] audit: type=1006 audit(1644910490.973:3): pid=889 uid=0 old-auid=4294967295 auid=0 tty=(none) old-ses=4294967295 ses=2 res=1
+[   23.033129] RDR = 0x0
+[   24.057124] RDR = 0x0
+[   25.081134] RDR = 0x0
+[   26.105134] RDR = 0x0
+[   27.129120] RDR = 0x0
+[   28.153120] RDR = 0x0
+[   29.177121] RDR = 0x0
+[   30.201152] RDR = 0x0
+[   31.353127] RDR = 0x0
+[   32.377128] RDR = 0x0
+[   33.401129] RDR = 0x0
+[   34.425145] RDR = 0x0
+[   35.449126] RDR = 0x0
+[   36.473124] RDR = 0x0
+[   37.497132] RDR = 0x0
+[   38.521137] RDR = 0x0
+[   39.545130] RDR = 0x0
+[   40.569126] RDR = 0x0
+[   41.593131] RDR = 0x0
+[   42.617126] RDR = 0x0
+[   43.641125] RDR = 0x0
+[   44.665126] RDR = 0x0
+[   45.689132] RDR = 0x0
+[   46.713123] RDR = 0x0
+[   47.737133] RDR = 0x0
+[   48.761131] RDR = 0x0
+[   49.785124] RDR = 0x0
+[   50.809124] RDR = 0x0
+[   51.833132] RDR = 0x0
+[   52.857123] RDR = 0x0
+[   53.881123] RDR = 0x0
+[   54.905125] RDR = 0x0
+[   55.929131] RDR = 0x0
+[   56.953121] RDR = 0x0
+[   57.977124] RDR = 0x0
+[   59.001124] RDR = 0x0
+[   60.025124] RDR = 0x0
+[   61.049125] RDR = 0x0
+[   62.073124] RDR = 0x0
+[   63.097126] RDR = 0x0
+[   64.121124] RDR = 0x0
+[   65.145124] RDR = 0x0
+[   66.169125] RDR = 0x0
+[   67.193145] RDR = 0x0
+[   68.217129] RDR = 0x0
+[   69.241141] RDR = 0x0
+[   70.265144] RDR = 0x0
+[   71.289124] RDR = 0x0
+[   72.313126] RDR = 0x0
+[   73.337124] RDR = 0x0
+[   74.361123] RDR = 0x0
+[   75.385127] RDR = 0x0
+[   76.409126] RDR = 0x0
+[   77.433127] RDR = 0x0
+[   78.457135] RDR = 0x0
+[   79.481124] RDR = 0x0
+[   80.505125] RDR = 0x0
+[   81.529125] RDR = 0x0
+[   82.553139] RDR = 0x0
+[   83.577135] RDR = 0x0
+[   84.601126] RDR = 0x0
+[   85.625134] RDR = 0x0
+[   86.649133] RDR = 0x0
+[   87.673123] RDR = 0x0
+[   88.697122] RDR = 0x0
+[   89.721137] RDR = 0x0
+[   90.745122] RDR = 0x0
+[   91.769132] RDR = 0x0
+[   92.793124] RDR = 0x0
+[   93.817130] RDR = 0x0
+[   94.841122] RDR = 0x0
+[   95.865124] RDR = 0x0
+[   96.889129] RDR = 0x0
+[   98.073130] RDR = 0x0
+[   99.097124] RDR = 0x0
+[  100.121123] RDR = 0x0
+[  101.145125] RDR = 0x0
+[  102.169143] RDR = 0x0
+[  103.257128] RDR = 0x0
+[  104.281133] RDR = 0x0
+[  105.561131] RDR = 0x0
+[  106.585129] RDR = 0x0
+[  107.609140] RDR = 0x0
+[  108.729137] RDR = 0x0
+[  109.753134] RDR = 0x0
+[  110.777136] RDR = 0x0
+[  111.897128] RDR = 0x0
+[  112.921124] RDR = 0x0
+[  114.009133] RDR = 0x0
+[  115.193130] RDR = 0x0
+[  116.217130] RDR = 0x0
+[  117.369128] RDR = 0x0
+[  118.393126] RDR = 0x0
+[  119.417127] RDR = 0x0
+[  120.441130] RDR = 0x0
+[  121.465126] RDR = 0x0
+[  122.489132] RDR = 0x0
+[  123.513126] RDR = 0x0
+[  124.537134] RDR = 0x0
+[  125.721129] RDR = 0x0
+[  126.745130] RDR = 0x0
+[  127.769127] RDR = 0x0
+[  128.985128] RDR = 0x0
+[  130.009126] RDR = 0x0
+[  131.033122] RDR = 0x0
+[  132.057125] RDR = 0x0
+[  133.081122] RDR = 0x0
+[  134.105130] RDR = 0x0
+[  135.129134] RDR = 0x0
+[  136.217127] RDR = 0x0
+[  137.241129] RDR = 0x0
+[  138.297130] RDR = 0x0
+[  139.321133] RDR = 0x0
+[  140.345129] RDR = 0x0
+[  141.369125] RDR = 0x0
+[  142.393125] RDR = 0x0
+[  143.417126] RDR = 0x0
+[  144.441127] RDR = 0x0
+[  145.465125] RDR = 0x0
+[  146.489131] RDR = 0x0
+[  147.513124] RDR = 0x0
+[  148.537128] RDR = 0x0
+[  149.561126] RDR = 0x0
+[  150.585131] RDR = 0x0
+[  151.609125] RDR = 0x0
+[  152.633127] RDR = 0x0
+[  153.657128] RDR = 0x0
+[  154.681138] RDR = 0x0
+[  155.769130] RDR = 0x0
+[  156.793133] RDR = 0x0
+[  158.073123] RDR = 0x0
+[  159.097128] RDR = 0x0
+[  160.217125] RDR = 0x0
+[  161.241129] RDR = 0x0
+[  162.297127] RDR = 0x0
+[  163.321124] RDR = 0x0
+[  164.345126] RDR = 0x0
+[  165.369124] RDR = 0x0
+[  166.393125] RDR = 0x0
+[  167.417122] RDR = 0x0
+[  168.441127] RDR = 0x0
+[  169.465135] RDR = 0x0
+[  170.489128] RDR = 0x0
+[  171.513124] RDR = 0x0
+[  172.537128] RDR = 0x0
+[  173.561134] RDR = 0x0
+[  174.777128] RDR = 0x0
+[  175.801136] RDR = 0x0
+[  176.921127] RDR = 0x0
+[  177.945124] RDR = 0x0
+[  178.969128] RDR = 0x0
+[  179.993122] RDR = 0x0
+[  181.017123] RDR = 0x0
+[  182.041123] RDR = 0x0
+[  183.065131] RDR = 0x0
+[  184.153125] RDR = 0x0
+[  185.177128] RDR = 0x0
+[  186.201137] RDR = 0x0
+[  187.353127] RDR = 0x0
+[  188.377124] RDR = 0x0
+[  189.401132] RDR = 0x0
+[  190.425132] RDR = 0x0
+[  191.449124] RDR = 0x0
+[  192.473131] RDR = 0x0
+[  193.497127] RDR = 0x0
+[  194.521124] RDR = 0x0
+[  195.545122] RDR = 0x0
+[  196.569130] RDR = 0x0
+[  197.625126] RDR = 0x0
+[  198.649126] RDR = 0x0
+[  199.673129] RDR = 0x0
+[  200.697132] RDR = 0x0
+[  201.721126] RDR = 0x0
+[  202.745134] RDR = 0x0
+[  203.769124] RDR = 0x0
+[  204.793133] RDR = 0x0
+[  205.817126] RDR = 0x0
+[  206.841124] RDR = 0x0
+[  207.865124] RDR = 0x0
+[  208.985125] RDR = 0x0
+[  210.169126] RDR = 0x0
+[  211.193124] RDR = 0x0
+[  212.217123] RDR = 0x0

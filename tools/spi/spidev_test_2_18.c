@@ -96,8 +96,16 @@ static int interval = 5; /* interval in seconds for showing transfer rate */
 
 uint8_t default_tx1[] = {
 	0x11, 0x1C,
+	0x11, 0x1C,
+	0x11, 0x1C,
+	0x11, 0x1C,
+	0x11, 0x1C,
+	0x11, 0x1C,
+	0x11, 0x1C,
+	0x11, 0x1C,
 	
-	/*0x40, 0x00, 0x00, 0x00, 0x00, 0x95,
+	/*0xFF, 0xFF, 0xFF, 0xFF,
+	0x40, 0x00, 0x00, 0x00, 0x00, 0x95,
 	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
 	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
 	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
@@ -105,6 +113,13 @@ uint8_t default_tx1[] = {
 };
 
 uint8_t default_tx2[] = {
+	0x80, 0x01, 
+	0x80, 0x01, 
+	0x80, 0x01, 
+	0x80, 0x01, 
+	0x80, 0x01, 
+	0x80, 0x01, 
+	0x80, 0x01, 
 	0x80, 0x01, 
 	/*0xFF, 0xFF, 0xFF, 0xFF,
 	0x40, 0x00, 0x00, 0x00, 0x00, 0x95,
@@ -114,6 +129,13 @@ uint8_t default_tx2[] = {
 	0xF0, 0x0D,*/
 };
 uint8_t default_tx2_1[] = {
+	0x00, 0x01,
+	0x00, 0x01,
+	0x00, 0x01,
+	0x00, 0x01,
+	0x00, 0x01,
+	0x00, 0x01,
+	0x00, 0x01,
 	0x00, 0x01,
 	
 	/*0xFF, 0xFF, 0xFF, 0xFF,
@@ -125,6 +147,13 @@ uint8_t default_tx2_1[] = {
 };
 uint8_t default_tx3[] = {
 	0x1C, 0x81,
+	0x1C, 0x81,
+	0x1C, 0x81,
+	0x1C, 0x81,
+	0x1C, 0x81,
+	0x1C, 0x81,
+	0x1C, 0x81,
+	0x1C, 0x81,
        
 	/*0xFF, 0xFF, 0xFF, 0xFF,
 	0x40, 0x00, 0x00, 0x00, 0x00, 0x95,
@@ -133,15 +162,8 @@ uint8_t default_tx3[] = {
 	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
 	0xF0, 0x0D,*/
 };
-uint8_t default_tx4[] = {
-	0xFF, 0xFF, 0XFF, 0xFF,
-	0xFF, 0xFF, 0XFF, 0xFF,
-	0xFF, 0xFF, 0XFF, 0xFF,
-	0xFF, 0xFF, 0XFF, 0xFF,
-};
 
-uint8_t default_rx[ARRAY_SIZE(default_tx1)] = {0xbb, 0xbb};
-
+uint8_t default_rx[ARRAY_SIZE(default_tx1)] = {0, };
 char *input_tx;
 
 static void hex_dump(const void *src, size_t length, size_t line_size,
@@ -153,7 +175,7 @@ static void hex_dump(const void *src, size_t length, size_t line_size,
 	unsigned char c;
 
 	printf("%s | ", prefix);
-	//printf(" %#016x ", address);
+	printf(" %#016x ", address);
 	while (length-- > 0) {
 		printf("%02X ", *address++);
 		if (!(++i % line_size) || (length == 0 && i % line_size)) {
@@ -466,7 +488,7 @@ static void transfer_buf(int fd, int len)
 	uint8_t *tx;
 	uint8_t *rx;
 	int i;
-	printf("buf len : %d\n",len);
+
 	tx = malloc(len);
 	if (!tx)
 		pabort("can't allocate tx buffer");
@@ -499,6 +521,7 @@ int main(int argc, char *argv[])
 {
 	int ret = 0;
 	int fd;
+
 	parse_opts(argc, argv);
 
 	fd = open(device, O_RDWR);
@@ -568,29 +591,24 @@ int main(int argc, char *argv[])
 	} else{
 		//transfer(fd, default_tx1, default_rx, sizeof(default_tx1));
 		///for(int j=1000000;j>0;j--);
-		/*int i=0; //loop
-		int line=0;
+		
+		/*int line=0;
 		for(int term=0;term<9;term++){
 			for(int rep=0;rep<segment[term];rep++){
 				//printf("0x%x 0x%x\n", pwrseq_tx[line][0], pwrseq_tx[line][1]);
 				convert_addr(pwrseq_tx[line]);
 				//printf("0x%x 0x%x\n", pwrseq_tx[line][0], pwrseq_tx[line++][1]);
 				//printf("----------\n");
-				for(i=0;i<1000;i++){
 				transfer(fd, pwrseq_tx[line], pwrseq_rx, sizeof(pwrseq_tx[line]));
-				}
-				i=0;
-				
 				line++;
 			}
-			
 			if(term!=8){
 				sleep(interval_seq[term]);
 			}
 			
 		}*/
 		
-		int i=10;
+		int i=200;
 		while(i--){
 			transfer(fd, default_tx1, default_rx, sizeof(default_tx1));
 			for(int j=1000000;j>0;j--);
@@ -600,8 +618,6 @@ int main(int argc, char *argv[])
 			for(int j=1000000;j>0;j--);
 			transfer(fd, default_tx3, default_rx, sizeof(default_tx3));
 			for(int j=1000000;j>0;j--);
-			//transfer(fd, default_tx4, default_rx, sizeof(default_tx4));
-			//for(int j=1000000;j>0;j--);
 		}
 		
 		
