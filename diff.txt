@@ -1,0 +1,169 @@
+33,36d32
+< /*timer include*/
+< #include <linux/sched.h>
+< /*timer include*/
+< 
+92a89
+> static int clkdivs[] = {1, 2, 4, 8, 16, 32, 64, 128};
+133,168d129
+< /*timer*/
+< #define TIMER_TIMEOUT 1
+< #define TIMER_FLAG	0
+< static struct timer_list timer;
+< static struct fsl_lpspi_data for_global_lpspi;
+< 
+< 
+< static void timer_handler(struct timer_list *tl){
+< 	u32 temp;
+< 
+< 	/*temp = readl(for_global_lpspi.base + IMX7ULP_CR);
+< 	printk(KERN_INFO "CR =  9:%d", (1<<9)&temp);
+< 
+< 	temp = readl(for_global_lpspi.base + IMX7ULP_SR);
+< 	printk(KERN_INFO "SR = 12 : %d, 11 : %d, 10 : %d, 9: %d, 8: %d, 1: %d", (1<<12)&temp, (1<<11)&temp, (1<<10)&temp, (1<<9)&temp, (1<<8)&temp, (1<<1)&temp);
+< 
+< 	temp = readl(for_global_lpspi.base + IMX7ULP_IER);
+< 	printk(KERN_INFO "IER = 12 : %d, 10 : %d, 9 : %d, 8 : %d, 1 : %d", (1<<12)&temp, (1<<10)&temp, (1<<9)&temp, (1<<8)&temp, (1<<1)&temp);
+< 
+< 	temp = readl(for_global_lpspi.base + IMX7ULP_FCR);
+< 	printk(KERN_INFO "FCR = 0x%x",temp);
+< 
+< 	temp = readl(for_global_lpspi.base + IMX7ULP_FSR);
+< 	printk(KERN_INFO "FSR = 0x%x",temp);
+< 
+< 	temp = readl(for_global_lpspi.base + IMX7ULP_RDR);
+< 	printk(KERN_INFO "RDR = 0x%x",temp);*/
+< 
+< 	
+< 	//mod_timer(&timer, jiffies+TIMER_TIMEOUT*HZ);
+< }
+< /*timer function*/
+< static int clkdivs[] = {1, 2, 4, 8, 16, 32, 64, 128};
+< 
+< 
+< 
+308,314d268
+< 	//u32 temp;
+< 	//u32 temp1;
+< 	//u32 temp2;
+< 	//temp = readl(fsl_lpspi->base + IMX7ULP_TCR);
+< 	//temp1 = readl(fsl_lpspi->base + IMX7ULP_RSR);
+< 	//temp2 = readl(fsl_lpspi->base + IMX7ULP_RDR);
+< 	//printk(KERN_INFO "lpspi TCR : %x  |  RSR : %x   |  RDR : %x\n", temp, temp1, temp2);
+324,328c278
+< 	//printk(KERN_INFO "bpw:%d\n",fsl_lpspi->config.bpw);
+< 
+< 	temp |= 0x3 << 30;
+< 	//printk(KERN_INFO "config.mode:%d\n",(fsl_lpspi->config.mode & 0x3) << 30);
+< 	
+---
+> 	temp |= (fsl_lpspi->config.mode & 0x3) << 30;
+330,331d279
+< 	//printk(KERN_INFO "CS:%d\n",(fsl_lpspi->config.chip_select & 0x3) << 24);
+< 	
+334,335d281
+< 
+< 		//printk(KERN_INFO "prescale:%d\n",fsl_lpspi->config.prescale << 27);
+341d286
+< 		temp |= TCR_CONT;
+343c288
+< 			//temp |= TCR_CONT;
+---
+> 			temp |= TCR_CONT;
+349d293
+< 		//temp |= TCR_CONT;
+351,352d294
+< 	//temp |= 1 << 23; //LSBF
+< 	//printk(KERN_INFO "Temp : 0x%x\n",temp);
+378c320
+< 	//printk(KERN_INFO "fsl_lpspi_set_bitrate\n");
+---
+> 
+381d322
+< 	//printk(KERN_INFO "speed : %d, perclk : %d",config.speed_hz,perclk_rate );
+388c329
+< 	for (prescale = 5; prescale < 8; prescale++) {
+---
+> 	for (prescale = 0; prescale < 8; prescale++) {
+399,400c340,341
+< 	//printk(KERN_INFO "perclk=%d, speed=%d, prescale=%d, scldiv=%d\n",perclk_rate, config.speed_hz, prescale, scldiv);
+< 	writel(scldiv /*| (scldiv << 8) | ((scldiv >> 1) << 16)*/,
+---
+> 
+> 	writel(scldiv | (scldiv << 8) | ((scldiv >> 1) << 16),
+430c371
+< 	
+---
+> 
+434c375
+< 	tx.dst_maxburst = 8;
+---
+> 	tx.dst_maxburst = 1;
+445c386
+< 	rx.src_maxburst = 8;
+---
+> 	rx.src_maxburst = 1;
+466c407
+< 	//printk(KERN_INFO "fsl_lpspi_config\n");
+---
+> 
+469c410
+< 	if (!fsl_lpspi->is_slave){
+---
+> 	if (!fsl_lpspi->is_slave)
+471d411
+< 	}
+474,475c414,415
+< 	/*if (fsl_lpspi->config.mode & SPI_CS_HIGH)
+< 		temp |= CFGR1_PCSPOL;*/
+---
+> 	if (fsl_lpspi->config.mode & SPI_CS_HIGH)
+> 		temp |= CFGR1_PCSPOL;
+503,504d442
+< 	//printk(KERN_INFO "speed 1 : speed_hz : %d", t->speed_hz);
+< 
+510c448
+< 	if (!fsl_lpspi->config.speed_hz){
+---
+> 	if (!fsl_lpspi->config.speed_hz)
+512,513d449
+< 		//printk(KERN_INFO "speed 2 : max_spped : %d", spi->max_speed_hz);
+< 	}
+534c470
+< 	/*if (fsl_lpspi_can_dma(controller, spi, t))
+---
+> 	if (fsl_lpspi_can_dma(controller, spi, t))
+536,537c472,473
+< 	else*/
+< 	fsl_lpspi->usedma = 0;
+---
+> 	else
+> 		fsl_lpspi->usedma = 0;
+673d608
+< 		//printk(KERN_INFO "len : %d", transfer_timeout);
+912,914d846
+< 
+< 
+< 
+1038,1039d969
+< 		
+< 
+1043d972
+< 	//printk(KERN_INFO "txfifo : %d\n", fsl_lpspi->txfifosize); : 64
+1045d973
+< 	//printk(KERN_INFO "rxfifo : %d\n", fsl_lpspi->rxfifosize); : 64
+1062,1066c990
+< 	/*timer*/
+< 	for_global_lpspi = *fsl_lpspi;
+< 	timer_setup(&timer, timer_handler, TIMER_FLAG);
+< 	mod_timer(&timer, jiffies+TIMER_TIMEOUT*HZ);
+< 	/*timer*/
+---
+> 
+1071,1076d994
+< 
+< 	/*timer*/
+< 	for_global_lpspi = *fsl_lpspi;
+< 	timer_setup(&timer, timer_handler, TIMER_FLAG);
+< 	mod_timer(&timer, jiffies+TIMER_TIMEOUT*HZ);
+< 	/*timer*/

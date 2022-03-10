@@ -30,10 +30,6 @@
 #include <linux/spi/spi_bitbang.h>
 #include <linux/types.h>
 
-/*timer include*/
-#include <linux/sched.h>
-/*timer include*/
-
 #define DRIVER_NAME "fsl_lpspi"
 
 #define FSL_LPSPI_RPM_TIMEOUT 50 /* 50ms */
@@ -90,6 +86,7 @@
 #define TCR_RXMSK	BIT(19)
 #define TCR_TXMSK	BIT(18)
 
+static int clkdivs[] = {1, 2, 4, 8, 16, 32, 64, 128};
 
 struct lpspi_config {
 	u8 bpw;
@@ -129,42 +126,6 @@ struct fsl_lpspi_data {
 	struct completion dma_rx_completion;
 	struct completion dma_tx_completion;
 };
-
-/*timer*/
-#define TIMER_TIMEOUT 1
-#define TIMER_FLAG	0
-static struct timer_list timer;
-static struct fsl_lpspi_data for_global_lpspi;
-
-
-static void timer_handler(struct timer_list *tl){
-	u32 temp;
-
-	/*temp = readl(for_global_lpspi.base + IMX7ULP_CR);
-	printk(KERN_INFO "CR =  9:%d", (1<<9)&temp);
-
-	temp = readl(for_global_lpspi.base + IMX7ULP_SR);
-	printk(KERN_INFO "SR = 12 : %d, 11 : %d, 10 : %d, 9: %d, 8: %d, 1: %d", (1<<12)&temp, (1<<11)&temp, (1<<10)&temp, (1<<9)&temp, (1<<8)&temp, (1<<1)&temp);
-
-	temp = readl(for_global_lpspi.base + IMX7ULP_IER);
-	printk(KERN_INFO "IER = 12 : %d, 10 : %d, 9 : %d, 8 : %d, 1 : %d", (1<<12)&temp, (1<<10)&temp, (1<<9)&temp, (1<<8)&temp, (1<<1)&temp);
-
-	temp = readl(for_global_lpspi.base + IMX7ULP_FCR);
-	printk(KERN_INFO "FCR = 0x%x",temp);
-
-	temp = readl(for_global_lpspi.base + IMX7ULP_FSR);
-	printk(KERN_INFO "FSR = 0x%x",temp);*/
-
-	temp = readl(for_global_lpspi.base + IMX7ULP_RDR);
-	printk(KERN_INFO "RDR = 0x%x",temp);
-
-	
-	mod_timer(&timer, jiffies+TIMER_TIMEOUT*HZ);
-}
-/*timer function*/
-static int clkdivs[] = {1, 2, 4, 8, 16, 32, 64, 128};
-
-
 
 static const struct of_device_id fsl_lpspi_dt_ids[] = {
 	{ .compatible = "fsl,imx7ulp-spi", },
@@ -305,13 +266,6 @@ static void fsl_lpspi_write_tx_fifo(struct fsl_lpspi_data *fsl_lpspi)
 
 static void fsl_lpspi_read_rx_fifo(struct fsl_lpspi_data *fsl_lpspi)
 {
-	//u32 temp;
-	//u32 temp1;
-	//u32 temp2;
-	//temp = readl(fsl_lpspi->base + IMX7ULP_TCR);
-	//temp1 = readl(fsl_lpspi->base + IMX7ULP_RSR);
-	//temp2 = readl(fsl_lpspi->base + IMX7ULP_RDR);
-	//printk(KERN_INFO "lpspi TCR : %x  |  RSR : %x   |  RDR : %x\n", temp, temp1, temp2);
 	while (!(readl(fsl_lpspi->base + IMX7ULP_RSR) & RSR_RXEMPTY))
 		fsl_lpspi->rx(fsl_lpspi);
 }
@@ -321,35 +275,23 @@ static void fsl_lpspi_set_cmd(struct fsl_lpspi_data *fsl_lpspi)
 	u32 temp = 0;
 
 	temp |= fsl_lpspi->config.bpw - 1;
-	//printk(KERN_INFO "bpw:%d\n",fsl_lpspi->config.bpw);
-
 	temp |= 0x3 << 30;
-	//printk(KERN_INFO "config.mode:%d\n",(fsl_lpspi->config.mode & 0x3) << 30);
-	
 	temp |= (fsl_lpspi->config.chip_select & 0x3) << 24;
-	//printk(KERN_INFO "CS:%d\n",(fsl_lpspi->config.chip_select & 0x3) << 24);
-	
 	if (!fsl_lpspi->is_slave) {
 		temp |= fsl_lpspi->config.prescale << 27;
-
-		//printk(KERN_INFO "prescale:%d\n",fsl_lpspi->config.prescale << 27);
 		/*
 		 * Set TCR_CONT will keep SS asserted after current transfer.
 		 * For the first transfer, clear TCR_CONTC to assert SS.
 		 * For subsequent transfer, set TCR_CONTC to keep SS asserted.
 		 */
-		temp |= TCR_CONT;
 		if (!fsl_lpspi->usedma) {
-			//temp |= TCR_CONT;
+			temp |= TCR_CONT;
 			if (fsl_lpspi->is_first_byte)
 				temp &= ~TCR_CONTC;
 			else
 				temp |= TCR_CONTC;
 		}
-		//temp |= TCR_CONT;
 	}
-	//temp |= 1 << 23; //LSBF
-	//printk(KERN_INFO "Temp : 0x%x\n",temp);
 	writel(temp, fsl_lpspi->base + IMX7ULP_TCR);
 
 	dev_dbg(fsl_lpspi->dev, "TCR=0x%x\n", temp);
@@ -375,10 +317,9 @@ static int fsl_lpspi_set_bitrate(struct fsl_lpspi_data *fsl_lpspi)
 	struct lpspi_config config = fsl_lpspi->config;
 	unsigned int perclk_rate, scldiv;
 	u8 prescale;
-	//printk(KERN_INFO "fsl_lpspi_set_bitrate\n");
+
 	perclk_rate = clk_get_rate(fsl_lpspi->clk_per);
 
-	//printk(KERN_INFO "speed : %d, perclk : %d",config.speed_hz,perclk_rate );
 	if (config.speed_hz > perclk_rate / 2) {
 		dev_err(fsl_lpspi->dev,
 		      "per-clk should be at least two times of transfer speed");
@@ -396,7 +337,7 @@ static int fsl_lpspi_set_bitrate(struct fsl_lpspi_data *fsl_lpspi)
 
 	if (prescale == 8 && scldiv >= 256)
 		return -EINVAL;
-	//printk(KERN_INFO "perclk=%d, speed=%d, prescale=%d, scldiv=%d\n",perclk_rate, config.speed_hz, prescale, scldiv);
+
 	writel(scldiv /*| (scldiv << 8) | ((scldiv >> 1) << 16)*/,
 					fsl_lpspi->base + IMX7ULP_CCR);
 
@@ -427,11 +368,11 @@ static int fsl_lpspi_dma_configure(struct spi_controller *controller)
 	default:
 		return -EINVAL;
 	}
-	
+
 	tx.direction = DMA_MEM_TO_DEV;
 	tx.dst_addr = fsl_lpspi->base_phys + IMX7ULP_TDR;
 	tx.dst_addr_width = buswidth;
-	tx.dst_maxburst = 8;
+	tx.dst_maxburst = 1;
 	ret = dmaengine_slave_config(controller->dma_tx, &tx);
 	if (ret) {
 		dev_err(fsl_lpspi->dev, "TX dma configuration failed with %d\n",
@@ -442,7 +383,7 @@ static int fsl_lpspi_dma_configure(struct spi_controller *controller)
 	rx.direction = DMA_DEV_TO_MEM;
 	rx.src_addr = fsl_lpspi->base_phys + IMX7ULP_RDR;
 	rx.src_addr_width = buswidth;
-	rx.src_maxburst = 8;
+	rx.src_maxburst = 1;
 	ret = dmaengine_slave_config(controller->dma_rx, &rx);
 	if (ret) {
 		dev_err(fsl_lpspi->dev, "RX dma configuration failed with %d\n",
@@ -463,12 +404,11 @@ static int fsl_lpspi_config(struct fsl_lpspi_data *fsl_lpspi)
 		if (ret)
 			return ret;
 	}
-	//printk(KERN_INFO "fsl_lpspi_config\n");
+
 	fsl_lpspi_set_watermark(fsl_lpspi);
 
-	if (!fsl_lpspi->is_slave){
+	if (!fsl_lpspi->is_slave)
 		temp = CFGR1_MASTER;
-	}
 	else
 		temp = CFGR1_PINCFG;
 	/*if (fsl_lpspi->config.mode & SPI_CS_HIGH)
@@ -500,17 +440,13 @@ static int fsl_lpspi_setup_transfer(struct spi_controller *controller,
 	fsl_lpspi->config.mode = spi->mode;
 	fsl_lpspi->config.bpw = t->bits_per_word;
 	fsl_lpspi->config.speed_hz = t->speed_hz;
-	//printk(KERN_INFO "speed 1 : speed_hz : %d", t->speed_hz);
-
 	if (fsl_lpspi->is_only_cs1)
 		fsl_lpspi->config.chip_select = 1;
 	else
 		fsl_lpspi->config.chip_select = spi->chip_select;
 
-	if (!fsl_lpspi->config.speed_hz){
+	if (!fsl_lpspi->config.speed_hz)
 		fsl_lpspi->config.speed_hz = spi->max_speed_hz;
-		//printk(KERN_INFO "speed 2 : max_spped : %d", spi->max_speed_hz);
-	}
 	if (!fsl_lpspi->config.bpw)
 		fsl_lpspi->config.bpw = spi->bits_per_word;
 
@@ -531,10 +467,10 @@ static int fsl_lpspi_setup_transfer(struct spi_controller *controller,
 	else
 		fsl_lpspi->watermark = fsl_lpspi->txfifosize;
 
-	/*if (fsl_lpspi_can_dma(controller, spi, t))
+	if (fsl_lpspi_can_dma(controller, spi, t))
 		fsl_lpspi->usedma = 1;
-	else*/
-	fsl_lpspi->usedma = 0;
+	else
+		fsl_lpspi->usedma = 0;
 
 	return fsl_lpspi_config(fsl_lpspi);
 }
@@ -670,7 +606,6 @@ static int fsl_lpspi_dma_transfer(struct spi_controller *controller,
 	if (!fsl_lpspi->is_slave) {
 		transfer_timeout = fsl_lpspi_calculate_timeout(fsl_lpspi,
 							       transfer->len);
-		//printk(KERN_INFO "len : %d", transfer_timeout);
 
 		/* Wait eDMA to finish the data transfer.*/
 		timeout = wait_for_completion_timeout(&fsl_lpspi->dma_tx_completion,
@@ -909,9 +844,6 @@ static int fsl_lpspi_probe(struct platform_device *pdev)
 	u32 temp;
 	bool is_slave;
 
-
-
-
 	if (!np && !lpspi_platform_info) {
 		dev_err(&pdev->dev, "can't get the platform data\n");
 		return -EINVAL;
@@ -1035,14 +967,10 @@ static int fsl_lpspi_probe(struct platform_device *pdev)
 		dev_err(fsl_lpspi->dev, "failed to enable clock\n");
 		goto out_controller_put;
 	}
-		
-
 
 	temp = readl(fsl_lpspi->base + IMX7ULP_PARAM);
 	fsl_lpspi->txfifosize = 1 << (temp & 0x0f);
-	//printk(KERN_INFO "txfifo : %d\n", fsl_lpspi->txfifosize); : 64
 	fsl_lpspi->rxfifosize = 1 << ((temp >> 8) & 0x0f);
-	//printk(KERN_INFO "rxfifo : %d\n", fsl_lpspi->rxfifosize); : 64
 
 	ret = fsl_lpspi_dma_init(&pdev->dev, fsl_lpspi, controller);
 	if (ret == -EPROBE_DEFER)
@@ -1059,21 +987,11 @@ static int fsl_lpspi_probe(struct platform_device *pdev)
 		goto out_controller_put;
 	}
 #endif
-	/*timer*/
-	for_global_lpspi = *fsl_lpspi;
-	timer_setup(&timer, timer_handler, TIMER_FLAG);
-	mod_timer(&timer, jiffies+TIMER_TIMEOUT*HZ);
-	/*timer*/
+
 	return 0;
 
 out_controller_put:
 	spi_controller_put(controller);
-
-	/*timer*/
-	for_global_lpspi = *fsl_lpspi;
-	timer_setup(&timer, timer_handler, TIMER_FLAG);
-	mod_timer(&timer, jiffies+TIMER_TIMEOUT*HZ);
-	/*timer*/
 
 	return ret;
 }

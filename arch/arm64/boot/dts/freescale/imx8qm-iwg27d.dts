@@ -176,7 +176,7 @@
 		reset-gpios = <&lsio_gpio0 19 GPIO_ACTIVE_LOW>;
 
 		panel-timing {
-			/* 1024x768 @65Hz */
+			/* 1920*1080 @60Hz */
 			clock-frequency = <148500000>;
 			hactive = <1920>;
 			vactive = <1080>;
@@ -210,7 +210,7 @@
       	data-mapping = "jeida-24";
 
 		panel-timing {
-			/* 1024x768 @65Hz */
+			/* 1920*1080 @60Hz */
 			clock-frequency = <148500000>;
 			hactive = <1920>;
 			vactive = <1080>;
