@@ -85,7 +85,7 @@ static uint32_t mode;
 static uint8_t bits = 16;
 static char *input_file;
 static char *output_file;
-static uint32_t speed = 1250000;
+static uint32_t speed = 625000;
 static uint16_t delay;
 static int verbose;
 static int transfer_size;
@@ -96,43 +96,25 @@ static int interval = 5; /* interval in seconds for showing transfer rate */
 
 uint8_t default_tx1[] = {
 	0x11, 0x1C,
-	
-	/*0x40, 0x00, 0x00, 0x00, 0x00, 0x95,
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-	0xF0, 0x0D,*/
 };
 
 uint8_t default_tx2[] = {
+	0xFF, 0x1C,
+};
+
+uint8_t RD_ON[] = {
 	0x80, 0x01, 
-	/*0xFF, 0xFF, 0xFF, 0xFF,
-	0x40, 0x00, 0x00, 0x00, 0x00, 0x95,
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-	0xF0, 0x0D,*/
+
 };
-uint8_t default_tx2_1[] = {
+uint8_t RD_OFF[] = {
 	0x00, 0x01,
-	
-	/*0xFF, 0xFF, 0xFF, 0xFF,
-	0x40, 0x00, 0x00, 0x00, 0x00, 0x95,
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-	0xF0, 0x0D,*/
+
 };
-uint8_t default_tx3[] = {
+uint8_t RDADDR_touch[] = {
 	0x1C, 0x81,
        
-	/*0xFF, 0xFF, 0xFF, 0xFF,
-	0x40, 0x00, 0x00, 0x00, 0x00, 0x95,
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-	0xF0, 0x0D,*/
 };
+
 uint8_t default_tx4[] = {
 	0xFF, 0xFF, 0XFF, 0xFF,
 	0xFF, 0xFF, 0XFF, 0xFF,
@@ -140,7 +122,7 @@ uint8_t default_tx4[] = {
 	0xFF, 0xFF, 0XFF, 0xFF,
 };
 
-uint8_t default_rx[ARRAY_SIZE(default_tx1)] = {0xbb, 0xbb};
+uint8_t default_rx[ARRAY_SIZE(default_tx1)] = {0xcc, 0xcc};
 
 char *input_tx;
 
@@ -590,19 +572,33 @@ int main(int argc, char *argv[])
 			
 		}*/
 		
-		int i=10;
-		while(i--){
+		
+		for(int i=5;i>0;i--){
 			transfer(fd, default_tx1, default_rx, sizeof(default_tx1));
 			for(int j=1000000;j>0;j--);
-			transfer(fd, default_tx2, default_rx, sizeof(default_tx2));
+			transfer(fd, RD_ON, default_rx, sizeof(default_tx2));
 			for(int j=1000000;j>0;j--);
-			transfer(fd, default_tx3, default_rx, sizeof(default_tx3));
+			transfer(fd, RDADDR_touch, default_rx, sizeof(default_tx3));
 			for(int j=1000000;j>0;j--);
-			transfer(fd, default_tx3, default_rx, sizeof(default_tx3));
+			transfer(fd, RDADDR_touch, default_rx, sizeof(default_tx3));
 			for(int j=1000000;j>0;j--);
-			//transfer(fd, default_tx4, default_rx, sizeof(default_tx4));
-			//for(int j=1000000;j>0;j--);
 		}
+
+		transfer(fd, RD_OFF, default_rx, sizeof(default_tx2));
+		for(int j=1000000;j>0;j--);
+
+		for(int i=5;i>0;i--){
+			transfer(fd, default_tx2, default_rx, sizeof(default_tx1));
+			for(int j=1000000;j>0;j--);
+			transfer(fd, RD_ON, default_rx, sizeof(default_tx2));
+			for(int j=1000000;j>0;j--);
+			transfer(fd, RDADDR_touch, default_rx, sizeof(default_tx3));
+			for(int j=1000000;j>0;j--);
+			transfer(fd, RDADDR_touch, default_rx, sizeof(default_tx3));
+			for(int j=1000000;j>0;j--);
+		}
+
+		
 		
 		
 	}
