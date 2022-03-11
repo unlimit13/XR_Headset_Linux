@@ -126,7 +126,7 @@
 
 	lvds0_backlight: lvds0_backlight { // LVDS1: LVDS Backlight Enable 
 		compatible = "pwm-backlight";
-		pwms = <&pwm3_lpcg 0 100000 0>;
+		pwms = <&pwm3_lpcg 0 100000>;
 		power-supply = <&reg_1p8v>;
 
 		brightness-levels = < 0  1  2  3  4  5  6  7  8  9
@@ -145,7 +145,7 @@
 	};
 	lvds1_backlight: lvds1_backlight { // LVDS1: LVDS Backlight Enable 
 		compatible = "pwm-backlight";
-		pwms = <&pwm3_lpcg 0 100000 0>;
+		pwms = <&pwm3_lpcg 0 100000>;
 		power-supply = <&reg_1p8v>;
 
 		brightness-levels = < 0  1  2  3  4  5  6  7  8  9
@@ -173,8 +173,8 @@
       	height-mm = <1080>;
 		status = "okay";
       	data-mapping = "jeida-24";
-		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
-		reset-gpios = <&lsio_gpio0 19 GPIO_ACTIVE_LOW>;
+		//enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>;
+		//reset-gpios = <&lsio_gpio0 19 GPIO_ACTIVE_LOW>;
 
 		panel-timing {
 			/* 1920*1080 @60Hz */
@@ -207,8 +207,8 @@
 		status = "okay";
 		width-mm = <1920>;
       	height-mm = <1080>;
-		enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>;
-		reset-gpios = <&lsio_gpio0 19 GPIO_ACTIVE_LOW>;
+		//enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
+		//reset-gpios = <&lsio_gpio0 1 GPIO_ACTIVE_LOW>;
       	data-mapping = "jeida-24";
 
 		panel-timing {

@@ -419,6 +419,7 @@ struct device *class_find_device(struct class *class, struct device *start,
 	}
 	class_dev_iter_exit(&iter);
 
+
 	return dev;
 }
 EXPORT_SYMBOL_GPL(class_find_device);
