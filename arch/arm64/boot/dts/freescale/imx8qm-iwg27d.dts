@@ -141,7 +141,7 @@
 				     90 91 92 93 94 95 96 97 98 99
 				    100>;
 		default-brightness-level = <100>;
-		status = "disabled";
+		status = "okay";
 	};
 	lvds1_backlight: lvds1_backlight { // LVDS1: LVDS Backlight Enable 
 		compatible = "pwm-backlight";
@@ -160,10 +160,11 @@
 				     90 91 92 93 94 95 96 97 98 99
 				    100>;
 		default-brightness-level = <100>;
-		status = "disabled";
+		status = "okay";
 	};
 	lvds0_panel { // LVDS0: LVDS panel : LEFT 
-		compatible = "panel-lvds"; 
+		compatible = "panel-lvds";
+		label = "sony,ecx335s_left";
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_lvds0>;
 		backlight = <&lvds0_backlight>;
@@ -197,7 +198,8 @@
 		};
 	};
 	lvds1_panel { // LVDS1: LVDS panel : RIGHT
-		compatible = "panel-lvds"; 
+		compatible = "panel-lvds";
+		label = "sony,ecx335s_right";
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_lvds1>; //변경
 		backlight = <&lvds1_backlight>;

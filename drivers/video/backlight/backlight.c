@@ -619,12 +619,15 @@ struct backlight_device *of_find_backlight(struct device *dev)
 {
 	struct backlight_device *bd = NULL;
 	struct device_node *np;
-
+	printk(KERN_INFO "panel_lvds of_find_backlight 1");
 	if (!dev)
 		return NULL;
 
+	printk(KERN_INFO "panel_lvds of_find_backlight 2");
+
 	if (IS_ENABLED(CONFIG_OF) && dev->of_node) {
 		np = of_parse_phandle(dev->of_node, "backlight", 0);
+		printk(KERN_INFO "panel_lvds of_find_backlight 3");
 		if (np) {
 			bd = of_find_backlight_by_node(np);
 			of_node_put(np);
@@ -634,11 +637,12 @@ struct backlight_device *of_find_backlight(struct device *dev)
 			 * Note: gpio_backlight uses brightness as
 			 * power state during probe
 			 */
+			printk(KERN_INFO "panel_lvds of_find_backlight 4");
 			if (!bd->props.brightness)
 				bd->props.brightness = bd->props.max_brightness;
 		}
 	}
-
+	printk(KERN_INFO "panel_lvds of_find_backlight 5");
 	return bd;
 }
 EXPORT_SYMBOL(of_find_backlight);
@@ -660,15 +664,17 @@ struct backlight_device *devm_of_find_backlight(struct device *dev)
 {
 	struct backlight_device *bd;
 	int ret;
-
+	printk(KERN_INFO "panel_lvds BL 1");
 	bd = of_find_backlight(dev);
 	if (IS_ERR_OR_NULL(bd))
 		return bd;
+	printk(KERN_INFO "panel_lvds BL 2");
 	ret = devm_add_action(dev, devm_backlight_release, bd);
 	if (ret) {
 		backlight_put(bd);
 		return ERR_PTR(ret);
 	}
+	printk(KERN_INFO "panel_lvds BL 3");
 	return bd;
 }
 EXPORT_SYMBOL(devm_of_find_backlight);
