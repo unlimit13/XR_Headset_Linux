@@ -102,6 +102,10 @@ uint8_t default_tx2[] = {
 	0xFF, 0x1C,
 };
 
+uint8_t default_tx3[] = {
+	0xAA, 0x1C,
+};
+
 uint8_t RD_ON[] = {
 	0x80, 0x01, 
 
@@ -585,25 +589,31 @@ int main(int argc, char *argv[])
 		for(int i=5;i>0;i--){
 			transfer(fd, default_tx1, default_rx, sizeof(default_tx1));
 			for(int j=1000000;j>0;j--);
-			transfer(fd, RD_ON, default_rx, sizeof(default_tx2));
+			transfer(fd, RD_ON, default_rx, sizeof(RD_ON));
 			for(int j=1000000;j>0;j--);
-			transfer(fd, RDADDR_touch, default_rx, sizeof(default_tx3));
+			transfer(fd, RDADDR_touch, default_rx, sizeof(RDADDR_touch));
 			for(int j=1000000;j>0;j--);
-			transfer(fd, RDADDR_touch, default_rx, sizeof(default_tx3));
+			transfer(fd, RDADDR_touch, default_rx, sizeof(RDADDR_touch));
 			for(int j=1000000;j>0;j--);
 		}
 
 		transfer(fd, RD_OFF, default_rx, sizeof(default_tx2));
 		for(int j=1000000;j>0;j--);
+		transfer(fd, default_tx2, default_rx, sizeof(default_tx1));
+		for(int j=1000000;j>0;j--);
+		transfer(fd, RDADDR_touch, default_rx, sizeof(RDADDR_touch));
+		for(int j=1000000;j>0;j--);
+		transfer(fd, RDADDR_touch, default_rx, sizeof(RDADDR_touch));
+		for(int j=1000000;j>0;j--);
 
 		for(int i=5;i>0;i--){
-			transfer(fd, default_tx2, default_rx, sizeof(default_tx1));
+			transfer(fd, default_tx3, default_rx, sizeof(default_tx3));
 			for(int j=1000000;j>0;j--);
-			transfer(fd, RD_ON, default_rx, sizeof(default_tx2));
+			transfer(fd, RD_ON, default_rx, sizeof(RD_ON));
 			for(int j=1000000;j>0;j--);
-			transfer(fd, RDADDR_touch, default_rx, sizeof(default_tx3));
+			transfer(fd, RDADDR_touch, default_rx, sizeof(RDADDR_touch));
 			for(int j=1000000;j>0;j--);
-			transfer(fd, RDADDR_touch, default_rx, sizeof(default_tx3));
+			transfer(fd, RDADDR_touch, default_rx, sizeof(RDADDR_touch));
 			for(int j=1000000;j>0;j--);
 		}
 

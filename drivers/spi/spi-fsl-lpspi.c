@@ -326,7 +326,7 @@ static int fsl_lpspi_set_bitrate(struct fsl_lpspi_data *fsl_lpspi)
 		return -EINVAL;
 	}
 
-	for (prescale = 6; prescale < 8; prescale++) {
+	for (prescale = 5; prescale < 8; prescale++) {
 		scldiv = perclk_rate /
 			 (clkdivs[prescale] * config.speed_hz) - 2;
 		if (scldiv < 256) {
