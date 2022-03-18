@@ -126,7 +126,7 @@
 
 	lvds0_backlight: lvds0_backlight { // LVDS1: LVDS Backlight Enable 
 		compatible = "pwm-backlight";
-		pwms = <&pwm3_lpcg 0 100000>;
+		pwms = <&pwm2_lpcg 0 100000>;
 		power-supply = <&reg_1p8v>;
 
 		brightness-levels = < 0  1  2  3  4  5  6  7  8  9
@@ -163,21 +163,20 @@
 		status = "okay";
 	};
 	lvds0_panel { // LVDS0: LVDS panel : LEFT 
-		compatible = "panel-lvds";
+		compatible = "sony,ecx335s","panel-simple";
 		label = "sony,ecx335s_left";
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_lvds0>;
-		backlight = <&lvds0_backlight>;
+		//backlight = <&lvds0_backlight>;
 		power-supply = <&reg_10v>;
 		width-mm = <1920>;
       	height-mm = <1080>;
 		status = "okay";
-      	data-mapping = "jeida-24";
+      	data-mapping = "spwg-24";
 		//enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>;
 		//reset-gpios = <&lsio_gpio0 19 GPIO_ACTIVE_LOW>;
 
-		panel-timing {
-			/* 1920*1080 @60Hz */
+		/*panel-timing {
 			clock-frequency = <148500000>;
 			hactive = <1920>;
 			vactive = <1080>;
@@ -187,8 +186,22 @@
 			vfront-porch = <4>;
 			vback-porch = <36>;
 			vsync-len = <5>;
+		};*/
+		display-timings {
+			native-mode = <&timing0>;
+			timing0: 1080p24 {
+				/* 1920*1080 @60Hz */
+				clock-frequency = <148500000>;
+				hactive = <1920>;
+				vactive = <1080>;
+				hsync-len = <44>;
+				hfront-porch = <88>;
+				hback-porch = <148>;
+				vfront-porch = <4>;
+				vback-porch = <36>;
+				vsync-len = <5>;
+			};
 		};
-
 	
 		port {
 			panel_lvds0_in0: endpoint {
@@ -198,21 +211,20 @@
 		};
 	};
 	lvds1_panel { // LVDS1: LVDS panel : RIGHT
-		compatible = "panel-lvds";
+		compatible = "sony,ecx335s","panel-simple";
 		label = "sony,ecx335s_right";
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_lvds1>; //변경
-		backlight = <&lvds1_backlight>;
+		//backlight = <&lvds1_backlight>;
 		power-supply = <&reg_10v>;
 		status = "okay";
 		width-mm = <1920>;
       	height-mm = <1080>;
 		//enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
 		//reset-gpios = <&lsio_gpio0 1 GPIO_ACTIVE_LOW>;
-      	data-mapping = "jeida-24";
+      	data-mapping = "spwg-24";
 
-		panel-timing {
-			/* 1920*1080 @60Hz */
+		/*panel-timing {
 			clock-frequency = <148500000>;
 			hactive = <1920>;
 			vactive = <1080>;
@@ -222,6 +234,21 @@
 			vfront-porch = <4>;
 			vback-porch = <36>;
 			vsync-len = <5>;
+		};*/
+		display-timings {
+			native-mode = <&timing1>;
+			timing1: 1080p24 {
+				/* 1920*1080 @60Hz */
+				clock-frequency = <148500000>;
+				hactive = <1920>;
+				vactive = <1080>;
+				hsync-len = <44>;
+				hfront-porch = <88>;
+				hback-porch = <148>;
+				vfront-porch = <4>;
+				vback-porch = <36>;
+				vsync-len = <5>;
+			};
 		};
 		port {
 			panel_lvds1_in0: endpoint {
@@ -289,13 +316,13 @@
 	pinctrl-names = "default";
 	#pwm-cells = <2>;
 	pinctrl-0 = <&pinctrl_lvds0_pwm2_lpcg>;
-	status = "disabled";
+	status = "okay";
 };
 &pwm3_lpcg { /* LVDS1: LVDS PWM3 Control */
 	pinctrl-names = "default";
 	#pwm-cells = <2>;
 	pinctrl-0 = <&pinctrl_lvds1_pwm3_lpcg>;
-	status = "disabled";
+	status = "okay";
 };
 &ldb1_phy { /* LVDS0: LVDS LDB Phy */
 	status = "okay";
@@ -305,7 +332,7 @@
 	status = "okay";
 	fsl,dual-channel;
 	lvds-channel@0 {
-		fsl,data-mapping = "jeida";
+		fsl,data-mapping = "spwg";
 		fsl,data-width = <24>;
 		status = "okay";
 		port@1 {
@@ -323,7 +350,7 @@
 	status = "okay";
 	fsl,dual-channel;
 	lvds-channel@0 {
-		fsl,data-mapping = "jeida";
+		fsl,data-mapping = "spwg";
 		fsl,data-width = <24>; // not sure
 		status = "okay";
 		port@1 {

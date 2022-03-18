@@ -85,7 +85,7 @@ static uint32_t mode;
 static uint8_t bits = 16;
 static char *input_file;
 static char *output_file;
-static uint32_t speed = 1250000;
+static uint32_t speed = 625000;
 static uint16_t delay;
 static int verbose;
 static int transfer_size;

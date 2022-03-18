@@ -386,6 +386,7 @@ static void panel_simple_parse_panel_timing_node(struct device *dev,
 
 	for (i = 0; i < panel->desc->num_timings; i++) {
 		const struct display_timing *dt = &panel->desc->timings[i];
+		printk(KERN_INFO "panel_simple dt 1");
 
 		if (!PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, hactive) ||
 		    !PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, hfront_porch) ||
@@ -394,11 +395,42 @@ static void panel_simple_parse_panel_timing_node(struct device *dev,
 		    !PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, vactive) ||
 		    !PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, vfront_porch) ||
 		    !PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, vback_porch) ||
-		    !PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, vsync_len))
-			continue;
+		    !PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, vsync_len)){
+				if(!PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, hactive)){
+					printk(KERN_INFO "panel_simple dt_chk 1");
+				}
+				if(!PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, hfront_porch)){
+					printk(KERN_INFO "panel_simple dt_chk 2");
+				}
+				if(!PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, hback_porch)){
+					printk(KERN_INFO "panel_simple dt_chk 3");
+				}
+				if(!PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, hsync_len)){
+					printk(KERN_INFO "panel_simple dt_chk 4");
+				}
+				if(!PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, vactive)){
+					printk(KERN_INFO "panel_simple dt_chk 5");
+				}
+				if(!PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, vfront_porch)){
+					printk(KERN_INFO "panel_simple dt_chk 6");
+				}
+				if(!PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, vback_porch)){
+					printk(KERN_INFO "panel_simple dt_chk 7");
+				}
+				if(!PANEL_SIMPLE_BOUNDS_CHECK(ot, dt, vsync_len)){
+					printk(KERN_INFO "panel_simple dt_chk 8");
+				}
+
+				continue;
+			}
+			
+
+		printk(KERN_INFO "panel_simple dt 2");
 
 		if (ot->flags != dt->flags)
 			continue;
+
+		printk(KERN_INFO "panel_simple dt 3");
 
 		videomode_from_timing(ot, &vm);
 		drm_display_mode_from_videomode(&vm, &panel->override_mode);
@@ -418,6 +450,8 @@ static int panel_simple_probe(struct device *dev, const struct panel_desc *desc)
 	struct display_timing dt;
 	int err;
 
+	printk(KERN_INFO "panel_simple 1");
+
 	panel = devm_kzalloc(dev, sizeof(*panel), GFP_KERNEL);
 	if (!panel)
 		return -ENOMEM;
@@ -428,9 +462,13 @@ static int panel_simple_probe(struct device *dev, const struct panel_desc *desc)
 
 	panel->no_hpd = of_property_read_bool(dev->of_node, "no-hpd");
 
+	printk(KERN_INFO "panel_simple 2");
+
 	panel->supply = devm_regulator_get(dev, "power");
 	if (IS_ERR(panel->supply))
 		return PTR_ERR(panel->supply);
+
+	printk(KERN_INFO "panel_simple 3");
 
 	panel->enable_gpio = devm_gpiod_get_optional(dev, "enable",
 						     GPIOD_OUT_LOW);
@@ -441,6 +479,8 @@ static int panel_simple_probe(struct device *dev, const struct panel_desc *desc)
 		return err;
 	}
 
+	printk(KERN_INFO "panel_simple 4");
+
 	backlight = of_parse_phandle(dev->of_node, "backlight", 0);
 	if (backlight) {
 		panel->backlight = of_find_backlight_by_node(backlight);
@@ -449,6 +489,8 @@ static int panel_simple_probe(struct device *dev, const struct panel_desc *desc)
 		if (!panel->backlight)
 			return -EPROBE_DEFER;
 	}
+
+	printk(KERN_INFO "panel_simple 5");
 
 	ddc = of_parse_phandle(dev->of_node, "ddc-i2c-bus", 0);
 	if (ddc) {
@@ -460,6 +502,8 @@ static int panel_simple_probe(struct device *dev, const struct panel_desc *desc)
 			goto free_backlight;
 		}
 	}
+
+	printk(KERN_INFO "panel_simple 6");
 
 	if (!of_get_display_timing(dev->of_node, "panel-timing", &dt))
 		panel_simple_parse_panel_timing_node(dev, panel, &dt);
@@ -473,6 +517,8 @@ static int panel_simple_probe(struct device *dev, const struct panel_desc *desc)
 		goto free_ddc;
 
 	dev_set_drvdata(dev, panel);
+
+	printk(KERN_INFO "panel_simple 7");
 
 	return 0;
 
@@ -3145,15 +3191,15 @@ static const struct panel_desc arm_rtsm = {
 };
 
 static const struct display_timing sony_ecx335s_timing = {
-	.pixelclock = { 148500000, 148500000, 148500000 },
-	.hactive = { 1920, 1920, 1920 },
-	.hfront_porch = { 88, 528, 638 },
-	.hback_porch = { 148, 148, 148 },
-	.hsync_len = { 44, 44, 44 },
-	.vactive = { 1080, 1080, 1080 },
-	.vfront_porch = { 4, 4, 4 },
-	.vback_porch = { 36, 36, 36 },
-	.vsync_len = { 5, 5, 5 },
+	.pixelclock = { 148500000 },
+	.hactive = { 1920 },
+	.hfront_porch = { 88 },
+	.hback_porch = { 148 },
+	.hsync_len = { 44 },
+	.vactive = { 1080 },
+	.vfront_porch = { 4 },
+	.vback_porch = { 36 },
+	.vsync_len = { 5 },
 	//.flags = DISPLAY_FLAGS_DE_HIGH | DISPLAY_FLAGS_PIXDATA_NEGEDGE |
 		//DISPLAY_FLAGS_HSYNC_LOW | DISPLAY_FLAGS_VSYNC_LOW,
 };
@@ -3161,7 +3207,6 @@ static const struct display_timing sony_ecx335s_timing = {
 static const struct panel_desc sony_ecx335s = {
 	.timings = &sony_ecx335s_timing,
 	.num_timings = 1,
-	.num_modes = 3, 
 	.bpc = 8,
 	.size = {
 		.width = 1920,

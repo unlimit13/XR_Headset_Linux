@@ -563,7 +563,6 @@ int main(int argc, char *argv[])
 	} else{
 		//transfer(fd, default_tx1, default_rx, sizeof(default_tx1));
 		///for(int j=1000000;j>0;j--);
-		/*int i=0; //loop
 		int line=0;
 		for(int term=0;term<9;term++){
 			for(int rep=0;rep<segment[term];rep++){
@@ -571,22 +570,21 @@ int main(int argc, char *argv[])
 				convert_addr(pwrseq_tx[line]);
 				//printf("0x%x 0x%x\n", pwrseq_tx[line][0], pwrseq_tx[line++][1]);
 				//printf("----------\n");
-				for(i=0;i<1000;i++){
 				transfer(fd, pwrseq_tx[line], pwrseq_rx, sizeof(pwrseq_tx[line]));
-				}
-				i=0;
+				
+				
 				
 				line++;
 			}
 			
-			if(term!=8){
+			/*if(term<8){
 				sleep(interval_seq[term]);
-			}
+			}*/
 			
-		}*/
+		}
 		
 		
-		for(int i=1;i>0;i--){
+		/*for(int i=1;i>0;i--){
 			transfer(fd, default_tx1, default_rx, sizeof(default_tx1));
 			for(int j=1000000;j>0;j--);
 			transfer(fd, RD_ON, default_rx, sizeof(RD_ON));
@@ -615,7 +613,7 @@ int main(int argc, char *argv[])
 			for(int j=1000000;j>0;j--);
 			transfer(fd, RDADDR_touch, default_rx, sizeof(RDADDR_touch));
 			for(int j=1000000;j>0;j--);
-		}
+		}*/
 
 		
 		

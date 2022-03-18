@@ -248,9 +248,9 @@ static int panel_lvds_probe(struct platform_device *pdev)
 	}
 	printk(KERN_INFO "panel_lvds 3");
 	
-	/*lvds->backlight = devm_of_find_backlight(lvds->dev);
+	lvds->backlight = devm_of_find_backlight(lvds->dev);
 	if (IS_ERR(lvds->backlight))
-		return PTR_ERR(lvds->backlight);*/
+		return PTR_ERR(lvds->backlight);
 
 	/*
 	 * TODO: Handle all power supplies specified in the DT node in a generic
