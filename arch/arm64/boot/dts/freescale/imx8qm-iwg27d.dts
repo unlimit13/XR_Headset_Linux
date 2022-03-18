@@ -126,7 +126,7 @@
 
 	lvds0_backlight: lvds0_backlight { // LVDS1: LVDS Backlight Enable 
 		compatible = "pwm-backlight";
-		pwms = <&pwm2_lpcg 0 100000>;
+		pwms = <&pwm3_lpcg 0 100000>;
 		power-supply = <&reg_1p8v>;
 
 		brightness-levels = < 0  1  2  3  4  5  6  7  8  9
@@ -679,7 +679,7 @@
 		};
 		pinctrl_lvds0_pwm2_lpcg: lvds0pwm2_lpcggrp { /* LVDS1: LVDS PWM IOMUX Pin Configuration */
 			fsl,pins = <
-				IMX8QM_GPT1_COMPARE_LSIO_PWM2_OUT			0x00000020
+				IMX8QM_GPT1_COMPARE_LSIO_PWM2_OUT			0x00000021
 			>;
 		};
 		pinctrl_lvds1_pwm3_lpcg: lvds1pwm3_lpcggrp { /* LVDS1: LVDS PWM IOMUX Pin Configuration */
