@@ -30,7 +30,7 @@ static void pabort(const char *s)
 	abort();
 }
 int segment[9]={7,1,1,1,2,4,1,1,1};
-int interval_seq[8]={1,1,1,1,1,1,1,0};
+int interval_seq[8]={2,2,2,2,2,2,2,0};
 uint8_t pwrseq_tx[19][2] = {
     /* Serial Setting 1 : 7 */
     {0x02, 0x40}, 
@@ -564,7 +564,7 @@ int main(int argc, char *argv[])
 		//transfer(fd, default_tx1, default_rx, sizeof(default_tx1));
 		///for(int j=1000000;j>0;j--);
 		int line=0;
-		for(int term=0;term<9;term++){
+		for(int term=0;term<7;term++){
 			for(int rep=0;rep<segment[term];rep++){
 				//printf("0x%x 0x%x\n", pwrseq_tx[line][0], pwrseq_tx[line][1]);
 				convert_addr(pwrseq_tx[line]);
@@ -572,14 +572,12 @@ int main(int argc, char *argv[])
 				//printf("----------\n");
 				transfer(fd, pwrseq_tx[line], pwrseq_rx, sizeof(pwrseq_tx[line]));
 				
-				
-				
 				line++;
 			}
 			
-			/*if(term<8){
+			if(term<7){
 				sleep(interval_seq[term]);
-			}*/
+			}
 			
 		}
 		
