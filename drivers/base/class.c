@@ -402,9 +402,13 @@ struct device *class_find_device(struct class *class, struct device *start,
 	struct class_dev_iter iter;
 	struct device *dev;
 
-	if (!class)
+	if (!class){
+		pr_info("check 1");
 		return NULL;
+	}
+		
 	if (!class->p) {
+		pr_info("check 2");
 		WARN(1, "%s called for class '%s' before it was initialized",
 		     __func__, class->name);
 		return NULL;

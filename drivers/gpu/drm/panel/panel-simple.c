@@ -485,9 +485,12 @@ static int panel_simple_probe(struct device *dev, const struct panel_desc *desc)
 	if (backlight) {
 		panel->backlight = of_find_backlight_by_node(backlight);
 		of_node_put(backlight);
-
-		if (!panel->backlight)
+		
+		if (!panel->backlight){
+			printk(KERN_INFO "panel_simple 4.1");
 			return -EPROBE_DEFER;
+		}
+			
 	}
 
 	printk(KERN_INFO "panel_simple 5");
