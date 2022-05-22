@@ -792,7 +792,7 @@
 	status = "okay";
 };
 
-/*&ldb1 {
+&ldb1 {
 	status = "okay";
 
 	lvds-channel@0 {
@@ -809,9 +809,9 @@
 		};
 	};
 };
-*/
 
-/*&i2c1_lvds0 {
+
+&i2c1_lvds0 {
 	#address-cells = <1>;
 	#size-cells = <0>;
 	pinctrl-names = "default";
@@ -831,13 +831,13 @@
 			};
 		};
 	};
-};*/
+};
 
 &ldb2_phy {
 	status = "okay";
 };
 
-/*&ldb2 {
+&ldb2 {
 	status = "okay";
 
 	lvds-channel@0 {
@@ -853,9 +853,9 @@
 			};
 		};
 	};
-};*/
+};
 
-/*&i2c1_lvds1 {
+&i2c1_lvds1 {
 	#address-cells = <1>;
 	#size-cells = <0>;
 	pinctrl-names = "default";
@@ -875,7 +875,7 @@
 			};
 		};
 	};
-};*/
+};
 
 &vpu_decoder {
 	core_type = <2>;

@@ -510,9 +510,9 @@
 	xen,passthrough;
 };
 
-/*&i2c1_lvds0 {
+&i2c1_lvds0 {
 	xen,passthrough;
-};*/
+};
 
 &ldb1_phy {
 	xen,passthrough;

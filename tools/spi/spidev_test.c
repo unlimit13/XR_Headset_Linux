@@ -80,7 +80,7 @@ void convert_addr(uint8_t origin[2]){
 }
 
 
-static const char *device = "/dev/spidev0.0";
+static const char *device = "/dev/spidev0.1";
 static uint32_t mode;
 static uint8_t bits = 16;
 static char *input_file;

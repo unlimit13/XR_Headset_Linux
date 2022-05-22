@@ -25,13 +25,13 @@
 	status = "disabled";
 };
 
-/*&i2c1_lvds0 {
+&i2c1_lvds0 {
 	lvds-to-hdmi-bridge@4c {
 		status = "disabled";
 	};
-};*/
+};
 
-///delete-node/ &it6263_1_in;
+/delete-node/ &it6263_1_in;
 
 &ldb2 {
 	status = "okay";
