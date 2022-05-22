@@ -1,0 +1,97 @@
+// SPDX-License-Identifier: GPL-2.0+
+/*
+ * Copyright (c) 2021-22 iWave Systems Technologies Pvt. Ltd.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+#include "imx8qm-iwg27m.dtsi"
+#include "imx8qm-iwg27d.dtsi"
+
+&mipi1_dphy { /* MIPI_DSI1: MIPI DSI Phy */
+        status = "disabled";
+};
+
+&mipi1_dsi_host { /* MIPI_DSI1: MIPI DSI Host */
+        fsl,clock-drop-level = <2>;
+        status = "disabled";
+
+        panel@0 {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                compatible = "renesassp,r69429";
+                pinctrl-0 = <&pinctrl_mipi_dsi1>;
+                pinctrl-names = "default";
+                reset-gpios = <&lsio_gpio3 6 GPIO_ACTIVE_LOW>;
+                reg = <0>;
+                dsi-lanes = <4>;
+                video-mode = <2>;
+                width-mm = <95>;
+                height-mm = <152>;
+                v3p3-supply = <&reg_3p3v>;
+                v1p8-supply = <&reg_1p8v>;
+                status = "disabled";
+
+                port@0 {
+                        reg = <0>;
+                        panel1_in: endpoint {
+                                remote-endpoint = <&mipi1_panel_out>;
+                        };
+                };
+        };
+
+        ports {
+                                /delete-node/ port@1;
+
+                port@1 {
+                        reg = <1>;
+                        mipi1_panel_out: endpoint {
+                                remote-endpoint = <&panel1_in>;
+                        };
+                };
+        };
+};
+
+&i2c0_lvds0 {
+
+        touchscreen@5d {/* Touch: Goodix Touch panel */
+                compatible = "goodix,gt911";
+                reg = <0x5d>;
+                pinctrl-0 = <&pinctrl_goodix_touch>;
+                pinctrl-names = "default";
+                interrupt-parent = <&lsio_gpio3>;
+                interrupts = <11 IRQ_TYPE_EDGE_FALLING>;
+                irq-gpios = <&lsio_gpio3 11 GPIO_ACTIVE_HIGH>;
+                reset-gpios = <&lsio_gpio1 15 GPIO_ACTIVE_HIGH>;
+                touchscreen-size-x = <1200>;
+                touchscreen-size-y = <1920>;
+                status = "disabled";
+        };
+};
+
+&iomuxc {
+
+        imx8qm-iwg27m {
+
+                pinctrl_goodix_touch: gooidxtouch { /* Touch: IOMUX Pin Configuration */
+                        fsl,pins = <
+                                IMX8QM_SPI2_CS1_LSIO_GPIO3_IO11                         0x00000021 /* Touch IRQ GPIO */
+                                IMX8QM_LVDS1_I2C1_SDA_LSIO_GPIO1_IO15			0x00000021 /* Touch Reset GPIO */
+                        >;
+                };
+
+                pinctrl_mipi_dsi1: mipidsi1 { /* MIPI_DSI1: LCD IOMUX Pin Configuration */
+                        fsl,pins = <
+                                IMX8QM_SPI0_CS1_LSIO_GPIO3_IO06				0x00000021 /* MIPI-DSI Reset GPIO */
+                        >;
+                };
+	};
+};

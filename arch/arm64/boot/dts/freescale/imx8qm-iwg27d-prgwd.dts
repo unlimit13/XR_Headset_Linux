@@ -1,0 +1,311 @@
+// SPDX-License-Identifier: GPL-2.0+
+/*
+ * Copyright (c) 2021-22 iWave Systems Technologies Pvt. Ltd.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/dts-v1/;
+
+#include "imx8qm-iwg27m.dtsi"
+#include "imx8qm-iwg27d.dtsi"
+
+/ {
+        clocks {
+                #address-cells = <1>;
+                #size-cells = <0>;
+
+                wm8960_clk: ext24Mz { /* wm8960: External Audio Clock */
+                        compatible = "fixed-clock";
+                        clock-frequency = <24000000>;
+                        reg=<0>;
+                        #clock-cells = <0>;
+                };
+        };
+
+        lvds0_panel { /* LVDS0: LVDS panel */ // LEFT
+                compatible = "sony,ecx335s";
+                backlight = <&lvds0_backlight>;
+                pinctrl-names = "default";
+                pinctrl-0 = <&pinctrl_lvds0>;
+                power-supply = <&reg_1p8v>;
+                enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>;
+                reset-gpios = <&lsio_gpio0 19 GPIO_ACTIVE_LOW>;
+                status = "okay";
+
+                port {
+                        panel_lvds0_in: endpoint {
+                                remote-endpoint = <&lvds0_out>;
+                        };
+                };
+        };
+        lvds1_panel { /* LVDS1: LVDS panel */ // RIGHT
+                compatible = "sony,ecx335s";
+                backlight = <&lvds1_backlight>;
+                pinctrl-names = "default";
+                pinctrl-0 = <&pinctrl_lvds1>;
+                power-supply = <&reg_1p8v>;
+                enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
+                reset-gpios = <&lsio_gpio0 1 GPIO_ACTIVE_LOW>;
+                status = "okay";
+
+                port {
+                        panel_lvds1_in: endpoint {
+                                remote-endpoint = <&lvds1_out>;
+                        };
+                };
+        };
+        lvds0_backlight: lvds0_backlight { /* LVDS1: LVDS Backlight Enable */
+                compatible = "pwm-backlight";
+                pwms = <&pwm_lvds0 0 100000 0>;
+                power-supply = <&reg_1p8v>;
+
+                brightness-levels = < 0  1  2  3  4  5  6  7  8  9
+                                     10 11 12 13 14 15 16 17 18 19
+                                     20 21 22 23 24 25 26 27 28 29
+                                     30 31 32 33 34 35 36 37 38 39
+                                     40 41 42 43 44 45 46 47 48 49
+                                     50 51 52 53 54 55 56 57 58 59
+                                     60 61 62 63 64 65 66 67 68 69
+                                     70 71 72 73 74 75 76 77 78 79
+                                     80 81 82 83 84 85 86 87 88 89
+                                     90 91 92 93 94 95 96 97 98 99
+                                    100>;
+                default-brightness-level = <100>;
+                status = "okay";
+        };
+        lvds1_backlight: lvds1_backlight { /* LVDS1: LVDS Backlight Enable */
+                compatible = "pwm-backlight";
+                pwms = <&pwm_lvds1 0 100000 0>;
+                power-supply = <&reg_1p8v>;
+
+                brightness-levels = < 0  1  2  3  4  5  6  7  8  9
+                                     10 11 12 13 14 15 16 17 18 19
+                                     20 21 22 23 24 25 26 27 28 29
+                                     30 31 32 33 34 35 36 37 38 39
+                                     40 41 42 43 44 45 46 47 48 49
+                                     50 51 52 53 54 55 56 57 58 59
+                                     60 61 62 63 64 65 66 67 68 69
+                                     70 71 72 73 74 75 76 77 78 79
+                                     80 81 82 83 84 85 86 87 88 89
+                                     90 91 92 93 94 95 96 97 98 99
+                                    100>;
+                default-brightness-level = <100>;
+                status = "okay";
+        };
+
+        sound-wm8960 { /* WM8960: Audio Codec */
+                compatible = "fsl,imx-audio-wm8960";
+                model = "wm8960-audio";
+                audio-cpu = <&sai0>;
+                audio-codec = <&wm8960>;
+                audio-routing =
+                        "Headphone Jack", "HP_L",
+                        "Headphone Jack", "HP_R",
+                        "Ext Spk", "SPK_LP",
+                        "Ext Spk", "SPK_LN",
+                        "Ext Spk", "SPK_RP",
+                        "Ext Spk", "SPK_RN",
+                        "LINPUT2", "Mic Jack",
+                        "LINPUT3", "Mic Jack",
+                        "RINPUT1", "AMIC",
+                        "RINPUT2", "AMIC",
+                        "AMIC", "MICB";
+                status = "disabled";
+        };
+};
+
+&pwm_lvds0 { /* LVDS1: LVDS PWM3 Control */
+        pinctrl-names = "default";
+        pinctrl-0 = <&pinctrl_lvds0_pwm>;
+        status = "okay";
+};
+&pwm_lvds1 { /* LVDS1: LVDS PWM3 Control */
+        pinctrl-names = "default";
+        pinctrl-0 = <&pinctrl_lvds1_pwm>;
+        status = "okay";
+};
+
+&ldb1_phy { /* LVDS1: LVDS LDB Phy */
+        status = "okay";
+};
+&ldb2_phy { /* LVDS1: LVDS LDB Phy */
+        status = "okay";
+};
+
+&ldb1 { /* LVDS1: LVDS Channel-0 Port Enable */
+        status = "okay";
+
+        lvds-channel@0 {
+                fsl,data-mapping = "spwg";
+                fsl,data-width = <24>;
+                fsl,dual-channel;
+                status = "okay";
+                port@1 {
+                        lvds0_out: endpoint {
+                                remote-endpoint = <&panel_lvds0_in>;
+                        };
+                };
+        };
+};
+&ldb2 { /* LVDS1: LVDS Channel-0 Port Enable */
+        status = "okay";
+        
+        lvds-channel@0 {
+                fsl,data-mapping = "spwg";
+                fsl,data-width = <24>;
+                fsl,dual-channel;
+                status = "okay";
+                port@1 {
+                        lvds1_out: endpoint {
+                                remote-endpoint = <&panel_lvds1_in>;
+                        };
+                };
+        };
+};
+
+
+&irqsteer_lvds0{
+        status="okay";
+};
+
+
+&lpspi2 { // LPSPI2: SPI Flash Device 
+        pinctrl-names = "default";
+        pinctrl-0 = <&pinctrl_lpspi2>;
+        //cs-gpios = <&lsio_gpio3 10 GPIO_ACTIVE_LOW>;
+        fsl,spi-num-chipselects = <1>;
+        assigned-clock-rates = <80000000>;
+        status = "disabled";
+
+
+};
+&lpspi3 { /* LPSPI3: SPI Flash Device */
+        pinctrl-names = "default";
+        pinctrl-0 = <&pinctrl_lpspi3>;
+        fsl,spi-num-chipselects = <2>;
+        cs-gpios = <&lsio_gpio2 20 GPIO_ACTIVE_LOW>, <&lsio_gpio2 21 GPIO_ACTIVE_LOW>;
+        assigned-clock-rates = <80000000>;
+        spi-cpha;
+	spi-cpol;
+	status = "okay";
+
+        disp_left:spidev@0 {
+        	reg=<0>;
+        	#address-cells = <1>;
+                #size-cells = <1>;
+        	compatible = "sony,ecx335s_left";
+        	spi-max-frequency = <2500000>;
+        	status = "okay";        
+        };
+        disp_right:spidev@1 {
+        	reg=<1>;
+        	#address-cells = <1>;
+                #size-cells = <1>;
+        	compatible = "sony,ecx335s_right";
+        	spi-max-frequency = <2500000>;
+        	status = "okay";
+        };
+};
+
+&sai0 { /* WM8960: Serial Audio Interface for WM8960 Audio Codec */
+	#sound-dai-cells = <0>;
+        assigned-clocks = <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
+                        <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
+                        <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
+                        <&sai0_lpcg 0>;
+        assigned-clock-rates = <786432000>, <49152000>, <12288000>, <49152000>;
+        pinctrl-names = "default";
+        pinctrl-0 = <&pinctrl_sai0>;
+        status = "disabled";
+};
+
+&i2c1 {
+        wm8960: wm8960@1a { /* WM8960: Audio Codec */
+		#sound-dai-cells = <0>;
+                compatible = "wlf,wm8960";
+                reg = <0x1a>;
+                clocks = <&wm8960_clk 0>;
+                clock-names = "mclk";
+		clock-frequency = <24000000>;
+                wlf,shared-lrclk;
+        	status = "disabled";
+        };
+};
+
+&iomuxc {
+
+        imx8qm-iwg27m {
+                pinctrl_gpio: gpiogrp { /* GPIO: GPIO IOMUX Pin Configuration */
+                        fsl,pins = <
+                                IMX8QM_GPT1_COMPARE_LSIO_GPIO0_IO19                     0x00000021
+				IMX8QM_SIM0_RST_LSIO_GPIO0_IO01		                0x00000021                       
+                        >;
+                };                
+ 		pinctrl_lvds0: lvds0grp { /* LVDS1: LVDS panel IOMUX Pin Configuration */
+                        fsl,pins = <
+                                /*IMX8QM_PCIE_CTRL1_PERST_B_LSIO_GPIO5_IO00               0x00000021*/ /* LVDS Power Enable GPIO */
+				/*IMX8QM_LVDS1_I2C0_SCL_LSIO_GPIO1_IO12			0x00000021
+				IMX8QM_LVDS1_I2C0_SDA_LSIO_GPIO1_IO13                   0x00000021
+				IMX8QM_LVDS0_I2C0_SCL_LSIO_GPIO1_IO06                   0x00000021
+				IMX8QM_LVDS0_I2C0_SDA_LSIO_GPIO1_IO07			0x00000021*/     
+                                IMX8QM_MIPI_CSI0_I2C0_SCL_MIPI_CSI0_I2C0_SCL            0xc2000020
+                                IMX8QM_MIPI_CSI0_I2C0_SDA_MIPI_CSI0_I2C0_SDA            0xc2000020                          
+                        >;
+                };
+
+                pinctrl_lvds0_pwm: lvds0_pwm_grp { /* LVDS1: LVDS PWM IOMUX Pin Configuration */
+                        fsl,pins = <
+                                /*IMX8QM_GPT0_COMPARE_LSIO_PWM3_OUT                       0x00000020*/
+                                IMX8QM_LVDS0_GPIO00_LVDS0_PWM0_OUT			0x00000020
+                        >;
+                };               
+		pinctrl_lvds1: lvds1grp { /* LVDS1: LVDS panel IOMUX Pin Configuration */
+                        fsl,pins = <
+                                /*IMX8QM_PCIE_CTRL1_PERST_B_LSIO_GPIO5_IO00               0x00000021*/ /* LVDS Power Enable GPIO */
+				/*IMX8QM_LVDS1_I2C1_SCL_LSIO_GPIO1_IO14			0x00000021
+				IMX8QM_LVDS1_I2C1_SDA_LSIO_GPIO1_IO15                   0x00000021
+				IMX8QM_LVDS0_I2C1_SCL_LSIO_GPIO1_IO08                   0x00000021
+				IMX8QM_LVDS0_I2C1_SDA_LSIO_GPIO1_IO09			0x00000021*/
+                                IMX8QM_MIPI_CSI1_I2C0_SCL_MIPI_CSI1_I2C0_SCL            0xc2000020
+                                IMX8QM_MIPI_CSI1_I2C0_SDA_MIPI_CSI1_I2C0_SDA            0xc2000020  
+                        >;
+                };
+
+                pinctrl_lvds1_pwm: lvds1_pwm_grp { /* LVDS1: LVDS PWM IOMUX Pin Configuration */
+                        fsl,pins = <
+                                /*IMX8QM_GPT0_COMPARE_LSIO_PWM3_OUT                       0x00000020*/
+                                IMX8QM_LVDS1_GPIO00_LVDS1_PWM0_OUT			0x00000020
+                        >;
+                };
+
+                pinctrl_lpspi2: lpspi2grp { /* LPSPI2: LPSPI2 IOMUX Pin Configuration */
+                        fsl,pins = <
+                                IMX8QM_SPI2_SCK_DMA_SPI2_SCK                            0x0600004c
+                                IMX8QM_SPI2_SDO_DMA_SPI2_SDO                            0x0600004c
+                                IMX8QM_SPI2_SDI_DMA_SPI2_SDI                            0x0600004c
+				IMX8QM_SPI2_CS0_LSIO_GPIO3_IO10				0x0600004c
+				IMX8QM_SPI2_CS0_DMA_SPI2_CS0				0x0600004c
+				IMX8QM_SPI2_CS1_DMA_SPI2_CS1				0x0600004c                        
+                        >;
+                };
+
+	        pinctrl_sai0: sai0grp { /* SAI0: SAI0 IOMUX Pin Configuration */
+        	        fsl,pins = <
+                        	IMX8QM_SPI0_SDO_AUD_SAI0_TXD            		0x0600004c
+                      	 	IMX8QM_SPI0_SDI_AUD_SAI0_RXD             		0x0600004c
+				IMX8QM_SPI2_CS1_AUD_SAI0_TXFS				0x0600004c
+				IMX8QM_SPI0_CS1_AUD_SAI0_TXC				0x0600004c
+                	>;
+        	};
+
+	};
+};
