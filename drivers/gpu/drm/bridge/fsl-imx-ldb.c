@@ -174,21 +174,23 @@ int ldb_bind(struct ldb *ldb, struct drm_encoder **encoder)
 	struct device_node *child;
 	int ret = 0;
 	int i;
-
 	ldb->regmap = syscon_regmap_lookup_by_phandle(np, "gpr");
 	if (IS_ERR(ldb->regmap)) {
 		dev_err(dev, "failed to get parent regmap\n");
 		return PTR_ERR(ldb->regmap);
 	}
-
-	if (pm_runtime_enabled(dev))
+	if (pm_runtime_enabled(dev)){
 		pm_runtime_get_sync(dev);
+	}
+		
 
 	/* disable LDB by resetting the control register to POR default */
 	regmap_write(ldb->regmap, ldb->ctrl_reg, 0);
 
-	if (pm_runtime_enabled(dev))
+	if (pm_runtime_enabled(dev)){
 		pm_runtime_put(dev);
+	}
+		
 
 	ldb->dual = of_property_read_bool(np, "fsl,dual-channel");
 	if (ldb->dual)
@@ -197,15 +199,16 @@ int ldb_bind(struct ldb *ldb, struct drm_encoder **encoder)
 	for_each_child_of_node(np, child) {
 		struct ldb_channel *ldb_ch;
 		int bus_format;
-
 		ret = of_property_read_u32(child, "reg", &i);
 		if (ret || i < 0 || i > 1) {
 			ret = -EINVAL;
 			goto free_child;
 		}
 
-		if (!of_device_is_available(child))
+		if (!of_device_is_available(child)){
 			continue;
+		}
+			
 
 		if (ldb->dual && i > 0) {
 			dev_warn(dev, "dual-channel mode, ignoring second output\n");
@@ -217,12 +220,15 @@ int ldb_bind(struct ldb *ldb, struct drm_encoder **encoder)
 		ldb_ch->chno = i;
 		ldb_ch->is_valid = false;
 
+
 		ret = drm_of_find_panel_or_bridge(child,
 						  ldb->output_port, 0,
 						  &ldb_ch->panel,
 						  &ldb_ch->next_bridge);
-		if (ret && ret != -ENODEV)
+		if (ret && ret != -ENODEV){
 			goto free_child;
+		}
+			
 
 		bus_format = of_get_bus_format(dev, child);
 		if (bus_format == -EINVAL) {
@@ -255,7 +261,6 @@ int ldb_bind(struct ldb *ldb, struct drm_encoder **encoder)
 		ldb_ch->bridge.driver_private = ldb_ch;
 		ldb_ch->bridge.funcs = &ldb_bridge_funcs;
 		ldb_ch->bridge.of_node = child;
-
 		ret = drm_bridge_attach(encoder[i], &ldb_ch->bridge, NULL, 0);
 		if (ret) {
 			dev_err(dev,
@@ -263,7 +268,6 @@ int ldb_bind(struct ldb *ldb, struct drm_encoder **encoder)
 				ret);
 			goto free_child;
 		}
-
 		ldb_ch->is_valid = true;
 	}
 

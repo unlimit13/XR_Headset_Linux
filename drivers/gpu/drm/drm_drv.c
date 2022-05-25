@@ -889,8 +889,9 @@ int drm_dev_register(struct drm_device *dev, unsigned long flags)
 			goto err_minors;
 	}
 
-	if (drm_core_check_feature(dev, DRIVER_MODESET))
+	if (drm_core_check_feature(dev, DRIVER_MODESET)){		
 		drm_modeset_register_all(dev);
+	}
 
 	ret = 0;
 

@@ -3989,7 +3989,7 @@ static const struct panel_desc sony_ecx335s = {
 		.width = 1920,
 		.height = 1080,
 	},
-	.bus_format = MEDIA_BUS_FMT_RGB888_1X7X4_SPWG,
+	.bus_format = MEDIA_BUS_FMT_RGB888_1X7X4_JEIDA,
 	.connector_type = DRM_MODE_CONNECTOR_LVDS
 }; //수정요망
 

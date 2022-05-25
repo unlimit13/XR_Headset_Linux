@@ -502,7 +502,6 @@ EXPORT_SYMBOL(drm_connector_cleanup);
 int drm_connector_register(struct drm_connector *connector)
 {
 	int ret = 0;
-
 	if (!connector->dev->registered)
 		return 0;
 
@@ -584,7 +583,6 @@ int drm_connector_register_all(struct drm_device *dev)
 	struct drm_connector *connector;
 	struct drm_connector_list_iter conn_iter;
 	int ret = 0;
-
 	drm_connector_list_iter_begin(dev, &conn_iter);
 	drm_for_each_connector_iter(connector, &conn_iter) {
 		ret = drm_connector_register(connector);
@@ -592,9 +590,10 @@ int drm_connector_register_all(struct drm_device *dev)
 			break;
 	}
 	drm_connector_list_iter_end(&conn_iter);
-
-	if (ret)
+	if (ret){
 		drm_connector_unregister_all(dev);
+	}
+		
 	return ret;
 }
 

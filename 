@@ -1,0 +1,613 @@
+block/blk-cgroup.c <unknown> 1278 	.bind = blkcg_bind,
+crypto/af_alg.c <unknown> 359 	.bind		=	alg_bind,
+crypto/algif_aead.c <unknown> 366 	.bind		=	sock_no_bind,
+crypto/algif_aead.c <unknown> 457 	.bind		=	sock_no_bind,
+crypto/algif_aead.c <unknown> 578 	.bind		=	aead_bind,
+crypto/algif_hash.c <unknown> 283 	.bind		=	sock_no_bind,
+crypto/algif_hash.c <unknown> 385 	.bind		=	sock_no_bind,
+crypto/algif_hash.c <unknown> 457 	.bind		=	hash_bind,
+crypto/algif_rng.c <unknown> 174 	.bind		=	sock_no_bind,
+crypto/algif_rng.c <unknown> 193 	.bind		=	sock_no_bind,
+crypto/algif_rng.c <unknown> 318 	.bind		=	rng_bind,
+crypto/algif_skcipher.c <unknown> 192 	.bind		=	sock_no_bind,
+crypto/algif_skcipher.c <unknown> 283 	.bind		=	sock_no_bind,
+crypto/algif_skcipher.c <unknown> 364 	.bind		=	skcipher_bind,
+drivers/acpi/acpi_lpss.c <unknown> 1330 	.bind = acpi_lpss_bind,
+drivers/acpi/acpi_video.c <unknown> 1370 		active_list[count].bind_info = NULL;
+drivers/acpi/acpi_video.c <unknown> 1481 		video_device = video->attached_array[i].bind_info;
+drivers/acpi/acpi_video.c <unknown> 1723 		video_device = video->attached_array[i].bind_info;
+drivers/acpi/thermal.c <unknown> 802 	.bind = acpi_thermal_bind_cooling_device,
+drivers/android/binder.c <unknown> 6074 	binder_device->context.binder_context_mgr_uid = INVALID_UID;
+drivers/android/binderfs.c <unknown> 163 	device->context.binder_context_mgr_uid = INVALID_UID;
+drivers/base/component.c <unknown> 464  * &component_master_ops.bind from @ops. Must be unregistered by calling
+drivers/base/component.c <unknown> 629  * &component_ops.bind functions. Should be called from
+drivers/base/component.c <unknown> 630  * &component_master_ops.bind.
+drivers/char/raw.c <unknown> 78 	if (!raw_devices[minor].binding)
+drivers/char/raw.c <unknown> 80 	bdev = blkdev_get_by_dev(raw_devices[minor].binding,
+drivers/char/raw.c <unknown> 193 	*dev = raw_devices[number].binding;
+drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c <unknown> 691 	.bind	= amdgpu_dm_audio_component_bind,
+drivers/gpu/drm/arm/display/komeda/komeda_drv.c <unknown> 91 	.bind	= komeda_bind,
+drivers/gpu/drm/arm/hdlcd_drv.c <unknown> 353 	.bind		= hdlcd_drm_bind,
+drivers/gpu/drm/arm/malidp_drv.c <unknown> 927 	.bind = malidp_bind,
+drivers/gpu/drm/armada/armada_crtc.c <unknown> 1052 	.bind = armada_lcd_bind,
+drivers/gpu/drm/armada/armada_drv.c <unknown> 211 	.bind = armada_drm_bind,
+drivers/gpu/drm/bridge/nwl-dsi.c <unknown> 2060 	.bind	= nwl_dsi_bind,
+drivers/gpu/drm/drm_of.c <unknown> 112  * satisfy their .bind requirements
+drivers/gpu/drm/drm_of.c <unknown> 130 	 * called from encoder's .bind callbacks works as expected
+drivers/gpu/drm/drm_of.c <unknown> 198  * satisfy their .bind requirements
+drivers/gpu/drm/etnaviv/etnaviv_drv.c <unknown> 599 	.bind = etnaviv_bind,
+drivers/gpu/drm/etnaviv/etnaviv_gpu.c <unknown> 1741 	.bind = etnaviv_gpu_bind,
+drivers/gpu/drm/exynos/exynos5433_drm_decon.c <unknown> 662 	.bind	= decon_bind,
+drivers/gpu/drm/exynos/exynos7_drm_decon.c <unknown> 666 	.bind	= decon_bind,
+drivers/gpu/drm/exynos/exynos_dp.c <unknown> 194 	.bind	= exynos_dp_bind,
+drivers/gpu/drm/exynos/exynos_drm_drv.c <unknown> 374 	.bind		= exynos_drm_bind,
+drivers/gpu/drm/exynos/exynos_drm_dsi.c <unknown> 1730 	.bind	= exynos_dsi_bind,
+drivers/gpu/drm/exynos/exynos_drm_fimc.c <unknown> 1161 	.bind	= fimc_bind,
+drivers/gpu/drm/exynos/exynos_drm_fimd.c <unknown> 1111 	.bind	= fimd_bind,
+drivers/gpu/drm/exynos/exynos_drm_g2d.c <unknown> 1442 	.bind	= g2d_bind,
+drivers/gpu/drm/exynos/exynos_drm_gsc.c <unknown> 1197 	.bind	= gsc_bind,
+drivers/gpu/drm/exynos/exynos_drm_mic.c <unknown> 337 	.bind	= exynos_mic_bind,
+drivers/gpu/drm/exynos/exynos_drm_rotator.c <unknown> 269 	.bind	= rotator_bind,
+drivers/gpu/drm/exynos/exynos_drm_scaler.c <unknown> 479 	.bind	= scaler_bind,
+drivers/gpu/drm/exynos/exynos_drm_vidi.c <unknown> 440 	.bind	= vidi_bind,
+drivers/gpu/drm/exynos/exynos_hdmi.c <unknown> 1870 	.bind	= hdmi_bind,
+drivers/gpu/drm/exynos/exynos_mixer.c <unknown> 1217 	.bind	= mixer_bind,
+drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c <unknown> 812 	.bind	= dsi_bind,
+drivers/gpu/drm/hisilicon/kirin/kirin_drm_drv.c <unknown> 268 	.bind = kirin_drm_bind,
+drivers/gpu/drm/i2c/tda998x_drv.c <unknown> 2054 	.bind = tda998x_bind,
+drivers/gpu/drm/i915/display/intel_audio.c <unknown> 1265 	.bind	= i915_audio_component_bind,
+drivers/gpu/drm/i915/display/intel_hdcp.c <unknown> 1921 	.bind   = i915_hdcp_component_bind,
+drivers/gpu/drm/i915/gem/i915_gem_client_blt.c <unknown> 41 	vm->vma_ops.bind_vma(vm, stash, vma, cache_level, flags);
+drivers/gpu/drm/i915/gem/i915_gem_client_blt.c <unknown> 52 	.bind_vma = vma_bind,
+drivers/gpu/drm/i915/gt/gen6_ppgtt.c <unknown> 342 	.bind_vma = pd_vma_bind,
+drivers/gpu/drm/i915/gt/gen6_ppgtt.c <unknown> 448 	ppgtt->base.vm.bind_async_flags = I915_VMA_LOCAL_BIND;
+drivers/gpu/drm/i915/gt/gen8_ppgtt.c <unknown> 722 	ppgtt->vm.bind_async_flags = I915_VMA_LOCAL_BIND;
+drivers/gpu/drm/i915/gt/intel_ggtt.c <unknown> 654 	ggtt->vm.bind_async_flags |= ppgtt->vm.bind_async_flags;
+drivers/gpu/drm/i915/gt/intel_ggtt.c <unknown> 656 	GEM_BUG_ON(ggtt->vm.vma_ops.bind_vma != ggtt_bind_vma);
+drivers/gpu/drm/i915/gt/intel_ggtt.c <unknown> 657 	ggtt->vm.vma_ops.bind_vma = aliasing_gtt_bind_vma;
+drivers/gpu/drm/i915/gt/intel_ggtt.c <unknown> 682 	ggtt->vm.vma_ops.bind_vma   = ggtt_bind_vma;
+drivers/gpu/drm/i915/gt/intel_ggtt.c <unknown> 888 		ggtt->vm.bind_async_flags =
+drivers/gpu/drm/i915/gt/intel_ggtt.c <unknown> 894 	ggtt->vm.vma_ops.bind_vma    = ggtt_bind_vma;
+drivers/gpu/drm/i915/gt/intel_ggtt.c <unknown> 1044 	ggtt->vm.vma_ops.bind_vma    = ggtt_bind_vma;
+drivers/gpu/drm/i915/gt/intel_ggtt.c <unknown> 1084 	ggtt->vm.vma_ops.bind_vma    = ggtt_bind_vma;
+drivers/gpu/drm/i915/gt/intel_ppgtt.c <unknown> 309 	ppgtt->vm.vma_ops.bind_vma    = ppgtt_bind_vma;
+drivers/gpu/drm/i915/selftests/mock_gtt.c <unknown> 88 	ppgtt->vm.vma_ops.bind_vma    = mock_bind_ppgtt;
+drivers/gpu/drm/i915/selftests/mock_gtt.c <unknown> 128 	ggtt->vm.vma_ops.bind_vma    = mock_bind_ggtt;
+drivers/gpu/drm/imx/dcss/dcss-drv.c <unknown> 106 	.bind	= dcss_drv_bind,
+drivers/gpu/drm/imx/dpu/dpu-blit.c <unknown> 269 	.bind = dpu_bliteng_bind,
+drivers/gpu/drm/imx/dpu/dpu-crtc.c <unknown> 1403 	.bind = dpu_crtc_bind,
+drivers/gpu/drm/imx/dw_hdmi-imx.c <unknown> 457 	.bind	= dw_hdmi_imx_bind,
+drivers/gpu/drm/imx/imx-drm-core.c <unknown> 326 	.bind = imx_drm_bind,
+drivers/gpu/drm/imx/imx-ldb.c <unknown> 559 	.bind	= imx_ldb_bind,
+drivers/gpu/drm/imx/imx-tve.c <unknown> 632 	.bind	= imx_tve_bind,
+drivers/gpu/drm/imx/imx8mp-ldb.c <unknown> 387 	.bind	= imx8mp_ldb_bind,
+drivers/gpu/drm/imx/imx8qm-ldb.c <unknown> 492 	.bind	= imx8qm_ldb_bind,
+drivers/gpu/drm/imx/imx8qxp-ldb.c <unknown> 791 	.bind	= imx8qxp_ldb_bind,
+drivers/gpu/drm/imx/ipuv3/ipuv3-crtc.c <unknown> 467 	.bind = ipu_drm_bind,
+drivers/gpu/drm/imx/lcdif-mux-display.c <unknown> 209 	.bind	= imx_lmuxd_bind,
+drivers/gpu/drm/imx/lcdif/lcdif-crtc.c <unknown> 382 	.bind   = lcdif_crtc_bind,
+drivers/gpu/drm/imx/lcdifv3/lcdifv3-crtc.c <unknown> 366 	.bind   = lcdifv3_crtc_bind,
+drivers/gpu/drm/imx/mhdp/cdns-mhdp-imxdrv.c <unknown> 70 	.bind	= cdns_hdmi_bind,
+drivers/gpu/drm/imx/mhdp/cdns-mhdp-imxdrv.c <unknown> 79 	.bind	= cdns_dp_bind,
+drivers/gpu/drm/imx/mhdp/cdns-mhdp-imxdrv.c <unknown> 87 	.bind	= cdns_hdmi_bind,
+drivers/gpu/drm/imx/mhdp/cdns-mhdp-imxdrv.c <unknown> 104 	.bind	= cdns_dp_bind,
+drivers/gpu/drm/imx/mhdp/cdns-mhdp-imxdrv.c <unknown> 118 	.bind = cdns_dp_bind,
+drivers/gpu/drm/imx/mhdp/cdns-mhdp-imxdrv.c <unknown> 211 	.bind	= cdns_mhdp_imx_bind,
+drivers/gpu/drm/imx/parallel-display.c <unknown> 348 	.bind	= imx_pd_bind,
+drivers/gpu/drm/imx/sec_mipi_dsim-imx.c <unknown> 356 	.bind	= imx_sec_dsim_bind,
+drivers/gpu/drm/ingenic/ingenic-drm-drv.c <unknown> 980 	.bind = ingenic_drm_bind_with_components,
+drivers/gpu/drm/ingenic/ingenic-ipu.c <unknown> 799 	.bind = ingenic_ipu_bind,
+drivers/gpu/drm/mcde/mcde_drv.c <unknown> 238 	.bind = mcde_drm_bind,
+drivers/gpu/drm/mcde/mcde_dsi.c <unknown> 1170 	.bind   = mcde_dsi_bind,
+drivers/gpu/drm/mediatek/mtk_disp_color.c <unknown> 98 	.bind	= mtk_disp_color_bind,
+drivers/gpu/drm/mediatek/mtk_disp_ovl.c <unknown> 355 	.bind	= mtk_disp_ovl_bind,
+drivers/gpu/drm/mediatek/mtk_disp_rdma.c <unknown> 268 	.bind	= mtk_disp_rdma_bind,
+drivers/gpu/drm/mediatek/mtk_dpi.c <unknown> 637 	.bind = mtk_dpi_bind,
+drivers/gpu/drm/mediatek/mtk_drm_drv.c <unknown> 397 	.bind		= mtk_drm_bind,
+drivers/gpu/drm/mediatek/mtk_dsi.c <unknown> 1012 	.bind = mtk_dsi_bind,
+drivers/gpu/drm/meson/meson_drv.c <unknown> 406 	.bind	= meson_drv_bind,
+drivers/gpu/drm/meson/meson_dw_hdmi.c <unknown> 1138 	.bind	= meson_dw_hdmi_bind,
+drivers/gpu/drm/msm/adreno/adreno_device.c <unknown> 435 		.bind   = adreno_bind,
+drivers/gpu/drm/msm/disp/dpu1/dpu_encoder_phys_vid.c <unknown> 292 	if (phys_enc->hw_intf->ops.bind_pingpong_blk)
+drivers/gpu/drm/msm/disp/dpu1/dpu_encoder_phys_vid.c <unknown> 293 		phys_enc->hw_intf->ops.bind_pingpong_blk(
+drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c <unknown> 1147 	.bind   = dpu_bind,
+drivers/gpu/drm/msm/disp/mdp5/mdp5_kms.c <unknown> 962 	.bind   = mdp5_bind,
+drivers/gpu/drm/msm/dp/dp_display.c <unknown> 264 	.bind = dp_display_bind,
+drivers/gpu/drm/msm/dsi/dsi.c <unknown> 141 	.bind   = dsi_bind,
+drivers/gpu/drm/msm/edp/edp.c <unknown> 95 		.bind   = edp_bind,
+drivers/gpu/drm/msm/hdmi/hdmi.c <unknown> 617 		.bind   = msm_hdmi_bind,
+drivers/gpu/drm/msm/msm_drv.c <unknown> 1279 	.bind = msm_drm_bind,
+drivers/gpu/drm/nouveau/dispnv50/disp.c <unknown> 673 	.bind   = nv50_audio_component_bind,
+drivers/gpu/drm/nouveau/nvkm/core/oproxy.c <unknown> 189 	.bind = nvkm_oproxy_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/cipher/g84.c <unknown> 52 	.bind = g84_cipher_oclass_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/cipher/g84.c <unknown> 66 	.bind = g84_cipher_cclass_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/disp/coregf119.c <unknown> 222 	.bind = gf119_disp_dmac_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/disp/coregp102.c <unknown> 61 	.bind = gf119_disp_dmac_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/disp/coregv100.c <unknown> 196 	.bind = gv100_disp_dmac_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/disp/corenv50.c <unknown> 225 	.bind = nv50_disp_dmac_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/disp/dmacgf119.c <unknown> 95 	.bind = gf119_disp_dmac_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/disp/dmacgp102.c <unknown> 63 	.bind = gf119_disp_dmac_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/disp/dmacnv50.c <unknown> 136 	.bind = nv50_disp_dmac_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/disp/wndwgv100.c <unknown> 145 	.bind = gv100_disp_dmac_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/dma/user.c <unknown> 64 	.bind = nvkm_dmaobj_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/dma/usergf100.c <unknown> 66 	.bind = gf100_dmaobj_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/dma/usergf119.c <unknown> 64 	.bind = gf119_dmaobj_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/dma/usergv100.c <unknown> 63 	.bind = gv100_dmaobj_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/dma/usernv04.c <unknown> 77 	.bind = nv04_dmaobj_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/dma/usernv50.c <unknown> 66 	.bind = nv50_dmaobj_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/falcon.c <unknown> 55 	.bind = nvkm_falcon_cclass_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/gr/gf100.c <unknown> 374 	.bind = gf100_gr_chan_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/gr/gf100.c <unknown> 2080 	.bind_context = nvkm_falcon_v1_bind_context,
+drivers/gpu/drm/nouveau/nvkm/engine/gr/nv04.c <unknown> 1064 	.bind = nv04_gr_object_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/gr/nv40.c <unknown> 66 	.bind = nv40_gr_object_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/gr/nv40.c <unknown> 144 	.bind = nv40_gr_chan_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/gr/nv50.c <unknown> 61 	.bind = nv50_gr_object_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/gr/nv50.c <unknown> 85 	.bind = nv50_gr_chan_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/mpeg/nv31.c <unknown> 57 	.bind = nv31_mpeg_object_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/mpeg/nv44.c <unknown> 99 	.bind = nv44_mpeg_chan_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/mpeg/nv50.c <unknown> 53 	.bind = nv50_mpeg_cclass_bind,
+drivers/gpu/drm/nouveau/nvkm/engine/nvdec/gm107.c <unknown> 31 	.bind_context = nvkm_falcon_v1_bind_context,
+drivers/gpu/drm/nouveau/nvkm/engine/nvenc/gm107.c <unknown> 31 	.bind_context = nvkm_falcon_v1_bind_context,
+drivers/gpu/drm/nouveau/nvkm/engine/sec2/gp102.c <unknown> 239 	.bind_context = gp102_sec2_flcn_bind_context,
+drivers/gpu/drm/nouveau/nvkm/engine/sec2/tu102.c <unknown> 33 	.bind_context = gp102_sec2_flcn_bind_context,
+drivers/gpu/drm/nouveau/nvkm/engine/xtensa.c <unknown> 53 	.bind = nvkm_xtensa_cclass_bind,
+drivers/gpu/drm/nouveau/nvkm/falcon/v1.c <unknown> 318 	.bind_context = nvkm_falcon_v1_bind_context,
+drivers/gpu/drm/nouveau/nvkm/subdev/gsp/gv100.c <unknown> 30 	.bind_context = gp102_sec2_flcn_bind_context,
+drivers/gpu/drm/nouveau/nvkm/subdev/pmu/gt215.c <unknown> 251 	.bind_context = nvkm_falcon_v1_bind_context,
+drivers/gpu/drm/omapdrm/dss/dispc.c <unknown> 4858 	.bind	= dispc_bind,
+drivers/gpu/drm/omapdrm/dss/dsi.c <unknown> 5097 	.bind	= dsi_bind,
+drivers/gpu/drm/omapdrm/dss/dss.c <unknown> 1341 	.bind = dss_bind,
+drivers/gpu/drm/omapdrm/dss/hdmi4.c <unknown> 690 	.bind	= hdmi4_bind,
+drivers/gpu/drm/omapdrm/dss/hdmi5.c <unknown> 664 	.bind	= hdmi5_bind,
+drivers/gpu/drm/omapdrm/dss/venc.c <unknown> 713 	.bind	= venc_bind,
+drivers/gpu/drm/rockchip/analogix_dp-rockchip.c <unknown> 358 	.bind = rockchip_dp_bind,
+drivers/gpu/drm/rockchip/cdn-dp-core.c <unknown> 1127 	.bind = cdn_dp_bind,
+drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c <unknown> 975 	.bind	= dw_mipi_dsi_rockchip_bind,
+drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c <unknown> 577 	.bind	= dw_hdmi_rockchip_bind,
+drivers/gpu/drm/rockchip/inno_hdmi.c <unknown> 905 	.bind	= inno_hdmi_bind,
+drivers/gpu/drm/rockchip/rk3066_hdmi.c <unknown> 841 	.bind   = rk3066_hdmi_bind,
+drivers/gpu/drm/rockchip/rockchip_drm_drv.c <unknown> 347 	.bind = rockchip_drm_bind,
+drivers/gpu/drm/rockchip/rockchip_drm_vop.c <unknown> 2181 	.bind = vop_bind,
+drivers/gpu/drm/rockchip/rockchip_lvds.c <unknown> 678 	.bind = rockchip_lvds_bind,
+drivers/gpu/drm/sti/sti_compositor.c <unknown> 161 	.bind	= sti_compositor_bind,
+drivers/gpu/drm/sti/sti_drv.c <unknown> 229 	.bind = sti_bind,
+drivers/gpu/drm/sti/sti_dvo.c <unknown> 506 	.bind = sti_dvo_bind,
+drivers/gpu/drm/sti/sti_hda.c <unknown> 734 	.bind = sti_hda_bind,
+drivers/gpu/drm/sti/sti_hdmi.c <unknown> 1349 	.bind = sti_hdmi_bind,
+drivers/gpu/drm/sti/sti_hqvdp.c <unknown> 1345 	.bind = sti_hqvdp_bind,
+drivers/gpu/drm/sti/sti_tvout.c <unknown> 832 	.bind	= sti_tvout_bind,
+drivers/gpu/drm/sun4i/sun4i_backend.c <unknown> 981 	.bind	= sun4i_backend_bind,
+drivers/gpu/drm/sun4i/sun4i_drv.c <unknown> 143 	.bind	= sun4i_drv_bind,
+drivers/gpu/drm/sun4i/sun4i_frontend.c <unknown> 631 	.bind	= sun4i_frontend_bind,
+drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c <unknown> 688 	.bind	= sun4i_hdmi_bind,
+drivers/gpu/drm/sun4i/sun4i_tcon.c <unknown> 1316 	.bind	= sun4i_tcon_bind,
+drivers/gpu/drm/sun4i/sun4i_tv.c <unknown> 637 	.bind	= sun4i_tv_bind,
+drivers/gpu/drm/sun4i/sun6i_drc.c <unknown> 89 	.bind	= sun6i_drc_bind,
+drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c <unknown> 1098 	.bind	= sun6i_dsi_bind,
+drivers/gpu/drm/sun4i/sun8i_dw_hdmi.c <unknown> 275 	.bind	= sun8i_dw_hdmi_bind,
+drivers/gpu/drm/sun4i/sun8i_mixer.c <unknown> 522 	.bind	= sun8i_mixer_bind,
+drivers/gpu/drm/sun4i/sun8i_tcon_top.c <unknown> 256 	.bind	= sun8i_tcon_top_bind,
+drivers/gpu/drm/tilcdc/tilcdc_drv.c <unknown> 518 	.bind = tilcdc_bind,
+drivers/gpu/drm/vc4/vc4_crtc.c <unknown> 1179 	.bind   = vc4_crtc_bind,
+drivers/gpu/drm/vc4/vc4_dpi.c <unknown> 347 	.bind   = vc4_dpi_bind,
+drivers/gpu/drm/vc4/vc4_drv.c <unknown> 329 	.bind = vc4_drm_bind,
+drivers/gpu/drm/vc4/vc4_dsi.c <unknown> 1657 	.bind   = vc4_dsi_bind,
+drivers/gpu/drm/vc4/vc4_hdmi.c <unknown> 1893 	.bind   = vc4_hdmi_bind,
+drivers/gpu/drm/vc4/vc4_hvs.c <unknown> 697 	.bind   = vc4_hvs_bind,
+drivers/gpu/drm/vc4/vc4_txp.c <unknown> 534 	.bind   = vc4_txp_bind,
+drivers/gpu/drm/vc4/vc4_v3d.c <unknown> 493 	.bind   = vc4_v3d_bind,
+drivers/gpu/drm/vc4/vc4_vec.c <unknown> 605 	.bind   = vc4_vec_bind,
+drivers/gpu/drm/virtio/virtgpu_ioctl.c <unknown> 241 		params.bind = rc->bind;
+drivers/gpu/drm/vmwgfx/vmwgfx_context.c <unknown> 83 	.bind = NULL,
+drivers/gpu/drm/vmwgfx/vmwgfx_context.c <unknown> 97 	.bind = vmw_gb_context_bind,
+drivers/gpu/drm/vmwgfx/vmwgfx_context.c <unknown> 111 	.bind = vmw_dx_context_bind,
+drivers/gpu/drm/vmwgfx/vmwgfx_cotable.c <unknown> 127 	.bind = vmw_cotable_bind,
+drivers/gpu/drm/vmwgfx/vmwgfx_shader.c <unknown> 104 	.bind = vmw_gb_shader_bind,
+drivers/gpu/drm/vmwgfx/vmwgfx_shader.c <unknown> 123 	.bind = vmw_dx_shader_bind,
+drivers/gpu/drm/vmwgfx/vmwgfx_streamoutput.c <unknown> 73 	.bind = vmw_dx_streamoutput_bind,
+drivers/gpu/drm/vmwgfx/vmwgfx_surface.c <unknown> 142 	.bind = &vmw_legacy_srf_bind,
+drivers/gpu/drm/vmwgfx/vmwgfx_surface.c <unknown> 156 	.bind = vmw_gb_surface_bind,
+drivers/gpu/drm/vmwgfx/vmwgfx_va.c <unknown> 89 		.bind = NULL,
+drivers/gpu/drm/zte/zx_drm_drv.c <unknown> 120 	.bind = zx_drm_bind,
+drivers/gpu/drm/zte/zx_hdmi.c <unknown> 732 	.bind = zx_hdmi_bind,
+drivers/gpu/drm/zte/zx_tvenc.c <unknown> 372 	.bind = zx_tvenc_bind,
+drivers/gpu/drm/zte/zx_vga.c <unknown> 499 	.bind = zx_vga_bind,
+drivers/gpu/drm/zte/zx_vou.c <unknown> 893 	.bind = zx_crtc_bind,
+drivers/infiniband/core/cma.c <unknown> 3827 			id_priv->afonly = net->ipv6.sysctl.bindv6only;
+drivers/infiniband/hw/bnxt_re/ib_verbs.c <unknown> 420 	wqe.bind.r_key = fence->bind_rkey;
+drivers/infiniband/hw/bnxt_re/ib_verbs.c <unknown> 425 		wqe.bind.r_key, qp->qplib_qp.id, pd);
+drivers/infiniband/hw/i40iw/i40iw_uk.c <unknown> 621 	op_info = &info->op.bind_window;
+drivers/infiniband/ulp/iser/iscsi_iser.c <unknown> 990 	.bind_conn              = iscsi_iser_conn_bind,
+drivers/iommu/mtk_iommu.c <unknown> 635 	.bind		= mtk_iommu_bind,
+drivers/iommu/mtk_iommu_v1.c <unknown> 540 	.bind		= mtk_iommu_bind,
+drivers/isdn/mISDN/socket.c <unknown> 577 	.bind		= data_sock_bind,
+drivers/isdn/mISDN/socket.c <unknown> 735 	.bind		= base_sock_bind,
+drivers/memory/mtk-smi.c <unknown> 230 	.bind = mtk_smi_larb_bind,
+drivers/misc/mei/hdcp/mei_hdcp.c <unknown> 764 	.bind = mei_component_master_bind,
+drivers/mxc/gpu-viv/hal/kernel/arch/gc_hal_kernel_hardware_mc_fe.c <unknown> 232             if (FE->channels[i].binding)
+drivers/mxc/gpu-viv/hal/kernel/arch/gc_hal_kernel_hardware_mc_fe.c <unknown> 419         if (FE->channels[i].binding)
+drivers/mxc/gpu-viv/hal/os/linux/kernel/platform/freescale/gc_hal_kernel_platform_imx.c <unknown> 775     .bind   = mxc_gpu_sub_bind,
+drivers/net/ethernet/freescale/dpaa2/dpaa2-eth-ceetm.c <unknown> 1120 	.bind_tcf	=	dpaa2_ceetm_tcf_bind,
+drivers/net/ethernet/freescale/sdk_dpaa/dpaa_eth_ceetm.c <unknown> 1914 	.bind_tcf	=	ceetm_tcf_bind,
+drivers/net/ethernet/mellanox/mlxsw/core_thermal.c <unknown> 378 	.bind = mlxsw_thermal_bind,
+drivers/net/ethernet/mellanox/mlxsw/core_thermal.c <unknown> 550 	.bind		= mlxsw_thermal_module_bind,
+drivers/net/ethernet/mellanox/mlxsw/core_thermal.c <unknown> 587 	.bind		= mlxsw_thermal_module_bind,
+drivers/net/ethernet/mellanox/mlxsw/spectrum_span.c <unknown> 1279 	.bind = mlxsw_sp_span_trigger_port_bind,
+drivers/net/ethernet/mellanox/mlxsw/spectrum_span.c <unknown> 1328 	.bind = mlxsw_sp1_span_trigger_global_bind,
+drivers/net/ethernet/mellanox/mlxsw/spectrum_span.c <unknown> 1448 	.bind = mlxsw_sp2_span_trigger_global_bind,
+drivers/net/ppp/pppoe.c <unknown> 1105 	.bind		= sock_no_bind,
+drivers/net/ppp/pptp.c <unknown> 614 	.bind       = pptp_bind,
+drivers/net/usb/aqc111.c <unknown> 1240 	.bind		= aqc111_bind,
+drivers/net/usb/aqc111.c <unknown> 1257 	.bind		= aqc111_bind,
+drivers/net/usb/aqc111.c <unknown> 1276 	.bind		= aqc111_bind,
+drivers/net/usb/aqc111.c <unknown> 1292 	.bind		= aqc111_bind,
+drivers/net/usb/aqc111.c <unknown> 1306 	.bind		= aqc111_bind,
+drivers/net/usb/asix_devices.c <unknown> 1113 	.bind = ax88172_bind,
+drivers/net/usb/asix_devices.c <unknown> 1123 	.bind = ax88172_bind,
+drivers/net/usb/asix_devices.c <unknown> 1133 	.bind = ax88172_bind,
+drivers/net/usb/asix_devices.c <unknown> 1143 	.bind = ax88172_bind,
+drivers/net/usb/asix_devices.c <unknown> 1153 	.bind = ax88772_bind,
+drivers/net/usb/asix_devices.c <unknown> 1165 	.bind = ax88772_bind,
+drivers/net/usb/asix_devices.c <unknown> 1179 	.bind = ax88178_bind,
+drivers/net/usb/asix_devices.c <unknown> 1201 	.bind = ax88772_bind,
+drivers/net/usb/ax88172a.c <unknown> 356 	.bind = ax88172a_bind,
+drivers/net/usb/ax88179_178a.c <unknown> 1732 	.bind = ax88179_bind,
+drivers/net/usb/ax88179_178a.c <unknown> 1745 	.bind = ax88179_bind,
+drivers/net/usb/ax88179_178a.c <unknown> 1758 	.bind = ax88179_bind,
+drivers/net/usb/ax88179_178a.c <unknown> 1771 	.bind = ax88179_bind,
+drivers/net/usb/ax88179_178a.c <unknown> 1784 	.bind = ax88179_bind,
+drivers/net/usb/ax88179_178a.c <unknown> 1797 	.bind = ax88179_bind,
+drivers/net/usb/ax88179_178a.c <unknown> 1810 	.bind = ax88179_bind,
+drivers/net/usb/ax88179_178a.c <unknown> 1823 	.bind	= ax88179_bind,
+drivers/net/usb/ax88179_178a.c <unknown> 1836 	.bind	= ax88179_bind,
+drivers/net/usb/ax88179_178a.c <unknown> 1849 	.bind	= ax88179_bind,
+drivers/net/usb/cdc_eem.c <unknown> 333 	.bind =		eem_bind,
+drivers/net/usb/cdc_ether.c <unknown> 513 	.bind =		usbnet_cdc_bind,
+drivers/net/usb/cdc_ether.c <unknown> 523 	.bind =		usbnet_cdc_zte_bind,
+drivers/net/usb/cdc_ether.c <unknown> 534 	.bind =		usbnet_cdc_bind,
+drivers/net/usb/cdc_mbim.c <unknown> 553 	.bind = cdc_mbim_bind,
+drivers/net/usb/cdc_mbim.c <unknown> 577 	.bind = cdc_mbim_bind,
+drivers/net/usb/cdc_mbim.c <unknown> 596 	.bind = cdc_mbim_bind,
+drivers/net/usb/cdc_mbim.c <unknown> 611 	.bind = cdc_mbim_bind,
+drivers/net/usb/cdc_ncm.c <unknown> 427 	 * .bind which is called before usbnet sets up dev->maxpacket
+drivers/net/usb/cdc_ncm.c <unknown> 1904 	.bind = cdc_ncm_bind,
+drivers/net/usb/cdc_ncm.c <unknown> 1918 	.bind = cdc_ncm_bind,
+drivers/net/usb/cdc_ncm.c <unknown> 1932 	.bind = cdc_ncm_bind,
+drivers/net/usb/ch9200.c <unknown> 394 	.bind = ch9200_bind,
+drivers/net/usb/cx82310_eth.c <unknown> 336 	.bind		= cx82310_bind,
+drivers/net/usb/dm9601.c <unknown> 563 	.bind		= dm9601_bind,
+drivers/net/usb/gl620a.c <unknown> 190 	.bind =		genelink_bind,
+drivers/net/usb/huawei_cdc_ncm.c <unknown> 184 	.bind = huawei_cdc_ncm_bind,
+drivers/net/usb/int51x1.c <unknown> 158 	.bind        = int51x1_bind,
+drivers/net/usb/kalmia.c <unknown> 328 	.bind = kalmia_bind,
+drivers/net/usb/lg-vl600.c <unknown> 304 	.bind		= vl600_bind,
+drivers/net/usb/mcs7830.c <unknown> 563 	.bind		= mcs7830_bind,
+drivers/net/usb/mcs7830.c <unknown> 573 	.bind		= mcs7830_bind,
+drivers/net/usb/net1080.c <unknown> 489 	.bind =		net1080_bind,
+drivers/net/usb/qmi_wwan.c <unknown> 869 	.bind		= qmi_wwan_bind,
+drivers/net/usb/qmi_wwan.c <unknown> 878 	.bind		= qmi_wwan_bind,
+drivers/net/usb/rndis_host.c <unknown> 585 	.bind =		rndis_bind,
+drivers/net/usb/rndis_host.c <unknown> 596 	.bind =		rndis_bind,
+drivers/net/usb/sierra_net.c <unknown> 911 	.bind = sierra_net_bind,
+drivers/net/usb/smsc75xx.c <unknown> 2301 	.bind		= smsc75xx_bind,
+drivers/net/usb/smsc95xx.c <unknown> 1961 	.bind		= smsc95xx_bind,
+drivers/net/usb/sr9700.c <unknown> 523 	.bind		= sr9700_bind,
+drivers/net/usb/sr9800.c <unknown> 840 	.bind		= sr9800_bind,
+drivers/net/usb/zaurus.c <unknown> 93 	.bind =		zaurus_bind,
+drivers/net/usb/zaurus.c <unknown> 103 	.bind =		zaurus_bind,
+drivers/net/usb/zaurus.c <unknown> 113 	.bind =		zaurus_bind,
+drivers/net/usb/zaurus.c <unknown> 250 	.bind =		blan_mdlm_bind,
+drivers/net/vxlan.c <unknown> 3490 	udp_conf.bind_ifindex = ifindex;
+drivers/net/wireless/rndis_wlan.c <unknown> 3592 	.bind =		rndis_wlan_bind,
+drivers/net/wireless/rndis_wlan.c <unknown> 3607 	.bind =		rndis_wlan_bind,
+drivers/net/wireless/rndis_wlan.c <unknown> 3622 	.bind =		rndis_wlan_bind,
+drivers/pci/endpoint/functions/pci-epf-test.c <unknown> 901 	.bind	= pci_epf_test_bind,
+drivers/platform/x86/acerhdf.c <unknown> 473 	.bind = acerhdf_bind,
+drivers/scsi/be2iscsi/be_main.c <unknown> 5812 	.bind_conn = beiscsi_conn_bind,
+drivers/scsi/bfa/bfad.c <unknown> 821 	bfad->cfg_data.binding_method = FCP_PWWN_BINDING;
+drivers/scsi/bnx2i/bnx2i_iscsi.c <unknown> 2280 	.bind_conn		= bnx2i_conn_bind,
+drivers/scsi/cxgbi/cxgb3i/cxgb3i.c <unknown> 119 	.bind_conn	= cxgbi_bind_conn,
+drivers/scsi/cxgbi/cxgb4i/cxgb4i.c <unknown> 136 	.bind_conn		= cxgbi_bind_conn,
+drivers/scsi/iscsi_tcp.c <unknown> 1010 	.bind_conn		= iscsi_sw_tcp_conn_bind,
+drivers/scsi/qedi/qedi_iscsi.c <unknown> 1430 	.bind_conn = qedi_conn_bind,
+drivers/scsi/qla4xxx/ql4_os.c <unknown> 261 	.bind_conn              = qla4xxx_conn_bind,
+drivers/staging/media/ipu3/ipu3-css-fw.c <unknown> 79 		&css->fwp->binary_header[css->pipes[pipe].bindex];
+drivers/staging/media/ipu3/ipu3-css-params.c <unknown> 2730 		&css->fwp->binary_header[css->pipes[pipe].bindex];
+drivers/staging/media/ipu3/ipu3-css.c <unknown> 1808 	css->pipes[pipe].bindex = ret;
+drivers/staging/media/ipu3/ipu3-css.c <unknown> 1811 		css->pipes[pipe].bindex, pipe);
+drivers/thermal/gov_power_allocator.c <unknown> 643 	.bind_to_tz	= power_allocator_bind,
+drivers/thermal/imx_thermal.c <unknown> 475 	.bind = imx_bind,
+drivers/thermal/thermal_core.c <unknown> 816  * This function is usually called in the thermal zone device .bind callback.
+drivers/thermal/thermal_core.c <unknown> 1063 			       tzp->tbp[i].binding_limits,
+drivers/thermal/thermal_core.c <unknown> 1341 			       tzp->tbp[i].binding_limits,
+drivers/thermal/thermal_of.c <unknown> 368 	.bind = of_thermal_bind,
+drivers/usb/atm/cxacru.c <unknown> 1338 	.bind		= cxacru_bind,
+drivers/usb/atm/speedtch.c <unknown> 927 	.bind		= speedtch_bind,
+drivers/usb/atm/ueagle-atm.c <unknown> 2578 	.bind = uea_bind,
+drivers/usb/atm/xusbatm.c <unknown> 195 		xusbatm_drivers[i].bind		= xusbatm_bind;
+drivers/usb/gadget/composite.c <unknown> 448  * usb_interface_id() is called from usb_function.bind() callbacks to
+drivers/usb/gadget/composite.c <unknown> 2378 	.bind		= composite_bind,
+drivers/usb/gadget/configfs.c <unknown> 1542 	.bind           = configfs_composite_bind,
+drivers/usb/gadget/configfs.c <unknown> 1588 	gi->composite.bind = configfs_do_nothing;
+drivers/usb/gadget/function/f_acm.c <unknown> 760 	acm->port.func.bind = acm_bind;
+drivers/usb/gadget/function/f_ecm.c <unknown> 952 	ecm->port.func.bind = ecm_bind;
+drivers/usb/gadget/function/f_eem.c <unknown> 665 	eem->port.func.bind = eem_bind;
+drivers/usb/gadget/function/f_fs.c <unknown> 3611 	func->function.bind    = ffs_func_bind;
+drivers/usb/gadget/function/f_hid.c <unknown> 1114 	hidg->func.bind    = hidg_bind;
+drivers/usb/gadget/function/f_loopback.c <unknown> 446 	loop->function.bind = loopback_bind;
+drivers/usb/gadget/function/f_mass_storage.c <unknown> 3425 	fsg->function.bind	= fsg_bind;
+drivers/usb/gadget/function/f_midi.c <unknown> 1344 	midi->func.bind		= f_midi_bind;
+drivers/usb/gadget/function/f_ncm.c <unknown> 1732 	ncm->port.func.bind = ncm_bind;
+drivers/usb/gadget/function/f_obex.c <unknown> 478 	obex->port.func.bind = obex_bind;
+drivers/usb/gadget/function/f_obex.c <unknown> 484 	obex->port.func.bind_deactivated = true;
+drivers/usb/gadget/function/f_phonet.c <unknown> 679 	fp->function.bind = pn_bind;
+drivers/usb/gadget/function/f_printer.c <unknown> 1479 	dev->function.bind = printer_func_bind;
+drivers/usb/gadget/function/f_rndis.c <unknown> 1013 	rndis->port.func.bind = rndis_bind;
+drivers/usb/gadget/function/f_serial.c <unknown> 381 	gser->port.func.bind = gser_bind;
+drivers/usb/gadget/function/f_sourcesink.c <unknown> 860 	ss->function.bind = sourcesink_bind;
+drivers/usb/gadget/function/f_subset.c <unknown> 495 	geth->port.func.bind = geth_bind;
+drivers/usb/gadget/function/f_tcm.c <unknown> 2317 	fu->function.bind = tcm_bind;
+drivers/usb/gadget/function/f_uac1.c <unknown> 831 	uac1->g_audio.func.bind = f_audio_bind;
+drivers/usb/gadget/function/f_uac1_legacy.c <unknown> 1001 	audio->card.func.bind = f_audio_bind;
+drivers/usb/gadget/function/f_uac2.c <unknown> 1199 	uac2->g_audio.func.bind = afunc_bind;
+drivers/usb/gadget/function/f_uvc.c <unknown> 944 	uvc->func.bind = uvc_function_bind;
+drivers/usb/gadget/function/f_uvc.c <unknown> 951 	uvc->func.bind_deactivated = true;
+drivers/usb/gadget/legacy/acm_ms.c <unknown> 254 	.bind		= acm_ms_bind,
+drivers/usb/gadget/legacy/audio.c <unknown> 356 	.bind		= audio_bind,
+drivers/usb/gadget/legacy/cdc2.c <unknown> 231 	.bind		= cdc_bind,
+drivers/usb/gadget/legacy/dbgp.c <unknown> 399 	.bind = dbgp_bind,
+drivers/usb/gadget/legacy/ether.c <unknown> 476 	.bind		= eth_bind,
+drivers/usb/gadget/legacy/g_ffs.c <unknown> 153 	.bind		= gfs_bind,
+drivers/usb/gadget/legacy/gmidi.c <unknown> 181 	.bind		= midi_bind,
+drivers/usb/gadget/legacy/hid.c <unknown> 261 	.bind		= hid_bind,
+drivers/usb/gadget/legacy/inode.c <unknown> 1729 	.bind		= gadgetfs_bind,
+drivers/usb/gadget/legacy/mass_storage.c <unknown> 228 	.bind		= msg_bind,
+drivers/usb/gadget/legacy/multi.c <unknown> 486 	.bind		= multi_bind,
+drivers/usb/gadget/legacy/ncm.c <unknown> 203 	.bind		= gncm_bind,
+drivers/usb/gadget/legacy/nokia.c <unknown> 428 	.bind		= nokia_bind,
+drivers/usb/gadget/legacy/printer.c <unknown> 217 	.bind		= printer_bind,
+drivers/usb/gadget/legacy/raw_gadget.c <unknown> 480 	dev->driver.bind = gadget_bind;
+drivers/usb/gadget/legacy/serial.c <unknown> 269 	.bind		= gs_bind,
+drivers/usb/gadget/legacy/tcm_usb_gadget.c <unknown> 126 	.bind		= usb_target_bind,
+drivers/usb/gadget/legacy/webcam.c <unknown> 423 	.bind		= webcam_bind,
+drivers/usb/gadget/legacy/zero.c <unknown> 419 	.bind		= zero_bind,
+drivers/video/fbdev/omap/hwa742.c <unknown> 1033 	.bind_client		= hwa742_bind_client,
+drivers/video/fbdev/omap2/omapfb/dss/dispc.c <unknown> 4013 	.bind	= dispc_bind,
+drivers/video/fbdev/omap2/omapfb/dss/dpi.c <unknown> 804 	.bind	= dpi_bind,
+drivers/video/fbdev/omap2/omapfb/dss/dsi.c <unknown> 5491 	.bind	= dsi_bind,
+drivers/video/fbdev/omap2/omapfb/dss/dss.c <unknown> 1192 	.bind = dss_bind,
+drivers/video/fbdev/omap2/omapfb/dss/hdmi4.c <unknown> 752 	.bind	= hdmi4_bind,
+drivers/video/fbdev/omap2/omapfb/dss/hdmi5.c <unknown> 793 	.bind	= hdmi5_bind,
+drivers/video/fbdev/omap2/omapfb/dss/sdi.c <unknown> 369 	.bind	= sdi_bind,
+drivers/video/fbdev/omap2/omapfb/dss/venc.c <unknown> 876 	.bind	= venc_bind,
+drivers/xen/events/events_2l.c <unknown> 369 	.bind_to_cpu       = evtchn_2l_bind_to_cpu,
+drivers/xen/events/events_fifo.c <unknown> 416 	.bind_to_cpu       = evtchn_fifo_bind_to_cpu,
+drivers/xen/pvcalls-back.c <unknown> 645 	ret = inet_bind(map->sock, (struct sockaddr *)&req->u.bind.addr,
+drivers/xen/pvcalls-back.c <unknown> 646 			req->u.bind.len);
+drivers/xen/pvcalls-back.c <unknown> 651 	map->id = req->u.bind.id;
+drivers/xen/pvcalls-back.c <unknown> 677 	rsp->u.bind.id = req->u.bind.id;
+drivers/xen/pvcalls-front.c <unknown> 687 	req->u.bind.id = (uintptr_t)map;
+drivers/xen/pvcalls-front.c <unknown> 688 	memcpy(req->u.bind.addr, addr, sizeof(*addr));
+drivers/xen/pvcalls-front.c <unknown> 689 	req->u.bind.len = addr_len;
+include/trace/events/sctp.h <unknown> 73 		__entry->bind_port = ep->base.bind_addr.port;
+kernel/audit.c <unknown> 1599 		.bind	= audit_multicast_bind,
+kernel/cgroup/cpuset.c <unknown> 2903 	.bind		= cpuset_bind,
+mm/memcontrol.c <unknown> 6584 	.bind = mem_cgroup_bind,
+net/appletalk/ddp.c <unknown> 1916 	.bind		= atalk_bind,
+net/atm/pvc.c <unknown> 111 	.bind =		pvc_bind,
+net/atm/svc.c <unknown> 634 	.bind =		svc_bind,
+net/ax25/af_ax25.c <unknown> 1945 	.bind		= ax25_bind,
+net/bluetooth/bnep/sock.c <unknown> 179 	.bind		= sock_no_bind,
+net/bluetooth/cmtp/sock.c <unknown> 182 	.bind		= sock_no_bind,
+net/bluetooth/hci_sock.c <unknown> 2002 	.bind		= hci_sock_bind,
+net/bluetooth/hidp/sock.c <unknown> 230 	.bind		= sock_no_bind,
+net/bluetooth/l2cap_sock.c <unknown> 1872 	.bind		= l2cap_sock_bind,
+net/bluetooth/rfcomm/sock.c <unknown> 1037 	.bind		= rfcomm_sock_bind,
+net/bluetooth/sco.c <unknown> 1240 	.bind		= sco_sock_bind,
+net/caif/caif_socket.c <unknown> 974 	.bind = sock_no_bind,
+net/caif/caif_socket.c <unknown> 994 	.bind = sock_no_bind,
+net/can/bcm.c <unknown> 1676 	.bind          = sock_no_bind,
+net/can/isotp.c <unknown> 1409 	.bind = isotp_bind,
+net/can/j1939/socket.c <unknown> 1212 	.bind = j1939_sk_bind,
+net/can/raw.c <unknown> 879 	.bind          = raw_bind,
+net/core/flow_offload.c <unknown> 435 	flow_block->indr.binder_type = bo->binder_type;
+net/core/rtnetlink.c <unknown> 5639 		.bind		= rtnetlink_bind,
+net/core/sock_diag.c <unknown> 314 		.bind	= sock_diag_bind,
+net/dccp/ipv4.c <unknown> 978 	.bind		   = inet_bind,
+net/dccp/ipv6.c <unknown> 1061 	.bind		   = inet6_bind,
+net/dccp/proto.c <unknown> 1126 	dccp_hashinfo.bind_bucket_cachep =
+net/dccp/proto.c <unknown> 1130 	if (!dccp_hashinfo.bind_bucket_cachep)
+net/dccp/proto.c <unknown> 1226 	kmem_cache_destroy(dccp_hashinfo.bind_bucket_cachep);
+net/dccp/proto.c <unknown> 1234 	dccp_hashinfo.bind_bucket_cachep = NULL;
+net/dccp/proto.c <unknown> 1249 	kmem_cache_destroy(dccp_hashinfo.bind_bucket_cachep);
+net/decnet/af_decnet.c <unknown> 2321 	.bind =		dn_bind,
+net/ieee802154/socket.c <unknown> 395 	.bind		= raw_bind,
+net/ieee802154/socket.c <unknown> 410 	.bind		   = ieee802154_sock_bind,
+net/ieee802154/socket.c <unknown> 953 	.bind		= dgram_bind,
+net/ieee802154/socket.c <unknown> 969 	.bind		   = ieee802154_sock_bind,
+net/ipv4/af_inet.c <unknown> 1023 	.bind		   = inet_bind,
+net/ipv4/af_inet.c <unknown> 1057 	.bind		   = inet_bind,
+net/ipv4/af_inet.c <unknown> 1088 	.bind		   = inet_bind,
+net/ipv4/fou.c <unknown> 756 		cfg->udp_config.bind_ifindex = ifindex;
+net/ipv4/inet_diag.c <unknown> 193 	inet_sockopt.bind_address_no_port = inet->bind_address_no_port;
+net/ipv4/ping.c <unknown> 993 	.bind =		ping_bind,
+net/ipv4/raw.c <unknown> 954 	.bind		   = raw_bind,
+net/ipv4/tcp.c <unknown> 4150 	tcp_hashinfo.bind_bucket_cachep =
+net/ipv6/af_inet6.c <unknown> 215 	sk->sk_ipv6only	= net->ipv6.sysctl.bindv6only;
+net/ipv6/af_inet6.c <unknown> 667 	.bind		   = inet6_bind,
+net/ipv6/af_inet6.c <unknown> 700 	.bind		   = inet6_bind,
+net/ipv6/af_inet6.c <unknown> 934 	net->ipv6.sysctl.bindv6only = 0;
+net/ipv6/ping.c <unknown> 175 	.bind =		ping_bind,
+net/ipv6/raw.c <unknown> 1243 	.bind		   = rawv6_bind,
+net/ipv6/raw.c <unknown> 1313 	.bind		   = inet6_bind,
+net/ipv6/sysctl_net_ipv6.c <unknown> 47 		.data		= &init_net.ipv6.sysctl.bindv6only,
+net/iucv/af_iucv.c <unknown> 2243 	.bind		= iucv_sock_bind,
+net/kcm/kcmsock.c <unknown> 1900 	.bind =		sock_no_bind,
+net/kcm/kcmsock.c <unknown> 1921 	.bind =		sock_no_bind,
+net/key/af_key.c <unknown> 3736 	.bind		=	sock_no_bind,
+net/l2tp/l2tp_ip.c <unknown> 592 	.bind		   = l2tp_ip_bind,
+net/l2tp/l2tp_ip.c <unknown> 611 	.bind		   = inet_bind,
+net/l2tp/l2tp_ip6.c <unknown> 719 	.bind		   = l2tp_ip6_bind,
+net/l2tp/l2tp_ip6.c <unknown> 738 	.bind		   = inet6_bind,
+net/l2tp/l2tp_ppp.c <unknown> 1645 	.bind		= sock_no_bind,
+net/llc/af_llc.c <unknown> 1195 	.bind	     = llc_ui_bind,
+net/mptcp/protocol.c <unknown> 2791 	.bind		   = mptcp_bind,
+net/mptcp/protocol.c <unknown> 2841 	.bind		   = mptcp_bind,
+net/netfilter/ipvs/ip_vs_ftp.c <unknown> 566 	.bind_conn =	NULL,
+net/netfilter/nfnetlink.c <unknown> 630 		.bind	= nfnetlink_bind,
+net/netlink/af_netlink.c <unknown> 688 	bind = nl_table[protocol].bind;
+net/netlink/af_netlink.c <unknown> 793 			nl_table[sk->sk_protocol].bind = NULL;
+net/netlink/af_netlink.c <unknown> 2078 			nl_table[unit].bind = cfg->bind;
+net/netlink/af_netlink.c <unknown> 2750 	.bind =		netlink_bind,
+net/netrom/af_netrom.c <unknown> 1346 	.bind		=	nr_bind,
+net/nfc/llcp_sock.c <unknown> 910 	.bind           = llcp_sock_bind,
+net/nfc/llcp_sock.c <unknown> 930 	.bind           = llcp_raw_sock_bind,
+net/nfc/rawsock.c <unknown> 270 	.bind           = sock_no_bind,
+net/nfc/rawsock.c <unknown> 288 	.bind           = sock_no_bind,
+net/packet/af_packet.c <unknown> 4537 	.bind =		packet_bind_spkt,
+net/packet/af_packet.c <unknown> 4557 	.bind =		packet_bind,
+net/phonet/socket.c <unknown> 433 	.bind		= pn_socket_bind,
+net/phonet/socket.c <unknown> 452 	.bind		= pn_socket_bind,
+net/qrtr/qrtr.c <unknown> 1213 	.bind		= qrtr_bind,
+net/rds/af_rds.c <unknown> 642 	.bind =		rds_bind,
+net/rose/af_rose.c <unknown> 1461 	.bind		=	rose_bind,
+net/rxrpc/af_rxrpc.c <unknown> 926 	.bind		= rxrpc_bind,
+net/sched/act_bpf.c <unknown> 145 		.bindcnt = atomic_read(&prog->tcf_bindcnt) - bind,
+net/sched/act_connmark.c <unknown> 179 		.bindcnt = atomic_read(&ci->tcf_bindcnt) - bind,
+net/sched/act_csum.c <unknown> 639 		.bindcnt = atomic_read(&p->tcf_bindcnt) - bind,
+net/sched/act_ct.c <unknown> 1395 		.bindcnt = atomic_read(&c->tcf_bindcnt) - bind,
+net/sched/act_ctinfo.c <unknown> 288 		.bindcnt = atomic_read(&ci->tcf_bindcnt) - bind,
+net/sched/act_gact.c <unknown> 192 		.bindcnt = atomic_read(&gact->tcf_bindcnt) - bind,
+net/sched/act_gate.c <unknown> 508 		.bindcnt  = atomic_read(&gact->tcf_bindcnt) - bind,
+net/sched/act_ife.c <unknown> 649 		.bindcnt = atomic_read(&ife->tcf_bindcnt) - bind,
+net/sched/act_ipt.c <unknown> 292 	c.bindcnt = atomic_read(&ipt->tcf_bindcnt) - bind;
+net/sched/act_mirred.c <unknown> 331 		.bindcnt = atomic_read(&m->tcf_bindcnt) - bind,
+net/sched/act_mpls.c <unknown> 325 		.bindcnt  = atomic_read(&m->tcf_bindcnt) - bind,
+net/sched/act_nat.c <unknown> 265 		.bindcnt  = atomic_read(&p->tcf_bindcnt) - bind,
+net/sched/act_police.c <unknown> 308 		.bindcnt = atomic_read(&police->tcf_bindcnt) - bind,
+net/sched/act_sample.c <unknown> 205 		.bindcnt    = atomic_read(&s->tcf_bindcnt) - bind,
+net/sched/act_simple.c <unknown> 177 		.bindcnt = atomic_read(&d->tcf_bindcnt) - bind,
+net/sched/act_skbedit.c <unknown> 246 		.bindcnt = atomic_read(&d->tcf_bindcnt) - bind,
+net/sched/act_skbmod.c <unknown> 221 		.bindcnt = atomic_read(&d->tcf_bindcnt) - bind,
+net/sched/act_tunnel_key.c <unknown> 721 		.bindcnt  = atomic_read(&t->tcf_bindcnt) - bind,
+net/sched/act_vlan.c <unknown> 294 		.bindcnt  = atomic_read(&v->tcf_bindcnt) - bind,
+net/sched/cls_api.c <unknown> 652 			       block_cb->indr.binder_type,
+net/sched/cls_api.c <unknown> 3793 	qe->info.binder_type = binder_type;
+net/sched/cls_basic.c <unknown> 338 	.bind_class	=	basic_bind_class,
+net/sched/cls_bpf.c <unknown> 709 	.bind_class	=	cls_bpf_bind_class,
+net/sched/cls_flower.c <unknown> 3192 	.bind_class	= fl_bind_class,
+net/sched/cls_fw.c <unknown> 445 	.bind_class	=	fw_bind_class,
+net/sched/cls_matchall.c <unknown> 424 	.bind_class	= mall_bind_class,
+net/sched/cls_route.c <unknown> 667 	.bind_class	=	route4_bind_class,
+net/sched/cls_rsvp.h <unknown> 762 	.bind_class	=	rsvp_bind_class,
+net/sched/cls_tcindex.c <unknown> 719 	.bind_class	=	tcindex_bind_class,
+net/sched/cls_u32.c <unknown> 1390 	.bind_class	=	u32_bind_class,
+net/sched/sch_atm.c <unknown> 675 	.bind_tcf	= atm_tc_bind_filter,
+net/sched/sch_cake.c <unknown> 3089 	.bind_tcf	=	cake_bind,
+net/sched/sch_cbq.c <unknown> 1784 	.bind_tcf	=	cbq_bind_filter,
+net/sched/sch_drr.c <unknown> 472 	.bind_tcf	= drr_bind_tcf,
+net/sched/sch_dsmark.c <unknown> 489 	.bind_tcf	=	dsmark_bind_filter,
+net/sched/sch_ets.c <unknown> 797 	.bind_tcf	= ets_qdisc_bind_tcf,
+net/sched/sch_fq_codel.c <unknown> 687 	.bind_tcf	=	fq_codel_bind,
+net/sched/sch_hfsc.c <unknown> 1653 	.bind_tcf	= hfsc_bind_tcf,
+net/sched/sch_htb.c <unknown> 1568 	.bind_tcf	=	htb_bind_filter,
+net/sched/sch_ingress.c <unknown> 87 	q->block_info.binder_type = FLOW_BLOCK_BINDER_TYPE_CLSACT_INGRESS;
+net/sched/sch_ingress.c <unknown> 129 	.bind_tcf	=	ingress_bind_filter,
+net/sched/sch_ingress.c <unknown> 227 	q->ingress_block_info.binder_type = FLOW_BLOCK_BINDER_TYPE_CLSACT_INGRESS;
+net/sched/sch_ingress.c <unknown> 240 	q->egress_block_info.binder_type = FLOW_BLOCK_BINDER_TYPE_CLSACT_EGRESS;
+net/sched/sch_ingress.c <unknown> 264 	.bind_tcf	=	clsact_bind_filter,
+net/sched/sch_multiq.c <unknown> 386 	.bind_tcf	=	multiq_bind,
+net/sched/sch_prio.c <unknown> 409 	.bind_tcf	=	prio_bind,
+net/sched/sch_qfq.c <unknown> 1490 	.bind_tcf	= qfq_bind_tcf,
+net/sched/sch_sfb.c <unknown> 694 	.bind_tcf	=	sfb_bind,
+net/sched/sch_sfq.c <unknown> 908 	.bind_tcf	=	sfq_bind,
+net/sctp/associola.c <unknown> 79 	sctp_bind_addr_init(&asoc->base.bind_addr, ep->base.bind_addr.port);
+net/sctp/associola.c <unknown> 175 	asoc->c.my_port = ep->base.bind_addr.port;
+net/sctp/associola.c <unknown> 356 	sctp_bind_addr_free(&asoc->base.bind_addr);
+net/sctp/associola.c <unknown> 675 	sctp_packet_init(&peer->packet, peer, asoc->base.bind_addr.port,
+net/sctp/associola.c <unknown> 1583 				   &asoc->base.bind_addr,
+net/sctp/associola.c <unknown> 1584 				   &asoc->ep->base.bind_addr,
+net/sctp/associola.c <unknown> 1597 	return sctp_raw_to_bind_addrs(&asoc->base.bind_addr, raw, var_size3,
+net/sctp/associola.c <unknown> 1598 				      asoc->ep->base.bind_addr.port, gfp);
+net/sctp/associola.c <unknown> 1607 	if ((asoc->base.bind_addr.port == ntohs(laddr->v4.sin_port)) &&
+net/sctp/associola.c <unknown> 1608 	    sctp_bind_addr_match(&asoc->base.bind_addr, laddr,
+net/sctp/bind_addr.c <unknown> 331 	struct sctp_bind_addr *bp2 = &sp2->ep->base.bind_addr;
+net/sctp/bind_addr.c <unknown> 332 	struct sctp_bind_addr *bp = &sp->ep->base.bind_addr;
+net/sctp/bind_addr.c <unknown> 545 	bp = &sctp_sk(sk)->ep->base.bind_addr;
+net/sctp/diag.c <unknown> 34 	laddr = list_entry(asoc->base.bind_addr.address_list.next,
+net/sctp/diag.c <unknown> 40 	r->id.idiag_sport = htons(asoc->base.bind_addr.port);
+net/sctp/diag.c <unknown> 200 	addr_list = asoc ? &asoc->base.bind_addr.address_list
+net/sctp/diag.c <unknown> 201 			 : &ep->base.bind_addr.address_list;
+net/sctp/diag.c <unknown> 235 	list_for_each_entry_rcu(laddr, &asoc->base.bind_addr.address_list,
+net/sctp/diag.c <unknown> 311 		if (r->id.idiag_sport != htons(assoc->base.bind_addr.port) &&
+net/sctp/endpointola.c <unknown> 78 	sctp_bind_addr_init(&ep->base.bind_addr, 0);
+net/sctp/endpointola.c <unknown> 207 	sctp_bind_addr_free(&ep->base.bind_addr);
+net/sctp/endpointola.c <unknown> 246 	if ((htons(ep->base.bind_addr.port) == laddr->v4.sin_port) &&
+net/sctp/endpointola.c <unknown> 248 		if (sctp_bind_addr_match(&ep->base.bind_addr, laddr,
+net/sctp/endpointola.c <unknown> 273 	if (!ep->base.bind_addr.port)
+net/sctp/endpointola.c <unknown> 298 	bp = &ep->base.bind_addr;
+net/sctp/input.c <unknown> 736 		list_for_each(list, &ep->base.bind_addr.address_list)
+net/sctp/input.c <unknown> 888 	if (x->lport != htons(t->asoc->base.bind_addr.port))
+net/sctp/input.c <unknown> 902 			   htons(t->asoc->base.bind_addr.port),
+net/sctp/input.c <unknown> 943 	arg.lport = htons(t->asoc->base.bind_addr.port);
+net/sctp/input.c <unknown> 994 		if (sctp_bind_addr_match(&t->asoc->base.bind_addr,
+net/sctp/input.c <unknown> 1013 		.lport = htons(ep->base.bind_addr.port),
+net/sctp/ipv6.c <unknown> 265 		fl6->fl6_sport = htons(asoc->base.bind_addr.port);
+net/sctp/ipv6.c <unknown> 286 	bp = &asoc->base.bind_addr;
+net/sctp/ipv6.c <unknown> 1023 	.bind		   = inet6_bind,
+net/sctp/ipv6.c <unknown> 1101 	.bind_verify   = sctp_inet6_bind_verify,
+net/sctp/outqueue.c <unknown> 765 	const __u16 sport = asoc->base.bind_addr.port;
+net/sctp/protocol.c <unknown> 436 		fl4->fl4_sport = htons(asoc->base.bind_addr.port);
+net/sctp/protocol.c <unknown> 460 	bp = &asoc->base.bind_addr;
+net/sctp/protocol.c <unknown> 1007 	.bind_verify   = sctp_inet_bind_verify,
+net/sctp/protocol.c <unknown> 1028 	.bind		   = inet_bind,
+net/sctp/sm_make_chunk.c <unknown> 400 	addrs = sctp_bind_addrs_to_raw(&asoc->base.bind_addr, &addrs_len, gfp);
+net/sctp/sm_make_chunk.c <unknown> 1835 	if (list_empty(&retval->base.bind_addr.address_list)) {
+net/sctp/sm_make_chunk.c <unknown> 1836 		sctp_add_bind_addr(&retval->base.bind_addr, &chunk->dest,
+net/sctp/sm_make_chunk.c <unknown> 3308 	struct sctp_bind_addr *bp = &asoc->base.bind_addr;
+net/sctp/sm_statefuns.c <unknown> 2282 		    sctp_bind_addr_state(&asoc->base.bind_addr, &chunk->dest))
+net/sctp/sm_statefuns.c <unknown> 2328 		    sctp_bind_addr_state(&asoc->base.bind_addr, &chunk->dest))
+net/sctp/sm_statefuns.c <unknown> 2490 	bp = (struct sctp_bind_addr *) &asoc->base.bind_addr;
+net/sctp/sm_statefuns.c <unknown> 2598 		    sctp_bind_addr_state(&asoc->base.bind_addr, &chunk->dest))
+net/sctp/sm_statefuns.c <unknown> 4857 	repl = sctp_make_init(asoc, &asoc->base.bind_addr, GFP_ATOMIC, 0);
+net/sctp/sm_statefuns.c <unknown> 5783 		bp = (struct sctp_bind_addr *) &asoc->base.bind_addr;
+net/sctp/socket.c <unknown> 316 	if (!sctp_sk(sk)->ep->base.bind_addr.port)
+net/sctp/socket.c <unknown> 378 	struct sctp_bind_addr *bp = &ep->base.bind_addr;
+net/sctp/socket.c <unknown> 614 		bp = &asoc->base.bind_addr;
+net/sctp/socket.c <unknown> 680 	struct sctp_bind_addr *bp = &ep->base.bind_addr;
+net/sctp/socket.c <unknown> 820 		bp = &asoc->base.bind_addr;
+net/sctp/socket.c <unknown> 914 	addr->v4.sin_port = htons(sp->ep->base.bind_addr.port);
+net/sctp/socket.c <unknown> 1078 	if (!ep->base.bind_addr.port) {
+net/sctp/socket.c <unknown> 1082 		if (inet_port_requires_bind_service(net, ep->base.bind_addr.port) &&
+net/sctp/socket.c <unknown> 4245 	if (sctp_sk(sk)->ep->base.bind_addr.port)
+net/sctp/socket.c <unknown> 6122 		bp = &sctp_sk(sk)->ep->base.bind_addr;
+net/sctp/socket.c <unknown> 6127 		bp = &asoc->base.bind_addr;
+net/sctp/socket.c <unknown> 8156 			if (sctp_bind_addr_conflict(&ep2->base.bind_addr,
+net/sctp/socket.c <unknown> 8264 	if (!ep->base.bind_addr.port) {
+net/sctp/socket.c <unknown> 9274 	err = sctp_bind_addr_dup(&newsp->ep->base.bind_addr,
+net/sctp/socket.c <unknown> 9275 				 &oldsp->ep->base.bind_addr, GFP_KERNEL);
+net/sctp/socket.c <unknown> 9393 	.bind        =	sctp_bind,
+net/sctp/socket.c <unknown> 9394 	.bind_add    =  sctp_bind_add,
+net/sctp/socket.c <unknown> 9436 	.bind		= sctp_bind,
+net/sctp/socket.c <unknown> 9437 	.bind_add	= sctp_bind_add,
+net/smc/af_smc.c <unknown> 2393 	.bind		= smc_bind,
+net/sunrpc/rpcb_clnt.c <unknown> 747 	xprt->stat.bind_count++;
+net/sunrpc/xprtrdma/transport.c <unknown> 692 		   xprt->stat.bind_count,
+net/sunrpc/xprtsock.c <unknown> 2398 			xprt->stat.bind_count,
+net/sunrpc/xprtsock.c <unknown> 2425 			xprt->stat.bind_count,
+net/sunrpc/xprtsock.c <unknown> 2453 			xprt->stat.bind_count,
+net/tipc/socket.c <unknown> 3328 	.bind		= tipc_bind,
+net/tipc/socket.c <unknown> 3349 	.bind		= tipc_bind,
+net/tipc/socket.c <unknown> 3370 	.bind		= tipc_bind,
+net/unix/af_unix.c <unknown> 704 	.bind =		unix_bind,
+net/unix/af_unix.c <unknown> 729 	.bind =		unix_bind,
+net/unix/af_unix.c <unknown> 753 	.bind =		unix_bind,
+net/vmw_vsock/af_vsock.c <unknown> 1203 	.bind = vsock_bind,
+net/vmw_vsock/af_vsock.c <unknown> 1992 	.bind = vsock_bind,
+net/x25/af_x25.c <unknown> 1742 	.bind =		x25_bind,
+net/xdp/xsk.c <unknown> 1148 	.bind		= xsk_bind,
+samples/bpf/xdpsock_user.c <unknown> 861 	cfg.bind_flags = opt_xdp_bind_flags;
+samples/bpf/xsk_fwd.c <unknown> 732 		.bind_flags = XDP_USE_NEED_WAKEUP | XDP_ZEROCOPY,
+sound/hda/hdac_component.c <unknown> 237 	.bind = hdac_component_master_bind,
+sound/soc/intel/skylake/skl-messages.c <unknown> 1070 	msg.bind = false;
+sound/soc/intel/skylake/skl-messages.c <unknown> 1173 	msg.bind = true;

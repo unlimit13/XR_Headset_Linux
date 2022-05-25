@@ -248,15 +248,14 @@ void drm_kms_helper_poll_enable(struct drm_device *dev)
 
 	if (!dev->mode_config.poll_enabled || !drm_kms_helper_poll)
 		return;
-
 	drm_connector_list_iter_begin(dev, &conn_iter);
 	drm_for_each_connector_iter(connector, &conn_iter) {
 		if (connector->polled & (DRM_CONNECTOR_POLL_CONNECT |
-					 DRM_CONNECTOR_POLL_DISCONNECT))
+					 DRM_CONNECTOR_POLL_DISCONNECT)){
+					 }
 			poll = true;
 	}
 	drm_connector_list_iter_end(&conn_iter);
-
 	if (dev->mode_config.delayed_event) {
 		/*
 		 * FIXME:
@@ -271,9 +270,10 @@ void drm_kms_helper_poll_enable(struct drm_device *dev)
 		poll = true;
 		delay = HZ;
 	}
-
-	if (poll)
+	if (poll){
 		schedule_delayed_work(&dev->mode_config.output_poll_work, delay);
+
+	}
 }
 EXPORT_SYMBOL(drm_kms_helper_poll_enable);
 
@@ -775,7 +775,6 @@ void drm_kms_helper_poll_init(struct drm_device *dev)
 {
 	INIT_DELAYED_WORK(&dev->mode_config.output_poll_work, output_poll_execute);
 	dev->mode_config.poll_enabled = true;
-
 	drm_kms_helper_poll_enable(dev);
 }
 EXPORT_SYMBOL(drm_kms_helper_poll_init);

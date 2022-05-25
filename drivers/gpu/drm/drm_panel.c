@@ -243,7 +243,6 @@ EXPORT_SYMBOL(drm_panel_get_modes);
 struct drm_panel *of_drm_find_panel(const struct device_node *np)
 {
 	struct drm_panel *panel;
-
 	if (!of_device_is_available(np))
 		return ERR_PTR(-ENODEV);
 
@@ -335,8 +334,8 @@ int drm_panel_of_backlight(struct drm_panel *panel)
 
 	backlight = devm_of_find_backlight(panel->dev);
 
-	if (IS_ERR(backlight))
-		return PTR_ERR(backlight);
+	//if (IS_ERR(backlight))
+	//	return PTR_ERR(backlight);
 
 	panel->backlight = backlight;
 	return 0;

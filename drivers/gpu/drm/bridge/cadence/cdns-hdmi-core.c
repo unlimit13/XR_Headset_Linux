@@ -919,7 +919,7 @@ int cdns_hdmi_bind(struct platform_device *pdev, struct drm_encoder *encoder,
 			struct cdns_mhdp_device *mhdp)
 {
 	int ret;
-
+	pr_info("drm unlimit13 - cdns_hdmi_bind");
 	ret = __cdns_hdmi_probe(pdev, mhdp);
 	if (ret)
 		return ret;

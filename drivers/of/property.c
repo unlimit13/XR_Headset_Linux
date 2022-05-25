@@ -690,14 +690,14 @@ struct device_node *of_graph_get_endpoint_by_regs(
 {
 	struct of_endpoint endpoint;
 	struct device_node *node = NULL;
-
+	//port_reg = port 1 , reg = endpoint 0
+	//endpoint port = 0, endpoint id =0
 	for_each_endpoint_of_node(parent, node) {
 		of_graph_parse_endpoint(node, &endpoint);
 		if (((port_reg == -1) || (endpoint.port == port_reg)) &&
 			((reg == -1) || (endpoint.id == reg)))
 			return node;
 	}
-
 	return NULL;
 }
 EXPORT_SYMBOL(of_graph_get_endpoint_by_regs);
@@ -813,7 +813,6 @@ struct device_node *of_graph_get_remote_node(const struct device_node *node,
 					     u32 port, u32 endpoint)
 {
 	struct device_node *endpoint_node, *remote;
-
 	endpoint_node = of_graph_get_endpoint_by_regs(node, port, endpoint);
 	if (!endpoint_node) {
 		pr_debug("no valid endpoint (%d, %d) for node %pOF\n",

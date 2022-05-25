@@ -490,7 +490,6 @@ int drm_fb_helper_init(struct drm_device *dev,
 		dev->fb_helper = fb_helper;
 		return 0;
 	}
-
 	/*
 	 * If this is not the generic fbdev client, initialize a drm_client
 	 * without callbacks so we can use the modesets.
@@ -502,7 +501,6 @@ int drm_fb_helper_init(struct drm_device *dev,
 	}
 
 	dev->fb_helper = fb_helper;
-
 	return 0;
 }
 EXPORT_SYMBOL(drm_fb_helper_init);
@@ -1500,7 +1498,9 @@ static int drm_fb_helper_single_fb_probe(struct drm_fb_helper *fb_helper,
 		sizes.surface_depth = sizes.surface_bpp = preferred_bpp;
 
 	drm_connector_list_iter_begin(fb_helper->dev, &conn_iter);
+
 	drm_client_for_each_connector_iter(connector, &conn_iter) {
+
 		struct drm_cmdline_mode *cmdline_mode;
 
 		cmdline_mode = &connector->cmdline_mode;
@@ -1536,6 +1536,7 @@ static int drm_fb_helper_single_fb_probe(struct drm_fb_helper *fb_helper,
 	 * 16) we need to scale down the depth of the sizes we request.
 	 */
 	mutex_lock(&client->modeset_mutex);
+
 	drm_client_for_each_modeset(mode_set, client) {
 		struct drm_crtc *crtc = mode_set->crtc;
 		struct drm_plane *plane = crtc->primary;
@@ -1581,6 +1582,7 @@ static int drm_fb_helper_single_fb_probe(struct drm_fb_helper *fb_helper,
 
 	/* first up get a count of crtcs now in use and new min/maxes width/heights */
 	crtc_count = 0;
+
 	drm_client_for_each_modeset(mode_set, client) {
 		struct drm_display_mode *desired_mode;
 		int x, y, j;
@@ -1631,7 +1633,6 @@ static int drm_fb_helper_single_fb_probe(struct drm_fb_helper *fb_helper,
 			drm_client_modeset_commit(client);
 		return -EAGAIN;
 	}
-
 	/* Handle our overallocation */
 	sizes.surface_height *= drm_fbdev_overalloc;
 	sizes.surface_height /= 100;
@@ -1640,7 +1641,6 @@ static int drm_fb_helper_single_fb_probe(struct drm_fb_helper *fb_helper,
 	ret = (*fb_helper->funcs->fb_probe)(fb_helper, &sizes);
 	if (ret < 0)
 		return ret;
-
 	strcpy(fb_helper->fb->comm, "[fbcon]");
 	return 0;
 }
@@ -1790,13 +1790,13 @@ __drm_fb_helper_initial_config_and_unlock(struct drm_fb_helper *fb_helper,
 	struct fb_info *info;
 	unsigned int width, height;
 	int ret;
-
 	width = dev->mode_config.max_width;
 	height = dev->mode_config.max_height;
 
 	drm_client_modeset_probe(&fb_helper->client, width, height);
 	ret = drm_fb_helper_single_fb_probe(fb_helper, bpp_sel);
 	if (ret < 0) {
+
 		if (ret == -EAGAIN) {
 			fb_helper->preferred_bpp = bpp_sel;
 			fb_helper->deferred_setup = true;
@@ -1885,7 +1885,6 @@ __drm_fb_helper_initial_config_and_unlock(struct drm_fb_helper *fb_helper,
 int drm_fb_helper_initial_config(struct drm_fb_helper *fb_helper, int bpp_sel)
 {
 	int ret;
-
 	if (!drm_fbdev_emulation)
 		return 0;
 
@@ -1940,7 +1939,6 @@ int drm_fb_helper_hotplug_event(struct drm_fb_helper *fb_helper)
 	drm_master_internal_release(fb_helper->dev);
 
 	drm_dbg_kms(fb_helper->dev, "\n");
-
 	drm_client_modeset_probe(&fb_helper->client, fb_helper->fb->width, fb_helper->fb->height);
 	drm_setup_crtcs_fb(fb_helper);
 	mutex_unlock(&fb_helper->lock);
@@ -2160,19 +2158,21 @@ static int drm_fbdev_client_hotplug(struct drm_client_dev *client)
 	struct drm_fb_helper *fb_helper = drm_fb_helper_from_client(client);
 	struct drm_device *dev = client->dev;
 	int ret;
-
 	/* Setup is not retried if it has failed */
-	if (!fb_helper->dev && fb_helper->funcs)
-		return 0;
+	if (!fb_helper->dev && fb_helper->funcs){
 
-	if (dev->fb_helper)
+		return 0;
+	}
+		
+
+	if (dev->fb_helper){
 		return drm_fb_helper_hotplug_event(dev->fb_helper);
+	}
 
 	if (!dev->mode_config.num_connector) {
 		drm_dbg_kms(dev, "No connectors found, will not create framebuffer!\n");
 		return 0;
 	}
-
 	drm_fb_helper_prepare(dev, fb_helper, &drm_fb_helper_generic_funcs);
 
 	ret = drm_fb_helper_init(dev, fb_helper);
@@ -2185,7 +2185,6 @@ static int drm_fbdev_client_hotplug(struct drm_client_dev *client)
 	ret = drm_fb_helper_initial_config(fb_helper, fb_helper->preferred_bpp);
 	if (ret)
 		goto err_cleanup;
-
 	return 0;
 
 err_cleanup:
@@ -2195,7 +2194,7 @@ err:
 	fb_helper->fbdev = NULL;
 
 	drm_err(dev, "fbdev: Failed to setup generic emulation (ret=%d)\n", ret);
-
+	
 	return ret;
 }
 
@@ -2246,18 +2245,17 @@ void drm_fbdev_generic_setup(struct drm_device *dev,
 		return;
 
 	fb_helper = kzalloc(sizeof(*fb_helper), GFP_KERNEL);
+
 	if (!fb_helper) {
 		drm_err(dev, "Failed to allocate fb_helper\n");
 		return;
 	}
-
 	ret = drm_client_init(dev, &fb_helper->client, "fbdev", &drm_fbdev_client_funcs);
 	if (ret) {
 		kfree(fb_helper);
 		drm_err(dev, "Failed to register client: %d\n", ret);
 		return;
 	}
-
 	if (!preferred_bpp)
 		preferred_bpp = dev->mode_config.preferred_depth;
 	if (!preferred_bpp)
@@ -2267,7 +2265,6 @@ void drm_fbdev_generic_setup(struct drm_device *dev,
 	ret = drm_fbdev_client_hotplug(&fb_helper->client);
 	if (ret)
 		drm_dbg_kms(dev, "client hotplug ret=%d\n", ret);
-
 	drm_client_register(&fb_helper->client);
 }
 EXPORT_SYMBOL(drm_fbdev_generic_setup);

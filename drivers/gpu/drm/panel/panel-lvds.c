@@ -177,17 +177,17 @@ static int panel_lvds_probe(struct platform_device *pdev)
 {
 	struct panel_lvds *lvds;
 	int ret;
-
+	pr_info("Check 1\n");
 	lvds = devm_kzalloc(&pdev->dev, sizeof(*lvds), GFP_KERNEL);
 	if (!lvds)
 		return -ENOMEM;
 
 	lvds->dev = &pdev->dev;
-
+	pr_info("Check 2\n");
 	ret = panel_lvds_parse_dt(lvds);
 	if (ret < 0)
 		return ret;
-
+	pr_info("Check 3\n");
 	lvds->supply = devm_regulator_get_optional(lvds->dev, "power");
 	if (IS_ERR(lvds->supply)) {
 		ret = PTR_ERR(lvds->supply);
@@ -201,7 +201,7 @@ static int panel_lvds_probe(struct platform_device *pdev)
 
 		lvds->supply = NULL;
 	}
-
+	pr_info("Check 4\n");
 	/* Get GPIOs and backlight controller. */
 	lvds->enable_gpio = devm_gpiod_get_optional(lvds->dev, "enable",
 						     GPIOD_OUT_LOW);
@@ -211,7 +211,7 @@ static int panel_lvds_probe(struct platform_device *pdev)
 			"enable", ret);
 		return ret;
 	}
-
+	pr_info("Check 5\n");
 	lvds->reset_gpio = devm_gpiod_get_optional(lvds->dev, "reset",
 						     GPIOD_OUT_HIGH);
 	if (IS_ERR(lvds->reset_gpio)) {
@@ -220,7 +220,7 @@ static int panel_lvds_probe(struct platform_device *pdev)
 			"reset", ret);
 		return ret;
 	}
-
+	pr_info("Check 6\n");
 	/*
 	 * TODO: Handle all power supplies specified in the DT node in a generic
 	 * way for panels that don't care about power supply ordering. LVDS
@@ -235,10 +235,11 @@ static int panel_lvds_probe(struct platform_device *pdev)
 	ret = drm_panel_of_backlight(&lvds->panel);
 	if (ret)
 		return ret;
-
+	pr_info("Check 7\n");
 	drm_panel_add(&lvds->panel);
 
 	dev_set_drvdata(lvds->dev, lvds);
+	pr_info("Check 8\n");
 	return 0;
 }
 

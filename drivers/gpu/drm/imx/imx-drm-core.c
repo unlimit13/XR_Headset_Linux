@@ -257,20 +257,20 @@ static int imx_drm_bind(struct device *dev)
 	drm->mode_config.max_width = 4096;
 	drm->mode_config.max_height = 4096;
 	drm->mode_config.normalize_zpos = true;
-
+	
 	ret = drmm_mode_config_init(drm);
 	if (ret)
 		goto err_kms;
-
+	
 	ret = drm_vblank_init(drm, MAX_CRTC);
 	if (ret)
 		goto err_kms;
 
 	/* Now try and bind all our sub-components */
+	
 	ret = component_bind_all(dev, drm);
 	if (ret)
 		goto err_kms;
-
 	drm_mode_config_reset(drm);
 
 	/*
@@ -284,10 +284,12 @@ static int imx_drm_bind(struct device *dev)
 	}
 
 	drm_kms_helper_poll_init(drm);
-
 	ret = drm_dev_register(drm, 0);
-	if (ret)
+	if (ret){
+		pr_info("unlimit13-fall");
 		goto err_poll_fini;
+	}
+		
 
 	drm_fbdev_generic_setup(drm, legacyfb_depth);
 

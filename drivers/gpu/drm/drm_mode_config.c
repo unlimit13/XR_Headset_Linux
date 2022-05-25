@@ -36,7 +36,6 @@
 int drm_modeset_register_all(struct drm_device *dev)
 {
 	int ret;
-
 	ret = drm_plane_register_all(dev);
 	if (ret)
 		goto err_plane;
@@ -50,8 +49,10 @@ int drm_modeset_register_all(struct drm_device *dev)
 		goto err_encoder;
 
 	ret = drm_connector_register_all(dev);
-	if (ret)
+	if (ret){
 		goto err_connector;
+	}
+		
 
 	return 0;
 
@@ -199,9 +200,12 @@ void drm_mode_config_reset(struct drm_device *dev)
 			encoder->funcs->reset(encoder);
 
 	drm_connector_list_iter_begin(dev, &conn_iter);
-	drm_for_each_connector_iter(connector, &conn_iter)
+	
+	drm_for_each_connector_iter(connector, &conn_iter){
 		if (connector->funcs->reset)
 			connector->funcs->reset(connector);
+	}
+		
 	drm_connector_list_iter_end(&conn_iter);
 }
 EXPORT_SYMBOL(drm_mode_config_reset);
@@ -398,6 +402,7 @@ static void drm_mode_config_init_release(struct drm_device *dev, void *ptr)
  */
 int drmm_mode_config_init(struct drm_device *dev)
 {
+	pr_info("drm - unlimit13 drmm_mode_config_init 1");
 	mutex_init(&dev->mode_config.mutex);
 	drm_modeset_lock_init(&dev->mode_config.connection_mutex);
 	mutex_init(&dev->mode_config.idr_mutex);

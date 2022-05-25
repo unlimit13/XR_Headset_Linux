@@ -1,0 +1,463 @@
+drivers/acpi/acpi_amba.c <unknown> 121 	.attach = amba_handler_attach,
+drivers/acpi/acpi_apd.c <unknown> 250 	.attach = acpi_apd_create_device,
+drivers/acpi/acpi_cmos_rtc.c <unknown> 78 	.attach = acpi_install_cmos_rtc_space_handler,
+drivers/acpi/acpi_lpss.c <unknown> 1329 	.attach = acpi_lpss_create_device,
+drivers/acpi/acpi_memhotplug.c <unknown> 38 	.attach = acpi_memory_device_add,
+drivers/acpi/acpi_memhotplug.c <unknown> 328 		memory_device_handler.attach = NULL;
+drivers/acpi/acpi_pnp.c <unknown> 362 	.attach = acpi_pnp_attach,
+drivers/acpi/acpi_processor.c <unknown> 557 	.attach = acpi_processor_add,
+drivers/acpi/acpi_processor.c <unknown> 579 	.attach = acpi_processor_container_attach,
+drivers/acpi/container.c <unknown> 91 	.attach = container_device_attach,
+drivers/acpi/dptf/int340x_thermal.c <unknown> 55 	.attach = int340x_thermal_handler_attach,
+drivers/acpi/pci_link.c <unknown> 47 	.attach = acpi_pci_link_add,
+drivers/acpi/pci_root.c <unknown> 51 	.attach = acpi_pci_root_add,
+drivers/acpi/scan.c <unknown> 1966 	.attach = acpi_generic_device_attach,
+drivers/acpi/sleep.c <unknown> 943 	.attach = lps0_device_attach,
+drivers/bluetooth/btrsi.c <unknown> 177 	.attach	= rsi_hci_attach,
+drivers/clk/davinci/psc.c <unknown> 281 	lpsc->pm_domain.attach_dev = davinci_psc_genpd_attach_dev;
+drivers/dma-buf/heaps/heap-helpers.c <unknown> 264 	.attach = dma_heap_attach,
+drivers/dma/pxp/pxp_device.c <unknown> 744 	.attach = pxp_dmabuf_ops_attach,
+drivers/dma/ti/k3-udma.c <unknown> 2321 	.attach = udma_attach_metadata,
+drivers/gpu/drm/amd/amdgpu/amdgpu_dma_buf.c <unknown> 169  * amdgpu_dma_buf_attach - &dma_buf_ops.attach implementation
+drivers/gpu/drm/amd/amdgpu/amdgpu_dma_buf.c <unknown> 415 	.attach = amdgpu_dma_buf_attach,
+drivers/gpu/drm/amd/display/dc/dce110/dce110_compressor.c <unknown> 524 	compressor->base.attached_inst = CONTROLLER_ID_UNDEFINED;
+drivers/gpu/drm/amd/display/dc/dce112/dce112_compressor.c <unknown> 822 	compressor->base.attached_inst = 0;
+drivers/gpu/drm/bridge/adv7511/adv7511_drv.c <unknown> 1029 	.attach = adv7511_bridge_attach,
+drivers/gpu/drm/bridge/analogix/analogix-anx6345.c <unknown> 626 	.attach = anx6345_bridge_attach,
+drivers/gpu/drm/bridge/analogix/analogix-anx78xx.c <unknown> 1015 	.attach = anx78xx_bridge_attach,
+drivers/gpu/drm/bridge/analogix/analogix_dp_core.c <unknown> 1579 	.attach = analogix_dp_bridge_attach,
+drivers/gpu/drm/bridge/cadence/cdns-dp-core.c <unknown> 428 	.attach = cdns_dp_bridge_attach,
+drivers/gpu/drm/bridge/cadence/cdns-hdmi-core.c <unknown> 685 	.attach = cdns_hdmi_bridge_attach,
+drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c <unknown> 2140 	.attach = cdns_mhdp_attach,
+drivers/gpu/drm/bridge/cdns-dsi.c <unknown> 918 	.attach = cdns_dsi_bridge_attach,
+drivers/gpu/drm/bridge/cdns-dsi.c <unknown> 1140 	.attach = cdns_dsi_attach,
+drivers/gpu/drm/bridge/chrontel-ch7033.c <unknown> 516 	.attach = ch7033_bridge_attach,
+drivers/gpu/drm/bridge/display-connector.c <unknown> 88 	.attach = display_connector_attach,
+drivers/gpu/drm/bridge/fsl-imx-ldb.c <unknown> 168 	.attach	    = ldb_bridge_attach,
+drivers/gpu/drm/bridge/it6161.c <unknown> 1308 	.attach = it6161_bridge_attach,
+drivers/gpu/drm/bridge/it6263.c <unknown> 759 	.attach = it6263_bridge_attach,
+drivers/gpu/drm/bridge/lontium-lt9611.c <unknown> 948 	.attach = lt9611_bridge_attach,
+drivers/gpu/drm/bridge/lvds-codec.c <unknown> 72 	.attach = lvds_codec_attach,
+drivers/gpu/drm/bridge/megachips-stdpxxxx-ge-b850v3-fw.c <unknown> 266 	.attach = ge_b850v3_lvds_attach,
+drivers/gpu/drm/bridge/nwl-dsi.c <unknown> 777 	.attach = nwl_dsi_host_attach,
+drivers/gpu/drm/bridge/nwl-dsi.c <unknown> 1488 	.attach			= nwl_dsi_bridge_attach,
+drivers/gpu/drm/bridge/nxp-ptn3460.c <unknown> 256 	.attach = ptn3460_bridge_attach,
+drivers/gpu/drm/bridge/nxp-seiko-43wvfig.c <unknown> 156 	.attach = seiko_adapter_bridge_attach,
+drivers/gpu/drm/bridge/panel.c <unknown> 141 	.attach = panel_bridge_attach,
+drivers/gpu/drm/bridge/parade-ps8622.c <unknown> 439 	.attach = ps8622_attach,
+drivers/gpu/drm/bridge/parade-ps8640.c <unknown> 306 	.attach = ps8640_bridge_attach,
+drivers/gpu/drm/bridge/sec-dsim.c <unknown> 750 	.attach   = sec_mipi_dsim_host_attach,
+drivers/gpu/drm/bridge/sec-dsim.c <unknown> 1582 	.attach     = sec_mipi_dsim_bridge_attach,
+drivers/gpu/drm/bridge/sii902x.c <unknown> 442 	.attach = sii902x_bridge_attach,
+drivers/gpu/drm/bridge/sil-sii8620.c <unknown> 2281 	.attach = sii8620_attach,
+drivers/gpu/drm/bridge/simple-bridge.c <unknown> 162 	.attach		= simple_bridge_attach,
+drivers/gpu/drm/bridge/synopsys/dw-hdmi.c <unknown> 3016 	.attach = dw_hdmi_bridge_attach,
+drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi.c <unknown> 543 	.attach = dw_mipi_dsi_host_attach,
+drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi.c <unknown> 1012 	.attach	      = dw_mipi_dsi_bridge_attach,
+drivers/gpu/drm/bridge/tc358762.c <unknown> 175 	.attach = tc358762_attach,
+drivers/gpu/drm/bridge/tc358764.c <unknown> 313 	.attach = tc358764_attach,
+drivers/gpu/drm/bridge/tc358767.c <unknown> 1444 	.attach = tc_bridge_attach,
+drivers/gpu/drm/bridge/tc358768.c <unknown> 511 	.attach = tc358768_dsi_host_attach,
+drivers/gpu/drm/bridge/tc358768.c <unknown> 870 	.attach = tc358768_bridge_attach,
+drivers/gpu/drm/bridge/tc358775.c <unknown> 642 	.attach = tc_bridge_attach,
+drivers/gpu/drm/bridge/thc63lvd1024.c <unknown> 115 	.attach	= thc63_attach,
+drivers/gpu/drm/bridge/ti-sn65dsi86.c <unknown> 826 	.attach = ti_sn_bridge_attach,
+drivers/gpu/drm/bridge/ti-tfp410.c <unknown> 208 	.attach		= tfp410_attach,
+drivers/gpu/drm/bridge/ti-tpd12s015.c <unknown> 94 	.attach			= tpd12s015_attach,
+drivers/gpu/drm/drm_bridge.c <unknown> 60  * drm_bridge_attach() occurring in the &drm_bridge_funcs.attach operation.
+drivers/gpu/drm/drm_bridge.c <unknown> 333  *   from their &drm_bridge_funcs.attach handler when the
+drivers/gpu/drm/drm_prime.c <unknown> 571  * used as the &dma_buf_ops.attach callback. Must be used together with
+drivers/gpu/drm/drm_prime.c <unknown> 785 	.attach = drm_gem_map_attach,
+drivers/gpu/drm/exynos/exynos_dp.c <unknown> 241 	dp->plat_data.attach = exynos_dp_bridge_attach;
+drivers/gpu/drm/exynos/exynos_drm_dsi.c <unknown> 1645 	.attach = exynos_dsi_host_attach,
+drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c <unknown> 748 	.attach = dsi_host_attach,
+drivers/gpu/drm/i2c/tda998x_drv.c <unknown> 1680 	.attach = tda998x_bridge_attach,
+drivers/gpu/drm/i915/display/icl_dsi.c <unknown> 1709 	.attach = gen11_dsi_host_attach,
+drivers/gpu/drm/i915/display/vlv_dsi.c <unknown> 206 	.attach = intel_dsi_host_attach,
+drivers/gpu/drm/i915/gvt/kvmgt.c <unknown> 2108 	.attach_vgpu = kvmgt_attach_vgpu,
+drivers/gpu/drm/mcde/mcde_dsi.c <unknown> 384 	.attach = mcde_dsi_host_attach,
+drivers/gpu/drm/mcde/mcde_dsi.c <unknown> 1073 	.attach = mcde_dsi_bridge_attach,
+drivers/gpu/drm/mediatek/mtk_dpi.c <unknown> 559 	.attach = mtk_dpi_bridge_attach,
+drivers/gpu/drm/mediatek/mtk_dsi.c <unknown> 764 	.attach = mtk_dsi_bridge_attach,
+drivers/gpu/drm/mediatek/mtk_dsi.c <unknown> 940 	.attach = mtk_dsi_host_attach,
+drivers/gpu/drm/mediatek/mtk_hdmi.c <unknown> 1456 	.attach = mtk_hdmi_bridge_attach,
+drivers/gpu/drm/msm/dsi/dsi_host.c <unknown> 1661 	.attach = dsi_host_attach,
+drivers/gpu/drm/omapdrm/dss/dpi.c <unknown> 553 	.attach = dpi_bridge_attach,
+drivers/gpu/drm/omapdrm/dss/hdmi4.c <unknown> 486 	.attach = hdmi4_bridge_attach,
+drivers/gpu/drm/omapdrm/dss/hdmi5.c <unknown> 470 	.attach = hdmi5_bridge_attach,
+drivers/gpu/drm/omapdrm/dss/sdi.c <unknown> 275 	.attach = sdi_bridge_attach,
+drivers/gpu/drm/omapdrm/dss/venc.c <unknown> 652 	.attach = venc_bridge_attach,
+drivers/gpu/drm/rcar-du/rcar_lvds.c <unknown> 688 	.attach = rcar_lvds_attach,
+drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c <unknown> 1025 	.attach = dw_mipi_dsi_rockchip_host_attach,
+drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c <unknown> 1037 	.attach		= sun6i_dsi_attach,
+drivers/gpu/drm/tegra/dsi.c <unknown> 1525 	.attach = tegra_dsi_host_attach,
+drivers/gpu/drm/vc4/vc4_dsi.c <unknown> 1297 	.attach = vc4_dsi_host_attach,
+drivers/gpu/drm/virtio/virtgpu_prime.c <unknown> 49 		.attach = virtio_dma_buf_attach,
+drivers/gpu/drm/vmwgfx/vmwgfx_prime.c <unknown> 66 	.attach = vmw_prime_map_attach,
+drivers/i3c/master/dw-i3c-master.c <unknown> 1099 	.attach_i3c_dev = dw_i3c_master_attach_i3c_dev,
+drivers/i3c/master/dw-i3c-master.c <unknown> 1106 	.attach_i2c_dev = dw_i3c_master_attach_i2c_dev,
+drivers/i3c/master/i3c-master-cdns.c <unknown> 1530 	.attach_i3c_dev = cdns_i3c_master_attach_i3c_dev,
+drivers/i3c/master/i3c-master-cdns.c <unknown> 1533 	.attach_i2c_dev = cdns_i3c_master_attach_i2c_dev,
+drivers/i3c/master/mipi-i3c-hci/core.c <unknown> 531 	.attach_i3c_dev		= i3c_hci_attach_i3c_dev,
+drivers/i3c/master/mipi-i3c-hci/core.c <unknown> 534 	.attach_i2c_dev		= i3c_hci_attach_i2c_dev,
+drivers/i3c/master/svc-i3c-master.c <unknown> 1431 	.attach_i3c_dev = svc_i3c_master_attach_i3c_dev,
+drivers/i3c/master/svc-i3c-master.c <unknown> 1434 	.attach_i2c_dev = svc_i3c_master_attach_i2c_dev,
+drivers/infiniband/core/verbs.c <unknown> 2283 	if (!qp->device->ops.attach_mcast)
+drivers/infiniband/core/verbs.c <unknown> 2290 	ret = qp->device->ops.attach_mcast(qp, gid, lid);
+drivers/infiniband/hw/mlx4/main.c <unknown> 2519 	.attach_mcast = mlx4_ib_mcg_attach,
+drivers/infiniband/hw/mlx5/main.c <unknown> 4017 	.attach_mcast = mlx5_ib_mcg_attach,
+drivers/infiniband/hw/mthca/mthca_provider.c <unknown> 1086 	.attach_mcast = mthca_multicast_attach,
+drivers/infiniband/sw/rdmavt/vt.c <unknown> 382 	.attach_mcast = rvt_attach_mcast,
+drivers/infiniband/sw/rxe/rxe_verbs.c <unknown> 1068 	.attach_mcast = rxe_attach_mcast,
+drivers/iommu/amd/iommu.c <unknown> 2760 	.attach_dev = amd_iommu_attach_device,
+drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c <unknown> 2574 	.attach_dev		= arm_smmu_attach_dev,
+drivers/iommu/arm/arm-smmu/arm-smmu.c <unknown> 1622 	.attach_dev		= arm_smmu_attach_dev,
+drivers/iommu/arm/arm-smmu/qcom_iommu.c <unknown> 612 	.attach_dev	= qcom_iommu_attach_dev,
+drivers/iommu/exynos-iommu.c <unknown> 1328 	.attach_dev = exynos_iommu_attach_device,
+drivers/iommu/fsl_pamu_domain.c <unknown> 1032 	.attach_dev	= fsl_pamu_attach_device,
+drivers/iommu/intel/iommu.c <unknown> 6136 	.attach_dev		= intel_iommu_attach_device,
+drivers/iommu/ipmmu-vmsa.c <unknown> 899 	.attach_dev = ipmmu_attach_device,
+drivers/iommu/msm_iommu.c <unknown> 679 	.attach_dev = msm_iommu_attach_dev,
+drivers/iommu/mtk_iommu.c <unknown> 537 	.attach_dev	= mtk_iommu_attach_device,
+drivers/iommu/mtk_iommu_v1.c <unknown> 521 	.attach_dev	= mtk_iommu_attach_device,
+drivers/iommu/omap-iommu.c <unknown> 1742 	.attach_dev	= omap_iommu_attach_dev,
+drivers/iommu/rockchip-iommu.c <unknown> 1113 	.attach_dev = rk_iommu_attach_device,
+drivers/iommu/s390-iommu.c <unknown> 361 	.attach_dev = s390_iommu_attach_device,
+drivers/iommu/sun50i-iommu.c <unknown> 334 	 * the .attach_device callback, we don't have that pointer set.
+drivers/iommu/sun50i-iommu.c <unknown> 774 	.attach_dev	= sun50i_iommu_attach_device,
+drivers/iommu/tegra-gart.c <unknown> 279 	.attach_dev	= gart_iommu_attach_dev,
+drivers/iommu/tegra-smmu.c <unknown> 978 	.attach_dev = tegra_smmu_attach_dev,
+drivers/iommu/virtio-iommu.c <unknown> 937 	.attach_dev		= viommu_attach_dev,
+drivers/media/common/b2c2/flexcop-fe-tuner.c <unknown> 685 		if (!flexcop_frontends[i].attach)
+drivers/media/common/b2c2/flexcop-fe-tuner.c <unknown> 690 		if (flexcop_frontends[i].attach(fc, &fc->fc_i2c_adap[0].i2c_adap))
+drivers/media/common/videobuf2/videobuf2-dma-contig.c <unknown> 361 	.attach = vb2_dc_dmabuf_ops_attach,
+drivers/media/common/videobuf2/videobuf2-dma-contig.c <unknown> 705 	.attach_dmabuf	= vb2_dc_attach_dmabuf,
+drivers/media/common/videobuf2/videobuf2-dma-sg.c <unknown> 497 	.attach = vb2_dma_sg_dmabuf_ops_attach,
+drivers/media/common/videobuf2/videobuf2-dma-sg.c <unknown> 653 	.attach_dmabuf	= vb2_dma_sg_attach_dmabuf,
+drivers/media/common/videobuf2/videobuf2-vmalloc.c <unknown> 331 	.attach = vb2_vmalloc_dmabuf_ops_attach,
+drivers/media/common/videobuf2/videobuf2-vmalloc.c <unknown> 427 	.attach_dmabuf	= vb2_vmalloc_attach_dmabuf,
+drivers/media/dvb-frontends/cxd2820r_core.c <unknown> 527 	pdata.attach_in_use = true;
+drivers/media/dvb-frontends/m88ds3103.c <unknown> 1689 	pdata.attach_in_use = true;
+drivers/media/dvb-frontends/ts2020.c <unknown> 516 	pdata.attach_in_use = true;
+drivers/media/pci/saa7146/hexium_gemini.c <unknown> 393 	.attach = hexium_attach,
+drivers/media/pci/saa7146/hexium_orion.c <unknown> 463 	.attach = hexium_attach,
+drivers/media/pci/saa7146/mxb.c <unknown> 841 	.attach		= mxb_attach,
+drivers/media/pci/ttpci/av7110.c <unknown> 2892 	.attach		= av7110_attach,
+drivers/media/pci/ttpci/budget-av.c <unknown> 1600 	.attach = budget_av_attach,
+drivers/media/pci/ttpci/budget-ci.c <unknown> 1552 	.attach = budget_ci_attach,
+drivers/media/pci/ttpci/budget-patch.c <unknown> 653 	.attach         = budget_patch_attach,
+drivers/media/pci/ttpci/budget.c <unknown> 861 	.attach		= budget_attach,
+drivers/media/platform/mxc/capture/mxc_v4l2_capture.c <unknown> 217 	.attach = mxc_v4l2_master_attach,
+drivers/media/rc/bpf-lirc.c <unknown> 323 	if (copy_to_user(&uattr->query.attach_flags, &flags, sizeof(flags))) {
+drivers/message/fusion/mptsas.c <unknown> 1592 		if (port_info->phy_info[i].attached.sas_address !=
+drivers/message/fusion/mptsas.c <unknown> 1595 		port_info->phy_info[i].attached.channel = sas_device->channel;
+drivers/message/fusion/mptsas.c <unknown> 1596 		port_info->phy_info[i].attached.id = sas_device->id;
+drivers/message/fusion/mptsas.c <unknown> 1597 		port_info->phy_info[i].attached.sas_address =
+drivers/message/fusion/mptsas.c <unknown> 1599 		port_info->phy_info[i].attached.handle = sas_device->handle;
+drivers/message/fusion/mptsas.c <unknown> 1600 		port_info->phy_info[i].attached.handle_parent =
+drivers/message/fusion/mptsas.c <unknown> 1602 		port_info->phy_info[i].attached.handle_enclosure =
+drivers/message/fusion/mptsas.c <unknown> 1759 			if (p->phy_info[i].attached.sas_address !=
+drivers/message/fusion/mptsas.c <unknown> 1762 			id = p->phy_info[i].attached.id;
+drivers/message/fusion/mptsas.c <unknown> 1763 			channel = p->phy_info[i].attached.channel;
+drivers/message/fusion/mptsas.c <unknown> 1774 				p->phy_info[i].attached.phys_disk_num = id;
+drivers/message/fusion/mptsas.c <unknown> 1818 			if (p->phy_info[i].attached.sas_address !=
+drivers/message/fusion/mptsas.c <unknown> 1825 			p->phy_info[i].attached.channel,
+drivers/message/fusion/mptsas.c <unknown> 1826 			p->phy_info[i].attached.id,
+drivers/message/fusion/mptsas.c <unknown> 1827 			p->phy_info[i].attached.phy_id, (unsigned long long)
+drivers/message/fusion/mptsas.c <unknown> 1828 			p->phy_info[i].attached.sas_address);
+drivers/message/fusion/mptsas.c <unknown> 1869 			if (p->phy_info[i].attached.sas_address !=
+drivers/message/fusion/mptsas.c <unknown> 1877 			    p->phy_info[i].attached.channel,
+drivers/message/fusion/mptsas.c <unknown> 1878 			    p->phy_info[i].attached.id))
+drivers/message/fusion/mptsas.c <unknown> 2167 			if (p->phy_info[i].attached.sas_address ==
+drivers/message/fusion/mptsas.c <unknown> 2199 			if (p->phy_info[i].attached.sas_address ==
+drivers/message/fusion/mptsas.c <unknown> 2201 				rc = p->phy_info[i].attached.slot;
+drivers/message/fusion/mptsas.c <unknown> 3331 		if (port_info->phy_info[i].attached.handle)
+drivers/message/fusion/mptsas.c <unknown> 3333 				&port_info->phy_info[i].attached,
+drivers/message/fusion/mptsas.c <unknown> 3336 				port_info->phy_info[i].attached.handle);
+drivers/message/fusion/mptsas.c <unknown> 3378 		if (port_info->phy_info[i].attached.handle) {
+drivers/message/fusion/mptsas.c <unknown> 3380 			    &port_info->phy_info[i].attached,
+drivers/message/fusion/mptsas.c <unknown> 3383 			    port_info->phy_info[i].attached.handle);
+drivers/message/fusion/mptsas.c <unknown> 3384 			port_info->phy_info[i].attached.phy_id =
+drivers/message/fusion/mptsas.c <unknown> 3398 		if (parent->phy_info[i].attached.sas_address == sas_address) {
+drivers/message/fusion/mptsas.c <unknown> 4118 				&port_info->phy_info[i].attached))
+drivers/message/fusion/mptsas.c <unknown> 4120 			if (port_info->phy_info[i].attached.sas_address
+drivers/message/fusion/mptsas.c <unknown> 4189 				&port_info->phy_info[i].attached))
+drivers/message/fusion/mptsas.c <unknown> 4191 			if (port_info->phy_info[i].attached.phys_disk_num == ~0)
+drivers/message/fusion/mptsas.c <unknown> 4193 			if ((port_info->phy_info[i].attached.phys_disk_num ==
+drivers/message/fusion/mptsas.c <unknown> 4195 			    (port_info->phy_info[i].attached.id == id) &&
+drivers/message/fusion/mptsas.c <unknown> 4196 			    (port_info->phy_info[i].attached.channel ==
+drivers/misc/cxl/guest.c <unknown> 1179 	.attach_process = guest_attach_process,
+drivers/misc/cxl/native.c <unknown> 1577 	.attach_process = native_attach_process,
+drivers/misc/cxl/pci.c <unknown> 1584 	.attach_afu_directed = cxl_attach_afu_directed_psl9,
+drivers/misc/cxl/pci.c <unknown> 1585 	.attach_dedicated_process = cxl_attach_dedicated_process_psl9,
+drivers/misc/cxl/pci.c <unknown> 1607 	.attach_afu_directed = cxl_attach_afu_directed_psl8,
+drivers/misc/cxl/pci.c <unknown> 1608 	.attach_dedicated_process = cxl_attach_dedicated_process_psl8,
+drivers/misc/fastrpc.c <unknown> 608 	.attach = fastrpc_dma_buf_attach,
+drivers/misc/mei/hdcp/mei_hdcp.c <unknown> 61 	session_init_in.port.attached_transcoder = (u8)data->fw_tc;
+drivers/misc/mei/hdcp/mei_hdcp.c <unknown> 131 	verify_rxcert_in.port.attached_transcoder = (u8)data->fw_tc;
+drivers/misc/mei/hdcp/mei_hdcp.c <unknown> 202 	send_hprime_in.port.attached_transcoder = (u8)data->fw_tc;
+drivers/misc/mei/hdcp/mei_hdcp.c <unknown> 260 	pairing_info_in.port.attached_transcoder = (u8)data->fw_tc;
+drivers/misc/mei/hdcp/mei_hdcp.c <unknown> 319 	lc_init_in.port.attached_transcoder = (u8)data->fw_tc;
+drivers/misc/mei/hdcp/mei_hdcp.c <unknown> 375 	verify_lprime_in.port.attached_transcoder = (u8)data->fw_tc;
+drivers/misc/mei/hdcp/mei_hdcp.c <unknown> 433 	get_skey_in.port.attached_transcoder = (u8)data->fw_tc;
+drivers/misc/mei/hdcp/mei_hdcp.c <unknown> 498 	verify_repeater_in.port.attached_transcoder = (u8)data->fw_tc;
+drivers/misc/mei/hdcp/mei_hdcp.c <unknown> 577 	verify_mprime_in->port.attached_transcoder = (u8)data->fw_tc;
+drivers/misc/mei/hdcp/mei_hdcp.c <unknown> 639 	enable_auth_in.port.attached_transcoder = (u8)data->fw_tc;
+drivers/misc/mei/hdcp/mei_hdcp.c <unknown> 694 	session_close_in.port.attached_transcoder = (u8)data->fw_tc;
+drivers/mtd/nand/raw/ams-delta.c <unknown> 230 	.attach_chip = gpio_nand_attach_chip,
+drivers/mtd/nand/raw/arasan-nand-controller.c <unknown> 1111 	.attach_chip = anfc_attach_chip,
+drivers/mtd/nand/raw/atmel/nand-controller.c <unknown> 2016 	.attach_chip = atmel_nand_attach_chip,
+drivers/mtd/nand/raw/au1550nd.c <unknown> 251 	.attach_chip = au1550nd_attach_chip,
+drivers/mtd/nand/raw/brcmnand/brcmnand.c <unknown> 2701 	.attach_chip = brcmnand_attach_chip,
+drivers/mtd/nand/raw/cadence-nand-controller.c <unknown> 2692 	.attach_chip = cadence_nand_attach_chip,
+drivers/mtd/nand/raw/cafe_nand.c <unknown> 658 	.attach_chip = cafe_nand_attach_chip,
+drivers/mtd/nand/raw/cs553x_nand.c <unknown> 263 	.attach_chip = cs553x_attach_chip,
+drivers/mtd/nand/raw/davinci_nand.c <unknown> 776 	.attach_chip = davinci_nand_attach_chip,
+drivers/mtd/nand/raw/denali.c <unknown> 1174 	.attach_chip = denali_attach_chip,
+drivers/mtd/nand/raw/diskonchip.c <unknown> 1291 	.attach_chip = doc200x_attach_chip,
+drivers/mtd/nand/raw/diskonchip.c <unknown> 1296 	.attach_chip = doc200x_attach_chip,
+drivers/mtd/nand/raw/fsl_elbc_nand.c <unknown> 826 	.attach_chip = fsl_elbc_attach_chip,
+drivers/mtd/nand/raw/fsl_ifc_nand.c <unknown> 774 	.attach_chip = fsl_ifc_attach_chip,
+drivers/mtd/nand/raw/fsmc_nand.c <unknown> 967 	.attach_chip = fsmc_nand_attach_chip,
+drivers/mtd/nand/raw/gpio.c <unknown> 176 	.attach_chip = gpio_nand_attach_chip,
+drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c <unknown> 2686 	.attach_chip = gpmi_nand_attach_chip,
+drivers/mtd/nand/raw/hisi504_nand.c <unknown> 731 	.attach_chip = hisi_nfc_attach_chip,
+drivers/mtd/nand/raw/ingenic/ingenic_nand_drv.c <unknown> 337 	.attach_chip = ingenic_nand_attach_chip,
+drivers/mtd/nand/raw/lpc32xx_mlc.c <unknown> 680 	.attach_chip = lpc32xx_nand_attach_chip,
+drivers/mtd/nand/raw/lpc32xx_slc.c <unknown> 824 	.attach_chip = lpc32xx_nand_attach_chip,
+drivers/mtd/nand/raw/marvell_nand.c <unknown> 2551 	.attach_chip = marvell_nand_attach_chip,
+drivers/mtd/nand/raw/meson_nand.c <unknown> 1226 	.attach_chip = meson_nand_attach_chip,
+drivers/mtd/nand/raw/mpc5121_nfc.c <unknown> 617 	.attach_chip = mpc5121_nfc_attach_chip,
+drivers/mtd/nand/raw/mtk_nand.c <unknown> 1361 	.attach_chip = mtk_nfc_attach_chip,
+drivers/mtd/nand/raw/mxc_nand.c <unknown> 1756 	.attach_chip = mxcnd_attach_chip,
+drivers/mtd/nand/raw/nandsim.c <unknown> 2250 	.attach_chip = ns_attach_chip,
+drivers/mtd/nand/raw/omap2.c <unknown> 2162 	.attach_chip = omap_nand_attach_chip,
+drivers/mtd/nand/raw/orion_nand.c <unknown> 97 	.attach_chip = orion_nand_attach_chip,
+drivers/mtd/nand/raw/pasemi_nand.c <unknown> 88 	.attach_chip = pasemi_attach_chip,
+drivers/mtd/nand/raw/plat_nand.c <unknown> 33 	.attach_chip = plat_nand_attach_chip,
+drivers/mtd/nand/raw/qcom_nandc.c <unknown> 2632 	.attach_chip = qcom_nand_attach_chip,
+drivers/mtd/nand/raw/r852.c <unknown> 840 	.attach_chip = r852_attach_chip,
+drivers/mtd/nand/raw/s3c2410.c <unknown> 1001 	.attach_chip = s3c2410_nand_attach_chip,
+drivers/mtd/nand/raw/sh_flctl.c <unknown> 1055 	.attach_chip = flctl_chip_attach_chip,
+drivers/mtd/nand/raw/sharpsl.c <unknown> 116 	.attach_chip = sharpsl_attach_chip,
+drivers/mtd/nand/raw/sm_common.c <unknown> 182 	.attach_chip = sm_attach_chip,
+drivers/mtd/nand/raw/socrates_nand.c <unknown> 131 	.attach_chip = socrates_attach_chip,
+drivers/mtd/nand/raw/stm32_fmc2_nand.c <unknown> 1743 	.attach_chip = stm32_fmc2_nfc_attach_chip,
+drivers/mtd/nand/raw/sunxi_nand.c <unknown> 1925 	.attach_chip = sunxi_nand_attach_chip,
+drivers/mtd/nand/raw/tango_nand.c <unknown> 567 	.attach_chip = tango_attach_chip,
+drivers/mtd/nand/raw/tegra_nand.c <unknown> 1059 	.attach_chip = &tegra_nand_attach_chip,
+drivers/mtd/nand/raw/tmio_nand.c <unknown> 375 	.attach_chip = tmio_attach_chip,
+drivers/mtd/nand/raw/txx9ndfmc.c <unknown> 277 	.attach_chip = txx9ndfmc_attach_chip,
+drivers/mtd/nand/raw/vf610_nfc.c <unknown> 802 	.attach_chip = vf610_nfc_attach_chip,
+drivers/mtd/nand/raw/xway_nand.c <unknown> 160 	.attach_chip = xway_attach_chip,
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3477            if (Interface->u.Attach.queryCapSize)
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3484                                       &Interface->u.Attach.numStates,
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3487                 Interface->u.Attach.maxState = bytes;
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3488                 Interface->u.Attach.context = gcmPTR_TO_NAME(context);
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3493                 Interface->u.Attach.captureSize = nodeObject->captureSize;
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3499                 context = gcmNAME_TO_PTR(Interface->u.Attach.context);
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3505                     gckOS_CopyToUserData(Kernel->os, buffer->logical, Interface->u.Attach.contextLogical[i], Interface->u.Attach.captureSize);
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3517                                   &Interface->u.Attach.numStates,
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3520             Interface->u.Attach.maxState = bytes;
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3521             Interface->u.Attach.context = gcmPTR_TO_NAME(context);
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3524             if (Interface->u.Attach.map)
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3533                         Interface->u.Attach.logicals[i] = gcmPTR_TO_UINT64(Interface->u.Attach.contextLogical[i]);
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3536                     Interface->u.Attach.bytes = (gctUINT)context->totalSize;
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3542                                                 Interface->u.Attach.logicals,
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3543                                                 &Interface->u.Attach.bytes));
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3551                     for (i = 0; i < gcmCOUNTOF(Interface->u.Attach.logicals); i++)
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3553                         Interface->u.Attach.logicals[i] = 0;
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3556                     Interface->u.Attach.bytes = 0;
+drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c <unknown> 3563                                        gcmINT2PTR(Interface->u.Attach.context),
+drivers/mxc/gpu-viv/hal/os/linux/kernel/allocator/default/gc_hal_kernel_allocator_dmabuf.c <unknown> 472     .Attach             = _DmabufAttach,
+drivers/mxc/gpu-viv/hal/os/linux/kernel/allocator/default/gc_hal_kernel_allocator_reserved_mem.c <unknown> 532     .Attach             = reserved_mem_attach,
+drivers/mxc/gpu-viv/hal/os/linux/kernel/allocator/default/gc_hal_kernel_allocator_user_memory.c <unknown> 906     .Attach             = _UserMemoryAttach,
+drivers/net/ethernet/freescale/dpaa2/dpaa2-eth-ceetm.c <unknown> 1134 	.attach		=	dpaa2_ceetm_attach,
+drivers/net/ethernet/freescale/sdk_dpaa/dpaa_eth_ceetm.c <unknown> 1928 	.attach		=	ceetm_attach,
+drivers/net/ethernet/mellanox/mlx5/core/en_main.c <unknown> 5589 	.attach    = mlx5e_attach,
+drivers/net/ethernet/qlogic/qlcnic/qlcnic_dcb.c <unknown> 172 	.attach			= __qlcnic_dcb_attach,
+drivers/net/ethernet/qlogic/qlcnic/qlcnic_dcb.c <unknown> 185 	.attach			= __qlcnic_dcb_attach,
+drivers/net/ethernet/ti/netcp_ethss.c <unknown> 3831 	.attach		= gbe_attach,
+drivers/net/ethernet/ti/netcp_ethss.c <unknown> 3848 	.attach		= gbe_attach,
+drivers/net/fddi/skfp/cfm.c <unknown> 344 		else if (!smc->s.attach_s &&
+drivers/net/fddi/skfp/cfm.c <unknown> 356 		else if ( smc->s.attach_s &&
+drivers/net/fddi/skfp/cfm.c <unknown> 403 		else if (!smc->s.attach_s &&
+drivers/net/fddi/skfp/cfm.c <unknown> 412 		else if ( smc->s.attach_s &&
+drivers/net/fddi/skfp/cfm.c <unknown> 448 		else if (smc->s.attach_s) {
+drivers/net/fddi/skfp/cfm.c <unknown> 481 		else if (!smc->s.attach_s) {
+drivers/net/phy/marvell10g.c <unknown> 359 	.attach = phy_sfp_attach,
+drivers/net/phy/phy_device.c <unknown> 1259  * This is used to fill in the sfp_upstream_ops .attach member.
+drivers/net/phy/phylink.c <unknown> 2248 	.attach = phylink_sfp_attach,
+drivers/net/phy/sfp.c <unknown> 2282 	.attach = sfp_attach,
+drivers/net/wireless/intel/iwlwifi/mvm/debugfs.c <unknown> 1560 	mac.attached_filters = cpu_to_le16(attached_filters);
+drivers/net/wireless/rsi/rsi_91x_main.c <unknown> 214 				if (rsi_bt_ops.attach(common, &g_proto_ops))
+drivers/regulator/core.c <unknown> 5170 	.attach_regulator = generic_coupler_attach,
+drivers/remoteproc/imx_rproc.c <unknown> 784 	.attach		= imx_rproc_attach,
+drivers/remoteproc/stm32_rproc.c <unknown> 547 	.attach		= stm32_rproc_attach,
+drivers/scsi/aic94xx/aic94xx_scb.c <unknown> 231 	asd_get_attached_sas_addr(phy, phy->sas_phy.attached_sas_addr);
+drivers/scsi/bnx2fc/bnx2fc_fcoe.c <unknown> 2607 	.attached = false,
+drivers/scsi/device_handler/scsi_dh_alua.c <unknown> 1168 	.attach = alua_bus_attach,
+drivers/scsi/device_handler/scsi_dh_emc.c <unknown> 516 	.attach		= clariion_bus_attach,
+drivers/scsi/device_handler/scsi_dh_hp_sw.c <unknown> 240 	.attach		= hp_sw_bus_attach,
+drivers/scsi/device_handler/scsi_dh_rdac.c <unknown> 794 	.attach = rdac_bus_attach,
+drivers/scsi/fcoe/fcoe.c <unknown> 2454 	.attached = false,
+drivers/scsi/isci/port.c <unknown> 206 		memcpy(&iphy->sas_phy.attached_sas_addr,
+drivers/scsi/isci/port.c <unknown> 213 		memcpy(iphy->sas_phy.attached_sas_addr,
+drivers/scsi/libsas/sas_expander.c <unknown> 1733 		memcpy(sas_addr, disc_resp->disc.attached_sas_addr,
+drivers/scsi/lpfc/lpfc_els.c <unknown> 5265 		rn->un.topologyDisc.attachedNodes = 0;
+drivers/scsi/lpfc/lpfc_els.c <unknown> 5637 		desc->bbc_info.attached_port_bbc = cpu_to_be32(bbCredit);
+drivers/scsi/lpfc/lpfc_els.c <unknown> 5639 		desc->bbc_info.attached_port_bbc = 0;
+drivers/scsi/mpt3sas/mpt3sas_scsih.c <unknown> 3826 		handle = le16_to_cpu(event_data->PHY[i].AttachedDevHandle);
+drivers/scsi/mpt3sas/mpt3sas_scsih.c <unknown> 3854 			le16_to_cpu(event_data->PortEntry[i].AttachedDevHandle);
+drivers/scsi/mpt3sas/mpt3sas_scsih.c <unknown> 4468 		handle = le16_to_cpu(event_data->PHY[i].AttachedDevHandle);
+drivers/scsi/mpt3sas/mpt3sas_scsih.c <unknown> 4548 			le16_to_cpu(event_data->PortEntry[i].AttachedDevHandle);
+drivers/scsi/mpt3sas/mpt3sas_scsih.c <unknown> 6566 		handle = le16_to_cpu(event_data->PHY[i].AttachedDevHandle);
+drivers/scsi/mpt3sas/mpt3sas_scsih.c <unknown> 6680 		handle = le16_to_cpu(event_data->PHY[i].AttachedDevHandle);
+drivers/scsi/mpt3sas/mpt3sas_scsih.c <unknown> 7310 			le16_to_cpu(event_data->PortEntry[i].AttachedDevHandle);
+drivers/scsi/mpt3sas/mpt3sas_scsih.c <unknown> 7390 			le16_to_cpu(event_data->PortEntry[i].AttachedDevHandle);
+drivers/scsi/mpt3sas/mpt3sas_scsih.c <unknown> 9314 		    le16_to_cpu(expander_pg1.AttachedDevHandle), i,
+drivers/scsi/mpt3sas/mpt3sas_transport.c <unknown> 852 	mpt3sas_phy->attached_handle = le16_to_cpu(phy_pg0.AttachedDevHandle);
+drivers/scsi/mpt3sas/mpt3sas_transport.c <unknown> 921 	    le16_to_cpu(expander_pg1.AttachedDevHandle);
+drivers/scsi/pm8001/pm8001_hwi.c <unknown> 3344 	pm8001_get_attached_sas_addr(phy, phy->sas_phy.attached_sas_addr);
+drivers/scsi/pm8001/pm8001_hwi.c <unknown> 3389 	pm8001_get_attached_sas_addr(phy, phy->sas_phy.attached_sas_addr);
+drivers/scsi/pm8001/pm80xx_hwi.c <unknown> 3294 	pm8001_get_attached_sas_addr(phy, phy->sas_phy.attached_sas_addr);
+drivers/scsi/pm8001/pm80xx_hwi.c <unknown> 3343 	pm8001_get_attached_sas_addr(phy, phy->sas_phy.attached_sas_addr);
+drivers/scsi/qla2xxx/qla_os.c <unknown> 6031 	rsp_payload->buffer_credit_desc.attached_fcport_b2b = cpu_to_be32(0);
+drivers/soc/qcom/cpr.c <unknown> 1738 	drv->pd.attach_dev = cpr_pd_attach_dev;
+drivers/soc/rockchip/pm_domains.c <unknown> 496 	pd->genpd.attach_dev = rockchip_pd_attach_dev;
+drivers/soc/samsung/exynos-regulator-coupler.c <unknown> 210 	.attach_regulator = exynos_coupler_attach,
+drivers/soc/tegra/regulators-tegra20.c <unknown> 358 		.attach_regulator = tegra20_regulator_attach,
+drivers/soc/tegra/regulators-tegra30.c <unknown> 310 		.attach_regulator = tegra30_regulator_attach,
+drivers/soc/ti/omap_prm.c <unknown> 394 	prmd->pd.attach_dev = omap_prm_domain_attach_dev;
+drivers/soc/xilinx/zynqmp_pm_domains.c <unknown> 279 		pd->gpd.attach_dev = zynqmp_gpd_attach_dev;
+drivers/staging/android/ion/ion.c <unknown> 333 	.attach = ion_dma_buf_attach,
+drivers/staging/comedi/drivers/8255.c <unknown> 118 	.attach		= dev_8255_attach,
+drivers/staging/comedi/drivers/adl_pci9118.c <unknown> 1702 	.attach		= pci9118_attach,
+drivers/staging/comedi/drivers/adq12b.c <unknown> 236 	.attach		= adq12b_attach,
+drivers/staging/comedi/drivers/aio_aio12_8.c <unknown> 267 	.attach		= aio_aio12_8_attach,
+drivers/staging/comedi/drivers/aio_iiro_16.c <unknown> 228 	.attach		= aio_iiro_16_attach,
+drivers/staging/comedi/drivers/amplc_dio200.c <unknown> 255 	.attach		= dio200_attach,
+drivers/staging/comedi/drivers/amplc_pc236.c <unknown> 65 	.attach = pc236_attach,
+drivers/staging/comedi/drivers/amplc_pc263.c <unknown> 91 	.attach		= pc263_attach,
+drivers/staging/comedi/drivers/c6xdigio.c <unknown> 291 	.attach		= c6xdigio_attach,
+drivers/staging/comedi/drivers/comedi_bond.c <unknown> 340 	.attach		= bonding_attach,
+drivers/staging/comedi/drivers/comedi_parport.c <unknown> 298 	.attach		= parport_attach,
+drivers/staging/comedi/drivers/comedi_test.c <unknown> 780 	.attach		= waveform_attach,
+drivers/staging/comedi/drivers/dac02.c <unknown> 130 	.attach		= dac02_attach,
+drivers/staging/comedi/drivers/das08_isa.c <unknown> 180 	.attach		= das08_isa_attach,
+drivers/staging/comedi/drivers/das16.c <unknown> 1190 	.attach		= das16_attach,
+drivers/staging/comedi/drivers/das16m1.c <unknown> 615 	.attach		= das16m1_attach,
+drivers/staging/comedi/drivers/das1800.c <unknown> 1354 	.attach		= das1800_attach,
+drivers/staging/comedi/drivers/das6402.c <unknown> 659 	.attach		= das6402_attach,
+drivers/staging/comedi/drivers/das800.c <unknown> 734 	.attach		= das800_attach,
+drivers/staging/comedi/drivers/dmm32at.c <unknown> 609 	.attach		= dmm32at_attach,
+drivers/staging/comedi/drivers/dt2801.c <unknown> 638 	.attach		= dt2801_attach,
+drivers/staging/comedi/drivers/dt2811.c <unknown> 635 	.attach		= dt2811_attach,
+drivers/staging/comedi/drivers/dt2814.c <unknown> 283 	.attach		= dt2814_attach,
+drivers/staging/comedi/drivers/dt2815.c <unknown> 210 	.attach		= dt2815_attach,
+drivers/staging/comedi/drivers/dt2817.c <unknown> 133 	.attach		= dt2817_attach,
+drivers/staging/comedi/drivers/dt282x.c <unknown> 1162 	.attach		= dt282x_attach,
+drivers/staging/comedi/drivers/fl512.c <unknown> 136 	.attach		= fl512_attach,
+drivers/staging/comedi/drivers/ii_pci20kc.c <unknown> 517 	.attach		= ii20k_attach,
+drivers/staging/comedi/drivers/mpc624.c <unknown> 304 	.attach		= mpc624_attach,
+drivers/staging/comedi/drivers/multiq3.c <unknown> 325 	.attach		= multiq3_attach,
+drivers/staging/comedi/drivers/ni_at_a2150.c <unknown> 775 	.attach		= a2150_attach,
+drivers/staging/comedi/drivers/ni_at_ao.c <unknown> 364 	.attach		= atao_attach,
+drivers/staging/comedi/drivers/ni_atmio.c <unknown> 352 	.attach		= ni_atmio_attach,
+drivers/staging/comedi/drivers/ni_atmio16d.c <unknown> 719 	.attach		= atmio16d_attach,
+drivers/staging/comedi/drivers/ni_labpc.c <unknown> 106 	.attach		= labpc_attach,
+drivers/staging/comedi/drivers/pcl711.c <unknown> 503 	.attach		= pcl711_attach,
+drivers/staging/comedi/drivers/pcl724.c <unknown> 143 	.attach		= pcl724_attach,
+drivers/staging/comedi/drivers/pcl726.c <unknown> 413 	.attach		= pcl726_attach,
+drivers/staging/comedi/drivers/pcl730.c <unknown> 340 	.attach		= pcl730_attach,
+drivers/staging/comedi/drivers/pcl812.c <unknown> 1326 	.attach		= pcl812_attach,
+drivers/staging/comedi/drivers/pcl816.c <unknown> 686 	.attach		= pcl816_attach,
+drivers/staging/comedi/drivers/pcl818.c <unknown> 1127 	.attach		= pcl818_attach,
+drivers/staging/comedi/drivers/pcm3724.c <unknown> 220 	.attach		= pcm3724_attach,
+drivers/staging/comedi/drivers/pcmad.c <unknown> 139 	.attach		= pcmad_attach,
+drivers/staging/comedi/drivers/pcmda12.c <unknown> 158 	.attach		= pcmda12_attach,
+drivers/staging/comedi/drivers/pcmmio.c <unknown> 770 	.attach		= pcmmio_attach,
+drivers/staging/comedi/drivers/pcmuio.c <unknown> 614 	.attach		= pcmuio_attach,
+drivers/staging/comedi/drivers/rti800.c <unknown> 347 	.attach		= rti800_attach,
+drivers/staging/comedi/drivers/rti802.c <unknown> 113 	.attach		= rti802_attach,
+drivers/staging/comedi/drivers/s526.c <unknown> 622 	.attach		= s526_attach,
+drivers/staging/comedi/drivers/ssv_dnp.c <unknown> 173 	.attach		= dnp_attach,
+drivers/staging/media/imx/imx8-mipi-csi2.c <unknown> 794 	.attach = mxc_imx8_csi2_pd_attach,
+drivers/staging/media/imx/imx8-mipi-csi2.c <unknown> 923 	.attach = mxc_imx8ulp_csi2_pd_attach,
+drivers/target/target_core_file.c <unknown> 929 	.attach_hba		= fd_attach_hba,
+drivers/target/target_core_iblock.c <unknown> 866 	.attach_hba		= iblock_attach_hba,
+drivers/target/target_core_pscsi.c <unknown> 1085 	.attach_hba		= pscsi_attach_hba,
+drivers/target/target_core_rd.c <unknown> 641 	.attach_hba		= rd_attach_hba,
+drivers/target/target_core_user.c <unknown> 2851 	.attach_hba		= tcmu_attach_hba,
+drivers/usb/serial/cp210x.c <unknown> 300 	.attach			= cp210x_attach,
+drivers/usb/serial/digi_acceleport.c <unknown> 285 	.attach =			digi_startup,
+drivers/usb/serial/digi_acceleport.c <unknown> 315 	.attach =			digi_startup,
+drivers/usb/serial/empeg.c <unknown> 54 	.attach =		empeg_startup,
+drivers/usb/serial/io_edgeport.c <unknown> 3112 	.attach			= edge_startup,
+drivers/usb/serial/io_edgeport.c <unknown> 3148 	.attach			= edge_startup,
+drivers/usb/serial/io_edgeport.c <unknown> 3184 	.attach			= edge_startup,
+drivers/usb/serial/io_edgeport.c <unknown> 3220 	.attach			= edge_startup,
+drivers/usb/serial/io_ti.c <unknown> 2716 	.attach			= edge_startup,
+drivers/usb/serial/io_ti.c <unknown> 2755 	.attach			= edge_startup,
+drivers/usb/serial/ipaq.c <unknown> 507 	.attach =		ipaq_startup,
+drivers/usb/serial/ipw.c <unknown> 296 	.attach =		ipw_attach,
+drivers/usb/serial/ir-usb.c <unknown> 82 	.attach			= ir_startup,
+drivers/usb/serial/keyspan.c <unknown> 3030 	.attach			= keyspan_fake_startup,
+drivers/usb/serial/keyspan.c <unknown> 3050 	.attach			= keyspan_startup,
+drivers/usb/serial/keyspan.c <unknown> 3074 	.attach			= keyspan_startup,
+drivers/usb/serial/keyspan.c <unknown> 3098 	.attach			= keyspan_startup,
+drivers/usb/serial/keyspan_pda.c <unknown> 749 	.attach =		keyspan_pda_fake_startup,
+drivers/usb/serial/keyspan_pda.c <unknown> 762 	.attach =		keyspan_pda_fake_startup,
+drivers/usb/serial/mos7720.c <unknown> 1950 	.attach			= mos7720_startup,
+drivers/usb/serial/mos7840.c <unknown> 1786 	.attach = mos7840_attach,
+drivers/usb/serial/mxuport.c <unknown> 1297 	.attach			= mxuport_attach,
+drivers/usb/serial/option.c <unknown> 2104 	.attach            = option_attach,
+drivers/usb/serial/pl2303.c <unknown> 1150 	.attach =		pl2303_startup,
+drivers/usb/serial/qcserial.c <unknown> 466 	.attach              = qc_attach,
+drivers/usb/serial/quatech2.c <unknown> 972 	.attach              = qt2_attach,
+drivers/usb/serial/safe_serial.c <unknown> 294 	.attach =		safe_startup,
+drivers/usb/serial/sierra.c <unknown> 1042 	.attach            = sierra_startup,
+drivers/usb/serial/ssu100.c <unknown> 541 	.attach              = ssu100_attach,
+drivers/usb/serial/ti_usb_3410_5052.c <unknown> 428 	.attach			= ti_startup,
+drivers/usb/serial/ti_usb_3410_5052.c <unknown> 462 	.attach			= ti_startup,
+drivers/usb/serial/visor.c <unknown> 214 	.attach =		clie_3_5_startup,
+drivers/usb/serial/whiteheat.c <unknown> 104 	.attach =		whiteheat_firmware_attach,
+drivers/usb/serial/whiteheat.c <unknown> 117 	.attach =		whiteheat_attach,
+drivers/vfio/vfio.c <unknown> 214 	.attach_group = vfio_noiommu_attach_group,
+drivers/vfio/vfio_iommu_spapr_tce.c <unknown> 1368 	.attach_group	= tce_iommu_attach_group,
+drivers/vfio/vfio_iommu_type1.c <unknown> 3000 	.attach_group		= vfio_iommu_type1_attach_group,
+drivers/xen/gntdev-dmabuf.c <unknown> 345 	.attach = dmabuf_exp_ops_attach,
+drivers/xen/gntdev-dmabuf.c <unknown> 607 	gntdev_dmabuf->u.imp.attach = attach;
+drivers/xen/gntdev-dmabuf.c <unknown> 714 	attach = gntdev_dmabuf->u.imp.attach;
+include/drm/drm_bridge.h <unknown> 44  * enum drm_bridge_attach_flags - Flags for &drm_bridge_funcs.attach
+include/linux/virtio_dma_buf.h <unknown> 17  * @ops: the base dma_buf_ops. ops.attach MUST be virtio_dma_buf_attach.
+kernel/bpf/cgroup.c <unknown> 50 	key.attach_type = type;
+kernel/bpf/cgroup.c <unknown> 716 	enum bpf_attach_type type = attr->query.attach_type;
+kernel/bpf/cgroup.c <unknown> 731 	if (copy_to_user(&uattr->query.attach_flags, &flags, sizeof(flags)))
+kernel/bpf/cgroup.c <unknown> 891 	info->cgroup.attach_type = cg_link->type;
+kernel/bpf/cgroup.c <unknown> 926 	link->type = attr->link_create.attach_type;
+kernel/bpf/local_storage.c <unknown> 590 	storage->key.attach_type = type;
+kernel/bpf/map_iter.c <unknown> 170 	.attach_target		= bpf_iter_attach_map,
+kernel/bpf/net_namespace.c <unknown> 218 	info->netns.attach_type = net_link->type;
+kernel/bpf/net_namespace.c <unknown> 232 		   info.netns.attach_type);
+kernel/bpf/net_namespace.c <unknown> 259 	if (copy_to_user(&uattr->query.attach_flags, &flags, sizeof(flags)))
+kernel/bpf/net_namespace.c <unknown> 280 	type = to_netns_bpf_attach_type(attr->query.attach_type);
+kernel/bpf/net_namespace.c <unknown> 488 	type = attr->link_create.attach_type;
+kernel/bpf/syscall.c <unknown> 2546 	info->tracing.attach_type = tr_link->attach_type;
+kernel/bpf/syscall.c <unknown> 3068 	switch (attr->query.attach_type) {
+kernel/bpf/syscall.c <unknown> 4018 	if (attr->link_create.attach_type != prog->expected_attach_type)
+kernel/bpf/syscall.c <unknown> 4045 						attr->link_create.attach_type);
+kernel/bpf/syscall.c <unknown> 4054 	ptype = attach_type_to_prog_type(attr->link_create.attach_type);
+kernel/cgroup/cpuset.c <unknown> 2901 	.attach		= cpuset_attach,
+kernel/cgroup/legacy_freezer.c <unknown> 478 	.attach		= freezer_attach,
+kernel/events/core.c <unknown> 13131 	.attach		= perf_cgroup_attach,
+kernel/sched/core.c <unknown> 8430 	.attach		= cpu_cgroup_attach,
+net/core/bpf_sk_storage.c <unknown> 852 	.attach_target		= bpf_iter_attach_map,
+net/core/netclassid_cgroup.c <unknown> 150 	.attach			= cgrp_attach,
+net/core/netprio_cgroup.c <unknown> 267 	.attach		= net_prio_attach,
+net/core/sock_map.c <unknown> 1604 	.attach_target		= sock_map_iter_attach_target,
+net/netfilter/nf_conntrack_netlink.c <unknown> 2923 	.attach_expect	= ctnetlink_glue_attach_expect,
+net/sched/sch_mq.c <unknown> 290 	.attach		= mq_attach,
+net/sched/sch_mqprio.c <unknown> 625 	.attach		= mqprio_attach,
+sound/aoa/fabrics/layout.c <unknown> 993 	.attached_codec = layout_attached_codec,
+sound/aoa/soundbus/i2sbus/core.c <unknown> 226 	dev->sound.attach_codec = i2sbus_attach_codec;

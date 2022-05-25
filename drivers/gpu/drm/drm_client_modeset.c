@@ -780,7 +780,6 @@ int drm_client_modeset_probe(struct drm_client_dev *client, unsigned int width, 
 		width = dev->mode_config.max_width;
 	if (!height)
 		height = dev->mode_config.max_height;
-
 	drm_connector_list_iter_begin(dev, &conn_iter);
 	drm_client_for_each_connector_iter(connector, &conn_iter) {
 		struct drm_connector **tmp;
@@ -796,10 +795,8 @@ int drm_client_modeset_probe(struct drm_client_dev *client, unsigned int width, 
 		connectors[connector_count++] = connector;
 	}
 	drm_connector_list_iter_end(&conn_iter);
-
 	if (!connector_count)
 		return 0;
-
 	crtcs = kcalloc(connector_count, sizeof(*crtcs), GFP_KERNEL);
 	modes = kcalloc(connector_count, sizeof(*modes), GFP_KERNEL);
 	offsets = kcalloc(connector_count, sizeof(*offsets), GFP_KERNEL);
@@ -811,16 +808,18 @@ int drm_client_modeset_probe(struct drm_client_dev *client, unsigned int width, 
 	}
 
 	mutex_lock(&client->modeset_mutex);
-
 	mutex_lock(&dev->mode_config.mutex);
 	for (i = 0; i < connector_count; i++)
 		total_modes_count += connectors[i]->funcs->fill_modes(connectors[i], width, height);
 	if (!total_modes_count)
 		DRM_DEBUG_KMS("No connectors reported connected with modes\n");
+	
+	
 	drm_client_connectors_enabled(connectors, connector_count, enabled);
 
 	if (!drm_client_firmware_config(client, connectors, connector_count, crtcs,
 					modes, offsets, enabled, width, height)) {
+						
 		memset(modes, 0, connector_count * sizeof(*modes));
 		memset(crtcs, 0, connector_count * sizeof(*crtcs));
 		memset(offsets, 0, connector_count * sizeof(*offsets));
@@ -866,18 +865,17 @@ int drm_client_modeset_probe(struct drm_client_dev *client, unsigned int width, 
 			modeset->y = offset->y;
 		}
 	}
-
 	mutex_unlock(&client->modeset_mutex);
 out:
 	kfree(crtcs);
 	kfree(modes);
 	kfree(offsets);
 	kfree(enabled);
+
 free_connectors:
 	for (i = 0; i < connector_count; i++)
 		drm_connector_put(connectors[i]);
 	kfree(connectors);
-
 	return ret;
 }
 EXPORT_SYMBOL(drm_client_modeset_probe);

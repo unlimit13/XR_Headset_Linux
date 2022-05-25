@@ -365,7 +365,6 @@ imx8qm_ldb_bind(struct device *dev, struct device *master, void *data)
 	struct drm_encoder *encoder[LDB_CH_NUM];
 	int ret;
 	int i;
-
 	ldb = &imx8qm_ldb->base;
 	ldb->dev = dev;
 	ldb->ctrl_reg = 0xe0;
@@ -385,12 +384,16 @@ imx8qm_ldb_bind(struct device *dev, struct device *master, void *data)
 	imx8qm_ldb->id = of_alias_get_id(np, "ldb");
 
 	imx8qm_ldb->clk_pixel = devm_clk_get(dev, "pixel");
-	if (IS_ERR(imx8qm_ldb->clk_pixel))
+	if (IS_ERR(imx8qm_ldb->clk_pixel)){
 		return PTR_ERR(imx8qm_ldb->clk_pixel);
+	}
+		
 
 	imx8qm_ldb->clk_bypass = devm_clk_get(dev, "bypass");
-	if (IS_ERR(imx8qm_ldb->clk_bypass))
+	if (IS_ERR(imx8qm_ldb->clk_bypass)){
 		return PTR_ERR(imx8qm_ldb->clk_bypass);
+	}
+		
 
 	for (i = 0; i < LDB_CH_NUM; i++) {
 		encoder[i] = &imx8qm_ldb->channel[i].encoder;
@@ -402,9 +405,11 @@ imx8qm_ldb_bind(struct device *dev, struct device *master, void *data)
 
 	pm_runtime_enable(dev);
 
-	ret = ldb_bind(ldb, encoder);
-	if (ret)
+	ret = ldb_bind(ldb, encoder); //invoked
+	if (ret){
 		goto disable_pm_runtime;
+	}
+		
 
 	for_each_child_of_node(np, child) {
 		struct imx8qm_ldb_channel *imx8qm_ldb_ch;
@@ -422,8 +427,10 @@ imx8qm_ldb_bind(struct device *dev, struct device *master, void *data)
 			goto get_phy;
 		}
 
-		if (!of_device_is_available(child))
+		if (!of_device_is_available(child)){
 			continue;
+		}
+			
 
 		imx8qm_ldb_ch = &imx8qm_ldb->channel[i];
 get_phy:
@@ -443,8 +450,10 @@ get_phy:
 			goto free_child;
 		}
 
-		if (auxiliary_ch)
+		if (auxiliary_ch){
 			continue;
+		}
+			
 	}
 
 	for (i = 0; i < LDB_CH_NUM; i++) {
@@ -455,10 +464,11 @@ get_phy:
 		}
 
 		ret = imx_drm_encoder_parse_of(drm, encoder[i], ldb_ch->child);
-		if (ret)
+		if (ret){
 			goto disable_pm_runtime;
+		}
+			
 	}
-
 	return 0;
 
 free_child:

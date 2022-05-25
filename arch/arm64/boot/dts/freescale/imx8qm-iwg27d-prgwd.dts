@@ -32,7 +32,8 @@
         };
 
         lvds0_panel { /* LVDS0: LVDS panel */ // LEFT
-                compatible = "sony,ecx335s";
+                compatible = "panel-lvds";
+		label = "sony,ecx335s_left";
                 backlight = <&lvds0_backlight>;
                 pinctrl-names = "default";
                 pinctrl-0 = <&pinctrl_lvds0>;
@@ -40,6 +41,24 @@
                 enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>;
                 reset-gpios = <&lsio_gpio0 19 GPIO_ACTIVE_LOW>;
                 status = "okay";
+ 		width-mm = <1920>;
+      	        height-mm = <1080>;
+                data-mapping = "jeida-24";
+
+		panel-timing {
+			clock-frequency = <148500000>;
+			hactive = <1920>;
+			vactive = <1080>;
+			hsync-len = <44>;
+			hfront-porch = <88>;
+			hback-porch = <148>;
+			vfront-porch = <4>;
+			vback-porch = <36>;
+			vsync-len = <5>;
+			hsync-active =<0>;
+			vsync-active = <0>;
+			pixelclk-active = <0>;
+		};
 
                 port {
                         panel_lvds0_in: endpoint {
@@ -48,7 +67,8 @@
                 };
         };
         lvds1_panel { /* LVDS1: LVDS panel */ // RIGHT
-                compatible = "sony,ecx335s";
+                compatible = "panel-lvds";
+		label = "sony,ecx335s_right";
                 backlight = <&lvds1_backlight>;
                 pinctrl-names = "default";
                 pinctrl-0 = <&pinctrl_lvds1>;
@@ -56,6 +76,24 @@
                 enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>;
                 reset-gpios = <&lsio_gpio0 1 GPIO_ACTIVE_LOW>;
                 status = "okay";
+ 		width-mm = <1920>;
+      	        height-mm = <1080>;
+                data-mapping = "jeida-24";
+		panel-timing {
+			clock-frequency = <148500000>;
+			hactive = <1920>;
+			vactive = <1080>;
+			hsync-len = <44>;
+			hfront-porch = <88>;
+			hback-porch = <148>;
+			vfront-porch = <4>;
+			vback-porch = <36>;
+			vsync-len = <5>;
+			hsync-active =<0>;
+			vsync-active = <0>;
+			pixelclk-active = <0>;
+		};
+
 
                 port {
                         panel_lvds1_in: endpoint {
@@ -143,29 +181,39 @@
 
 &ldb1 { /* LVDS1: LVDS Channel-0 Port Enable */
         status = "okay";
-
+        fsl,dual-channel;
         lvds-channel@0 {
-                fsl,data-mapping = "spwg";
+                fsl,data-mapping = "jeida";
                 fsl,data-width = <24>;
                 fsl,dual-channel;
                 status = "okay";
                 port@1 {
+                        reg=<1>;
+                        #address-cells=<1>;
+                        #size-cells=<0>;    
                         lvds0_out: endpoint {
+                                #address-cells=<1>;
+                                #size-cells=<0>;                                
                                 remote-endpoint = <&panel_lvds0_in>;
                         };
                 };
         };
 };
 &ldb2 { /* LVDS1: LVDS Channel-0 Port Enable */
-        status = "okay";
-        
+        status = "disable";
+        fsl,dual-channel;
         lvds-channel@0 {
-                fsl,data-mapping = "spwg";
+                fsl,data-mapping = "jeida";
                 fsl,data-width = <24>;
                 fsl,dual-channel;
                 status = "okay";
                 port@1 {
+                        reg=<1>;
+                        #address-cells=<1>;
+                        #size-cells=<0>;                       
                         lvds1_out: endpoint {
+                                address-cells=<1>;
+                                size-cells=<0>;
                                 remote-endpoint = <&panel_lvds1_in>;
                         };
                 };
