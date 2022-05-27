@@ -1,1 +1,1 @@
-/home/geeksloft/Desktop/Dev/linux-kernel/linux_bsp/tools/spi/../../include/uapi/linux/spi/spidev.h
+/home/geeksloft/Desktop/Dev/5.4.24/linux_bsp/linux_bsp/tools/spi/../../include/uapi/linux/spi/spidev.h

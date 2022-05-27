@@ -125,8 +125,8 @@
 	};*/
 
 
-	lvds0_panel { // LVDS0: LVDS panel : LEFT 
-		compatible = "sony,ecx335s","panel-lvds";
+	lvds0_panel { // LVDS0: LVDS panel : RIGHT 
+		compatible = "panel-lvds";
 		label = "sony,ecx335s_left";
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_lvds0>;
@@ -136,8 +136,8 @@
       	height-mm = <1080>;
 		status = "okay";
       	data-mapping = "jeida-24";
-		//enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>; //for panel-lvds
-		//reset-gpios = <&lsio_gpio0 19 GPIO_ACTIVE_LOW>; //for panel-lvds
+		enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>; //for panel-lvds
+		reset-gpios = <&lsio_gpio2 0 GPIO_ACTIVE_LOW>; //for panel-lvds
 
 		panel-timing {
 			clock-frequency = <148500000>;
@@ -149,8 +149,11 @@
 			vfront-porch = <4>;
 			vback-porch = <36>;
 			vsync-len = <5>;
+			hsync-active =<0>;
+			vsync-active = <0>;
+			pixelclk-active = <0>;
 		};
-		display-timings { //for panel-simple
+		/*display-timings { //for panel-simple
 			native-mode = <&timing0>;
 			timing0: 1080p24 {
 				// 1920*1080 @60Hz 
@@ -164,18 +167,18 @@
 				vback-porch = <36>;
 				vsync-len = <5>;
 			};
-		};
+		};*/
 	
 		port {
-			panel_lvds0_in0: endpoint {
-				remote-endpoint = <&lvds0_out0>;
+			panel_lvds0_in: endpoint {
+				remote-endpoint = <&lvds0_out>;
 			};
 			
 		};
 	};
 	
-	lvds1_panel { // LVDS1: LVDS panel : RIGHT
-		compatible = /*"sony,ecx335s"*/"panel-lvds";
+	lvds1_panel { // LVDS1: LVDS panel : LEFT
+		compatible = "panel-lvds";
 		label = "sony,ecx335s_right";
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_lvds1>; //변경
@@ -184,8 +187,8 @@
 		status = "okay";
 		width-mm = <1920>;
       	height-mm = <1080>;
-		//enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>; //for panel-lvds
-		//reset-gpios = <&lsio_gpio0 1 GPIO_ACTIVE_LOW>; //for panel-lvds
+		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>; //for panel-lvds
+		reset-gpios = <&lsio_gpio2 1 GPIO_ACTIVE_LOW>; //for panel-lvds
       	data-mapping = "jeida-24";
 
 		panel-timing {
@@ -218,13 +221,13 @@
 			};
 		};*/
 		port {
-			panel_lvds1_in0: endpoint {
-				remote-endpoint = <&lvds1_out0>;
+			panel_lvds1_in: endpoint {
+				remote-endpoint = <&lvds1_out>;
 			};
 			
 		};
 	};
-	/*lvds0_backlight: lvds0_backlight { // LVDS1: LVDS Backlight Enable 
+	lvds0_backlight: lvds0_backlight { // LVDS1: LVDS Backlight Enable 
 		compatible = "pwm-backlight";
 		pwms = <&pwm_lvds0 0 100000 0>;
 		power-supply = <&reg_1p8v>;
@@ -242,7 +245,7 @@
 				    100>;
 		default-brightness-level = <100>;
 		status = "okay";
-	};*/
+	};
 	lvds1_backlight: lvds1_backlight { // LVDS1: LVDS Backlight Enable 
 		compatible = "pwm-backlight";
 		pwms = <&pwm_lvds1 0 100000 0>;
@@ -327,41 +330,53 @@
 	pinctrl-0 = <&pinctrl_lvds1_pwm>;
 	status = "okay";
 };
-//&ldb1_phy { /* LVDS0: LVDS LDB Phy */
-//	status = "okay";
-//};
-
-//&ldb1 { /* LVDS0: LVDS Channel-0 Port Enable */
-/*	status = "okay";
-	fsl,dual-channel;
-	lvds-channel@0 {
-		fsl,data-mapping = "jeida";
-		fsl,data-width = <24>;
-		status = "okay";
-		port@1 {
-			lvds0_out0: endpoint {
-				remote-endpoint = <&panel_lvds0_in0>;
-			};
-		};
-	};
-};*/
-&ldb2_phy { /* LVDS1: LVDS LDB Phy */
+&ldb1_phy { /* LVDS0: LVDS LDB Phy */
 	status = "okay";
 };
 
+&ldb1 { /* LVDS0: LVDS Channel-0 Port Enable */
+        status = "okay"; //RIGHT
+        fsl,dual-channel;
+        lvds-channel@0 {
+                fsl,data-mapping = "jeida";
+                fsl,data-width = <24>;
+                fsl,dual-channel;
+                status = "okay";
+                port@1 {
+                        reg=<1>;
+                        #address-cells=<1>;
+                        #size-cells=<0>;    
+                        lvds0_out: endpoint {
+                                #address-cells=<1>;
+                                #size-cells=<0>;                                
+                                remote-endpoint = <&panel_lvds0_in>;
+                        };
+                };
+        };
+};
+&ldb2_phy { /* LVDS1: LVDS LDB Phy */
+	status = "disable"; //LEFT
+};
+
 &ldb2 { /* LVDS1: LVDS Channel-0 Port Enable */
-	status = "okay";
-	fsl,dual-channel;
-	lvds-channel@0 {
-		fsl,data-mapping = "jeida";
-		fsl,data-width = <24>; // not sure
-		status = "okay";
-		port@1 {
-			lvds1_out0: endpoint {
-				remote-endpoint = <&panel_lvds1_in0>;
-			};
-		};
-	};
+        status = "disable"; //LEFT
+        fsl,dual-channel;
+        lvds-channel@0 {
+                fsl,data-mapping = "jeida";
+                fsl,data-width = <24>;
+                fsl,dual-channel;
+                status = "okay";
+                port@1 {
+                        reg=<1>;
+                        #address-cells=<1>;
+                        #size-cells=<0>;                       
+                        lvds1_out: endpoint {
+                                address-cells=<1>;
+                                size-cells=<0>;
+                                remote-endpoint = <&panel_lvds1_in>;
+                        };
+                };
+        };
 };
 
 
@@ -385,7 +400,7 @@
                 m25p,fast-read;
 		status = "okay";
 	};*/
-	spidev0:spidev@0 {
+	spidev0:spidev@0 { //RIGHT
 		reg=<0>;
 		#address-cells = <1>;
         #size-cells = <1>;
@@ -394,7 +409,7 @@
 		status = "okay";
 
 	};
-	spidev1:spidev@1 {
+	spidev1:spidev@1 { //LEFT
 		reg=<1>;
 		#address-cells = <1>;
         #size-cells = <1>;
@@ -672,12 +687,18 @@
 		};
 		pinctrl_lvds0: lvds0grp { /* LVDS0: LVDS panel IOMUX Pin Configuration */
 			fsl,pins = <
-				IMX8QM_LVDS0_GPIO01_LVDS0_GPIO0_IO01			0x00000021 /* LVDS Power Enable GPIO */
+				/*IMX8QM_LVDS0_GPIO01_LVDS0_GPIO0_IO01			0x00000021 /* LVDS Power Enable GPIO */
+                IMX8QM_MIPI_CSI0_I2C0_SCL_MIPI_CSI0_I2C0_SCL            0xc2000020
+                IMX8QM_MIPI_CSI0_I2C0_SDA_MIPI_CSI0_I2C0_SDA            0xc2000020                          
+
 			>;
 		};
 		pinctrl_lvds1: lvds1grp { /* LVDS1: LVDS panel IOMUX Pin Configuration */
 			fsl,pins = <
-				IMX8QM_LVDS1_GPIO01_LVDS1_GPIO0_IO01			0x00000021 /* LVDS Power Enable GPIO */
+				/*IMX8QM_LVDS1_GPIO01_LVDS1_GPIO0_IO01			0x00000021 /* LVDS Power Enable GPIO */
+                IMX8QM_MIPI_CSI1_I2C0_SCL_MIPI_CSI1_I2C0_SCL            0xc2000020
+                IMX8QM_MIPI_CSI1_I2C0_SDA_MIPI_CSI1_I2C0_SDA            0xc2000020  
+			
 			>;
 		};
 		pinctrl_lvds0_pwm: lvds0_pwmgrp { /* LVD0: LVDS PWM IOMUX Pin Configuration */
@@ -787,8 +808,8 @@
 		<&lsio_gpio1 10 0>,
 		<&lsio_gpio1 15 0>,
 		<&lsio_gpio1 29 0>,
-		<&lsio_gpio2 0 0>,
-		<&lsio_gpio2 1 0>,
+		/*<&lsio_gpio2 0 0>,
+		<&lsio_gpio2 1 0>,*/
 		<&lsio_gpio2 2 0>,
 		<&lsio_gpio2 3 0>,
 		<&lsio_gpio2 4 0>,
