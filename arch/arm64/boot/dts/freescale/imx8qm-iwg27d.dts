@@ -108,23 +108,6 @@
 	};
 
 
-	/*lvds1_panel { // LVDS1: LVDS panel 
-		compatible = "powertrip,ph128800t004-zhc"; //"sony,ECX335S"
-		backlight = <&lvds1_backlight>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_lvds1>;
-		power-supply = <&reg_1p8v>;
-		enable-gpios = <&lsio_gpio5 0 GPIO_ACTIVE_HIGH>;
-		status = "okay";
-
-		port {
-			panel_lvds1_in: endpoint {
-				remote-endpoint = <&lvds1_out>;
-			};
-		};
-	};*/
-
-
 	lvds0_panel { // LVDS0: LVDS panel : RIGHT 
 		compatible = "panel-lvds";
 		label = "sony,ecx335s_left";
@@ -153,22 +136,6 @@
 			vsync-active = <0>;
 			pixelclk-active = <0>;
 		};
-		/*display-timings { //for panel-simple
-			native-mode = <&timing0>;
-			timing0: 1080p24 {
-				// 1920*1080 @60Hz 
-				clock-frequency = <148500000>;
-				hactive = <1920>;
-				vactive = <1080>;
-				hsync-len = <44>;
-				hfront-porch = <88>;
-				hback-porch = <148>;
-				vfront-porch = <4>;
-				vback-porch = <36>;
-				vsync-len = <5>;
-			};
-		};*/
-	
 		port {
 			panel_lvds0_in: endpoint {
 				remote-endpoint = <&lvds0_out>;
@@ -205,21 +172,6 @@
 			vsync-active = <0>;
 			pixelclk-active = <0>;
 		};
-		/*display-timings { //for panel-simple
-			native-mode = <&timing1>;
-			timing1: 1080p24 {
-				// 1920*1080 @60Hz 
-				clock-frequency = <148500000>;
-				hactive = <1920>;
-				vactive = <1080>;
-				hsync-len = <44>;
-				hfront-porch = <88>;
-				hback-porch = <148>;
-				vfront-porch = <4>;
-				vback-porch = <36>;
-				vsync-len = <5>;
-			};
-		};*/
 		port {
 			panel_lvds1_in: endpoint {
 				remote-endpoint = <&lvds1_out>;
@@ -355,11 +307,11 @@
         };
 };
 &ldb2_phy { /* LVDS1: LVDS LDB Phy */
-	status = "disable"; //LEFT
+	status = "okay"; //LEFT
 };
 
 &ldb2 { /* LVDS1: LVDS Channel-0 Port Enable */
-        status = "disable"; //LEFT
+        status = "okay"; //LEFT
         fsl,dual-channel;
         lvds-channel@0 {
                 fsl,data-mapping = "jeida";
@@ -747,8 +699,8 @@
 				/*IMX8QM_LVDS1_GPIO00_LSIO_GPIO1_IO10			0x00000021*/
 				IMX8QM_LVDS1_I2C1_SDA_LSIO_GPIO1_IO15			0x00000021
 				IMX8QM_MIPI_CSI1_MCLK_OUT_LSIO_GPIO1_IO29		0x00000021
-				IMX8QM_MIPI_CSI1_I2C0_SCL_LSIO_GPIO2_IO00		0x00000021
-				IMX8QM_MIPI_CSI1_I2C0_SDA_LSIO_GPIO2_IO01		0x00000021
+				/*IMX8QM_MIPI_CSI1_I2C0_SCL_LSIO_GPIO2_IO00		0x00000021
+				IMX8QM_MIPI_CSI1_I2C0_SDA_LSIO_GPIO2_IO01		0x00000021*/
 				IMX8QM_HDMI_TX0_TS_SCL_LSIO_GPIO2_IO02			0x00000021
 				IMX8QM_HDMI_TX0_TS_SDA_LSIO_GPIO2_IO03			0x00000021
 				IMX8QM_ESAI1_FSR_LSIO_GPIO2_IO04			0x00000021
