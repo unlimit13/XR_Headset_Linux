@@ -200,7 +200,7 @@
         };
 };
 &ldb2 { /* LVDS1: LVDS Channel-0 Port Enable */
-        status = "disable";
+        status = "okay";
         fsl,dual-channel;
         lvds-channel@0 {
                 fsl,data-mapping = "jeida";
