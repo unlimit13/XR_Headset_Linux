@@ -85,7 +85,7 @@ static uint32_t mode;
 static uint8_t bits = 16;
 static char *input_file;
 static char *output_file;
-static uint32_t speed = 625000;
+static uint32_t speed = 1250000;
 static uint16_t delay;
 static int verbose;
 static int transfer_size;
@@ -563,7 +563,7 @@ int main(int argc, char *argv[])
 	} else{
 		//transfer(fd, default_tx1, default_rx, sizeof(default_tx1));
 		///for(int j=1000000;j>0;j--);
-		int line=0;
+		/*int line=0;
 		for(int term=0;term<7;term++){
 			for(int rep=0;rep<segment[term];rep++){
 				//printf("0x%x 0x%x\n", pwrseq_tx[line][0], pwrseq_tx[line][1]);
@@ -579,10 +579,10 @@ int main(int argc, char *argv[])
 				sleep(interval_seq[term]);
 			}
 			
-		}
+		}*/
 		
 		
-		/*for(int i=1;i>0;i--){
+		for(int i=1;i>0;i--){
 			transfer(fd, default_tx1, default_rx, sizeof(default_tx1));
 			for(int j=1000000;j>0;j--);
 			transfer(fd, RD_ON, default_rx, sizeof(RD_ON));
@@ -611,7 +611,7 @@ int main(int argc, char *argv[])
 			for(int j=1000000;j>0;j--);
 			transfer(fd, RDADDR_touch, default_rx, sizeof(RDADDR_touch));
 			for(int j=1000000;j>0;j--);
-		}*/
+		}
 
 		
 		

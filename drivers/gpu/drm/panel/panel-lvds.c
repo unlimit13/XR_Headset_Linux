@@ -198,8 +198,6 @@ static int panel_lvds_probe(struct platform_device *pdev)
 {
 	struct panel_lvds *lvds;
 	int ret;
-
-	printk(KERN_INFO "panel_lvds probe start\n");
 	
 
 	lvds = devm_kzalloc(&pdev->dev, sizeof(*lvds), GFP_KERNEL);
@@ -212,7 +210,6 @@ static int panel_lvds_probe(struct platform_device *pdev)
 	if (ret < 0)
 		return ret;
 
-	printk(KERN_INFO "panel_lvds Label : %s",lvds->label);
 
 	lvds->supply = devm_regulator_get_optional(lvds->dev, "power");
 	if (IS_ERR(lvds->supply)) {
@@ -246,7 +243,6 @@ static int panel_lvds_probe(struct platform_device *pdev)
 			"reset", ret);
 		return ret;
 	}
-	printk(KERN_INFO "panel_lvds 3");
 	
 	lvds->backlight = devm_of_find_backlight(lvds->dev);
 	if (IS_ERR(lvds->backlight))
@@ -260,17 +256,14 @@ static int panel_lvds_probe(struct platform_device *pdev)
 	 */
 
 	/* Register the panel. */
-	printk(KERN_INFO "panel_lvds 4");
 	drm_panel_init(&lvds->panel);
 	lvds->panel.dev = lvds->dev;
 	lvds->panel.funcs = &panel_lvds_funcs;
-	printk(KERN_INFO "panel_lvds 5");
 	ret = drm_panel_add(&lvds->panel);
 	if (ret < 0)
 		return ret;
 
 	dev_set_drvdata(lvds->dev, lvds);
-	printk(KERN_INFO "panel_lvds done");
 	return 0;
 }
 

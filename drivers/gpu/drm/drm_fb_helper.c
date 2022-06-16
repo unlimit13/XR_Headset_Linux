@@ -1800,7 +1800,7 @@ __drm_fb_helper_initial_config_and_unlock(struct drm_fb_helper *fb_helper,
 	struct fb_info *info;
 	unsigned int width, height;
 	int ret;
-
+	pr_info("FB : where to print");
 	width = dev->mode_config.max_width;
 	height = dev->mode_config.max_height;
 
@@ -1895,7 +1895,7 @@ __drm_fb_helper_initial_config_and_unlock(struct drm_fb_helper *fb_helper,
 int drm_fb_helper_initial_config(struct drm_fb_helper *fb_helper, int bpp_sel)
 {
 	int ret;
-
+	pr_info("FB : Initial config");
 	if (!drm_fbdev_emulation)
 		return 0;
 
@@ -2305,24 +2305,29 @@ static int drm_fbdev_client_hotplug(struct drm_client_dev *client)
 
 	if (dev->fb_helper)
 		return drm_fb_helper_hotplug_event(dev->fb_helper);
-
+	pr_info("FB : client hotplug 1 - num connector : %d\n",dev->mode_config.num_connector);
 	if (!dev->mode_config.num_connector) {
 		DRM_DEV_DEBUG(dev->dev, "No connectors found, will not create framebuffer!\n");
 		return 0;
 	}
+	pr_info("FB : client hotplug 2 \n",dev->mode_config.num_connector);
 
 	drm_fb_helper_prepare(dev, fb_helper, &drm_fb_helper_generic_funcs);
+	pr_info("FB : client hotplug 3 \n",dev->mode_config.num_connector);
 
 	ret = drm_fb_helper_init(dev, fb_helper, 0);
 	if (ret)
 		goto err;
+	pr_info("FB : client hotplug 4 \n",dev->mode_config.num_connector);
 
 	if (!drm_drv_uses_atomic_modeset(dev))
 		drm_helper_disable_unused_functions(dev);
+	pr_info("FB : client hotplug 5 \n",dev->mode_config.num_connector);
 
 	ret = drm_fb_helper_initial_config(fb_helper, fb_helper->preferred_bpp);
 	if (ret)
 		goto err_cleanup;
+	pr_info("FB : client hotplug 6 \n",dev->mode_config.num_connector);
 
 	return 0;
 
@@ -2375,34 +2380,35 @@ int drm_fbdev_generic_setup(struct drm_device *dev, unsigned int preferred_bpp)
 	struct drm_fb_helper *fb_helper;
 	int ret;
 
+	pr_info("FB : generic setup 1\n");
 	WARN(dev->fb_helper, "fb_helper is already set!\n");
-
+	pr_info("FB : generic setup 2\n");
 	if (!drm_fbdev_emulation)
 		return 0;
-
+	pr_info("FB : generic setup 3\n");
 	fb_helper = kzalloc(sizeof(*fb_helper), GFP_KERNEL);
 	if (!fb_helper)
 		return -ENOMEM;
-
+	pr_info("FB : generic setup 4\n");
 	ret = drm_client_init(dev, &fb_helper->client, "fbdev", &drm_fbdev_client_funcs);
 	if (ret) {
 		kfree(fb_helper);
 		DRM_DEV_ERROR(dev->dev, "Failed to register client: %d\n", ret);
 		return ret;
 	}
-
+	pr_info("FB : generic setup 5 \n");
 	if (!preferred_bpp)
 		preferred_bpp = dev->mode_config.preferred_depth;
 	if (!preferred_bpp)
 		preferred_bpp = 32;
 	fb_helper->preferred_bpp = preferred_bpp;
-
+	pr_info("FB : generic setup 6 \n");
 	ret = drm_fbdev_client_hotplug(&fb_helper->client);
 	if (ret)
 		DRM_DEV_DEBUG(dev->dev, "client hotplug ret=%d\n", ret);
-
+	pr_info("FB : generic setup 7 \n");
 	drm_client_register(&fb_helper->client);
-
+	pr_info("FB : generic setup 8 \n");
 	return 0;
 }
 EXPORT_SYMBOL(drm_fbdev_generic_setup);

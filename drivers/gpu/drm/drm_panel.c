@@ -50,7 +50,6 @@ static LIST_HEAD(panel_list);
  */
 void drm_panel_init(struct drm_panel *panel)
 {	
-	pr_info("drm : INIT");
 	INIT_LIST_HEAD(&panel->list);
 }
 EXPORT_SYMBOL(drm_panel_init);
@@ -69,7 +68,6 @@ int drm_panel_add(struct drm_panel *panel)
 	mutex_lock(&panel_lock);
 	list_add_tail(&panel->list, &panel_list);
 	mutex_unlock(&panel_lock);
-	pr_info("drm : ADD");
 	return 0;
 }
 EXPORT_SYMBOL(drm_panel_add);
@@ -82,7 +80,6 @@ EXPORT_SYMBOL(drm_panel_add);
  */
 void drm_panel_remove(struct drm_panel *panel)
 {
-	pr_info("drm : REMOVE");
 	mutex_lock(&panel_lock);
 	list_del_init(&panel->list);
 	mutex_unlock(&panel_lock);
@@ -106,13 +103,11 @@ EXPORT_SYMBOL(drm_panel_remove);
  */
 int drm_panel_attach(struct drm_panel *panel, struct drm_connector *connector)
 {
-	pr_info("drm : ATTACH 1");
 	if (panel->connector)
 		return -EBUSY;
 
 	panel->connector = connector;
 	panel->drm = connector->dev;
-	pr_info("drm : ATTACH 2");
 	return 0;
 }
 EXPORT_SYMBOL(drm_panel_attach);
@@ -129,7 +124,6 @@ EXPORT_SYMBOL(drm_panel_attach);
  */
 void drm_panel_detach(struct drm_panel *panel)
 {
-	pr_info("drm : DETACH 1");
 	panel->connector = NULL;
 	panel->drm = NULL;
 }
@@ -147,10 +141,8 @@ EXPORT_SYMBOL(drm_panel_detach);
  */
 int drm_panel_prepare(struct drm_panel *panel)
 {
-	pr_info("drm : PREPARE 1");
 	if (panel && panel->funcs && panel->funcs->prepare)
 		return panel->funcs->prepare(panel);
-	pr_info("drm : PREPARE 2");
 	return panel ? -ENOSYS : -EINVAL;
 }
 EXPORT_SYMBOL(drm_panel_prepare);
@@ -168,10 +160,8 @@ EXPORT_SYMBOL(drm_panel_prepare);
  */
 int drm_panel_unprepare(struct drm_panel *panel)
 {
-	pr_info("drm : UNPREPARE 1");
 	if (panel && panel->funcs && panel->funcs->unprepare)
 		return panel->funcs->unprepare(panel);
-	pr_info("drm : UNPREPARE 2");
 	return panel ? -ENOSYS : -EINVAL;
 }
 EXPORT_SYMBOL(drm_panel_unprepare);
@@ -188,10 +178,8 @@ EXPORT_SYMBOL(drm_panel_unprepare);
  */
 int drm_panel_enable(struct drm_panel *panel)
 {
-	pr_info("drm : ENABLE 1");
 	if (panel && panel->funcs && panel->funcs->enable)
 		return panel->funcs->enable(panel);
-	pr_info("drm : ENABLE 2");
 
 	return panel ? -ENOSYS : -EINVAL;
 }
@@ -209,11 +197,9 @@ EXPORT_SYMBOL(drm_panel_enable);
  */
 int drm_panel_disable(struct drm_panel *panel)
 {
-	pr_info("drm : DISABLE 1");
 
 	if (panel && panel->funcs && panel->funcs->disable)
 		return panel->funcs->disable(panel);
-	pr_info("drm : DISABLE 2");
 	return panel ? -ENOSYS : -EINVAL;
 }
 EXPORT_SYMBOL(drm_panel_disable);
@@ -230,10 +216,8 @@ EXPORT_SYMBOL(drm_panel_disable);
  */
 int drm_panel_get_modes(struct drm_panel *panel)
 {
-		pr_info("drm : GETMODE 1");
 	if (panel && panel->funcs && panel->funcs->get_modes)
 		return panel->funcs->get_modes(panel);
-	pr_info("drm : GETMODE 2");
 	return panel ? -ENOSYS : -EINVAL;
 }
 EXPORT_SYMBOL(drm_panel_get_modes);
@@ -258,10 +242,8 @@ EXPORT_SYMBOL(drm_panel_get_modes);
 struct drm_panel *of_drm_find_panel(const struct device_node *np)
 {
 	struct drm_panel *panel;
-	pr_info("drm : FIND_PANEL 1");
 	if (!of_device_is_available(np))
 		return ERR_PTR(-ENODEV);
-	pr_info("drm : FIND_PANEL 2");
 	mutex_lock(&panel_lock);
 
 	list_for_each_entry(panel, &panel_list, list) {
@@ -270,7 +252,6 @@ struct drm_panel *of_drm_find_panel(const struct device_node *np)
 			return panel;
 		}
 	}
-	pr_info("drm : FIND_PANEL 3");
 	mutex_unlock(&panel_lock);
 	return ERR_PTR(-EPROBE_DEFER);
 }

@@ -119,7 +119,7 @@
       	height-mm = <1080>;
 		status = "okay";
       	data-mapping = "jeida-24";
-		enable-gpios = <&lsio_gpio1 9 GPIO_ACTIVE_HIGH>; //for panel-lvds
+		enable-gpios = <&lsio_gpio2 2 GPIO_ACTIVE_HIGH>; //for panel-lvds
 		reset-gpios = <&lsio_gpio2 0 GPIO_ACTIVE_LOW>; //for panel-lvds
 
 		panel-timing {
@@ -154,7 +154,7 @@
 		status = "okay";
 		width-mm = <1920>;
       	height-mm = <1080>;
-		enable-gpios = <&lsio_gpio1 14 GPIO_ACTIVE_HIGH>; //for panel-lvds
+		enable-gpios = <&lsio_gpio2 3 GPIO_ACTIVE_HIGH>; //for panel-lvds
 		reset-gpios = <&lsio_gpio2 1 GPIO_ACTIVE_LOW>; //for panel-lvds
       	data-mapping = "jeida-24";
 
@@ -336,11 +336,12 @@
     pinctrl-names = "default";
     pinctrl-0 = <&pinctrl_lpspi3>;
     fsl,spi-num-chipselects = <2>;
+	//fsl,spi-only-use-cs1-sel;
     assigned-clock-rates = <80000000>;
+	cs-gpios= <&lsio_gpio2 20 GPIO_ACTIVE_LOW>,<&lsio_gpio2 21 GPIO_ACTIVE_LOW>;
 	status = "okay";
-	spi-cpha;
-	spi-cpol;
-
+	//spi-cpha;
+	//spi-cpol;
 	/*flash1: spi@0 { // SST25WF020A SPI Flash 
 		#address-cells = <1>;
 		#size-cells = <1>;
@@ -357,6 +358,7 @@
 		#address-cells = <1>;
         #size-cells = <1>;
 		compatible = "sony,ecx335s";
+		cs-gpio = <&lsio_gpio2 20 GPIO_ACTIVE_LOW>;
 		spi-max-frequency = <2500000>;
 		status = "okay";
 
@@ -366,6 +368,7 @@
 		#address-cells = <1>;
         #size-cells = <1>;
 		compatible = "sony,ecx335s";
+		cs-gpio = <&lsio_gpio2 21 GPIO_ACTIVE_LOW>;
 		spi-max-frequency = <2500000>;
 		status = "okay";
 	};
@@ -567,8 +570,9 @@
 				IMX8QM_SPI3_SDO_DMA_SPI3_SDO				0x0600004c
 				IMX8QM_SPI3_SDI_DMA_SPI3_SDI				0x0600004c
 				IMX8QM_SPI3_CS0_LSIO_GPIO2_IO20				0x00000021
-				IMX8QM_SPI3_CS0_DMA_SPI3_CS0				0x0600004c
-				IMX8QM_SPI3_CS1_DMA_SPI3_CS1				0x0600004c
+				IMX8QM_SPI3_CS1_LSIO_GPIO2_IO21				0x00000021
+				/*IMX8QM_SPI3_CS0_DMA_SPI3_CS0				0x0600004c
+				IMX8QM_SPI3_CS1_DMA_SPI3_CS1				0x0600004c*/
 			>;
 		};
 
@@ -761,9 +765,9 @@
 		<&lsio_gpio1 15 0>,
 		<&lsio_gpio1 29 0>,
 		/*<&lsio_gpio2 0 0>,
-		<&lsio_gpio2 1 0>,*/
+		<&lsio_gpio2 1 0>,
 		<&lsio_gpio2 2 0>,
-		<&lsio_gpio2 3 0>,
+		<&lsio_gpio2 3 0>,*/
 		<&lsio_gpio2 4 0>,
 		<&lsio_gpio2 5 0>,
 		<&lsio_gpio2 6 0>,
