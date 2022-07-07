@@ -156,7 +156,6 @@ static void fsl_lpspi_buf_tx_##type(struct fsl_lpspi_data *fsl_lpspi)	\
 									\
 	fsl_lpspi->remain -= sizeof(type);				\
 	writel(val, fsl_lpspi->base + IMX7ULP_TDR);			\
-	pr_info("SPI - BUF VAL1 : %d",val);\
 }
 
 LPSPI_BUF_RX(u8)
@@ -232,7 +231,6 @@ static int fsl_lpspi_prepare_message(struct spi_controller *controller,
 {
 	struct spi_device *spi = msg->spi;
 	int gpio = controller->cs_gpios[spi->chip_select];
-	pr_info("SPI -gpio = %d",gpio);
 
 	if (gpio_is_valid(gpio))
 		gpio_direction_output(gpio, spi->mode & SPI_CS_HIGH ? 0 : 1);
@@ -259,7 +257,6 @@ static void fsl_lpspi_write_tx_fifo(struct fsl_lpspi_data *fsl_lpspi)
 			temp = readl(fsl_lpspi->base + IMX7ULP_TCR);
 			temp &= ~TCR_CONTC;
 			writel(temp, fsl_lpspi->base + IMX7ULP_TCR);
-			pr_info("SPI - writeTX temp1 : %d",temp);
 		}
 
 		fsl_lpspi_intctrl(fsl_lpspi, IER_FCIE);
@@ -280,7 +277,6 @@ static void fsl_lpspi_set_cmd(struct fsl_lpspi_data *fsl_lpspi)
 	temp |= fsl_lpspi->config.bpw - 1;
 	temp |= 0x3 << 30;
 	temp |= (fsl_lpspi->config.chip_select & 0x3) << 24;
-	pr_info("SPI - config.chip_select : %d ",fsl_lpspi->config.chip_select & 0x3);
 	if (!fsl_lpspi->is_slave) {
 		temp |= fsl_lpspi->config.prescale << 27;
 		/*
@@ -297,8 +293,6 @@ static void fsl_lpspi_set_cmd(struct fsl_lpspi_data *fsl_lpspi)
 		}
 	}
 	writel(temp, fsl_lpspi->base + IMX7ULP_TCR);
-	pr_info("SPI - config.bpw : %d \n",fsl_lpspi->config.bpw);
-	pr_info("SPI - prescale : %d \n", fsl_lpspi->config.prescale);
 	dev_dbg(fsl_lpspi->dev, "TCR=0x%x\n", temp);
 }
 
@@ -313,7 +307,6 @@ static void fsl_lpspi_set_watermark(struct fsl_lpspi_data *fsl_lpspi)
 		temp = fsl_lpspi->watermark >> 1;
 
 	writel(temp, fsl_lpspi->base + IMX7ULP_FCR);
-	pr_info("SPI - set watermark temp1 : %d",temp);
 	dev_dbg(fsl_lpspi->dev, "FCR=0x%x\n", temp);
 }
 
@@ -348,9 +341,6 @@ static int fsl_lpspi_set_bitrate(struct fsl_lpspi_data *fsl_lpspi)
 
 	dev_dbg(fsl_lpspi->dev, "perclk=%d, speed=%d, prescale=%d, scldiv=%d\n",
 		perclk_rate, config.speed_hz, prescale, scldiv);
-	pr_info("SPI - perclk=%d, speed=%d, prescale=%d, scldiv=%d\n",
-		perclk_rate, config.speed_hz, prescale, scldiv);
-	pr_info("SPI - config.speed_hz : %d \b",config.speed_hz);
 
 	return 0;
 }
@@ -422,18 +412,16 @@ static int fsl_lpspi_config(struct fsl_lpspi_data *fsl_lpspi)
 	if (fsl_lpspi->config.mode & SPI_CS_HIGH)
 		temp |= CFGR1_PCSPOL;
 	writel(temp, fsl_lpspi->base + IMX7ULP_CFGR1);
-	pr_info("SPI - config temp1 : %d",temp);
+
 
 	temp = readl(fsl_lpspi->base + IMX7ULP_CR);
 	temp |= CR_RRF | CR_RTF | CR_MEN;
 	writel(temp, fsl_lpspi->base + IMX7ULP_CR);
-	pr_info("SPI - config temp2 : %d",temp);
 
 	temp = 0;
 	if (fsl_lpspi->usedma)
 		temp = DER_TDDE | DER_RDDE;
 	writel(temp, fsl_lpspi->base + IMX7ULP_DER);
-	pr_info("SPI - config temp3 : %d",temp);
 
 	return 0;
 }
@@ -535,12 +523,10 @@ static int fsl_lpspi_reset(struct fsl_lpspi_data *fsl_lpspi)
 	/* W1C for all flags in SR */
 	temp = 0x3F << 8;
 	writel(temp, fsl_lpspi->base + IMX7ULP_SR);
-	pr_info("SPI - reset temp1 : %d",temp);
 
 	/* Clear FIFO and disable module */
 	temp = CR_RRF | CR_RTF;
 	writel(temp, fsl_lpspi->base + IMX7ULP_CR);
-	pr_info("SPI - reset temp2 : %d",temp);
 
 	return 0;
 }
@@ -884,8 +870,6 @@ static int fsl_lpspi_probe(struct platform_device *pdev)
 	} else {
 		controller->num_chipselect = num_cs;
 	}
-	pr_info("SPI -num_cs : %d\n",num_cs);
-	pr_info("SPI -controlller->num_chipselect : %d\n",controller->num_chipselect);
 
 	fsl_lpspi = spi_controller_get_devdata(controller);
 	fsl_lpspi->dev = &pdev->dev;

@@ -216,6 +216,8 @@ EXPORT_SYMBOL(drm_panel_disable);
  */
 int drm_panel_get_modes(struct drm_panel *panel)
 {
+	
+	pr_info("Name:%s\n",panel->connector->name);
 	if (panel && panel->funcs && panel->funcs->get_modes)
 		return panel->funcs->get_modes(panel);
 	return panel ? -ENOSYS : -EINVAL;

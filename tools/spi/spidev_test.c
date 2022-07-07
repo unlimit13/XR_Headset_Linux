@@ -80,7 +80,7 @@ void convert_addr(uint8_t origin[2]){
 }
 
 
-static const char *device = "/dev/spidev0.1";
+static const char *device = "/dev/spidev0.0";
 static uint32_t mode;
 static uint8_t bits = 16;
 static char *input_file;
@@ -581,7 +581,7 @@ int main(int argc, char *argv[])
 			
 		}*/
 		
-		
+		while(1){
 		for(int i=1;i>0;i--){
 			transfer(fd, default_tx1, default_rx, sizeof(default_tx1));
 			for(int j=1000000;j>0;j--);
@@ -592,8 +592,8 @@ int main(int argc, char *argv[])
 			transfer(fd, RDADDR_touch, default_rx, sizeof(RDADDR_touch));
 			for(int j=1000000;j>0;j--);
 		}
-
-		transfer(fd, RD_OFF, default_rx, sizeof(default_tx2));
+		}
+		/*transfer(fd, RD_OFF, default_rx, sizeof(default_tx2));
 		for(int j=1000000;j>0;j--);
 		transfer(fd, default_tx2, default_rx, sizeof(default_tx1));
 		for(int j=1000000;j>0;j--);
@@ -611,7 +611,7 @@ int main(int argc, char *argv[])
 			for(int j=1000000;j>0;j--);
 			transfer(fd, RDADDR_touch, default_rx, sizeof(RDADDR_touch));
 			for(int j=1000000;j>0;j--);
-		}
+		}*/
 
 		
 		
